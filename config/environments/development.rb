@@ -34,4 +34,34 @@ Sportsfriender::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+  
+  #Paperclip
+  Paperclip.options[:command_path] = "/usr/local/bin/"
+#  config.paperclip_defaults = {
+#    :storage => :s3,
+#    :s3_credentials => {
+#     :bucket => 'Sportsfriender_test',
+#      :access_key_id => 'AKIAJ2K3FXGRWKZBKSIA',
+#     :secret_access_key => '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'
+#   }
+#  }
+
+ # ActionMailer Config
+ config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+ config.action_mailer.delivery_method = :smtp
+ # change to true to allow email to be sent during development
+ config.action_mailer.perform_deliveries = true
+ config.action_mailer.raise_delivery_errors = true
+ config.action_mailer.default :charset => "utf-8"
+
+ config.action_mailer.smtp_settings = {
+   address: "smtp.gmail.com",
+   port: 587,
+   domain: "example.com",
+   authentication: "plain",
+   enable_starttls_auto: true,
+   user_name: "jhochbrueckner",
+   password: "********"
+ }
+ 
 end

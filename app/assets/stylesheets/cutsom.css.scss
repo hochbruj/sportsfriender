@@ -1,0 +1,36 @@
+$myBlueLight: #D9E8F5;
+
+.content{ background-color: #EEEEEE }
+
+.header {
+  background-color: $myBlueLight;
+  border-style:solid;
+  border-width:1px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+   h5 {
+     text-align: left;
+     padding: 1px 10px 1px 10px;}
+
+}
+
+.content_frame { background-color: #F2F5F7;
+                 margin: 0 0 20px;
+                 border-style:solid;
+				 border-width:1px;
+				 border-top: none;
+				 border-bottom-left-radius: 5px;
+				 border-bottom-right-radius: 5px;
+                 padding: 20px 1px 20px 20px; }
+
+.lhn_active {       background-color: #F2F5F7;
+                 margin: 0 0 0;
+				 border-style:solid;
+				 border-width:1px;
+				 border-right: none;
+				 border-bottom-left-radius: 5px;
+				 border-top-left-radius: 5px;
+				 padding: 10px 10px 10px 10px; }
+				
+.lhn          {  margin: 0 0 0 0;
+                 padding: 10px 10px 10px 10px; }

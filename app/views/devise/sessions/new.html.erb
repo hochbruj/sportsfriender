@@ -1,0 +1,11 @@
+ <div class="form-sigin">
+<h2 class="form-signin-heading">Please sign in</h2>
+<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-horizontal' }) do |f| %>
+ 
+    <%= f.input :email, placeholder:  'Email address' %>
+    <%= f.input :password, placeholder:  'Password', :required => false %>
+    <%= f.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
+    <%= f.button :submit, "Sign in", :class => 'btn btn-primary' %>
+<% end %>
+</div>
+<%= render "devise/shared/links" %>

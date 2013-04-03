@@ -1,0 +1,7 @@
+<h3><%= t('.header')%></h3>
+<div class="row">
+<div class="span2">
+<p><%= t('.text')%></p>
+</div>
+</div>
+<%= button_to(t('.button'), edit_user_path(current_user), :class => 'btn btn-large btn-success', :method => :get) %>

@@ -1,0 +1,73 @@
+<% if current_user.profile_complete? %>
+<%= form_tag( newsport_path, :method => "get") do %>
+ <%= select_tag(:sport_id, options_from_collection_for_select(current_user.not_rated, 'id', 'name', params[:sport_id] ), :onchange => 'this.form.submit()' )%>
+<% end %>
+<% else %>
+<%= @sport.name%>
+<% end %>
+
+<% unless @sport.nil? %>
+<div id="rating"></div>
+<%= content_tag "div", id: "assessments", data: {assessments: @sport.assessments.order(:level), count: @sport.catcount, text1: t('overall_rating'), text2: t('skill_rating'), text3: t('out_of') } do %>
+<%= javascript_include_tag 'rating' %>
+<% end %>  
+<hr>
+<%= simple_form_for(@rating) do |f| %>
+<div><%= f.hidden_field :sport_id,  :value => @sport.id %></div>
+<%= @sport.cat1%></br>
+<div id="rating1"></div>
+</br>
+<div class="row">
+<%= f.input :cat1, include_blank: false, collection: 1..5, :label => false, :input_html => { :style=> 'width: 55px' }, :selected => 1, :wrapper_html => { :class => 'span1' }%>
+<div id="assess_text1"></div>
+</div>
+<hr>
+
+<% unless @sport.cat2 == 'nil' %>
+<%= @sport.cat2%></br>
+<div id="rating2"></div>
+</br>
+<div class="row">
+<%= f.input :cat2, include_blank: false, collection: 1..5, :label => false, :input_html => { :style=> 'width: 55px' }, :selected => 1, :wrapper_html => { :class => 'span1' }%>
+<div id="assess_text2"></div>
+</div>
+<hr>
+<% end %>
+
+<% unless @sport.cat3 == 'nil' %>
+<%= @sport.cat3%></br>
+<div id="rating3"></div>
+</br>
+<div class="row">
+<%= f.input :cat3, include_blank: false, collection: 1..5, :label => false, :input_html => { :style=> 'width: 55px' }, :selected => 1, :wrapper_html => { :class => 'span1' }%>
+<div id="assess_text3"></div>
+</div>
+<hr>
+<% end %>
+
+<% unless @sport.cat4 == 'nil' %>
+<%= @sport.cat4%></br>
+<div id="rating4"></div>
+</br>
+<div class="row">
+<%= f.input :cat4, include_blank: false, collection: 1..5, :label => false, :input_html => { :style=> 'width: 55px' }, :selected => 1, :wrapper_html => { :class => 'span1' }%>
+<div id="assess_text4"></div>
+</div>
+<hr>
+<% end %>
+
+<% unless @sport.cat5 == 'nil' %>
+<%= @sport.cat5%></br>
+<div id="rating5"></div>
+</br>
+<div class="row">
+<%= f.input :cat5, include_blank: false, collection: 1..5, :label => false, :input_html => { :style=> 'width: 55px' }, :selected => 1, :wrapper_html => { :class => 'span1' }%>
+<div id="assess_text5"></div>
+</div>
+<hr>
+<% end %>
+
+<%= f.button :submit, "Save Assessment", :class => 'btn-large btn-primary' %>
+<% end %>
+
+<% end %>

@@ -1,5 +1,42 @@
-# Sample localization file for English. Add more files in this directory for other locales.
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 en:
-  hello: "Hello world"
+  overall_rating: "Your Overall Sportsfriends Rating for this sport"
+  skill_rating: "Sportsfriends' Rating for this Skill:"
+  out_of: "out of 10"
+  first_name: "First Name"
+  last_name: "Last Name"
+  dob: "Date of Birth"
+  gender: "Gender"
+  male: "male"
+  female: "female"
+  city: "City"
+  sport: "Sport"
+  about_me: "About Me"
+  pick_sport: "Pick Your Sport and Asses Your Skill Level"
+
+  date:
+    formats:
+      default: "%Y-%m-%d"
+      short: "%a %m/%d"
+      long: " %a %B %d, %Y"
+    abbr_day_names: [Sun, Mon, Tue, Wed, Thu, Fri, Sat]
+   
+  time:
+    formats:
+        short: "%a %m/%d"
+        long: "%a %m/%d %H:%M"
+
+  users:
+    form:
+      change_pic: "Change Photo"
+      delete_pic: "Delete"
+      update: "When you click this button, we will update your profile... "
+      pick_sport: "Pick Your Sport and Asses Your Skill Level"
+
+  pages:
+      welcome:
+          header: "Nice Move!"
+          text: "Let's find some games for you to participate in. It's time to tell everyone a little about yourself, pick your sports of choice, location and games." 
+          button: "Let's Get Going, Time to Play"
+      
+  

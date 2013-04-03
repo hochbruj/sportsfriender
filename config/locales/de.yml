@@ -1,0 +1,50 @@
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+de:
+  overall_rating: "Dein gesamt Sportsfriends Rating für diesen Sport:"
+  skill_rating: "Sportsfriends Rating für diesen Skill:"
+  out_of: "von 10"
+  first_name: "Vorname"
+  last_name: "Nachname"
+  dob: "Geburtsdatum"
+  male: "männlich"
+  female: "weiblich"
+  city: "Stadt"
+  sport: "Sport"
+  about_me: "Über mich"
+  pick_sport: "Wähle einen Sport and bestimme dein Skill Level"
+
+  date:
+    formats:
+      # Use the strftime parameters for formats.
+      # When no format has been given, it uses default.
+      # You can provide other formats here if you like!
+      default: "%Y-%m-%d"
+      short: "%b %d"
+      long: "%B %d, %Y"
+
+    day_names: [Sonntag, Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag]
+    abbr_day_names: [So, Mo, Di, Mi, Do, Fr, Sa]
+
+    # Don't forget the nil at the beginning; there's no such thing as a 0th month
+    month_names: [~, Januar, Februar, März, April, Mai, Juni, July, August, September, Oktober, November, Dezember]
+    abbr_month_names: [~, Jan, Feb, Mär, Apr, Mai, Jun, Jul, Aug, Sep, Okt, Nov, Dez]
+
+  time:
+    formats:
+      default: "%a, %d %b %Y %H:%M:%S %z"
+      short: "%d %b %H:%M"
+      long: "%B %d, %Y %H:%M"
+    am: "am"
+    pm: "pm"
+
+  simple_form:
+    error_notification:
+       default_message: "Folgende Probleme sind aufgetreten:"
+       
+  users:
+   form:
+     change_pic: "Ändere Photo"
+     delete_pic: "Löschen"
+     update: "Beim Klicken wird dein Profil aktualisiert..."
+  
+  

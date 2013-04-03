@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  sport_id: 1
+  level: 1
+  cat1: MyText
+  cat2: MyText
+  cat3: MyText
+  cat4: MyText
+  cat5: MyText
+
+two:
+  sport_id: 1
+  level: 1
+  cat1: MyText
+  cat2: MyText
+  cat3: MyText
+  cat4: MyText
+  cat5: MyText

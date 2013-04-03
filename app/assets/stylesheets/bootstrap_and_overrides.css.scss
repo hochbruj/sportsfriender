@@ -1,0 +1,24 @@
+$myOrange:#f89406;
+$myBlueDark: #304269;
+$myBlue: #91BED4;
+$myBlueLight: #D9E8F5;
+$myWhite: #eee;
+$myGrayBlue: #43464C;
+
+/* colors */
+$linkColor: $myBlueDark;
+$navbarBackground: red;
+$navbarBackgroundHighlight: lighten($navbarBackground, 10);
+$navbarLinkColor: darken($myOrange, 10);
+$navbarLinkColorHover: $myOrange;
+$dropdownBackground: $myBlueDark;
+$hrBorder: $myBlue;
+$heroUnitBackground: lighten($myOrange, 20);
+$dropdownLinkColorHover: $myBlueDark;
+
+
+@import "bootstrap";
+body {  padding-top: 60px;
+        background-color: #EEEEEE }
+hr { margin: 10px 0; }
+@import "bootstrap-responsive";

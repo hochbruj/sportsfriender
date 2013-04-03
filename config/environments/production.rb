@@ -1,5 +1,7 @@
 Sportsfriender::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
+  
+  config.assets.precompile += %w( rating.js )
 
   # Code is not reloaded between requests
   config.cache_classes = true
@@ -64,4 +66,16 @@ Sportsfriender::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+  
+  #Paperclip
+    Paperclip.options[:command_path] = "/usr/local/bin/"
+    config.paperclip_defaults = {
+      :storage => :s3,
+      :s3_credentials => {
+       :bucket => 'Sportsfriender_test',
+        :access_key_id => 'AKIAJ2K3FXGRWKZBKSIA',
+       :secret_access_key => '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'
+     }
+    }
+  
 end

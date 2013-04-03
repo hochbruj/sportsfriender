@@ -5,8 +5,21 @@ gem 'rails', '3.2.11'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+gem 'pg'
 
+gem 'omniauth-facebook'
+gem 'omniauth-identity'
+gem 'geocoder'
+gem 'gmaps4rails'
+gem "will_paginate", "~> 3.0.3"
+gem "googlecharts", "~> 1.6.8"
+gem 'bootstrap-sass', '~> 2.3.0.0'
+gem "simple_form"
+gem "devise"
+gem 'globalize3'
+gem "paperclip", "~> 3.0"
+gem 'aws-sdk'
+gem 'fb_graph'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -23,7 +36,7 @@ end
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+ gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'

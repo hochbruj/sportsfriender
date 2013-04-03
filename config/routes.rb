@@ -1,4 +1,27 @@
 Sportsfriender::Application.routes.draw do
+  resources :cities
+
+
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
+  
+
+scope '(:locale)' do
+
+root to: 'pages#home'
+
+devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+resources :users
+resources :ratings
+
+
+match "/auth/:provider/callback" => "sessions#create"
+match "/auth/failure", :to => "sessions#failure"
+match '/welcome',   :to => 'pages#welcome'
+match '/newsport',   :to => 'ratings#new'
+
+end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

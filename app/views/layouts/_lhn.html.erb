@@ -1,0 +1,8 @@
+<%= picture_for(current_user)%>
+</br>
+</br>
+<% if current_user.profile_complete? %>
+<div class='lhn'>Dashboard</div>
+<div class='lhn'>My Events</div>
+<div class='<%= is_active?('my_sports')%>'><%= link_to 'My Sports', newsport_path %></div>
+<% end %>
