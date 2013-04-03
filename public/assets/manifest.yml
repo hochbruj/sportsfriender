@@ -9,8 +9,8 @@ woman_user.png: woman_user-b95486714af3083c041f56125605b5e8.png
 woman_user/index.png: woman_user-b95486714af3083c041f56125605b5e8.png
 application.js: application-2cb5e22718d7930878262c3d347f2c2c.js
 application/index.js: application-2cb5e22718d7930878262c3d347f2c2c.js
-rating.js.: rating.js.
-rating/index.js.: rating.js.
+rating.js: rating-06d92d4eca4abf9bbb8b9983156c7019.js
+rating/index.js: rating-06d92d4eca4abf9bbb8b9983156c7019.js
 application.css: application-e6087c06bca768874552324df669d715.css
 application/index.css: application-e6087c06bca768874552324df669d715.css
 jquery.min.map: jquery.min-6c267bfd2b3f36e6edccb2e584934c1c.map
