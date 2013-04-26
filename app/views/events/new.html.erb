@@ -1,0 +1,101 @@
+<div class='subheader_wrapper'><%= render 'headers/setup_event'%></div>
+<%= simple_form_for(@event) do |f| %>
+<%= f.error_notification %>
+<% end %>
+<div class='row-fluid'>
+<div class='span6'>
+<div class='set_event_inner'>	
+<h5><%= t('.sport_city')%></h3> 
+<%= form_tag( new_event_path, :method => "get") do %>
+
+<div class='row-fluid'>
+<div class='span3'>
+<label><%= t('sport')%></label>
+</div>
+<div class='span9'>
+ <%= select_tag :sport_id, options_from_collection_for_select(Sport.all, 'id', 'name', @event.sport.id), :onchange => 'this.form.submit()'%>
+</div>
+</div> <!--! end of #row-fluid -->
+
+<div class='row-fluid'>
+<div class='span3'>
+<label><%= t('city')%></label>
+</div>
+<div class='span9'>
+<%= text_field_tag(:event_city , @event.city.full_name, :class => 'ui-autocomplete-input', data: {autocomplete_source: cities_path}, :size => 30, :onupdate => 'this.form.submit()') %>
+<% end %>
+</div>
+</div> <!--! end of #row-fluid -->
+
+<%= simple_form_for(@event, :html => {:class => 'form-horizontal' }) do |f| %>
+<%= f.hidden_field :city_id %>
+<%= f.hidden_field :sport_id %>
+<%= f.input :location_id, :label => false, collection: Location.order(:name).where("city_id = ? AND sport_id = ?", @event.city.id, @event.sport.id).map{ |l| [l.full_name, l.id]}, :prompt => t('.choose_location'), :input_html => { :style=> 'width: 320px' }  %>
+<%= link_to t('.new_location'), new_location_path(:city_id => @event.city.id, :sport_id => @event.sport_id) %></br>
+<%= link_to t('.from_map'), map_path(:sport_id => @event.sport_id, :city_id => @event.city_id) %>
+</div>
+
+<div class='simple_form form-horizontal'>
+
+<div class='blue_box'>
+<div class='set_event_inner'>
+<h5><%= t('.mode_gender')%></h5>
+<%= f.input :mode, :label => t('mode'), collection: [[t("training"), 'training'],[t("trai_game"),'trai_game'], [t("game"),'game'], [t("social"),'social']], :prompt => t('choose'), :required => true%>
+<%= f.input :gender, :label => t('gender'), collection: [[t("male"), 'male'],[t("female"),'female'],[t("mixed"), 'mixed']], :prompt => t('choose'), :required => true %>
+</div>
+</div>
+
+<div class='set_event_inner'>
+<h5><%= t('.add_info')%></h5>
+<%= f.input :info, :label => false, input_html: {style: 'height:100px; width:300px'} %>
+</div>
+
+<div class='blue_box'>
+<div class='set_event_inner'>
+<h5><%= t('.date_time')%></h5>
+<%= f.input :date, :label => false, input_html: {style: 'width:75px'}%>
+
+<%= f.input :hour_start, label: t('start_time'), input_html: {class: 'span12'}, wrapper_html: {class: 'controls controls-row'} do %>
+	  <%= f.input_field :hour_start, :collection => Event::HOURS, :selected => (@event.hour_start or '00'), :class => 'span2' %>
+	  <%= f.label :min_start, label: ":", class: 'seperator'%>
+	  <%= f.input_field :min_start, :collection => Event::MINUTES, :selected => (@event.min_start or '00'), :class => 'span2' %>
+<% end %>
+
+<%= f.input :hour_fin, label: t('fin_time'), input_html: {class: 'span12'}, wrapper_html: {class: 'controls controls-row'} do %>
+	  <%= f.input_field :hour_fin, :collection => Event::HOURS, :selected => (@event.hour_fin or '00'), :class => 'span2' %>
+	  <%= f.label :min_fin, label: ":", class: 'seperator'%>
+	  <%= f.input_field :min_fin, :collection => Event::MINUTES, :selected => (@event.min_fin or '00'), :class => 'span2' %>
+<% end %>
+</div>
+</div>
+
+</div> <!--! end of #simple_form form-horizontal'> -->
+</div> <!--! end of #span6 -->
+
+<div class='span6'>
+<div class='simple_form form-horizontal'>
+<div class='set_event_inner'>
+<h5><%= t('skill_range')%></h5>
+<%= f.input :skill_from, :label => t('low_end'), collection: (1..10), include_blank: false, input_html: {style: 'width:60px'}%>
+<%= f.input :skill_to, :label => t('high_end'), collection: (1..10), :selected => (@event.skill_to or 10), include_blank: false, input_html: {style: 'width:60px'} %>
+</div>
+
+<div class='blue_box'>
+<div class='set_event_inner'>
+<h5><%= t('age_range')%></h5>
+<%= f.input :age_from, :label => t('low_end'), collection: (16..100), include_blank: false, input_html: {style: 'width:60px'}%>
+<%= f.input :age_to, :label => t('high_end'), collection: (16..100), :selected => (@event.age_to or 100), include_blank: false, input_html: {style: 'width:60px'} %>
+</div>
+</div>
+
+<div class='set_event_inner'>
+<h5><%= t('max_part')%></h5>
+<h6><%= t('.incl_org')%></h6>
+<%= f.input :max_part, :label => false, collection: (2..25), prompt: t('choose'), input_html: {style: 'width:85px'}%>
+<div>
+<hr>
+ <%= f.button :submit, "Submit", :class => 'btn-large btn-success' %>
+<% end %>
+</div> <!--! end of form-horizontal -->
+</div> <!--! end of #span6 -->
+</div> </div> <!--! end of row top level -->

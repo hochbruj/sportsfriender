@@ -1,0 +1,59 @@
+<h1>Listing events</h1>
+
+<table>
+  <tr>
+    <th>Sport</th>
+    <th>City</th>
+    <th>Location</th>
+    <th>Start at</th>
+    <th>Finish at</th>
+    <th>Type</th>
+    <th>Mode</th>
+    <th>Gender</th>
+    <th>Info</th>
+    <th>Skill from</th>
+    <th>Skill to</th>
+    <th>Age from</th>
+    <th>Age to</th>
+    <th>Max part</th>
+    <th>Group</th>
+    <th>Private</th>
+    <th>Cancelled</th>
+    <th>Creason</th>
+    <th>Emails</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @events.each do |event| %>
+  <tr>
+    <td><%= event.sport_id %></td>
+    <td><%= event.city_id %></td>
+    <td><%= event.location_id %></td>
+    <td><%= event.start_at %></td>
+    <td><%= event.finish_at %></td>
+    <td><%= event.type_id %></td>
+    <td><%= event.mode %></td>
+    <td><%= event.gender %></td>
+    <td><%= event.info %></td>
+    <td><%= event.skill_from %></td>
+    <td><%= event.skill_to %></td>
+    <td><%= event.age_from %></td>
+    <td><%= event.age_to %></td>
+    <td><%= event.max_part %></td>
+    <td><%= event.group_id %></td>
+    <td><%= event.private %></td>
+    <td><%= event.cancelled %></td>
+    <td><%= event.creason %></td>
+    <td><%= event.emails %></td>
+    <td><%= link_to 'Show', event %></td>
+    <td><%= link_to 'Edit', edit_event_path(event) %></td>
+    <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Event', new_event_path %>

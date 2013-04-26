@@ -1,5 +1,5 @@
 <%= link_to "Sportsfriender", root_path, :class => 'brand' %>
-<ul class="nav">
+<ul class="nav pull-right">
   <% if user_signed_in? %>
 	<li>
     <%= link_to 'My Profile', edit_user_path(current_user) %>
@@ -16,4 +16,7 @@
     <%= link_to 'Sign up', new_user_registration_path %>
     </li>
   <% end %>
+  	<li><%= form_tag root_path do %> <%= select_tag 'set_locale',
+	            options_for_select(LANGUAGES, I18n.locale.to_s), :class => 'dropdown',
+	            :onchange => 'this.form.submit()' %><% end %></li>
 </ul>

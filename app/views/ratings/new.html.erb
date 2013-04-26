@@ -17,7 +17,7 @@
 <%= @sport.cat1%></br>
 <div id="rating1"></div>
 </br>
-<div class="row">
+<div class="row-fluid">
 <%= f.input :cat1, include_blank: false, collection: 1..5, :label => false, :input_html => { :style=> 'width: 55px' }, :selected => 1, :wrapper_html => { :class => 'span1' }%>
 <div id="assess_text1"></div>
 </div>
@@ -27,7 +27,7 @@
 <%= @sport.cat2%></br>
 <div id="rating2"></div>
 </br>
-<div class="row">
+<div class="row-fluid">
 <%= f.input :cat2, include_blank: false, collection: 1..5, :label => false, :input_html => { :style=> 'width: 55px' }, :selected => 1, :wrapper_html => { :class => 'span1' }%>
 <div id="assess_text2"></div>
 </div>
@@ -38,7 +38,7 @@
 <%= @sport.cat3%></br>
 <div id="rating3"></div>
 </br>
-<div class="row">
+<div class="row-fluid">
 <%= f.input :cat3, include_blank: false, collection: 1..5, :label => false, :input_html => { :style=> 'width: 55px' }, :selected => 1, :wrapper_html => { :class => 'span1' }%>
 <div id="assess_text3"></div>
 </div>
@@ -49,7 +49,7 @@
 <%= @sport.cat4%></br>
 <div id="rating4"></div>
 </br>
-<div class="row">
+<div class="row-fluid">
 <%= f.input :cat4, include_blank: false, collection: 1..5, :label => false, :input_html => { :style=> 'width: 55px' }, :selected => 1, :wrapper_html => { :class => 'span1' }%>
 <div id="assess_text4"></div>
 </div>
@@ -60,14 +60,22 @@
 <%= @sport.cat5%></br>
 <div id="rating5"></div>
 </br>
-<div class="row">
+<div class="row-fluid">
 <%= f.input :cat5, include_blank: false, collection: 1..5, :label => false, :input_html => { :style=> 'width: 55px' }, :selected => 1, :wrapper_html => { :class => 'span1' }%>
 <div id="assess_text5"></div>
 </div>
 <hr>
 <% end %>
-
+<div class="row-fluid">
+<div class="span3">
 <%= f.button :submit, "Save Assessment", :class => 'btn-large btn-primary' %>
+</div>
+<div class="span2">
+<h3><%= t('or')%></h3>
+</div>
 <% end %>
-
+<div class="span4">
+<%= button_to('New Event', new_event_path, :class => 'btn btn-large btn-success', :method => :get) %>
+</div>
+</div>
 <% end %>

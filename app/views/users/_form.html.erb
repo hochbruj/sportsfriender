@@ -1,21 +1,21 @@
 <%= simple_form_for(@user, :html => {:class => 'form-inline' }) do |f| %>
   <%= f.error_notification %>
-  <div class="row">
-	<%= f.input :avatar, :label => t('.change_pic'), as: :file, :wrapper_html => { :class => 'span3' } %>
+  <div class="row-fluid">
+	<%= f.input :avatar, :label => t('.change_pic'), as: :file, :wrapper_html => { :class => 'span4' } %>
 	<%= f.input :delete_avatar, :label => t('.delete_pic'), as: :boolean, :wrapper_html => { :class => 'span1' } %>	          
-  	<%= f.input :first_name, :label => t('first_name'), :required => true, :wrapper_html => { :class => 'span3' } %>
+  	<%= f.input :first_name, :label => t('first_name'), :required => true, :wrapper_html => { :class => 'span4' } %>
 	<%= f.input :last_name, :label => t('last_name'),:required => true, :wrapper_html => { :class => 'span3' } %>
   </div>
   <hr>
-  <div class="row">  
-  <%= f.input :dob, :label => t('dob'), start_year: Date.today.year - 90, end_year: Date.today.year - 16, :order => [:day,:month,:year], :required => true, :input_html => { :style=> 'width: 90px' }, :wrapper_html => { :class => 'span4' } %>
+  <div class="row-fluid">  
+  <%= f.input :dob, :label => t('dob'), start_year: Date.today.year - 90, end_year: Date.today.year - 16, :order => [:day,:month,:year], :required => true, :input_html => { :style=> 'width: 90px; margin-bottom: 0px;' }, :wrapper_html => { :class => 'span4' } %>
   
-  <%= f.input :gender, :label => t('gender'), collection: [[t("male"), 'male'],[t("female"),'female']], include_blank: false, :wrapper_html => { :class => 'span3' } %>
+  <%= f.input :gender, :label => t('gender'), collection: [[t("male"), 'male'],[t("female"),'female']], include_blank: false, :wrapper_html => { :class => 'span4' } %>
     
    <% if @user.errors[:city_name].any? %>
-  	<div class="control-group string required error span3">
+  	<div class="control-group string required error span4">
 	<% else %>
-	<div class="control-group string required span3">
+	<div class="control-group string required span4">
     <% end %>
 	            <%= f.label :city_name, :label => t('city'), :class => "control-label", :required => true %>
 	            <div class="controls">
@@ -23,9 +23,10 @@
 	            </div>
 	            <%= f.error :city_name, id: 'city_name_error' %>
 	          </div>
+	    
   </div>
   <hr>
-  <div class="row">
+  <div class="row-fluid">
 	<%= f.association :sport, :label => t('sport'), include_blank: false, :wrapper_html => { :class => 'span4' } %>
   	<%= f.input :comment, :label => t('about_me'), input_html: {style: 'height:100px; width:400px'}, :wrapper_html => { :class => 'span6' } %>
   </div>

@@ -1,0 +1,43 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  sport_id: 1
+  city_id: 1
+  location_id: 1
+  start_at: 
+  finish_at: 
+  type_id: 1
+  mode: MyString
+  gender: MyString
+  info: MyText
+  skill_from: 1
+  skill_to: 1
+  age_from: 1
+  age_to: 1
+  max_part: 1
+  group_id: 1
+  private: false
+  cancelled: false
+  creason: MyText
+  emails: MyString
+
+two:
+  sport_id: 1
+  city_id: 1
+  location_id: 1
+  start_at: 
+  finish_at: 
+  type_id: 1
+  mode: MyString
+  gender: MyString
+  info: MyText
+  skill_from: 1
+  skill_to: 1
+  age_from: 1
+  age_to: 1
+  max_part: 1
+  group_id: 1
+  private: false
+  cancelled: false
+  creason: MyText
+  emails: MyString

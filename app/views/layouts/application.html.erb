@@ -10,37 +10,36 @@
  <body>
 	<header class="navbar navbar-inverse navbar-fixed-top">
       <nav class="navbar-inner">
-        <div class="container">
+        <div class="container-fluid">
           <%= render 'layouts/header' %>
         </div>
       </nav>
     </header>
 	  <div id="main" role="main">
-	      <div class="container">
-	        <div class="content">
-	           <div class="row">
+	      <div class="container-fluid">
+	           <div class="row_nomargin">
 		        <% if user_signed_in? %>
 		         <div class="span2">
 			      <%= render 'layouts/lhn' %>	             
 	            </div>
-	            <% end %>
+	             <% end %>
 	            <div class="span10">
-		          <div class="row">
+		           <% unless @header.nil? %>
 			       <div class="header">
 			         <h5><%= @header%></h5>
 			       </div>
+			       <% end %>
 			      <div class="content_frame">
 	              <%= render 'layouts/messages' %>
 	              <%= yield %>
-	              </div>
-	            </div>
-	           </div>
-	          </div>
-	          <footer>
-		        <%= debug(params) if Rails.env.development? %>
-	          </footer>
-	        </div>
-	      </div> <!--! end of .container -->
+	              </div> <!--! end of .content_frame-->
+	            </div> <!--! end of .span10-->
+	        </div> <!--! end of .row_nomargin-->
+	      </div> <!--! end of .container-fluid -->
 	    </div> <!--! end of #main -->
+	    <footer>
+	        <%= debug(params) if Rails.env.development? %>
+	         <%= yield :scripts %>
+          </footer>
 	  </body>
 </html>

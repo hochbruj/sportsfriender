@@ -1,8 +1,13 @@
+<%= javascript_tag do %>
+  window.myeventsURL = '<%= j new_event_path %>';
+  window.mysportsURL = '<%= j newsport_path %>';
+<% end %>
+
 <%= picture_for(current_user)%>
 </br>
 </br>
 <% if current_user.profile_complete? %>
 <div class='lhn'>Dashboard</div>
-<div class='lhn'>My Events</div>
-<div class='<%= is_active?('my_sports')%>'><%= link_to 'My Sports', newsport_path %></div>
+<div class='<%= is_active?('my_events')%>' id='my_events'><%= link_to 'My Events', new_event_path %></div>
+<div class='<%= is_active?('my_sports')%>' id='my_sports'><%= link_to 'My Sports', newsport_path %></div>
 <% end %>

@@ -1,8 +1,7 @@
-mig_city = true
-mig_citytexts = true
-mig_sport = true
+mig_city = false
+mig_citytexts = false
+mig_sport = false
 mig_assess = true
-
 
 if mig_assess == true
   Assessment.delete_all

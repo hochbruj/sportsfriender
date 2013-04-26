@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130322171019) do
+ActiveRecord::Schema.define(:version => 20130425144555) do
 
   create_table "assessment_translations", :force => true do |t|
     t.integer  "assessment_id"
@@ -63,6 +63,53 @@ ActiveRecord::Schema.define(:version => 20130322171019) do
   add_index "city_translations", ["city_id"], :name => "index_city_translations_on_city_id"
   add_index "city_translations", ["locale"], :name => "index_city_translations_on_locale"
 
+  create_table "events", :force => true do |t|
+    t.integer  "sport_id"
+    t.integer  "city_id"
+    t.integer  "location_id"
+    t.datetime "start_at"
+    t.datetime "finish_at"
+    t.integer  "type_id"
+    t.string   "mode"
+    t.string   "gender"
+    t.text     "info"
+    t.integer  "skill_from"
+    t.integer  "skill_to"
+    t.integer  "age_from"
+    t.integer  "age_to"
+    t.integer  "max_part"
+    t.integer  "group_id"
+    t.boolean  "private"
+    t.boolean  "cancelled"
+    t.text     "creason"
+    t.string   "emails"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "locations", :force => true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.integer  "city_id"
+    t.integer  "sport_id"
+    t.string   "telephone"
+    t.string   "website"
+    t.float    "lat"
+    t.float    "lng"
+    t.boolean  "private"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "participants", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "event_id"
+    t.boolean  "organizer"
+    t.boolean  "rated"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "ratings", :force => true do |t|
     t.integer  "user_id"
     t.integer  "rated_by"
@@ -107,6 +154,18 @@ ActiveRecord::Schema.define(:version => 20130322171019) do
     t.string   "cat5"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "stats", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "sport_id"
+    t.decimal  "cat1",       :precision => 3, :scale => 1
+    t.decimal  "cat2",       :precision => 3, :scale => 1
+    t.decimal  "cat3",       :precision => 3, :scale => 1
+    t.decimal  "cat4",       :precision => 3, :scale => 1
+    t.decimal  "cat5",       :precision => 3, :scale => 1
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
   end
 
   create_table "users", :force => true do |t|

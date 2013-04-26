@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   belongs_to :sport
   belongs_to :city
   has_many :ratings
+  has_many :stats
   
   validates :first_name, :last_name, :gender, :sport, :city_name, :dob, :presence => true, :on => :update
   
@@ -21,7 +22,6 @@ class User < ActiveRecord::Base
   has_attached_file :avatar, :styles => { :medium => "100x100>", :thumb => "50x50>" }
   before_validation { avatar.clear if delete_avatar == '1' }
   
-  GENDERS = [[ I18n.t("male"), 'male'],[ I18n.t("female"),'female']]
   
   
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
@@ -43,6 +43,31 @@ class User < ActiveRecord::Base
                            )
     end
     user
+  end
+  
+  def new_stat(sport_id)
+       @stat = stats.new
+       @stat.sport_id = sport_id
+       @stat.cat1 = ratings.average(:cat1, :conditions => "sport_id = #{sport_id}")
+       @stat.cat2 = ratings.average(:cat2, :conditions => "sport_id = #{sport_id}")
+       @stat.cat3 = ratings.average(:cat3, :conditions => "sport_id = #{sport_id}")
+       @stat.cat4 = ratings.average(:cat4, :conditions => "sport_id = #{sport_id}")
+       @stat.cat5 = ratings.average(:cat5, :conditions => "sport_id = #{sport_id}")
+       @stat.save
+  end
+  
+  def no_ratings(sport_id)
+   no_ratings = ratings.count(:conditions => "sport_id = #{sport_id}")
+  end
+  
+  def last_stat(sport_id)
+    stats.where(:sport_id => sport_id).order('created_at DESC').first
+  end
+  
+  def age
+    unless dob.nil?
+    return (Date.today.year - dob.year)
+    end
   end
   
   def city_name

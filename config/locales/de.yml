@@ -3,15 +3,35 @@ de:
   overall_rating: "Dein gesamt Sportsfriends Rating für diesen Sport:"
   skill_rating: "Sportsfriends Rating für diesen Skill:"
   out_of: "von 10"
+  name: "Name"
   first_name: "Vorname"
   last_name: "Nachname"
   dob: "Geburtsdatum"
+  gender: "Geschlecht"
   male: "männlich"
   female: "weiblich"
+  mixed: "gemischt"
+  address: "Adresse"
   city: "Stadt"
+  telephone: "Telefon"
+  website: "Webseite"
   sport: "Sport"
   about_me: "Über mich"
   pick_sport: "Wähle einen Sport and bestimme dein Skill Level"
+  mode: "Modus"
+  training: "Training"
+  trai_game: "Training & Spiel"
+  game: "Spiel"
+  social: "Social"
+  choose: "Wähle"
+  start_time: "Beginn"
+  fin_time: "Ende"
+  skill_range: "Skill Range"
+  age_range: "Alters Range"
+  low_end: "Von"
+  high_end: "Bis"
+  max_part: "Maximale Anzahl von Teilnehmern"
+  or: "oder"
 
   date:
     formats:
@@ -47,4 +67,29 @@ de:
      delete_pic: "Löschen"
      update: "Beim Klicken wird dein Profil aktualisiert..."
   
+  events:
+   new:
+     sport_city: "Sport, Stadt & Location"
+     new_location: "(oder) + Füge eine neue Location mit Adresse hinzu"
+     from_map: "(oder) + Füge eine neue Location von Karte hinzu"
+     choose_location: "Wähle eine Event Location von dieser Liste"
+     mode_gender: "Event Modus & Geschlecht"
+     add_info: "Zusätzliche Informationen"
+     date_time: "Datum und Uhrzeit"
+     incl_org: "(Inclusive Organisierer)"
+
+  headers:
+   setup_event:
+     header: "Erstelle ein neues Event"
+  
+  locations:
+   form:
+    header: "Erstelle eine neue Location"
+    private: "Private Adresse. Nicht ausserhalb meiner Gruppem verwenden"
+    button: "FÜGE NEUE LOCATION HINZU"
+    
+# error messages
+  start_past: "Beginn ist in der Vergangenheit"
+  start_end: "Ende ist nicht nach Beginn"
+  check_from_to: "ist kleiner als Von"
   

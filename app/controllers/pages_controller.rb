@@ -1,6 +1,10 @@
 class PagesController < ApplicationController
   def home
+    if params[:set_locale]
+    redirect_to root_path(:locale => params[:set_locale])
+    else
     @title = "Home"
+    end
     
   end
 
@@ -11,5 +15,7 @@ class PagesController < ApplicationController
   def about
     @title = "About"
   end
+  
+  
   
 end

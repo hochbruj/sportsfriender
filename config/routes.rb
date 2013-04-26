@@ -1,4 +1,10 @@
 Sportsfriender::Application.routes.draw do
+  resources :locations
+
+
+  resources :events
+
+
   resources :cities
 
 
@@ -13,12 +19,14 @@ root to: 'pages#home'
 devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 resources :users
 resources :ratings
+resources :events
 
 
 match "/auth/:provider/callback" => "sessions#create"
 match "/auth/failure", :to => "sessions#failure"
 match '/welcome',   :to => 'pages#welcome'
 match '/newsport',   :to => 'ratings#new'
+match '/map', :to => 'locations#map'
 
 end
 

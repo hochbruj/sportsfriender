@@ -1,0 +1,27 @@
+<%= simple_form_for(@location, :html => {:class => 'form-horizontal' }) do |f| %>
+  <%= f.error_notification %>
+  	<%= f.association :sport, :label => t('sport'), include_blank: false, :required => true %>
+    <%= f.input :name, :label => t('name'), :required => true %>
+    <%= f.input :address, :label => t('address'), :required => true %>
+   
+    <% if @location.errors[:city_name].any? %>
+	  	<div class="control-group string required error">
+	<% else %>
+		<div class="control-group string required">
+	<% end %>
+	<%= f.label :city_name, :label => t('city'), :class => "control-label", :required => true %>
+    <div class="controls">
+	<%= f.text_field :city_name, data: {autocomplete_source: cities_path}, :autocomplete => :on %>
+    <%= f.error :city_name, id: 'city_name_error' %>
+    </div>
+    </div>
+     
+     <%= f.input :telephone, :label => t('telephone') %>
+     <%= f.input :website, :label => t('website') %>
+     <%= f.input :private, as: :boolean, inline_label: t('.private'), label: false %>
+
+
+ <hr>
+ <%= f.button :submit, t('.button'), :class => 'btn-large btn-inverse' %>
+
+<% end %>

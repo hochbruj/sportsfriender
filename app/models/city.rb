@@ -8,7 +8,7 @@ class City < ActiveRecord::Base
   def self.from_fb(id)
      unless id.nil?
         place = JSON.parse(open("https://graph.facebook.com/#{id}").read)
-        unless City.near("#{place['location']['latitude']}, #{place['location']['longitude']}", 10).nil?
+        unless City.near("#{place['location']['latitude']}, #{place['location']['longitude']}", 10).empty?
           City.near("#{place['location']['latitude']}, #{place['location']['longitude']}", 10).first.id
         end
       end

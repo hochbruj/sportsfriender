@@ -25,6 +25,7 @@ class RatingsController < ApplicationController
     @rating.rated_by = current_user.id
      respond_to do |format|
         if @rating.save
+           @rating.user.new_stat(@rating.sport_id)
           format.html { redirect_to newsport_path }
           format.json { render json: @user, status: :created, location: @user }
         else

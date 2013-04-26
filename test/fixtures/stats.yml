@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  sport_id: 1
+  cat1: 9.99
+  cat2: 9.99
+  cat3: 9.99
+  cat4: 9.99
+  cat5: 9.99
+
+two:
+  user_id: 1
+  sport_id: 1
+  cat1: 9.99
+  cat2: 9.99
+  cat3: 9.99
+  cat4: 9.99
+  cat5: 9.99
