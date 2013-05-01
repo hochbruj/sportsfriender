@@ -1,32 +1,26 @@
 Sportsfriender::Application.routes.draw do
-  resources :locations
-
-
-  resources :events
-
-
-  resources :cities
-
-
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-
-  
+ 
+devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "registrations" }
+resources :cities
+resources :participants
+resources :event_posts
 
 scope '(:locale)' do
 
 root to: 'pages#home'
 
-devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "registrations" }
 resources :users
 resources :ratings
 resources :events
-
+ resources :locations
 
 match "/auth/:provider/callback" => "sessions#create"
 match "/auth/failure", :to => "sessions#failure"
 match '/welcome',   :to => 'pages#welcome'
 match '/newsport',   :to => 'ratings#new'
 match '/map', :to => 'locations#map'
+match '/dashboard', :to => 'pages#dashboard'
 
 end
 

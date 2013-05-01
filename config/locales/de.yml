@@ -2,6 +2,7 @@
 de:
   overall_rating: "Dein gesamt Sportsfriends Rating für diesen Sport:"
   skill_rating: "Sportsfriends Rating für diesen Skill:"
+  skill_level: "Skill Level"
   out_of: "von 10"
   name: "Name"
   first_name: "Vorname"
@@ -32,6 +33,10 @@ de:
   high_end: "Bis"
   max_part: "Maximale Anzahl von Teilnehmern"
   or: "oder"
+  upcoming: "Meine Anstehenden Events"
+  attendees: "Teilnehmer"
+  add_info: "Beschreibung"
+  location: "Location"
 
   date:
     formats:
@@ -40,7 +45,7 @@ de:
       # You can provide other formats here if you like!
       default: "%Y-%m-%d"
       short: "%b %d"
-      long: "%B %d, %Y"
+      long: "%A, %d. %b, %Y"
 
     day_names: [Sonntag, Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag]
     abbr_day_names: [So, Mo, Di, Mi, Do, Fr, Sa]
@@ -52,7 +57,7 @@ de:
   time:
     formats:
       default: "%a, %d %b %Y %H:%M:%S %z"
-      short: "%d %b %H:%M"
+      short: "%H:%M"
       long: "%B %d, %Y %H:%M"
     am: "am"
     pm: "pm"
@@ -74,17 +79,41 @@ de:
      from_map: "(oder) + Füge eine neue Location von Karte hinzu"
      choose_location: "Wähle eine Event Location von dieser Liste"
      mode_gender: "Event Modus & Geschlecht"
-     add_info: "Zusätzliche Informationen"
      date_time: "Datum und Uhrzeit"
      incl_org: "(Inclusive Organisierer)"
+     submit: "EVENT AUFSETZEN"
+   show:
+     can_join: "Wer kann teilnehmen"
+     spot:
+       zero: "Keine PLätze mehr frei!" 
+       one: " Ein Platz frei!"
+       other: "%{count} PLätze frei!"
+     signed: "Du nimmst teil!"
+     join: "NIMM AM EVENT TEIL"
+     unjoin: "ABSAGEN VOM EVENT"
+     organizer: "Organisierer"
+     post: "Poste einen Kommentar"
+     submit: "KOMMENTAR POSTEN"
+     comments: "Kommentare"
+
+  pages:
+   welcome:
+      header: "Gute Entscheidung!"
+      text: "Lass uns ein Sport Eevnt für dich finden. ......." 
+      button: "Los geht's, Zeit zu spielen"
+   dashboard:
+      no_upcoming: "Du hast zur Zeit keine anstehenden Events"
+
 
   headers:
    setup_event:
      header: "Erstelle ein neues Event"
+   detail_event:
+     header: "Event Detail"
   
   locations:
    form:
-    header: "Erstelle eine neue Location"
+    header: "Füge eine neue Location hinzu"
     private: "Private Adresse. Nicht ausserhalb meiner Gruppem verwenden"
     button: "FÜGE NEUE LOCATION HINZU"
     
@@ -92,4 +121,9 @@ de:
   start_past: "Beginn ist in der Vergangenheit"
   start_end: "Ende ist nicht nach Beginn"
   check_from_to: "ist kleiner als Von"
+  age_higher: "ist grösser als dein Alter"
+  age_lower: 'ist niedriger als dein Alter'
+  skill_higher: "ist grösser als dein Skill Level"
+  skill_lower: 'ist niedriger als dein Skill Level'
+  post_error: "Kommentar ist entweder nicht gefüllt oder zu lang (max. 255 Zeichen)"
   

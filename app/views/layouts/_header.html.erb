@@ -13,8 +13,9 @@
     <%= link_to 'Login', new_user_session_path %>
     </li>
     <li>
-    <%= link_to 'Sign up', new_user_registration_path %>
-    </li>
+	<li>
+	 <%= link_to 'Sign up', new_user_registration_path %>
+	</li>
   <% end %>
   	<li><%= form_tag root_path do %> <%= select_tag 'set_locale',
 	            options_for_select(LANGUAGES, I18n.locale.to_s), :class => 'dropdown',

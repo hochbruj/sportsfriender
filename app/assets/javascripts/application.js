@@ -18,4 +18,3 @@
 //= require_directory .
 //= require_directory ./global
 
-var locale = '<%= I18n.locale.inspect %>'

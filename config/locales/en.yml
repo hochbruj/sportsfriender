@@ -2,6 +2,7 @@
 en:
   overall_rating: "Your Overall Sportsfriends Rating for this sport"
   skill_rating: "Sportsfriends' Rating for this Skill:"
+  skill_level: "Skill Level"
   out_of: "out of 10"
   name: "Name"
   first_name: "First Name"
@@ -32,17 +33,21 @@ en:
   high_end: "High End"
   max_part: "Maximum Number of Participants"
   or: "or"
+  upcoming: "My Upcoming Events"
+  attendees: "Attendees"
+  add_info: "Description"
+  location: "Location"
 
   date:
     formats:
       default: "%Y-%m-%d"
       short: "%a %m/%d"
-      long: " %a %B %d, %Y"
+      long: "%A, %b %d, %Y"
     abbr_day_names: [Sun, Mon, Tue, Wed, Thu, Fri, Sat]
    
   time:
     formats:
-        short: "%a %m/%d"
+        short: "%I:%M%P"
         long: "%a %m/%d %H:%M"
 
   users:
@@ -59,19 +64,35 @@ en:
       from_map: "(or) + Add a New Location from a Map"
       choose_location: "Choose an event location from this list"
       mode_gender: "Event Mode & Gender"
-      add_info: "Additional Information"
       date_time: "Date & Time"
       incl_org: "(Including Organizer)"
+      submit: "SUBMIT EVENT"
+     show:
+      can_join: "Who Can Join"
+      spot:
+        zero: "No Spot left!" 
+        one: " One Spot left!"
+        other: "%{count} Spots left!"
+      signed: "You're Signed Up!"
+      join: "SIGN UP TO PLAY"
+      unjoin: "UNSIGN FROM EVENT"
+      organizer: "Organizer"
+      post: "Post A Comment"
+      submit: "SUBMIT COMMENT"
+      comments: "Comments"
 
   pages:
       welcome:
           header: "Nice Move!"
           text: "Let's find some games for you to participate in. It's time to tell everyone a little about yourself, pick your sports of choice, location and games." 
           button: "Let's Get Going, Time to Play"
-  
+      dashboard:
+          no_upcoming: "You have no upcoming events."
   headers:
       setup_event:
           header: "Set up A New Event"
+      detail_event:
+          header: "Event Detail"
 
   locations:
          form:
@@ -83,3 +104,8 @@ en:
   start_past: "start time is in the past"
   start_end: "end time is not after start time"
   check_from_to: "is lower than low end"
+  age_higher: "is higher than your age"
+  age_lower: 'is lower than your age'
+  skill_higher: "is higher than your skill level"
+  skill_lower: "is lower than your skill level"
+  post_error: "Comment is either empty or too long (max. 255 characters)"

@@ -13,8 +13,11 @@ class User < ActiveRecord::Base
   
   belongs_to :sport
   belongs_to :city
-  has_many :ratings
-  has_many :stats
+  has_many :ratings, :dependent => :destroy
+  has_many :stats, :dependent => :destroy
+  has_many :participants, :dependent => :destroy
+  has_many :event_posts, :dependent => :destroy
+  has_many :events, :through => :participants
   
   validates :first_name, :last_name, :gender, :sport, :city_name, :dob, :presence => true, :on => :update
   
@@ -70,6 +73,10 @@ class User < ActiveRecord::Base
     end
   end
   
+  def full_name
+   "#{first_name} #{last_name}"
+  end
+  
   def city_name
     city.try(:full_name)
   end
@@ -94,6 +101,9 @@ class User < ActiveRecord::Base
      return not_rated
   end
   
-  
+
+  def participate?(event_id)
+    participants.find_by_event_id(event_id)  
+  end
 
 end

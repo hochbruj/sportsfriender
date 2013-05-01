@@ -6,6 +6,7 @@ class Location < ActiveRecord::Base
 
   belongs_to :city
   belongs_to :sport
+  belongs_to :user
   has_many :events, :dependent => :destroy
   
   validates :name,  :presence => true,

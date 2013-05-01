@@ -1,0 +1,11 @@
+<div class='row-fluid'>
+<div class='span2'>
+<%= picture_for(post_item.user)%>
+</div>
+<div class='span10'>
+<%= link_to post_item.user.full_name, post_item.user %></br>
+<%= @event.sport.name %> <%=t('skill_level')%>: <%= post_item.user.last_stat(@event.sport_id).total_skill %>
+</div>
+</div> <!--! end of row lower level-->
+<%= post_item.content %>
+<hr>

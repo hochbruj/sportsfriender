@@ -1,4 +1,5 @@
 .map_container {
+  margin: 10px 0 0 0;
   padding: 6px;
   border-width: 1px;
   border-style: solid;
@@ -25,7 +26,7 @@
 
 /*Map for multiple locations per city*/
 .map_container_city {
-  padding: 6px;
+  padding: 6px ;
   border-width: 1px;
   border-style: solid;
   border-color: #ccc #ccc #999 #ccc;

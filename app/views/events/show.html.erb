@@ -1,100 +1,107 @@
-<p id="notice"><%= notice %></p>
+<%= render 'headers/detail_event'%>
+<div class='row-fluid'>
+<div class='span6'>
+<div class='set_event_inner'>
+<h5><%= @event.sport.name%> <%= t(@event.mode)%></h5>
+<%= l @event.start_at.to_date, :format => :long %>, <%= l @event.start_at.in_time_zone(@event.city.zone), :format => :short %>
+ - <%= l @event.finish_at.in_time_zone(@event.city.zone), :format => :short %>
+<hr>
+</div>
 
-<p>
-  <b>Sport:</b>
-  <%= @event.sport_id %>
-</p>
+<div class='blue_box'>
+<div class='set_event_inner'>
+<h5><%= t('add_info')%></h5>
+<%= simple_format(@event.info) %>
+<hr>
+</div>
+</div>
 
-<p>
-  <b>City:</b>
-  <%= @event.city_id %>
-</p>
+<div class='set_event_inner'>
+<h5><%= t('.can_join')%></h5>
+<%= t('gender')%>: <%= t(@event.gender)%></br>
+<%= t('skill_range')%>: <%= @event.skill_from %> - <%= @event.skill_to %></br>
+<%= t('age_range')%>: <%= @event.age_from %> - <%= @event.age_to %></br>
+<hr>
+</div>
 
-<p>
-  <b>Location:</b>
-  <%= @event.location_id %>
-</p>
+<div class='blue_box'>
+<div class='set_event_inner'>
+<h5><%= t('location')%></h5>
+<%= @event.location.name%></br>
+<%= @event.location.address%></br>
+<%= @event.location.city.full_name%>
+<%= gmaps({
+  "map_options" => {"auto_adjust" => true, "auto_zoom" => false, "zoom" => 13 },
+  "markers"     => {"data" => @location } })%>
+</div>
+</div>
+</div><!--! end of #span6 -->
 
-<p>
-  <b>Start at:</b>
-  <%= @event.start_at %>
-</p>
+<div class='span6'>
+<div class='set_event_inner'>
+<% if (signed_in? and current_user.participate?(@event.id)) %>
+<%=t('.signed') %>
+<% else %>	    
+<%=t('.spot', :count => @event.spots_left) %>
+<% end %>
 
-<p>
-  <b>Finish at:</b>
-  <%= @event.finish_at %>
-</p>
+<% if (signed_in? and not current_user.participate?(@event.id))%>
+<%= form_for current_user.participants.build(:event_id => @event.id) do |f| %>
+<%= f.hidden_field :event_id %>
+<%= f.submit(t('.join'), :class => 'btn-large btn-success') %>
+<% end %>
+<% end %>
 
-<p>
-  <b>Type:</b>
-  <%= @event.type_id %>
-</p>
+<% if (signed_in? and  current_user.participate?(@event.id) and current_user != @event.organizer.user)%>
+<%= form_for current_user.participants.find_by_event_id(@event.id),
+   :html => { :method => :delete } do |f| %>
+<%= f.hidden_field :event_id %>
+<%= f.submit(t('.unjoin'), :class => 'btn-large btn-success') %>
+<% end %>
+<% end %>
+<hr>
+</div>
 
-<p>
-  <b>Mode:</b>
-  <%= @event.mode %>
-</p>
+<div class='blue_box'>
+<div class='set_event_inner'>
+<h5><%= t('.organizer')%>:</h5>
+<div class='row-fluid'>
+<div class='span2'>
+<%= picture_for(@event.organizer.user)%>
+</div>
+<div class='span10'>
+<%= link_to @event.organizer.user.full_name, @event.organizer.user %></br>
+<%= @event.sport.name %> <%=t('skill_level')%>: <%= @event.organizer.user.last_stat(@event.sport_id).total_skill %>
+</div>
+</div> <!--! end of row lower level-->
+<hr>
+</div>
+</div>
 
-<p>
-  <b>Gender:</b>
-  <%= @event.gender %>
-</p>
+<div class='set_event_inner'>
+<h5><%= t('attendees')%>(<%=@event.participants.count%>)</h5>
+<%= render 'events/participants', :event => @event %>
+<hr>
+</div>
 
-<p>
-  <b>Info:</b>
-  <%= @event.info %>
-</p>
+<div class='blue_box'>
+<% unless @post_items.empty? %>
+<div class='set_event_inner'>
+<h5><%= t('.comments')%></h5>
+<%= render :partial => 'paginate/post_item', :collection => @post_items %>
+<%= will_paginate @post_items, :renderer => BootstrapPagination::Rails %>
+</div>
+<% end %>
+</div>
+	
+<div class='set_event_inner'>
+<h5><%= t('.post')%></h5>
+<%= simple_form_for(current_user.event_posts.build(:event_id => @event.id), :html => {:class => 'form-horizontal'}) do |f| %>
+   <%= f.input :content, :label => false, input_html: {style: 'width:400px'} %>
+   <%= f.hidden_field :event_id %>
+   <%= f.button :submit, t('.submit'), :class => 'btn-large btn-inverse' %>
+<% end %>
+</div>	
 
-<p>
-  <b>Skill from:</b>
-  <%= @event.skill_from %>
-</p>
-
-<p>
-  <b>Skill to:</b>
-  <%= @event.skill_to %>
-</p>
-
-<p>
-  <b>Age from:</b>
-  <%= @event.age_from %>
-</p>
-
-<p>
-  <b>Age to:</b>
-  <%= @event.age_to %>
-</p>
-
-<p>
-  <b>Max part:</b>
-  <%= @event.max_part %>
-</p>
-
-<p>
-  <b>Group:</b>
-  <%= @event.group_id %>
-</p>
-
-<p>
-  <b>Private:</b>
-  <%= @event.private %>
-</p>
-
-<p>
-  <b>Cancelled:</b>
-  <%= @event.cancelled %>
-</p>
-
-<p>
-  <b>Creason:</b>
-  <%= @event.creason %>
-</p>
-
-<p>
-  <b>Emails:</b>
-  <%= @event.emails %>
-</p>
-
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+</div><!--! end of #span6 -->
+</div> <!--! end of row top level -->	

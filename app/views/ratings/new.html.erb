@@ -6,7 +6,6 @@
 <%= @sport.name%>
 <% end %>
 
-<% unless @sport.nil? %>
 <div id="rating"></div>
 <%= content_tag "div", id: "assessments", data: {assessments: @sport.assessments.order(:level), count: @sport.catcount, text1: t('overall_rating'), text2: t('skill_rating'), text3: t('out_of') } do %>
 <%= javascript_include_tag 'rating' %>
@@ -70,12 +69,18 @@
 <div class="span3">
 <%= f.button :submit, "Save Assessment", :class => 'btn-large btn-primary' %>
 </div>
+<% end %>
+<% if current_user.profile_complete? %>
 <div class="span2">
 <h3><%= t('or')%></h3>
 </div>
-<% end %>
 <div class="span4">
+<% if session[:event_id] %>
+<%= button_to('Join Event', Event.find(session[:event_id]), :class => 'btn btn-large btn-success', :method => :get) %>
+<% else %>
 <%= button_to('New Event', new_event_path, :class => 'btn btn-large btn-success', :method => :get) %>
-</div>
+<% end %>
 </div>
 <% end %>
+</div>
+

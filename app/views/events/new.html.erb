@@ -1,4 +1,4 @@
-<div class='subheader_wrapper'><%= render 'headers/setup_event'%></div>
+<%= render 'headers/setup_event'%>
 <%= simple_form_for(@event) do |f| %>
 <%= f.error_notification %>
 <% end %>
@@ -46,7 +46,7 @@
 </div>
 
 <div class='set_event_inner'>
-<h5><%= t('.add_info')%></h5>
+<h5><%= t('add_info')%></h5>
 <%= f.input :info, :label => false, input_html: {style: 'height:100px; width:300px'} %>
 </div>
 
@@ -55,16 +55,32 @@
 <h5><%= t('.date_time')%></h5>
 <%= f.input :date, :label => false, input_html: {style: 'width:75px'}%>
 
+
+
 <%= f.input :hour_start, label: t('start_time'), input_html: {class: 'span12'}, wrapper_html: {class: 'controls controls-row'} do %>
+      <% if I18n.locale.to_s == 'en' %>
+	  <%= f.input_field :hour_start, :collection => Event::HOURS_EN, :selected => (@event.hour_start or '01'), :class => 'span2' %>
+	  <% else %>
 	  <%= f.input_field :hour_start, :collection => Event::HOURS, :selected => (@event.hour_start or '00'), :class => 'span2' %>
+      <% end %>
 	  <%= f.label :min_start, label: ":", class: 'seperator'%>
 	  <%= f.input_field :min_start, :collection => Event::MINUTES, :selected => (@event.min_start or '00'), :class => 'span2' %>
+	  <% if I18n.locale.to_s == 'en' %>
+	  <%= f.input_field :am_pm_start, :collection => ['AM','PM'], :selected => @event.am_pm_start, :class => 'span2' %>
+      <% end %>
 <% end %>
 
 <%= f.input :hour_fin, label: t('fin_time'), input_html: {class: 'span12'}, wrapper_html: {class: 'controls controls-row'} do %>
+	  <% if I18n.locale.to_s == 'en' %>
+	  <%= f.input_field :hour_fin, :collection => Event::HOURS_EN, :selected => (@event.hour_fin or '01'), :class => 'span2' %>
+	  <% else %>
 	  <%= f.input_field :hour_fin, :collection => Event::HOURS, :selected => (@event.hour_fin or '00'), :class => 'span2' %>
+      <% end %>
 	  <%= f.label :min_fin, label: ":", class: 'seperator'%>
 	  <%= f.input_field :min_fin, :collection => Event::MINUTES, :selected => (@event.min_fin or '00'), :class => 'span2' %>
+	  <% if I18n.locale.to_s == 'en' %>
+	  <%= f.input_field :am_pm_fin, :collection => ['AM','PM'], :selected => @event.am_pm_fin, :class => 'span2' %>
+	  <% end %>
 <% end %>
 </div>
 </div>
@@ -94,7 +110,7 @@
 <%= f.input :max_part, :label => false, collection: (2..25), prompt: t('choose'), input_html: {style: 'width:85px'}%>
 <div>
 <hr>
- <%= f.button :submit, "Submit", :class => 'btn-large btn-success' %>
+ <%= f.button :submit, t('.submit'), :class => 'btn-large btn-inverse' %>
 <% end %>
 </div> <!--! end of form-horizontal -->
 </div> <!--! end of #span6 -->

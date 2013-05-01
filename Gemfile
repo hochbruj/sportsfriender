@@ -12,6 +12,7 @@ gem 'omniauth-identity'
 gem 'geocoder'
 gem 'gmaps4rails'
 gem "will_paginate", "~> 3.0.3"
+gem 'will_paginate-bootstrap'
 gem "googlecharts", "~> 1.6.8"
 gem 'bootstrap-sass', '~> 2.3.0.0'
 gem "simple_form"

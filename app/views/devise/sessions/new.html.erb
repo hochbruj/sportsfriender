@@ -4,7 +4,7 @@
  
     <%= f.input :email, placeholder:  'Email address' %>
     <%= f.input :password, placeholder:  'Password', :required => false %>
-    <%= f.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
+    <%= f.input :remember_me, :as => (:boolean if devise_mapping.rememberable?), :inline_label => "Remember me", :label => false  %>
     <%= f.button :submit, "Sign in", :class => 'btn btn-primary' %>
 <% end %>
 </div>

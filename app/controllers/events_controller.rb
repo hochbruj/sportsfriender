@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-
+ 
   
   # GET /events
   # GET /events.json
@@ -15,8 +15,16 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    @header = 'My Events'
+    @lhn = 'my_events'
     @event = Event.find(params[:id])
-
+    @location = Location.find(@event.location_id).to_gmaps4rails do |location, marker|
+    marker.infowindow render_to_string(:partial => "/markers/show_way", :locals => { :object => location })
+    end
+    @post_items = @event.event_posts.paginate(:page => params[:page], :per_page => 2).order('created_at desc')
+    
+    session[:event_id] = @event.id
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @event }
@@ -78,7 +86,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save_set_organizer(current_user)
-        format.html { redirect_to root_path, notice: 'Event was successfully created.' }
+        format.html { redirect_to dashboard_path, notice: 'Event was successfully created.' }
         format.json { render json: @event, status: :created, location: @event }
       else
         format.html { render action: "new" }
