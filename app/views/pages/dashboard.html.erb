@@ -1,26 +1,43 @@
 <h4><%= t('upcoming')%></h4>
-<hr>
+<%= render :partial => 'events/upcoming' %>
 <% unless @upcoming.empty? %>
-<% @upcoming.each do |date, event| %>
-<%= l date, :format => :long %>
-<hr>
-<% event.each do |e| %>
+<%= link_to t('.all_upcoming'), myevents_path %>
+<% end %>
+</br>
+</br>
 <div class='row-fluid'>
 <div class='span4'>
-<%= link_to "#{e.sport.name} #{t(e.mode)}", e %></br>
-<%= l e.start_at.in_time_zone(e.city.zone), :format => :short %>,
-<%= e.location.name %>
-</div>
-<div class='span2'>
-<%= t('attendees')%>:
-</div>
-<div class='span6'>
-<%= render 'events/participants', :event => e %>
-</div>
-</div>
+<h4><%=t('.last')%></h4>
 <hr>
-<% end %>
-<% end %>
+<% unless @last.nil? %>
+<%= link_to "#{@last.sport.name} #{t(@last.mode)}", @last %></br>
+<%= l @last.start_at.in_time_zone(@last.city.zone).to_date, :format => :short %>
+<%= button_to "Feedback", feedback_path(:event_id => @last.id), :method => "post" %></br>
+<%= link_to t('.all_completed'), url_for(:action => 'myevents', :controller => 'pages', :active => 'tab2') %>
 <% else %>
-<%= t('.no_upcoming')%>
+<%= t('no_last')%>
 <% end %>
+</div><!--! end of #span6 -->
+<div class='span2'>
+</div>
+
+<div class='span6'>
+<h4>My Progress</h4>
+<hr>
+<img src="<%= Gchart.line(
+              :size => '600x300',
+              :theme => :thirty7signals,
+              :data => @user.chart_all[0],
+#              :data => [[6.4, 6.5, 6.6, 6.8, 7, 6.8, 7, 7.5, 7.6, 7.7, 7.7, 7.7], [1.2, 2.5, 2.7, 2.8, 2.9, 3.5,3.7, 3.5, 4, 4.2, #4.3, 4.4], 
+#                        [5.2, 5.3, 5.6, 6.1, 6.9, 7, 7.1, 7.2, 7.4, 7.5, 7.6, 8]],
+              :max_value => 10,
+              :axis_with_labels => ['x', 'y'], 
+             :axis_labels => @user.chart_all[1],
+#              :axis_labels => [["F","M","A","M","J","J","A","S","O","N","D","J"]], 
+              :axis_range => [nil, [0,10,1]],
+              :legend => @user.chart_all[2]) 
+#              :legend => ["Beach Volleyball", "Tennis", "Yoga"])
+ %>">
+
+</div><!--! end of #span6 -->
+</div> <!--! end of row top level -->

@@ -93,7 +93,7 @@
 </div>
 <% end %>
 </div>
-	
+<% if signed_in? %>	
 <div class='set_event_inner'>
 <h5><%= t('.post')%></h5>
 <%= simple_form_for(current_user.event_posts.build(:event_id => @event.id), :html => {:class => 'form-horizontal'}) do |f| %>
@@ -102,6 +102,6 @@
    <%= f.button :submit, t('.submit'), :class => 'btn-large btn-inverse' %>
 <% end %>
 </div>	
-
+<% end %>
 </div><!--! end of #span6 -->
 </div> <!--! end of row top level -->	

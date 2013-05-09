@@ -16,7 +16,7 @@ class CreateAssessments < ActiveRecord::Migration
 
   def down
        drop_table :assessments
-       Sport.drop_translation_table!
+       Assessment.drop_translation_table!
   end
 
 end

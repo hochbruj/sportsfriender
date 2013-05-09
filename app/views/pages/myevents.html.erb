@@ -1,0 +1,13 @@
+<div class="tabbable"> <!-- Only required for left/right tabs -->
+<ul class="nav nav-tabs">
+<li class="<%=@tab1%>"><a href="#tab1" data-toggle="tab"><h4><%= t('upcoming')%></h4></a></li>
+<li class="<%=@tab2%>"><a href="#tab2" data-toggle="tab"><h4><%= t('completed')%></h4></a></li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane <%=@tab1%>" id="tab1">
+<%= render :partial => 'events/upcoming' %>
+</div>
+<div class="tab-pane <%=@tab2%>" id="tab2">
+<%= render :partial => 'events/completed' %>
+</div>
+</div>

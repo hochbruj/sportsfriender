@@ -19,6 +19,13 @@ module ApplicationHelper
     end
   end
   
-
+  def show_rated(level,dif)
+    return  'worse wselected' if level == 'w' and dif == -1
+    return  'same sselected' if level == 's' and dif == 0
+    return  'better bselected' if level == 'b' and dif == 1
+    return  'no' if level == 'w' and dif != -1
+    return  'no' if level == 's' and dif != 0
+    return  'no' if level == 'b' and dif != 1 
+  end
   
 end

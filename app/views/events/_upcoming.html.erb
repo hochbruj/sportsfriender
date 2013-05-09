@@ -1,0 +1,25 @@
+<hr>
+<% unless @upcoming.empty? %>
+<% @upcoming.each do |date, event| %>
+<%= l date, :format => :long %>
+<hr>
+<% event.each do |e| %>
+<div class='row-fluid'>
+<div class='span4'>
+<%= link_to "#{e.sport.name} #{t(e.mode)}", e %></br>
+<%= l e.start_at.in_time_zone(e.city.zone), :format => :short %>,
+<%= e.location.name %>
+</div>
+<div class='span2'>
+<%= t('attendees')%>:
+</div>
+<div class='span6'>
+<%= render 'events/participants', :event => e %>
+</div>
+</div>
+<hr>
+<% end %>
+<% end %>
+<% else %>
+<%= t('no_upcoming')%>
+<% end %>

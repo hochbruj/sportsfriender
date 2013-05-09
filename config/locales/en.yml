@@ -2,7 +2,7 @@
 en:
   overall_rating: "Your Overall Sportsfriends Rating for this sport"
   skill_rating: "Sportsfriends' Rating for this Skill:"
-  skill_level: "Skill Level"
+  skill_level: "Current Skill Level"
   out_of: "out of 10"
   name: "Name"
   first_name: "First Name"
@@ -34,14 +34,24 @@ en:
   max_part: "Maximum Number of Participants"
   or: "or"
   upcoming: "My Upcoming Events"
+  completed: "My Completed Events"
+  no_upcoming: "You have no upcoming events."
+  no_last: "You haven't participated in any event yet."
   attendees: "Attendees"
   add_info: "Description"
   location: "Location"
+  skill_mean: "What this skill level means:"
+  sportsfriend:
+        zero: "No Sportsfriend" 
+        one: "%{count} Sportsfriend"
+        other: "%{count} Sportsfriends"
+  rated: "Rated"
+  unrated: "Not Rated"
 
   date:
     formats:
       default: "%Y-%m-%d"
-      short: "%a %m/%d"
+      short: "%b %d, %Y"
       long: "%A, %b %d, %Y"
     abbr_day_names: [Sun, Mon, Tue, Wed, Thu, Fri, Sat]
    
@@ -53,7 +63,7 @@ en:
   users:
     form:
       change_pic: "Change Photo"
-      delete_pic: "Delete"
+      delete_pic: "Delete Photo"
       update: "When you click this button, we will update your profile... "
       pick_sport: "Pick Your Sport and Asses Your Skill Level"
   
@@ -87,7 +97,18 @@ en:
           text: "Let's find some games for you to participate in. It's time to tell everyone a little about yourself, pick your sports of choice, location and games." 
           button: "Let's Get Going, Time to Play"
       dashboard:
-          no_upcoming: "You have no upcoming events."
+          all_upcoming: "See all your upcoming events"
+          all_completed: "See all your completed events"
+          last: "My Last Event"
+      feedback:
+          header: "Rate Sportsfriends for this Event"
+          title: "Skills, Current Skill Levels & What They Mean"
+          rate: "Rate performance at this event vs sportsfriend's current skill level"
+          rated: "How you rated performance at this event vs sportsfriend's current skill level"
+          button: "SUBMIT PERFORMANCE RATING!"
+          worse: "Worse"
+          same: "Same"
+          better: "Better"
   headers:
       setup_event:
           header: "Set up A New Event"

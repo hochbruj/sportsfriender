@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+   <link href='http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900' rel='stylesheet' type='text/css'>
   <title><%= @title %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
@@ -17,16 +18,18 @@
     </header>
 	  <div id="main" role="main">
 	      <div class="container-fluid">
-	           <div class="row_nomargin">
+	           <div class="row-fluid">
 		        <% if user_signed_in? %>
 		         <div class="span2">
 			      <%= render 'layouts/lhn' %>	             
 	            </div>
-	             <% end %>
-	            <div class="span10">
+	            <div class="nomargin_10">
+	            <% else %>
+	            <div class="span12">
+	            <% end %>
 		           <% unless @header.nil? %>
 			       <div class="header">
-			         <h5><%= @header%></h5>
+			         <%= render "headers/my_events"%>
 			       </div>
 			       <% end %>
 			      <div class="content_frame">

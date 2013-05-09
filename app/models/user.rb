@@ -22,7 +22,8 @@ class User < ActiveRecord::Base
   validates :first_name, :last_name, :gender, :sport, :city_name, :dob, :presence => true, :on => :update
   
   
-  has_attached_file :avatar, :styles => { :medium => "100x100>", :thumb => "50x50>" }
+  has_attached_file :avatar, :styles => { :medium => "100x100#", :thumb => "50x50#" }
+  validates_attachment_size :avatar, :less_than => 1.megabytes
   before_validation { avatar.clear if delete_avatar == '1' }
   
   
@@ -73,6 +74,12 @@ class User < ActiveRecord::Base
     end
   end
   
+  def skill_text(sport_id,cat)
+    Assessment.where(sport_id: sport_id, level: last_stat(sport_id)["cat#{cat}"].round).first["cat#{cat}"]
+  
+  end
+  
+  
   def full_name
    "#{first_name} #{last_name}"
   end
@@ -105,5 +112,57 @@ class User < ActiveRecord::Base
   def participate?(event_id)
     participants.find_by_event_id(event_id)  
   end
+  
+  def completed_events
+    completed = []
+     events.where("finish_at <= ?", DateTime.now).order('finish_at DESC').each do |e|
+      if e.participants.count > 1 and e.cancelled.nil?
+      completed << e
+      end
+     end
+     return completed
+  end
+  
+  
+  def chart_all
+  legend = []
+  data_total = []
+  labels = []
+  labels_total = []
+
+   Sport.all.each do |s|
+    unless stats.find_by_sport_id(s.id).nil?
+  #initialize variable
+    labels = []
+    data = []
+    x = []
+  #create legend 
+    legend << s.name
+  #order stats per sport descending
+     x = stats.where(sport_id: s.id).sort_by { |k| k[:created_at] }.reverse
+  #count down months up to one year  
+      11.downto(0) do |count|
+        rating = nil
+        labels << Date.today.months_since(-1*count).strftime("%B")[0]
+  #get rating value per date
+          x.each do |z|
+            if DateTime.now.months_since(-1*count) >= z.created_at
+              rating = z.total_skill
+              break
+            end
+          end
+         if rating == nil 
+         rating = x.last.total_skill
+         end
+         data << rating
+      end 
+  #add data per sport to total array
+   data_total << data  
+    end
+   end
+  labels_total[0] = labels
+  return data_total,labels_total,legend
+  end
+
 
 end

@@ -21,6 +21,8 @@ match '/welcome',   :to => 'pages#welcome'
 match '/newsport',   :to => 'ratings#new'
 match '/map', :to => 'locations#map'
 match '/dashboard', :to => 'pages#dashboard'
+match '/myevents', :to => 'pages#myevents'
+match '/feedback', :to => 'pages#feedback'
 
 end
 

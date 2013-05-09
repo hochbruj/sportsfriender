@@ -1,0 +1,114 @@
+<%= content_tag "div", id: "part", data: {part: @event.participants } do %>
+<% end %>
+<div class='subheader_wrapper'><h4 class='subheader_inner'><%= t('.header') %></h4></div>
+<p>
+<%= link_to "#{@event.sport.name} #{t(@event.mode)}", @event, :class => 'link_big'%></br>
+<%= l @event.start_at.in_time_zone(@event.city.zone).to_date, :format => :short %>, <%=@event.location.name%>
+</br>
+</p>
+<div class='red_18 left10px'><%=t('unrated')%>: (<%=t('sportsfriend', :count => @event.rated_part(current_user)[0])%>)</div>
+</br>
+<% @event.participants.each do |p| %>
+<% if p.unrated?(current_user)%>
+
+<div class='part_wrapper'>
+<%= picture_for(p.user) %>  <%= link_to p.user.full_name, p.user, :class => 'link_mid'%>
+</div>
+<div class='row-fluid'>
+<div class='span8'>
+<p class='black_18'>
+<%= t('.title')%>
+</p>
+</div>
+<div class='span4'>
+<p class='dred_15 text-center'><%= t('.rate')%></p>
+</div>
+</div>
+<%= form_for @rating do |f| %>
+
+<% ["1","2","3","4","5"].each do |c| %>
+<% unless @event.sport.cat1 == 'nil' %>
+<div class='row-fluid'>
+<div class='span8'>
+<div class='left10px'>
+<div class='dred_18'><%=t @event.sport["cat#{c}"] %></div>
+<div class='dred_16'><%= t('skill_level')%>: <%= number_with_precision(p.user.last_stat(@event.sport_id)["cat#{c}"], :precision => 1, :locale => :en) %> <%= t('out_of')%></div>
+<span class='black_15'><%= t('skill_mean')%></span> <span class='grey_15'><%= p.user.skill_text(@event.sport_id,c)%></span>
+</div>
+</div> <!--! end of span8 -->
+
+<div class='span4'>
+	<div><%= f.hidden_field :user_id, :value => p.user_id %></div>
+	<div><%= f.hidden_field :event_id, :value => @event.id %></div>
+	<div><%= f.hidden_field :sport_id, :value => @event.sport_id%></div>
+	<table class="rating">
+	<tr>
+		<td class='worse' id='w<%= c%><%=p.user_id%>'><%= t('.worse')%></br><%= f.radio_button("dif#{c}", -1) %></td>
+		<td class='same sselected' id='s<%= c%><%=p.user_id%>'><%= t('.same')%></br><%= f.radio_button("dif#{c}", 0, :checked => true )%></td>
+		<td class='better' id='b<%= c%><%=p.user_id%>'><%= t('.better')%></br><%= f.radio_button("dif#{c}", 1) %></td>
+	</tr>
+	</table>
+</div> <!--! end of span 4 -->
+
+</div><!--! end of row top level -->
+</br>
+<% end %> <!-- cat1 == nil -->
+<% end %> <!-- loop -->
+
+<div class='row-fluid'>
+	<%= f.button t('.button'), :class => 'btn btn-inverse pull-right' %>		
+	<% end %>
+</div>
+</br>
+
+<% end %> <!-- unrated? -->
+<% end %> <!-- loop participants-->
+<% unless @event.rated_part(current_user)[1] == 0 %>
+<div class='green_18 left10px'><%=t('rated')%>: (<%=t('sportsfriend', :count => @event.rated_part(current_user)[1])%>)</div>
+<% end %>
+</br>
+<% @event.participants.each do |p| %>
+<% unless p.unrated?(current_user)%>
+
+<div class='part_wrapper'>
+<%= picture_for(p.user) %> <%= link_to p.user.full_name, p.user, :class => 'link_mid'%>
+</div>
+<div class='row-fluid'>
+<div class='span8'>
+<p class='black_18'>
+<%= t('.title')%>
+</p>
+</div>
+<div class='span4'>
+<p class='dred_15 text-center'><%= t('.rated')%></p>
+</div>
+</div>
+
+<% ["1","2","3","4","5"].each do |c| %>
+<% unless @event.sport.cat1 == 'nil' %>
+<div class='row-fluid'>
+<div class='span8'>
+<div class='left10px'>
+<div class='dred_18'><%=t @event.sport["cat#{c}"] %></div>
+<div class='dred_16'><%= t('skill_level')%>: <%= number_with_precision(p.user.last_stat(@event.sport_id)["cat#{c}"], :precision => 1, :locale => :en) %> <%= t('out_of')%></div>
+<span class='black_15'><%= t('skill_mean')%></span> <span class='grey_15'><%= p.user.skill_text(@event.sport_id,c)%></span>
+</div>
+</div> <!--! end of span8 -->
+
+<div class='span4'>
+	<table class="rating">
+	<tr>
+		<td class='<%= show_rated('w',p.rating(current_user)["dif#{c}"])%>'><%= t('.worse')%></td>
+		<td class='<%= show_rated('s',p.rating(current_user)["dif#{c}"])%>'><%= t('.same')%></td>
+		<td class='<%= show_rated('b',p.rating(current_user)["dif#{c}"])%>'><%= t('.better')%></td>
+	</tr>
+	</table>
+</div> <!--! end of span 4 -->
+
+</div><!--! end of row top level -->
+</br>
+<% end %> <!-- cat1 == nil -->
+<% end %> <!-- loop -->
+
+<% end %> <!-- unrated? -->
+<% end %> <!-- loop participants-->

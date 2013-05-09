@@ -1,7 +1,7 @@
 class Event < ActiveRecord::Base
   attr_accessible :age_from, :age_to, :cancelled, :city_id, :creason, :emails, :finish_at, :gender, :group_id, :info, :location_id, :max_part, :mode, :private,
                  :skill_from, :skill_to, :sport_id, :start_at, :type_id, :date, :hour_start, :min_start, :hour_fin, :min_fin, :am_pm_start, :am_pm_fin
-  attr_accessor :hour_start, :min_start, :hour_fin, :min_fin, :am_pm_start, :am_pm_fin
+  attr_accessor :hour_start, :min_start, :hour_fin, :min_fin, :am_pm_start, :am_pm_fin, :num_part
 
   belongs_to :city
   belongs_to :sport
@@ -112,6 +112,16 @@ class Event < ActiveRecord::Base
       participants.find_by_organizer(true)
     end
    
+    def num_part
+      participants.count
+    end
 
-
+    def rated_part(user)
+      count = 0
+      participants.each do |p|
+         count = count + 1 if p.unrated?(user)
+      end
+      return count, participants.count - count
+    end
+    
 end

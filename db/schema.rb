@@ -77,7 +77,6 @@ ActiveRecord::Schema.define(:version => 20130501043816) do
     t.integer  "location_id"
     t.datetime "start_at"
     t.datetime "finish_at"
-    t.integer  "type_id"
     t.string   "mode"
     t.string   "gender"
     t.text     "info"

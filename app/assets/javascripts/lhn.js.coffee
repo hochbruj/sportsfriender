@@ -11,4 +11,3 @@ jQuery ->
 
   $('#dashboard').click ->
    window.location = dashboardURL
-

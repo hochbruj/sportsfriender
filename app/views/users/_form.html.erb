@@ -1,10 +1,24 @@
 <%= simple_form_for(@user, :html => {:class => 'form-inline' }) do |f| %>
   <%= f.error_notification %>
   <div class="row-fluid">
-	<%= f.input :avatar, :label => t('.change_pic'), as: :file, :wrapper_html => { :class => 'span4' } %>
-	<%= f.input :delete_avatar, :label => t('.delete_pic'), as: :boolean, :wrapper_html => { :class => 'span1' } %>	          
+	<% if @user.errors[:avatar_file_size].any? %>
+	  	<div class="control-group error span4">
+		<% else %>
+		<div class="control-group span4">
+	    <% end %>
+	    <%= f.label :avatar, :label => t('.change_pic'), :class => "control-label" %>
+        <div class="controls">
+         <%= f.file_field :avatar %>
+        </div>
+        <%= f.error :avatar_file_size, id: 'avatar_file_size_error' %>
+      </div>
+
+	         
   	<%= f.input :first_name, :label => t('first_name'), :required => true, :wrapper_html => { :class => 'span4' } %>
 	<%= f.input :last_name, :label => t('last_name'),:required => true, :wrapper_html => { :class => 'span3' } %>
+  </div>
+  <div class="row-fluid"> 
+  <%= f.input :delete_avatar, as: :boolean, :inline_label => t('.delete_pic'), :label => false%>	 
   </div>
   <hr>
   <div class="row-fluid">  

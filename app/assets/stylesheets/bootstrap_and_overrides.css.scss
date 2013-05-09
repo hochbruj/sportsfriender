@@ -19,8 +19,17 @@ $dropdownLinkColorHover: $myBlueDark;
 
 @import "bootstrap";
 body {  padding-top: 60px;
+        font-family: Lato;
+        font-size: 15px;
+        color: #413f3f;
         background-color: #EEEEEE }
 hr { margin: 10px 0; }
+p { margin: 10px 0 10px 10px;
+}
+h3 {  font-size: 24px; font-weight: bold; }
+h4 {  font-size: 21px; font-weight: bold; }
+h5 {  font-size: 18px; font-weight: bold; color: #272626; }  
+
 @import "bootstrap-responsive";
 
 .navbar .nav
@@ -51,7 +60,6 @@ form {
     margin: 0 0 0px;
 }
 
-.row_nomargin [class*="span"] {margin-left:0;}
 
 select {
     background-color: #e9e9e9;
@@ -72,4 +80,13 @@ textarea, input[type="text"], input[type="email"], input[type="password"], input
 .seperator {
 text-align:center !important;
 width: 10px !important
+}
+
+
+.nomargin_10 {
+    -moz-box-sizing: border-box;
+    width: 82.906%;
+    display: block;
+    float: left;
+    min-height: 30px;
 }

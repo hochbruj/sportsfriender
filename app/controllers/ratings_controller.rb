@@ -21,16 +21,14 @@ class RatingsController < ApplicationController
   
   def create
     @rating = Rating.new(params[:rating])
-    @rating.user = current_user
     @rating.rated_by = current_user.id
      respond_to do |format|
-        if @rating.save
+           @rating.update_or_create(current_user)
            @rating.user.new_stat(@rating.sport_id)
+         if @rating.event_id.nil?  
           format.html { redirect_to newsport_path }
-          format.json { render json: @user, status: :created, location: @user }
         else
-          format.html { render action: "new" }
-          format.json { render json: @user.errors, status: :unprocessable_entity }
+          format.html { redirect_to :back }
         end
       end
    
