@@ -13,7 +13,7 @@
 <label><%= t('sport')%></label>
 </div>
 <div class='span9'>
- <%= select_tag :sport_id, options_from_collection_for_select(Sport.all, 'id', 'name', @event.sport.id), :onchange => 'this.form.submit()'%>
+ <%= select_tag :sport_id, options_from_collection_for_select(current_user.rated, 'id', 'name', @event.sport.id), :onchange => 'this.form.submit()'%>
 </div>
 </div> <!--! end of #row-fluid -->
 

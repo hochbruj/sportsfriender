@@ -4,7 +4,7 @@ jQuery ->
     for u in users
       $("#w" + i + u.user_id).click ->
        $(this).children('input').prop("checked", true)
-       $(this).parent("tr").children('td').removeClass("wselected").removeClass("bselected")
+       $(this).parent("tr").children('td').removeClass("sselected").removeClass("bselected")
        $(this).addClass("wselected")
       $("#s" + i + u.user_id).click ->
        $(this).children('input').prop("checked", true)

@@ -3,6 +3,7 @@ class Sport < ActiveRecord::Base
   attr_accessible :name, :cat1, :cat2, :cat3, :cat4, :cat5
   
   has_many :assessments
+  has_many :stats
   
   def catcount
   count = 0

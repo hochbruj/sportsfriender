@@ -1,74 +1,53 @@
+<%= content_tag "div", id: "assessments", data: {assessments: @sport.assessments.order(:level), count: @sport.catcount } do %>
+<%= javascript_include_tag 'rating' %>
+<% end %>
+
 <% if current_user.profile_complete? %>
+<div class='subheader_wrapper'><h4 class='subheader_inner'><%= t('.header2') %></h4></div>
+<hr>
+<div class='left10px'>
+<%=t('.choose')%>
+<div style='padding:10px 0 0 0'>
 <%= form_tag( newsport_path, :method => "get") do %>
  <%= select_tag(:sport_id, options_from_collection_for_select(current_user.not_rated, 'id', 'name', params[:sport_id] ), :onchange => 'this.form.submit()' )%>
 <% end %>
+</div>
+</div>
 <% else %>
-<%= @sport.name%>
+<div class='subheader_wrapper'><h4 class='subheader_inner'><%= t('.header1') %></h4></div>
+<hr>
+<h4 class='left10px'><%= @sport.name%></h4>
 <% end %>
 
-<div id="rating"></div>
-<%= content_tag "div", id: "assessments", data: {assessments: @sport.assessments.order(:level), count: @sport.catcount, text1: t('overall_rating'), text2: t('skill_rating'), text3: t('out_of') } do %>
-<%= javascript_include_tag 'rating' %>
-<% end %>  
+<span class='left10px'><%=t('overall_rating')%>:</span> <span class='dred_15' id="rating"></span>
 <hr>
-<%= simple_form_for(@rating) do |f| %>
+<div class='left10px'>
+<h5 class='dred_18'><%=t('.title')%></h5>
+<%=t('.explanation')%>
+<h5 class='black_18'><%=t('your_skills')%></h5>
+</div>
+<%= form_for(@rating) do |f| %>
 <%= f.hidden_field :sport_id,  :value => @sport.id %>
 <%= f.hidden_field :user_id,  :value => current_user.id %>
-<%= @sport.cat1%></br>
-<div id="rating1"></div>
-</br>
+<% ["1","2","3","4","5"].each do |c| %>
+<% unless @sport["cat#{c}"] == 'nil' %>
+<div class='left10px'>
+<div class='dred_18'><%= @sport["cat#{c}"]%></div>
+<span class='dred_16'><%= t('skill_rating')%> <span id="rating<%=c%>"></span> <%= t('out_of')%></span>
 <div class="row-fluid">
-<%= f.input :cat1, include_blank: false, collection: 1..5, :label => false, :input_html => { :style=> 'width: 55px' }, :selected => 1, :wrapper_html => { :class => 'span2' }%>
-<div class='span9' id="assess_text1"></div>
+<div class='span1'>	
+<%= f.select("cat#{c}", (1..5), {}, :style => "width:60px")%>
 </div>
-<hr>
-
-<% unless @sport.cat2 == 'nil' %>
-<%= @sport.cat2%></br>
-<div id="rating2"></div>
-</br>
-<div class="row-fluid">
-<%= f.input :cat2, include_blank: false, collection: 1..5, :label => false, :input_html => { :style=> 'width: 55px' }, :selected => 1, :wrapper_html => { :class => 'span1' }%>
-<div id="assess_text2"></div>
+<div class='span11' id="assess_text<%=c%>"></div>
+</div>
 </div>
 <hr>
 <% end %>
+<% end %>	
 
-<% unless @sport.cat3 == 'nil' %>
-<%= @sport.cat3%></br>
-<div id="rating3"></div>
-</br>
-<div class="row-fluid">
-<%= f.input :cat3, include_blank: false, collection: 1..5, :label => false, :input_html => { :style=> 'width: 55px' }, :selected => 1, :wrapper_html => { :class => 'span1' }%>
-<div id="assess_text3"></div>
-</div>
-<hr>
-<% end %>
-
-<% unless @sport.cat4 == 'nil' %>
-<%= @sport.cat4%></br>
-<div id="rating4"></div>
-</br>
-<div class="row-fluid">
-<%= f.input :cat4, include_blank: false, collection: 1..5, :label => false, :input_html => { :style=> 'width: 55px' }, :selected => 1, :wrapper_html => { :class => 'span1' }%>
-<div id="assess_text4"></div>
-</div>
-<hr>
-<% end %>
-
-<% unless @sport.cat5 == 'nil' %>
-<%= @sport.cat5%></br>
-<div id="rating5"></div>
-</br>
-<div class="row-fluid">
-<%= f.input :cat5, include_blank: false, collection: 1..5, :label => false, :input_html => { :style=> 'width: 55px' }, :selected => 1, :wrapper_html => { :class => 'span1' }%>
-<div id="assess_text5"></div>
-</div>
-<hr>
-<% end %>
 <div class="row-fluid">
 <div class="span3">
-<%= f.button :submit, "Save Assessment", :class => 'btn-large btn-primary' %>
+<%= f.submit t('.save'), :class => 'btn-large btn-primary', :confirm => t('.sure') %>
 </div>
 <% end %>
 <% if current_user.profile_complete? %>

@@ -1,3 +1,7 @@
+<%= javascript_tag do %>
+  window.searcheventURL = '<%= j search_path %>';
+  window.neweventURL = '<%= j new_event_path %>';
+<% end %>
 <div class='row-fluid'>
-<div class="host_event pull-right">HOST A SPORTING EVENT</div><div class="search_event pull-right">SEARCH EVENT</div>
+<div class="my_events pull-left">My Events</div><div class=" pull-right" id='host_event'>HOST A SPORTING EVENT</div><div class=" pull-right" id='search_event'>SEARCH EVENT</div>
 </div>

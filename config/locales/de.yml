@@ -1,9 +1,10 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 de:
-  overall_rating: "Dein gesamt Sportsfriends Rating für diesen Sport:"
+  overall_rating: "Dein gesamt Sportsfriends Rating für diesen Sport"
   skill_rating: "Sportsfriends Rating für diesen Skill:"
   skill_level: "Aktuelles Skill Level"
   out_of: "von 10"
+  your_skills: "Deine Skills, aktuellen Skill Level & was es bedeutet"
   name: "Name"
   first_name: "Vorname"
   last_name: "Nachname"
@@ -18,7 +19,6 @@ de:
   website: "Webseite"
   sport: "Sport"
   about_me: "Über mich"
-  pick_sport: "Wähle einen Sport and bestimme dein Skill Level"
   mode: "Modus"
   training: "Training"
   trai_game: "Training & Spiel"
@@ -68,7 +68,7 @@ de:
     formats:
       default: "%a, %d %b %Y %H:%M:%S %z"
       short: "%H:%M Uhr"
-      long: "%B %d, %Y %H:%M"
+      long: "%a %d.%m, %H:%M Uhr"
     am: "am"
     pm: "pm"
 
@@ -81,7 +81,16 @@ de:
      change_pic: "Ändere Photo"
      delete_pic: "Lösche Photo"
      update: "Beim Klicken wird dein Profil aktualisiert..."
-  
+
+  ratings:
+   new:
+     header1: "Bewerte dich selbst für diesen Sport"
+     header2: "Füge neue Sportart hinzu"
+     choose: "Wähle einen neuen sport und bewerte dich selbst"
+     title: "Deine eigene Bewertung"
+     explanation: "Bewerte deine eigenen Skills unten für diesen Sport. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit"
+     save: "Speichere diese Bewertung"
+     sure: "Bist du sicher, dass du speichern möchtest? Du kannst die Bewertung erst nach nach dem nächsten Spiel ändern"
   events:
    new:
      sport_city: "Sport, Stadt & Location"
@@ -117,13 +126,16 @@ de:
       last: "Mein letztes Event"
    feedback:
       header: "Bewerte Sportsfriends für dieses Event"
-      title: "Skills, Aktuelles Skill Levels & Was es bedeutet"
+      title: "Skills, Aktuelle Skill Level & Was es bedeutet"
       rate: "Bewerte die Performance bei diesem Event im Vergeich zu Sportsfriend's aktuellem Skill Level"
       rated: "Wie du die Performance bei diesem Event im Vergeich zu Sportsfriend's aktuellem Skill Level bewerteste"
       button: "SUBMIT PERFORMANCE BEWERTUNG!"
       worse: "Schlechter"
       same: "Gleich"
       better: "Besser"
+   mysports:
+      header: "Sportarten die du betreibst"
+      add_sport: "FÜGE NEUEN SPORT HINZU"
 
   headers:
    setup_event:
@@ -146,4 +158,8 @@ de:
   skill_higher: "ist grösser als dein Skill Level"
   skill_lower: 'ist niedriger als dein Skill Level'
   post_error: "Kommentar ist entweder nicht gefüllt oder zu lang (max. 255 Zeichen)"
+ 
+# button texts
+  goto_dash: "Zum Dashboard"
+  pick_assess: "Wähle deinen Sport und bewerte deine Skill Level"
   

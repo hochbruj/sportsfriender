@@ -23,6 +23,8 @@ match '/map', :to => 'locations#map'
 match '/dashboard', :to => 'pages#dashboard'
 match '/myevents', :to => 'pages#myevents'
 match '/feedback', :to => 'pages#feedback'
+match '/search', :to => 'events#search'
+match 'mysports', :to => 'pages#mysports'
 
 end
 

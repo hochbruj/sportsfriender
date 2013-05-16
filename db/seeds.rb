@@ -1,5 +1,5 @@
-mig_city = true
-mig_citytexts = true
+mig_city = false
+mig_citytexts = false
 mig_sport = true
 mig_assess = true
 

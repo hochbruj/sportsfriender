@@ -1,17 +1,17 @@
 <hr>
 <% unless @upcoming.empty? %>
 <% @upcoming.each do |date, event| %>
-<%= l date, :format => :long %>
+<b><%= l date, :format => :long %></b>
 <hr>
 <% event.each do |e| %>
 <div class='row-fluid'>
 <div class='span4'>
-<%= link_to "#{e.sport.name} #{t(e.mode)}", e %></br>
-<%= l e.start_at.in_time_zone(e.city.zone), :format => :short %>,
-<%= e.location.name %>
+<%= link_to "#{e.sport.name} #{t(e.mode)}", e, :class => 'link_mid' %></br>
+<b><%= l e.start_at.in_time_zone(e.city.zone), :format => :short %>,
+<%= e.location.name %></b>
 </div>
 <div class='span2'>
-<%= t('attendees')%>:
+<h6><%= t('attendees')%>:</h6>
 </div>
 <div class='span6'>
 <%= render 'events/participants', :event => e %>

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-   <link href='http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900' rel='stylesheet' type='text/css'>
-  <title><%= @title %></title>
+<link href='http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900' rel='stylesheet' type='text/css'>
+  <title>Sportsfriender|<%= @title %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -11,13 +11,13 @@
  <body>
 	<header class="navbar navbar-inverse navbar-fixed-top">
       <nav class="navbar-inner">
-        <div class="container-fluid">
+        <div class="container">
           <%= render 'layouts/header' %>
         </div>
       </nav>
     </header>
 	  <div id="main" role="main">
-	      <div class="container-fluid">
+	      <div class="container">
 	           <div class="row-fluid">
 		        <% if user_signed_in? %>
 		         <div class="span2">
@@ -29,7 +29,7 @@
 	            <% end %>
 		           <% unless @header.nil? %>
 			       <div class="header">
-			         <%= render "headers/my_events"%>
+			         <%= render "headers/#{@header}"%>
 			       </div>
 			       <% end %>
 			      <div class="content_frame">

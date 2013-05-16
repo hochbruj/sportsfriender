@@ -64,6 +64,7 @@ class User < ActiveRecord::Base
    no_ratings = ratings.count(:conditions => "sport_id = #{sport_id}")
   end
   
+   
   def last_stat(sport_id)
     stats.where(:sport_id => sport_id).order('created_at DESC').first
   end
@@ -106,6 +107,14 @@ class User < ActiveRecord::Base
       end
      end
      return not_rated
+  end
+  
+  def rated
+    rated = [] 
+    Sport.all.each do |sport| 
+      rated << sport unless ratings.find_by_sport_id(sport.id).nil?
+    end
+     return rated
   end
   
 

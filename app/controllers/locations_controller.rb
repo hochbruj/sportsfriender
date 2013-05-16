@@ -24,7 +24,7 @@ class LocationsController < ApplicationController
   # GET /locations/new
   # GET /locations/new.json
   def new
-    @header = 'My Events'
+    @header = 'my_events'
     @lhn = 'my_events'
     @location = Location.new
     @location.sport_id = params[:sport_id]

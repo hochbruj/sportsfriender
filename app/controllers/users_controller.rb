@@ -34,13 +34,14 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @header = 'My Profile'
+    @title = 'My Profile'
+    @header = 'my_profile'
     @user = User.find(params[:id])
     if @user.profile_complete?
-    @button_text = "Goto Homepage"
-    else
-    @button_text = t('.pick_sport')
-    end     
+      @button_text = I18n.t('goto_dash')
+     else
+      @button_text = I18n.t('pick_assess')
+     end    
   end
 
   # POST /users
@@ -62,20 +63,21 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.json
   def update
-    @header = 'My Profile'
+    @title = "My Profile"
+    @header = 'my_profile'
     @user = User.find(params[:id])
      
      if @user.profile_complete?
-      @button_text = "Goto Homepage"
+      @button_text = I18n.t('goto_dash')
      else
-      @button_text = "Pick your Sports an Assess Your Skill Levels"
+      @button_text = I18n.t('pick_assess')
      end
     
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
         if @user.profile_complete?
-        format.html { redirect_to root_path }
+        format.html { redirect_to dashboard_path }
         else
           format.html { redirect_to newsport_path}
         end

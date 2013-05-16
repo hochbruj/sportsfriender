@@ -68,28 +68,40 @@
 				 border-bottom-left-radius: 4px;
 				 border-top-left-radius: 4px;
 				 padding: 10px 10px 10px 10px;  }
+
 				
 .lhn          {   margin: 0 0 0 0;
                  padding: 10px 10px 10px 10px; }
 
 
-.my_events { background: url('sprites_new.png') no-repeat -30px 20px; 
-		         width: 9px; height: 8px;}
+.my_events { background: url('icons.png') no-repeat 20px -26px; 
+		         width: 200px; height: 40px;
+		    font-size: 24px; font-weight: bold; color: #413f3f;
+		    padding: 20px 14px 0px 70px;}
 
-.search_event { background: url('buttons.png') no-repeat -10px -55px; 
-			  width: 180px; height: 40px;
+#search_event { background: url('buttons.png') no-repeat -10px -49px; 
+			  width: 190px; height: 35px;
 			  font-weight: bold;
 			  text-transform: uppercase;
 			  color: #fff;
 			  text-shadow: -1px 1px rgba(0,0,0,.3);
-			  padding: 17px 10px 0px 55px;}
-.host_event { background: url('buttons.png') no-repeat -10px -9px; 
-			  width: 200px; height: 40px;;
+			  padding: 17px 10px 0px 45px;}
+			
+#search_event:hover { background: url('buttons.png') no-repeat -10px -96px; 
+						  width: 190px; height: 35px;
+						  font-weight: bold;
+						  text-transform: uppercase;
+						  color: #fff;
+						  text-shadow: -1px 1px rgba(0,0,0,.3);
+						   padding: 17px 10px 0px 45px;}
+						
+#host_event { background: url('buttons.png') no-repeat -10px 0px; 
+			  width: 210px; height: 35px;;
 			  font-weight: bold;
 			  text-transform: uppercase;
 			  color: #fff;
 			  text-shadow: -1px 1px rgba(0,0,0,.3);
-			  padding: 15px 0px 0px 55px;}
+			  padding: 17px 0px 0px 45px;}
 
 .rating td {
 		    text-align: center;
@@ -155,6 +167,8 @@
 
 .link_big { font-size: 23px; font-weight: bold; color: #0b689d; }
 .link_mid { font-size: 21px; font-weight: bold; color: #0b689d; }
+.link_small { font-size: 16px; font-weight: bold; text-decoration: underline; color: #0b689d; }
+.link_min { font-size: 13px; font-weight: bold; color: #0b689d; }
 
 .red_18 { font-size: 18px; font-weight: bold; color: #a71601; }
 .green_18{ font-size: 18px; font-weight: bold; color: #455a08; }

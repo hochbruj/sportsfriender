@@ -4,6 +4,7 @@ en:
   skill_rating: "Sportsfriends' Rating for this Skill:"
   skill_level: "Current Skill Level"
   out_of: "out of 10"
+  your_skills: "Your Skills, Current Skill Levels & What They Mean"
   name: "Name"
   first_name: "First Name"
   last_name: "Last Name"
@@ -18,7 +19,6 @@ en:
   website: "Website"
   sport: "Sport"
   about_me: "About Me"
-  pick_sport: "Pick Your Sport and Asses Your Skill Level"
   mode: "Mode"
   training: "Training"
   trai_game: "Training & Game"
@@ -66,7 +66,16 @@ en:
       delete_pic: "Delete Photo"
       update: "When you click this button, we will update your profile... "
       pick_sport: "Pick Your Sport and Asses Your Skill Level"
-  
+
+  ratings:
+     new:
+      header1: "Rate Yourself For This Sport"
+      header2: "Add a New Sport"
+      choose: "Choose a new sport and the complete the self assessment"
+      title: "Your Personal Skills Assessment"
+      explanation: "Asses your skills below for this sport. This will help you and others Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit"
+      save: "Save this Assessment"
+      sure: "Are you sure you want to save this assessment? You won't be able to change it before your first game!"
   events:
      new:
       sport_city: "Sport, City & Location"
@@ -109,6 +118,9 @@ en:
           worse: "Worse"
           same: "Same"
           better: "Better"
+      mysports:
+          header: "Sports you like to play"
+          add_sport: "ADD NEW SPORT"
   headers:
       setup_event:
           header: "Set up A New Event"
@@ -130,3 +142,7 @@ en:
   skill_higher: "is higher than your skill level"
   skill_lower: "is lower than your skill level"
   post_error: "Comment is either empty or too long (max. 255 characters)"
+  
+# button texts
+  goto_dash: "Goto Dashboard"
+  pick_assess: "Pick your Sports an Assess Your Skill Levels"

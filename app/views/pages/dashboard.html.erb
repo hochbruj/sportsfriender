@@ -1,7 +1,7 @@
 <h4><%= t('upcoming')%></h4>
 <%= render :partial => 'events/upcoming' %>
 <% unless @upcoming.empty? %>
-<%= link_to t('.all_upcoming'), myevents_path %>
+<%= link_to t('.all_upcoming'), myevents_path, :class => 'link_small' %>
 <% end %>
 </br>
 </br>
@@ -10,10 +10,10 @@
 <h4><%=t('.last')%></h4>
 <hr>
 <% unless @last.nil? %>
-<%= link_to "#{@last.sport.name} #{t(@last.mode)}", @last %></br>
-<%= l @last.start_at.in_time_zone(@last.city.zone).to_date, :format => :short %>
+<%= link_to "#{@last.sport.name} #{t(@last.mode)}", @last, :class => 'link_mid' %></br>
+<b><%= l @last.start_at.in_time_zone(@last.city.zone).to_date, :format => :short %></b>
 <%= button_to "Feedback", feedback_path(:event_id => @last.id), :method => "post" %></br>
-<%= link_to t('.all_completed'), url_for(:action => 'myevents', :controller => 'pages', :active => 'tab2') %>
+<%= link_to t('.all_completed'), url_for(:action => 'myevents', :controller => 'pages', :active => 'tab2'), :class => 'link_small' %>
 <% else %>
 <%= t('no_last')%>
 <% end %>

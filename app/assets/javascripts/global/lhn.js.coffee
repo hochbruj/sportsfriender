@@ -5,9 +5,7 @@
 jQuery ->
   $('#my_sports').click ->
    window.location = mysportsURL
-
   $('#my_events').click ->
    window.location = myeventsURL
-
   $('#dashboard').click ->
    window.location = dashboardURL

@@ -18,6 +18,7 @@ $dropdownLinkColorHover: $myBlueDark;
 
 
 @import "bootstrap";
+@import "bootstrap-responsive";
 body {  padding-top: 60px;
         font-family: Lato;
         font-size: 15px;
@@ -28,7 +29,8 @@ p { margin: 10px 0 10px 10px;
 }
 h3 {  font-size: 24px; font-weight: bold; }
 h4 {  font-size: 21px; font-weight: bold; }
-h5 {  font-size: 18px; font-weight: bold; color: #272626; }  
+h5 {  font-size: 18px; font-weight: bold; color: #272626; }
+h6 {  font-size: 16px; font-weight: bold; }
 
 @import "bootstrap-responsive";
 

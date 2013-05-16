@@ -1,9 +1,6 @@
 jQuery ->
-  text1 = $('#assessments').data('text1')
-  text2 = $('#assessments').data('text2')
-  text3 = $('#assessments').data('text3')
-  $("#rating2").text(text2 + " " + 1 + " " + text3)
-  $("#rating").text(text1 + " 1")
+  $("#rating2").text(1)
+  $("#rating").text(1)
   $("#assess_text2").text($('#assessments').data('assessments')[0].cat2)
   $('#rating_cat2').change ->
      x = 1
@@ -16,5 +13,5 @@ jQuery ->
         x = $(this).text() - 1
         y = $(this).text()
      $("#assess_text2").text($('#assessments').data('assessments')[x].cat2)
-     $("#rating2").text(text2 + " " + y + " " + text3)
-     $("#rating").text(text1 + " " + ((parseInt(y) + cat1 + cat3 + cat4 + cat5) / $('#assessments').data('count')).toFixed(1))
+     $("#rating2").text(y)
+     $("#rating").text(((parseInt(y) + cat1 + cat3 + cat4 + cat5) / $('#assessments').data('count')).toFixed(1))

@@ -1,12 +1,20 @@
 class PagesController < ApplicationController
   def home
     if params[:set_locale]
-    redirect_to root_path(:locale => params[:set_locale])
+     if signed_in?
+     redirect_to dashboard_path(:locale => params[:set_locale])
+     else
+     redirect_to root_path(:locale => params[:set_locale])
+     end
     else
+      if signed_in?
+      redirect_to dashboard_path
+      end
     @title = "Home"
     end
     
   end
+
 
   def contact
     @title = "Contact"
@@ -18,7 +26,8 @@ class PagesController < ApplicationController
   
   def dashboard
     if current_user.profile_complete?
-    @header = 'Dashboard'
+    @title = "Dashboard"
+    @header = 'dashboard'
     @lhn = 'dashboard'
     @user = current_user
     @last = current_user.completed_events.first
@@ -38,6 +47,7 @@ class PagesController < ApplicationController
   end
   
   def myevents
+    @title = "My Events"
     @header = 'my_events'
     @lhn = 'my_events'
     @tab1 = 'active' unless params[:active] == 'tab2'
@@ -48,14 +58,20 @@ class PagesController < ApplicationController
   end
   
   def feedback
-    @header = 'My Events'
+    @title = "Feedback"
+    @header = 'my_events'
     @lhn = 'my_events'
     @event = Event.find(params[:event_id])
     @rating = @rating = Rating.new
   
   end
   
-  
+  def mysports
+    @title = "My Sports"
+    @header = 'my_sports'
+    @lhn = 'my_sports'
+    
+  end
   
   
 end

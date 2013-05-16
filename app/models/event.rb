@@ -124,4 +124,16 @@ class Event < ActiveRecord::Base
       return count, participants.count - count
     end
     
+    def self.search(sport_id,event_city,radius,units)
+      if sport_id and City.find_by_full_name(event_city)
+         @events = self.where("start_at >= ?", DateTime.now)
+         @events = @events.where(sport_id: sport_id)
+# change later to false
+         @events = @events.where(private: nil)
+         @events = @events.where(cancelled: nil)
+         @events = @events.where("location_id IN (?)", Location.near(City.find_by_full_name(event_city), radius, :units => units.to_sym).map(&:id))
+         @events = @events.order('start_at ASC')  
+      end
+    end
+    
 end

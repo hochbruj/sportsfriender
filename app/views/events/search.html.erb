@@ -1,0 +1,13 @@
+<%= form_tag(search_path, :method => "get") do %>
+
+<%= select_tag :sport_id, options_from_collection_for_select(Sport.all, 'id', 'name', (params[:sport_id] or current_user.sport_id))%>
+
+<%= text_field_tag(:search_city , (params[:search_city] or current_user.city.full_name), :class => 'ui-autocomplete-input', data: {autocomplete_source: cities_path}, :size => 30)  %>
+<%= select_tag(:radius, options_for_select([10,25,40,50,100,200], params[:radius])) %> 
+<%= select_tag(:units, options_for_select(['km','mi'], params[:units])) %>
+<%= submit_tag('Search') %> 
+<% end %>
+<% unless @event_results.nil? or @event_results.empty? %>
+<%= render :partial => 'paginate/event_result', :collection => @event_results %>
+<%= will_paginate @event_results, :renderer => BootstrapPagination::Rails %>
+<% end %>

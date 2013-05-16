@@ -1,5 +1,14 @@
 class EventsController < ApplicationController
- 
+  def search
+    @header = 'my_events'
+    @lhn = 'my_events'
+    @event_results = Event.search(params[:sport_id],params[:search_city],params[:radius],params[:units])
+    @event_results = @event_results.paginate(:page => params[:page], :per_page => 2) unless @event_results.nil?
+    respond_to do |format|
+      format.html # index.html.erb
+    end
+  
+  end
   
   # GET /events
   # GET /events.json
@@ -15,7 +24,7 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
-    @header = 'My Events'
+    @header = 'my_events'
     @lhn = 'my_events'
     @event = Event.find(params[:id])
     @location = Location.find(@event.location_id).to_gmaps4rails do |location, marker|
@@ -34,7 +43,7 @@ class EventsController < ApplicationController
   # GET /events/new
   # GET /events/new.json
   def new
-    @header = 'My Events'
+    @header = 'my_events'
     @lhn = 'my_events'
    
    @event = Event.new
@@ -79,7 +88,7 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    @header = 'My Events'
+    @header = 'my_events'
     @lhn = 'my_events'
     @event = Event.new(params[:event])
     @event.set_time
