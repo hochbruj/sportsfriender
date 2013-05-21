@@ -1,7 +1,8 @@
 class Event < ActiveRecord::Base
   attr_accessible :age_from, :age_to, :cancelled, :city_id, :creason, :emails, :finish_at, :gender, :group_id, :info, :location_id, :max_part, :mode, :private,
-                 :skill_from, :skill_to, :sport_id, :start_at, :type_id, :date, :hour_start, :min_start, :hour_fin, :min_fin, :am_pm_start, :am_pm_fin
-  attr_accessor :hour_start, :min_start, :hour_fin, :min_fin, :am_pm_start, :am_pm_fin, :num_part
+                 :skill_from, :skill_to, :sport_id, :start_at, :type_id, :date, :hour_start, :min_start, :hour_fin, :min_fin, :am_pm_start, :am_pm_fin,
+                 :repeat, :rep_every, :rep_end
+  attr_accessor :hour_start, :min_start, :hour_fin, :min_fin, :am_pm_start, :am_pm_fin, :num_part, :repeat, :rep_every, :rep_end
 
   belongs_to :city
   belongs_to :sport
@@ -21,17 +22,19 @@ class Event < ActiveRecord::Base
  
   def date
     if self.start_at? and self.city_id?
-    self.start_at.in_time_zone(self.city.zone).strftime("%m/%d/%Y")
+      self.start_at.in_time_zone(self.city.zone).strftime(date_format)
     end
    end
    
   def date=(date)
      begin
-     self.start_at = DateTime.strptime( date, "%m/%d/%Y")
+         self.start_at = DateTime.strptime( date, date_format)
      rescue ArgumentError
       false
      end
    end
+   
+ 
    
   def check_date
     unless self.start_at.nil?
@@ -135,5 +138,27 @@ class Event < ActiveRecord::Base
          @events = @events.order('start_at ASC')  
       end
     end
+    
+    def check_repeat(user)
+     if repeat == '1'
+       @event = self
+       while (@event.start_at + rep_every.to_i.days) <= DateTime.strptime( rep_end, date_format)
+       @event = @event.dup
+       @event.start_at = @event.start_at + rep_every.to_i.days
+       @event.finish_at = @event.finish_at + rep_every.to_i.days
+       @event.save_set_organizer(user)
+       end
+     end
+    end
+
+private
+   
+    def date_format
+       if I18n.locale == :en
+         return "%m/%d/%Y"
+       else
+         return "%d/%m/%Y"
+       end      
+     end 
     
 end

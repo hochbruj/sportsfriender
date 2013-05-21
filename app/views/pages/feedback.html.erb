@@ -32,7 +32,7 @@
 <div class='span8'>
 <div class='left10px'>
 <div class='dred_18'><%=t @event.sport["cat#{c}"] %></div>
-<div class='dred_16'><%= t('skill_level')%>: <%= number_with_precision(p.user.last_stat(@event.sport_id)["cat#{c}"], :precision => 1, :locale => :en) %> <%= t('out_of')%></div>
+<div class='dred_16'><%= t('current')%> <%= t('skill_level')%>: <%= number_with_precision(p.user.last_stat(@event.sport_id)["cat#{c}"], :precision => 1, :locale => :en) %> <%= t('out_of')%></div>
 <span class='black_15'><%= t('skill_mean')%></span> <span class='grey_15'><%= p.user.skill_text(@event.sport_id,c)%></span>
 </div>
 </div> <!--! end of span8 -->
@@ -90,7 +90,7 @@
 <div class='span8'>
 <div class='left10px'>
 <div class='dred_18'><%=t @event.sport["cat#{c}"] %></div>
-<div class='dred_16'><%= t('skill_level')%>: <%= number_with_precision(p.user.last_stat(@event.sport_id)["cat#{c}"], :precision => 1, :locale => :en) %> <%= t('out_of')%></div>
+<div class='dred_16'><%= t('current')%> <%= t('skill_level')%>: <%= number_with_precision(p.user.last_stat(@event.sport_id)["cat#{c}"], :precision => 1, :locale => :en) %> <%= t('out_of')%></div>
 <span class='black_15'><%= t('skill_mean')%></span> <span class='grey_15'><%= p.user.skill_text(@event.sport_id,c)%></span>
 </div>
 </div> <!--! end of span8 -->

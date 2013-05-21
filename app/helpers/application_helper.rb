@@ -19,6 +19,7 @@ module ApplicationHelper
     end
   end
   
+  
   def show_rated(level,dif)
     return  'worse wselected' if level == 'w' and dif == -1
     return  'same sselected' if level == 's' and dif == 0
@@ -27,5 +28,15 @@ module ApplicationHelper
     return  'no' if level == 's' and dif != 0
     return  'no' if level == 'b' and dif != 1 
   end
+  
+  def date_format
+    if I18n.locale == :en
+      return "mm/dd/yy","%m/%d/%Y"
+    else
+      return "dd/mm/yy","%d/%m/%Y"
+    end      
+  end
+  
+  
   
 end

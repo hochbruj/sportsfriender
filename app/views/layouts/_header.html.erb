@@ -8,16 +8,14 @@
     <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>
     </li>
   <% else %>
-    <li><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></li>
-    <li>
-    <%= link_to 'Login', new_user_session_path %>
-    </li>
-    <li>
+ 	<li>
+	 <%= button_to('Sign up', new_user_registration_path, :class => 'btn btn-success', :method => :get) %>
+	</li>
 	<li>
-	 <%= link_to 'Sign up', new_user_registration_path %>
+	<%= button_to('Login', new_user_session_path, :class => 'btn btn-inverse', :method => :get) %>
 	</li>
   <% end %>
   	<li><%= form_tag root_path do %> <%= select_tag 'set_locale',
-	            options_for_select(LANGUAGES, I18n.locale.to_s), :class => 'dropdown',
+	            options_for_select(LANGUAGES, I18n.locale.to_s), :class => 'lang_select',
 	            :onchange => 'this.form.submit()' %><% end %></li>
 </ul>

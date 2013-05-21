@@ -4,7 +4,18 @@
 <% end %>
 <div class='row-fluid'>
 <div class='span6'>
-<div class='set_event_inner'>	
+
+<% if current_user.pointers.where(cat_id: 1).empty? %>
+<div class='blue_box'>
+<div class='frame'>
+<span class='black_18' style='margin: 10px 10px 0 0'><%= t('pointer_header')%></span> 
+<%= link_to t('dont_show'), pointer_path(:cat_id => 1), :class => 'link_min' %></br>
+<%= t('.pointer')%>
+</div>
+</div>
+<%end%>
+
+<div class='frame'>	
 <h5><%= t('.sport_city')%></h3> 
 <%= form_tag( new_event_path, :method => "get") do %>
 
@@ -31,27 +42,27 @@
 <%= f.hidden_field :city_id %>
 <%= f.hidden_field :sport_id %>
 <%= f.input :location_id, :label => false, collection: Location.order(:name).where("city_id = ? AND sport_id = ?", @event.city.id, @event.sport.id).map{ |l| [l.full_name, l.id]}, :prompt => t('.choose_location'), :input_html => { :style=> 'width: 320px' }  %>
-<%= link_to t('.new_location'), new_location_path(:city_id => @event.city.id, :sport_id => @event.sport_id) %></br>
-<%= link_to t('.from_map'), map_path(:sport_id => @event.sport_id, :city_id => @event.city_id) %>
+<b>(<%=t('or')%>)</b> <%= link_to t('.new_location'), new_location_path(:city_id => @event.city.id, :sport_id => @event.sport_id), :class =>'link_normal' %></br>
+<b>(<%=t('or')%>)</b> <%= link_to t('.from_map'), map_path(:sport_id => @event.sport_id, :city_id => @event.city_id), :class =>'link_normal'%>
 </div>
 
 <div class='simple_form form-horizontal'>
 
 <div class='blue_box'>
-<div class='set_event_inner'>
+<div class='frame'>
 <h5><%= t('.mode_gender')%></h5>
 <%= f.input :mode, :label => t('mode'), collection: [[t("training"), 'training'],[t("trai_game"),'trai_game'], [t("game"),'game'], [t("social"),'social']], :prompt => t('choose'), :required => true%>
-<%= f.input :gender, :label => t('gender'), collection: [[t("male"), 'male'],[t("female"),'female'],[t("mixed"), 'mixed']], :prompt => t('choose'), :required => true %>
+<%= f.input :gender, :label => t('gender'), collection: [[t(current_user.gender), current_user.gender],[t("mixed"), 'mixed']], :prompt => t('choose'), :required => true %>
 </div>
 </div>
 
-<div class='set_event_inner'>
+<div class='frame'>
 <h5><%= t('add_info')%></h5>
 <%= f.input :info, :label => false, input_html: {style: 'height:100px; width:300px'} %>
 </div>
 
 <div class='blue_box'>
-<div class='set_event_inner'>
+<div class='frame'>
 <h5><%= t('.date_time')%></h5>
 <%= f.input :date, :label => false, input_html: {style: 'width:75px'}%>
 
@@ -82,6 +93,11 @@
 	  <%= f.input_field :am_pm_fin, :collection => ['AM','PM'], :selected => @event.am_pm_fin, :class => 'span2' %>
 	  <% end %>
 <% end %>
+<%= f.input :repeat, as: :boolean, :inline_label => t('.repeat'), :label => false%>
+<div id='rep_fields'>
+<%= f.input :rep_every, :label => t('.every'), collection: [[t("1week"), '7'],[t("2week"),'14'], [t("3week"),'21'], [t("4week"),'28']], include_blank: false, input_html: {style: 'width:90px'} %>
+<%= f.input :rep_end, :label => t('.until'), input_html: {style: 'width:75px'}%>
+</div>
 </div>
 </div>
 
@@ -90,23 +106,23 @@
 
 <div class='span6'>
 <div class='simple_form form-horizontal'>
-<div class='set_event_inner'>
+<div class='frame'>
 <h5><%= t('skill_range')%></h5>
 <%= f.input :skill_from, :label => t('low_end'), collection: (1..10), include_blank: false, input_html: {style: 'width:60px'}%>
 <%= f.input :skill_to, :label => t('high_end'), collection: (1..10), :selected => (@event.skill_to or 10), include_blank: false, input_html: {style: 'width:60px'} %>
 </div>
 
 <div class='blue_box'>
-<div class='set_event_inner'>
+<div class='frame'>
 <h5><%= t('age_range')%></h5>
 <%= f.input :age_from, :label => t('low_end'), collection: (16..100), include_blank: false, input_html: {style: 'width:60px'}%>
 <%= f.input :age_to, :label => t('high_end'), collection: (16..100), :selected => (@event.age_to or 100), include_blank: false, input_html: {style: 'width:60px'} %>
 </div>
 </div>
 
-<div class='set_event_inner'>
-<h5><%= t('max_part')%></h5>
-<h6><%= t('.incl_org')%></h6>
+<div class='frame'>
+<div class='black_18' style='margin: 10px 0 0 0'><%= t('max_part')%></div>
+<div class='grey_15' style='padding: 0 0 15px 0'><%= t('.incl_org')%></div>
 <%= f.input :max_part, :label => false, collection: (2..25), prompt: t('choose'), input_html: {style: 'width:85px'}%>
 <div>
 <hr>

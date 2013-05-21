@@ -1,9 +1,11 @@
 class RatingsController < ApplicationController
 
   def new
+    @title = 'My Sports'
     @header = 'my_sports'
     @rating = Rating.new
     @lhn = 'my_sports'
+    @span = 'nomargin_10'
     unless current_user.profile_complete?
     @sport = current_user.sport
     else
@@ -20,6 +22,11 @@ class RatingsController < ApplicationController
   end  
   
   def create
+    @title = 'My Sports'
+    @header = 'my_sports'
+    @lhn = 'my_sports'
+    @span = 'nomargin_10'
+    
     @rating = Rating.new(params[:rating])
     @rating.rated_by = current_user.id
      respond_to do |format|

@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   
   belongs_to :sport
   belongs_to :city
+  has_many :pointers, :dependent => :destroy
   has_many :ratings, :dependent => :destroy
   has_many :stats, :dependent => :destroy
   has_many :participants, :dependent => :destroy
@@ -173,5 +174,47 @@ class User < ActiveRecord::Base
   return data_total,labels_total,legend
   end
 
+  def chart_per_sport(sport)
+  legend = []
+  data_total = []
+  labels = []
+  labels_total = []
+  x = []
+  #order stats per sport descending
+     x = stats.where(sport_id: sport).sort_by { |k| k[:created_at] }.reverse 
+
+  #iterate over categories
+   1.upto(5) do |i|
+    unless Sport.find_by_id(sport)["cat#{i}"] == 'nil'
+  #initialize variable
+    labels = []
+    data = []
+
+  #create legend 
+    legend << Sport.find_by_id(sport)["cat#{i}"]
+  #count down months up to one year  
+      11.downto(0) do |count|
+        rating = nil
+        labels << Date.today.months_since(-1*count).strftime("%B")[0]
+  #get rating value per date
+          x.each do |z|
+            if DateTime.now.months_since(-1*count) >= z.created_at
+              rating = z["cat#{i}"]
+              break
+            end
+          end
+         if rating == nil 
+         rating = x.last["cat#{i}"]
+         end
+         data << rating
+      end 
+  #add data per sport to total array
+   data_total << data  
+    end
+   end
+  labels_total[0] = labels
+  return data_total,labels_total,legend
+  end 
+  
 
 end

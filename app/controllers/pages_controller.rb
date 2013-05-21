@@ -11,6 +11,8 @@ class PagesController < ApplicationController
       redirect_to dashboard_path
       end
     @title = "Home"
+    @span = 'span12'
+    @no_lhn = true
     end
     
   end
@@ -18,17 +20,18 @@ class PagesController < ApplicationController
 
   def contact
     @title = "Contact"
+    @span = 'span12'
   end
 
-  def about
-    @title = "About"
-  end
+ 
   
   def dashboard
     if current_user.profile_complete?
     @title = "Dashboard"
     @header = 'dashboard'
     @lhn = 'dashboard'
+    @span = 'nomargin_10'
+    
     @user = current_user
     @last = current_user.completed_events.first
     @upcoming = current_user.events.where("finish_at > ?", 
@@ -50,6 +53,8 @@ class PagesController < ApplicationController
     @title = "My Events"
     @header = 'my_events'
     @lhn = 'my_events'
+    @span = 'nomargin_10'
+    
     @tab1 = 'active' unless params[:active] == 'tab2'
     @tab2 = 'active' if params[:active] == 'tab2'
     @upcoming = current_user.events.where("finish_at > ?", 
@@ -61,6 +66,8 @@ class PagesController < ApplicationController
     @title = "Feedback"
     @header = 'my_events'
     @lhn = 'my_events'
+    @span = 'nomargin_10'
+    
     @event = Event.find(params[:event_id])
     @rating = @rating = Rating.new
   
@@ -70,8 +77,37 @@ class PagesController < ApplicationController
     @title = "My Sports"
     @header = 'my_sports'
     @lhn = 'my_sports'
+    @span = 'nomargin_10'
     
   end
   
+  def myprogress
+    @title = "My Progress"
+    @header = 'my_progress'
+    @lhn = 'my_progress'
+    @span = 'nomargin_10'
+    
+  end
+  
+  def pointer
+    @pointer = current_user.pointers.build(:cat_id => params[:cat_id])
+    @pointer.save
+    redirect_to :back
+  end
+  
+  def privacy
+    @title = "Privacy"
+    @header = 'privacy'
+    @no_lhn = true
+    @span = 'span_12'
+  
+  end
+  
+  def welcome
+    @title = "Welcome"
+    @header = 'welcome'
+    @span = 'nomargin_10'
+  
+  end
   
 end

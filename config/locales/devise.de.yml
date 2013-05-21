@@ -19,9 +19,10 @@ de:
       invalid_token: 'Der Anmelde-Token ist ungültig.'
       timeout: 'Ihre Sitzung ist abgelaufen, bitte melden Sie sich erneut an.'
       inactive: 'Ihr Account ist nicht aktiv.'
-    sessions:
-      signed_in: ''
-      signed_out: ''
+    my_sessions:
+      user:
+       signed_in: ''
+       signed_out: ''
     passwords:
       send_instructions: 'Sie erhalten in wenigen Minuten eine E-Mail mit der Anleitung, wie Sie ihr Passwort zurücksetzen können.'
       updated: 'Ihr Passwort wurde geändert. Sie sind jetzt angemeldet.'

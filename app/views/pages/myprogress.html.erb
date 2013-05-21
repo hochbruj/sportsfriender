@@ -1,0 +1,32 @@
+<div class='subheader_wrapper'><h4 class='subheader_inner'><%= t('.header') %></h4></div>
+</br>
+<div class="accordion" id="accordion1">
+<% current_user.rated.each do |s| %>
+<div class="accordion-group">
+<div class="accordion-heading">
+<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse<%=s.id%>">
+<h4><%=s.name%></h4>
+</a>
+</div>
+<div id="collapse<%=s.id%>" class="accordion-body collapse">
+<div class="accordion-inner">
+	<img src="<%= Gchart.line(
+	              :size => '600x300',
+	              :theme => :thirty7signals,
+	              :data => current_user.chart_per_sport(s.id)[0],
+	              :max_value => 10,
+	#              :data => [[1, 1, 1, 2, 4, 3, 4, 5, 6, 6, 7, 6],
+	#                       [1.2, 2.5, 2.7, 2.8, 2.9, 5, 4, 3, 7, 9, 9, 10], 
+	#                       [5.2, 5.3, 5.6, 6.1, 6.9, 7, 7.1, 7.2, 7.4, 7.5, 7.6, 7.7], 
+	#                       [6.2, 6.5, 5.8, 6.8, 6.9, 7, 8, 9, 10, 10, 10, 10],
+	#                       [1.2, 3.5, 4.8, 6.8, 4.9, 4, 3, 2, 1, 1, 1, 1]],
+	              :axis_with_labels => ['x', 'y'], 
+	              :axis_labels => current_user.chart_per_sport(s.id)[1],
+	              :axis_range => [nil, [0,10,1]],
+	              :legend => current_user.chart_per_sport(s.id)[2]) %>">
+
+</div>
+</div>
+</div>
+<%end%>
+</div> <!--! end of accordion1 -->

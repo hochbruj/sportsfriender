@@ -2,12 +2,16 @@
 en:
   overall_rating: "Your Overall Sportsfriends Rating for this sport"
   skill_rating: "Sportsfriends' Rating for this Skill:"
-  skill_level: "Current Skill Level"
+  current: "Current"
+  skill_level: "Skill Level"
   out_of: "out of 10"
   your_skills: "Your Skills, Current Skill Levels & What They Mean"
   name: "Name"
   first_name: "First Name"
   last_name: "Last Name"
+  email_adr: "Email address"
+  password: "Password"
+  confirmation: "Password confirmation"
   dob: "Date of Birth"
   gender: "Gender"
   male: "male"
@@ -20,11 +24,6 @@ en:
   sport: "Sport"
   about_me: "About Me"
   mode: "Mode"
-  training: "Training"
-  trai_game: "Training & Game"
-  game: "Game"
-  social: "Social"
-  choose: "Choose"
   start_time: "Start Time"
   fin_time: "End Time"
   skill_range: "Skill Range"
@@ -47,6 +46,16 @@ en:
         other: "%{count} Sportsfriends"
   rated: "Rated"
   unrated: "Not Rated"
+  pointer_header: "Instructions and Pointers"
+  dont_show: "Don't show this again"
+  using_email: "Sign up using your email address"
+  agreement: "By creating an account, you agree to Sportsfriender's"
+  tos: "Terms of Service"
+  priv_pol: "Private Policy"
+  forgot_password: "Forgot your password"
+  reset_instr: "Send me reset password instructions"
+  nice_move: "Nice Move!"
+  
 
   date:
     formats:
@@ -79,13 +88,17 @@ en:
   events:
      new:
       sport_city: "Sport, City & Location"
-      new_location: "(or) + Add a New Location by Street Address"
-      from_map: "(or) + Add a New Location from a Map"
+      new_location: "+ Add a New Location by Street Address"
+      from_map: "+ Add a New Location from a Map"
       choose_location: "Choose an event location from this list"
       mode_gender: "Event Mode & Gender"
       date_time: "Date & Time"
       incl_org: "(Including Organizer)"
       submit: "SUBMIT EVENT"
+      repeat: "Repeating Event"
+      every: "Every"
+      until: "Until"
+      pointer: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
      show:
       can_join: "Who Can Join"
       spot:
@@ -102,7 +115,6 @@ en:
 
   pages:
       welcome:
-          header: "Nice Move!"
           text: "Let's find some games for you to participate in. It's time to tell everyone a little about yourself, pick your sports of choice, location and games." 
           button: "Let's Get Going, Time to Play"
       dashboard:
@@ -121,6 +133,8 @@ en:
       mysports:
           header: "Sports you like to play"
           add_sport: "ADD NEW SPORT"
+      myprogress:
+          header: "Track your progress over the last year"
   headers:
       setup_event:
           header: "Set up A New Event"
@@ -128,11 +142,12 @@ en:
           header: "Event Detail"
 
   locations:
-         form:
+         new:
           header: "Add a New Location"
           private: "Private Address. Do not share outside my groups"
           button: "ADD NEW LOCATION"
-      
+          pointer: "STorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+   
 # error messages
   start_past: "start time is in the past"
   start_end: "end time is not after start time"
@@ -146,3 +161,15 @@ en:
 # button texts
   goto_dash: "Goto Dashboard"
   pick_assess: "Pick your Sports an Assess Your Skill Levels"
+
+# drop down values
+  choose: "Choose"
+  training: "Training"
+  trai_game: "Training & Game"
+  game: "Game"
+  social: "Social"
+  1week: "week"
+  2week: "2 weeks"
+  3week: "3 weeks"
+  4week: "4 weeks"
+

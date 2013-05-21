@@ -36,6 +36,8 @@ class UsersController < ApplicationController
   def edit
     @title = 'My Profile'
     @header = 'my_profile'
+    @span = 'nomargin_10'
+    
     @user = User.find(params[:id])
     if @user.profile_complete?
       @button_text = I18n.t('goto_dash')
@@ -65,6 +67,8 @@ class UsersController < ApplicationController
   def update
     @title = "My Profile"
     @header = 'my_profile'
+    @span = 'nomargin_10'
+    
     @user = User.find(params[:id])
      
      if @user.profile_complete?

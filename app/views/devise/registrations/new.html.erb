@@ -1,10 +1,25 @@
-<h2>Sign up</h2>
+<%= javascript_tag do %>
+  window.facebookURL = '<%= j user_omniauth_authorize_path(:facebook) %>';
+<% end %>
+<div id='facebook_signup'></div>
+
+<div class='text_line'>
+<span class='text_inline'><b><%= t('or')%></b></span>
+</div>
+
+<div class='row-fluid'>
+<div class='span8 offset2'>
+<div style='margin: 5px 0 15px 0'><%=t('using_email')%></div>
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form-horizontal' }) do |f| %>
   <%= f.error_notification %>
   <%= display_base_errors resource %>
-  <%= f.input :email, :required => true %>
-  <%= f.input :password, :required => true %>
-  <%= f.input :password_confirmation, :required => true %>
-  <%= f.button :submit, 'Sign up', :class => 'btn-primary' %>
+  <%= f.input :email, placeholder:  t('email_adr'), label: false %>
+  <%= f.input :password, placeholder:  t('password'), label: false %>
+  <%= f.input :password_confirmation, placeholder:  t('confirmation'), label: false %>
+  <%= f.button :submit, 'Sign up', :class => 'btn-success' %>
 <% end %>
-<%= render "devise/shared/links" %>
+
+</div>
+</div>
+<hr>
+<div style='font-size: 13px;'><%=t('agreement')%> <%= link_to t('priv_pol'), privacy_path %></div>

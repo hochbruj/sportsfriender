@@ -1,35 +1,32 @@
 <%= render 'headers/detail_event'%>
 <div class='row-fluid'>
 <div class='span6'>
-<div class='set_event_inner'>
-<h5><%= @event.sport.name%> <%= t(@event.mode)%></h5>
-<%= l @event.start_at.to_date, :format => :long %>, <%= l @event.start_at.in_time_zone(@event.city.zone), :format => :short %>
- - <%= l @event.finish_at.in_time_zone(@event.city.zone), :format => :short %>
-<hr>
+<div class='frame'>
+<div class='grey_23' style='margin-top: 10px'><%= @event.sport.name%> <%= t(@event.mode)%></div>
+<b><%= l @event.start_at.to_date, :format => :long %>, <%= l @event.start_at.in_time_zone(@event.city.zone), :format => :short %>
+ - <%= l @event.finish_at.in_time_zone(@event.city.zone), :format => :short %></b>
 </div>
 
 <div class='blue_box'>
-<div class='set_event_inner'>
-<h5><%= t('add_info')%></h5>
+<div class='frame'>
+<div class='event_title'><%= t('add_info')%></div>
 <%= simple_format(@event.info) %>
-<hr>
 </div>
 </div>
 
-<div class='set_event_inner'>
-<h5><%= t('.can_join')%></h5>
-<%= t('gender')%>: <%= t(@event.gender)%></br>
-<%= t('skill_range')%>: <%= @event.skill_from %> - <%= @event.skill_to %></br>
-<%= t('age_range')%>: <%= @event.age_from %> - <%= @event.age_to %></br>
-<hr>
+<div class='frame'>
+<div class='event_title'><%= t('.can_join')%></div>
+<b><%= t('gender')%>:</b> <%= t(@event.gender)%></br>
+<b><%= t('skill_range')%>:</b> <%= @event.skill_from %> - <%= @event.skill_to %></br>
+<b><%= t('age_range')%>:</b> <%= @event.age_from %> - <%= @event.age_to %></br>
 </div>
 
 <div class='blue_box'>
-<div class='set_event_inner'>
-<h5><%= t('location')%></h5>
-<%= @event.location.name%></br>
+<div class='frame'>
+<div class='event_title'><%= t('location')%></div>
+<b><%= @event.location.name%></br>
 <%= @event.location.address%></br>
-<%= @event.location.city.full_name%>
+<%= @event.location.city.full_name%></b>
 <%= gmaps({
   "map_options" => {"auto_adjust" => true, "auto_zoom" => false, "zoom" => 13 },
   "markers"     => {"data" => @location } })%>
@@ -38,11 +35,11 @@
 </div><!--! end of #span6 -->
 
 <div class='span6'>
-<div class='set_event_inner'>
+<div class='frame'>
 <% if (signed_in? and current_user.participate?(@event.id)) %>
-<%=t('.signed') %>
-<% else %>	    
-<%=t('.spot', :count => @event.spots_left) %>
+<div class='red_23' style='margin: 10px 0 10px 0'><%=t('.signed') %></div>
+<% else %>
+<div class='red_23' style='margin: 10px 0 10px 0'><%=t('.spot', :count => @event.spots_left) %></div>
 <% end %>
 
 <% if (signed_in? and not current_user.participate?(@event.id))%>
@@ -56,46 +53,45 @@
 <%= form_for current_user.participants.find_by_event_id(@event.id),
    :html => { :method => :delete } do |f| %>
 <%= f.hidden_field :event_id %>
-<%= f.submit(t('.unjoin'), :class => 'btn-large btn-success') %>
+<%= f.submit(t('.unjoin'), :class => 'unsign') %>
 <% end %>
 <% end %>
-<hr>
 </div>
 
 <div class='blue_box'>
-<div class='set_event_inner'>
-<h5><%= t('.organizer')%>:</h5>
+<div class='frame'>
+<div class='event_title'><%= t('.organizer')%>:</div>
 <div class='row-fluid'>
 <div class='span2'>
 <%= picture_for(@event.organizer.user)%>
 </div>
 <div class='span10'>
-<%= link_to @event.organizer.user.full_name, @event.organizer.user %></br>
-<%= @event.sport.name %> <%=t('skill_level')%>: <%= @event.organizer.user.last_stat(@event.sport_id).total_skill %>
+<div style='margin-top: 7px'>
+<%= link_to @event.organizer.user.full_name, @event.organizer.user, :class => 'link_normal'%></br>
+<%= @event.sport.name %> <%=t('skill_level')%>: <%= @event.organizer.user.last_stat(@event.sport_id).total_skill.round(1) %>
+</div>
 </div>
 </div> <!--! end of row lower level-->
-<hr>
 </div>
 </div>
 
-<div class='set_event_inner'>
-<h5><%= t('attendees')%>(<%=@event.participants.count%>)</h5>
+<div class='frame'>
+<div class='event_title'><%= t('attendees')%>(<%=@event.participants.count%>)</div>
 <%= render 'events/participants', :event => @event %>
-<hr>
 </div>
 
 <div class='blue_box'>
 <% unless @post_items.empty? %>
-<div class='set_event_inner'>
-<h5><%= t('.comments')%></h5>
+<div class='frame'>
+<div class='event_title'><%= t('.comments')%></div>
 <%= render :partial => 'paginate/post_item', :collection => @post_items %>
 <%= will_paginate @post_items, :renderer => BootstrapPagination::Rails %>
 </div>
 <% end %>
 </div>
 <% if signed_in? %>	
-<div class='set_event_inner'>
-<h5><%= t('.post')%></h5>
+<div class='frame'>
+<div class='event_title'><%= t('.post')%></div>
 <%= simple_form_for(current_user.event_posts.build(:event_id => @event.id), :html => {:class => 'form-horizontal'}) do |f| %>
    <%= f.input :content, :label => false, input_html: {style: 'width:400px'} %>
    <%= f.hidden_field :event_id %>

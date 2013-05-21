@@ -24,8 +24,10 @@ class LocationsController < ApplicationController
   # GET /locations/new
   # GET /locations/new.json
   def new
+    @title = 'My Events'
     @header = 'my_events'
     @lhn = 'my_events'
+    @span = 'nomargin_10' 
     @location = Location.new
     @location.sport_id = params[:sport_id]
     @location.city_id = params[:city_id]
@@ -45,7 +47,7 @@ class LocationsController < ApplicationController
   # POST /locations
   # POST /locations.json
   def create
-    @header = 'My Events'
+    @header = 'my_events'
     @lhn = 'my_events'
     @location = Location.new(params[:location])
     @location.user = current_user
@@ -89,7 +91,11 @@ class LocationsController < ApplicationController
   end
   
   def map
-     @location = Location.where(city_id: params[:city_id], sport_id: params[:sport_id]).to_gmaps4rails do |location, marker|
+    @title = 'My Events'
+    @header = 'my_events'
+    @lhn = 'my_events'
+    @span = 'nomargin_10'
+    @location = Location.where(city_id: params[:city_id], sport_id: params[:sport_id]).to_gmaps4rails do |location, marker|
       marker.infowindow render_to_string(:partial => "/markers/select_city", :locals => { :object => location })
       end
   end

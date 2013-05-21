@@ -1,9 +1,13 @@
 class EventsController < ApplicationController
+  before_filter :date_format
   def search
+    @title = 'My Events'
     @header = 'my_events'
     @lhn = 'my_events'
-    @event_results = Event.search(params[:sport_id],params[:search_city],params[:radius],params[:units])
-    @event_results = @event_results.paginate(:page => params[:page], :per_page => 2) unless @event_results.nil?
+    @span = 'nomargin_10'
+#    @event_results = Event.search(params[:sport_id],params[:search_city],params[:radius],params[:units])
+    @event_results = Event.search(params[:sport_id],params[:search_city],100,'mi')
+    @event_results = @event_results.paginate(:page => params[:page], :per_page => 10) unless @event_results.nil?
     respond_to do |format|
       format.html # index.html.erb
     end
@@ -24,13 +28,15 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    @title = 'My Events'
     @header = 'my_events'
     @lhn = 'my_events'
+    @span = 'nomargin_10'
     @event = Event.find(params[:id])
     @location = Location.find(@event.location_id).to_gmaps4rails do |location, marker|
     marker.infowindow render_to_string(:partial => "/markers/show_way", :locals => { :object => location })
     end
-    @post_items = @event.event_posts.paginate(:page => params[:page], :per_page => 2).order('created_at desc')
+    @post_items = @event.event_posts.paginate(:page => params[:page], :per_page => 4).order('created_at desc')
     
     session[:event_id] = @event.id
     
@@ -43,8 +49,10 @@ class EventsController < ApplicationController
   # GET /events/new
   # GET /events/new.json
   def new
+    @title = 'My Events'
     @header = 'my_events'
     @lhn = 'my_events'
+    @span = 'nomargin_10'
    
    @event = Event.new
    #set sport
@@ -69,6 +77,7 @@ class EventsController < ApplicationController
     
   #set Time
     @event.start_at = DateTime.now
+    @event.rep_end = (Date.today + 3.months).strftime(date_format)
 
     respond_to do |format|
       if @event.city.nil?
@@ -88,14 +97,18 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
+    @title = 'My Events'
     @header = 'my_events'
     @lhn = 'my_events'
+    @span = 'nomargin_10'
+    
     @event = Event.new(params[:event])
     @event.set_time
 
     respond_to do |format|
       if @event.save_set_organizer(current_user)
-        format.html { redirect_to dashboard_path, notice: 'Event was successfully created.' }
+         @event.check_repeat(current_user)
+        format.html { redirect_to dashboard_path }
         format.json { render json: @event, status: :created, location: @event }
       else
         format.html { render action: "new" }
@@ -131,4 +144,16 @@ class EventsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+private
+ def date_format
+   if I18n.locale == :en
+     return "%m/%d/%Y"
+   else
+     return "%d/%m/%Y"
+   end      
+ end
+
+
+
 end

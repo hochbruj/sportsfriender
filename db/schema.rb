@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130501043816) do
+ActiveRecord::Schema.define(:version => 20130517122914) do
 
   create_table "assessment_translations", :force => true do |t|
     t.integer  "assessment_id"
@@ -114,6 +114,13 @@ ActiveRecord::Schema.define(:version => 20130501043816) do
     t.integer  "event_id"
     t.boolean  "organizer"
     t.boolean  "rated"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "pointers", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "cat_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

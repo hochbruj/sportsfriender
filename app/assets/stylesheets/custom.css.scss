@@ -1,4 +1,18 @@
+/* login*/
 
+.text_line {
+    border-bottom:1px solid #91BED4;
+    line-height:16px;
+    text-align:center;
+    margin: 10px 0 10px 0;
+}
+
+.text_inline {
+    background:#FFF;
+    position:relative;
+    bottom:-8px;
+    padding:0 15px;
+}
 
 
 .header {
@@ -13,7 +27,7 @@
   border-top-right-radius: 4px;
    h3 {
      text-align: left;
-     padding: 0px 0px 0px 50px;}
+     padding-left: 15px;}
 
 }
 
@@ -39,19 +53,22 @@
  background-color: #f0f8fc;
 }
 
-.set_event_inner{
-  padding: 15px 10px 15px 20px;
+.frame{
+  padding: 15px 20px 15px 20px;
+  h5 { padding: 0px 0 5px 0}
 }
 
 
 
 .content_frame { background-color: white;
+                 min-height:200px;
                  margin: 0 0 20px;
                  border: solid 1px #bdbebf;
 				 border-top: none;
 				 border-bottom-left-radius: 4px;
 				 border-bottom-right-radius: 4px;
-                 padding: 5px 15px 15px 15px; }
+                 padding: 5px 15px 15px 15px;
+                 }
 
 .lhn_active {       background-color: white;
                  margin: 0 0 0;
@@ -59,7 +76,8 @@
 				 border-right: none;
 				 border-bottom-left-radius: 4px;
 				 border-top-left-radius: 4px;
-				 padding: 10px 10px 10px 10px; }
+				 padding: 10px 10px 10px 10px;
+}
 
 .lhn:hover {       background-color: white; cursor: pointer;
                  margin: 0 0 0;
@@ -71,37 +89,110 @@
 
 				
 .lhn          {   margin: 0 0 0 0;
-                 padding: 10px 10px 10px 10px; }
+                 padding: 10px 10px 10px 10px;
+                  }
 
+/* Buttons */
 
-.my_events { background: url('icons.png') no-repeat 20px -26px; 
-		         width: 200px; height: 40px;
-		    font-size: 24px; font-weight: bold; color: #413f3f;
-		    padding: 20px 14px 0px 70px;}
-
-#search_event { background: url('buttons.png') no-repeat -10px -49px; 
-			  width: 190px; height: 35px;
+@mixin button_base($pos) { cursor: pointer;
+              background: url('buttons.png') no-repeat -10px $pos;
+			  border: none;
+			  font-family: Lato; 
 			  font-weight: bold;
 			  text-transform: uppercase;
 			  color: #fff;
-			  text-shadow: -1px 1px rgba(0,0,0,.3);
-			  padding: 17px 10px 0px 45px;}
+			  text-shadow: -1px 1px rgba(0,0,0,.3);}
+
+@mixin button_padsize { width: 190px; height: 35px;
+                       padding: 17px 10px 0px 45px;}
+
+@mixin i_h_base($pos) { background: url('icons.png') no-repeat 0px $pos; 
+					    width: 150px; height: 40px;
+						font-size: 24px; font-weight: bold;
+						padding: 20px 0px 0px 65px;}
+
+@mixin i_sh_base($pos) { background: url('icons.png') no-repeat -405px $pos; 
+						width: 300px; height: 40px;
+						font-size: 21px; font-weight: bold;
+						padding: 10px 0px 0px 50px;}
+
+@mixin i_lhn_base($pos) { background: url('icons.png') no-repeat -245px $pos; 
+						width: 100px; height: 23px;
+						font-size: 16px;font-weight: bold;
+						padding: 0px 0px 0px 29px;}
+
+
+.i_myevents { @include i_h_base(-47px)}
+.i_dashboard { @include i_h_base(5px)}
+.i_mysport { @include i_h_base(-97px)}
+.i_myprofile { @include i_h_base(-145px)}
+.i_myprogress { @include i_h_base(-198px)}
+
+.i_sh_detail { @include i_sh_base(-4px)}
+.i_sh_set_up { @include i_sh_base(-54px)}
+
+.i_lhn_dashboard { @include i_lhn_base(-9px)}
+.i_lhn_myevents { @include i_lhn_base(-40px)}
+.i_lhn_mysports { @include i_lhn_base(-67px)}
+.i_lhn_myprogress { @include i_lhn_base(-110px)}
 			
-#search_event:hover { background: url('buttons.png') no-repeat -10px -96px; 
-						  width: 190px; height: 35px;
-						  font-weight: bold;
-						  text-transform: uppercase;
-						  color: #fff;
-						  text-shadow: -1px 1px rgba(0,0,0,.3);
-						   padding: 17px 10px 0px 45px;}
+#search_event { @include button_base(-96px);
+                @include button_padsize; }
+
+#search_event:hover { @include button_base(-144px);}
 						
-#host_event { background: url('buttons.png') no-repeat -10px 0px; 
-			  width: 210px; height: 35px;;
-			  font-weight: bold;
-			  text-transform: uppercase;
-			  color: #fff;
-			  text-shadow: -1px 1px rgba(0,0,0,.3);
+#host_event { @include button_base(0px); 
+			  width: 210px; height: 35px;
 			  padding: 17px 0px 0px 45px;}
+
+#host_event:hover { @include button_base(-48px);}
+
+#facebook { cursor: pointer;
+            margin-top: 15px;
+            margin-left: auto;
+		    margin-right: auto;
+			 background: url('buttons.png') no-repeat -10px -295px; 
+			 width: 300px; height: 50px }
+
+#facebook_signup { cursor: pointer;
+			margin-top: 15px;
+			margin-left: auto;
+		    margin-right: auto;
+			background: url('buttons.png') no-repeat -10px -420px; 
+			width: 300px; height: 50px }
+
+.b_search { @include button_base(-549px);
+			width: 300px; height: 40px;
+			padding: 3px 40px 10px 20px;
+			margin-left: 10px; }
+
+.b_search:hover { @include button_base(-595px) }
+
+.unsign  { cursor: pointer;
+           border:none;
+			             background: url('buttons.png') no-repeat -10px -195px; 
+						 width: 300px; height: 35px;
+						 font-family: Lato;
+						 font-weight: bold;
+						 text-transform: uppercase;
+						 color: #fff;
+						 text-shadow: -1px 1px rgba(0,0,0,.3);
+						 padding: 17px 100px 30px 50px;}
+
+
+/* Search bar*/
+
+.sb_wrapper {width: 900px; height: 40px; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; background-color: #292c33; -webkit-box-shadow: 0 1px rgba(255,255,255,.3), inset 0 2px rgba(255,255,255,.3); -moz-box-shadow: 0 1px rgba(255,255,255,.3), inset 0 2px rgba(255,255,255,.3); box-shadow: 0 1px rgba(255,255,255,.3), inset 0 2px rgba(255,255,255,.3); border: solid 1px #000; background-image: -webkit-linear-gradient(bottom, rgba(0,0,0,.3), rgba(255,255,255,.3)); background-image: -moz-linear-gradient(bottom, rgba(0,0,0,.3), rgba(255,255,255,.3)); background-image: -o-linear-gradient(bottom, rgba(0,0,0,.3), rgba(255,255,255,.3)); background-image: -ms-linear-gradient(bottom, rgba(0,0,0,.3), rgba(255,255,255,.3)); background-image: linear-gradient(to top, rgba(0,0,0,.3), rgba(255,255,255,.3));
+padding: 10px 0px 1px 0px;
+margin-bottom: 15px;
+  select {	background-color: #fff;};
+  input[type="text"] {	background-color: #fff;};
+    }
+
+.sb_text {font-size: 17px; font-weight: bold; color: #fff;
+          padding: 0px 15px 0px 15px;}
+
+/* Feedback */
 
 .rating td {
 		    text-align: center;
@@ -165,11 +256,18 @@
           color: white
           }
 
+
+
+.event_title{font-size: 18px; font-weight: bold; color: #2d2b2b;
+             margin: 0px 0 10px 0 }
+
 .link_big { font-size: 23px; font-weight: bold; color: #0b689d; }
 .link_mid { font-size: 21px; font-weight: bold; color: #0b689d; }
+.link_normal { font-size: 15px; font-weight: bold; color: #0b689d; }
 .link_small { font-size: 16px; font-weight: bold; text-decoration: underline; color: #0b689d; }
 .link_min { font-size: 13px; font-weight: bold; color: #0b689d; }
 
+.red_23 { font-size: 23px; font-weight: bold; color: #a71601; }
 .red_18 { font-size: 18px; font-weight: bold; color: #a71601; }
 .green_18{ font-size: 18px; font-weight: bold; color: #455a08; }
 .dred_15 { font-size: 15px; font-weight: bold; color: #670205; }
@@ -177,5 +275,7 @@
 .dred_18 { font-size: 18px; font-weight: bold; color: #670205; } 
 .black_18 { font-size: 18px; font-weight: bold; color: #272626; }
 .black_15 { font-size: 15px; font-weight: bold; color: #272626; }
+.grey_23 { font-size: 23px; font-weight: bold; color: #2d2b2b;}
+.grey_18 { font-size: 18px; font-weight: bold; color: #2d2b2b;}
 .grey_15 { font-size: 15px; color: #1a1819; }
 .left10px {margin-left: 10px;}

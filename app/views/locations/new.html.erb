@@ -1,4 +1,46 @@
 <%= render 'headers/setup_event'%>
-<%= render 'form' %>
+<div class='row-fluid'>
+<div class='span6'>
 
-<%= link_to 'Back', locations_path %>
+<% if current_user.pointers.where(cat_id: 2).empty? %>
+<div class='blue_box'>
+<div class='frame'>
+<span class='black_18' style='margin: 10px 10px 0 0'><%= t('pointer_header')%></span> 
+<%= link_to t('dont_show'), pointer_path(:cat_id => 2), :class => 'link_min' %></br>
+<%= t('.pointer')%>
+</div>
+</div>
+<%end%>
+
+<div class='frame'>
+<h5><%= t('.header') %></h5>
+<%= simple_form_for(@location, :html => {:class => 'form-horizontal' }) do |f| %>
+  <%= f.error_notification %>
+  	<%= f.association :sport, :label => t('sport'), include_blank: false, :required => true %>
+    <%= f.input :name, :label => t('name'), :required => true %>
+    <%= f.input :address, :label => t('address'), :required => true %>
+   
+    <% if @location.errors[:city_name].any? %>
+	  	<div class="control-group string required error">
+	<% else %>
+		<div class="control-group string required">
+	<% end %>
+	<%= f.label :city_name, :label => t('city'), :class => "control-label", :required => true %>
+    <div class="controls">
+	<%= f.text_field :city_name, data: {autocomplete_source: cities_path}, :autocomplete => :on %>
+    <%= f.error :city_name, id: 'city_name_error' %>
+    </div>
+    </div>
+     
+     <%= f.input :telephone, :label => t('telephone') %>
+     <%= f.input :website, :label => t('website') %>
+     <%= f.input :private, as: :boolean, inline_label: t('.private'), label: false %>
+
+
+ <hr>
+ <%= f.button :submit, t('.button'), :class => 'btn-large btn-inverse' %>
+<% end %>
+</div>
+
+</div>
+</div>
