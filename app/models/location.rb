@@ -46,10 +46,19 @@ def city_name=(name)
   self.city = City.find_by_full_name(name) unless name.blank?
 end
 
-#def gmaps4rails_address
-#describe how to retrieve the address from your model, if you use directly a db column, you can dry your code, see wiki
-#  "#{self.street}, #{self.city.full_name}" 
-#end            
-
+def self.valid_entries(sport_id,city_id,user_id) 
+  @locations = self.where(city_id: city_id)
+  @locations = @locations.where(sport_id: sport_id)
+  @locations.delete_if{|l|
+    (l.private? and l.user.groups.empty? and l.user_id != user_id) or 
+    (l.private? and l.user.groups.exists? and 
+     (l.user.groups.each do |g|
+       break if g.members.where(user_id: user_id).exists?
+       puts true
+            end) and l.user_id != user_id)
+  }
+end
+     
+     
 
 end

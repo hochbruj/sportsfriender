@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130517122914) do
+ActiveRecord::Schema.define(:version => 20130523034019) do
 
   create_table "assessment_translations", :force => true do |t|
     t.integer  "assessment_id"
@@ -94,6 +94,13 @@ ActiveRecord::Schema.define(:version => 20130517122914) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "groups", :force => true do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "locations", :force => true do |t|
     t.string   "name"
     t.string   "address"
@@ -107,6 +114,21 @@ ActiveRecord::Schema.define(:version => 20130517122914) do
     t.boolean  "private"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "members", :force => true do |t|
+    t.integer  "group_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "messages", :force => true do |t|
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
+    t.text     "content"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "participants", :force => true do |t|

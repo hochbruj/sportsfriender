@@ -55,8 +55,17 @@ en:
   forgot_password: "Forgot your password"
   reset_instr: "Send me reset password instructions"
   nice_move: "Nice Move!"
+  rated_by: "Rated by"
+  send_message: "Send a message to"
+  add_to_sf: "Add to Group"
+  send_to_sf: "Send Message"
+  group_name: "Group Name"
+  add_to_ngr: "Add to a new group"
+  add_sf_to: "Add %{sf} to"
+  more: "More"
+  search: "Search"
+  groups: "Groups"
   
-
   date:
     formats:
       default: "%Y-%m-%d"
@@ -99,6 +108,9 @@ en:
       every: "Every"
       until: "Until"
       pointer: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+      invite: "Invite"
+      by_email: "By Email (seperated by comma)"
+      private: "Private Event (not searchable)"
      show:
       can_join: "Who Can Join"
       spot:
@@ -112,6 +124,8 @@ en:
       post: "Post A Comment"
       submit: "SUBMIT COMMENT"
       comments: "Comments"
+     search:
+      no_result: "Sorry, we couldn't find any event for this sport and city."
 
   pages:
       welcome:
@@ -121,6 +135,7 @@ en:
           all_upcoming: "See all your upcoming events"
           all_completed: "See all your completed events"
           last: "My Last Event"
+          progress_detail: "See your progress details"
       feedback:
           header: "Rate Sportsfriends for this Event"
           title: "Skills, Current Skill Levels & What They Mean"
@@ -135,6 +150,10 @@ en:
           add_sport: "ADD NEW SPORT"
       myprogress:
           header: "Track your progress over the last year"
+      mysportsfriends:
+          pointer: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+          group: "Group"
+          members: "Members"
   headers:
       setup_event:
           header: "Set up A New Event"
@@ -157,6 +176,8 @@ en:
   skill_higher: "is higher than your skill level"
   skill_lower: "is lower than your skill level"
   post_error: "Comment is either empty or too long (max. 255 characters)"
+  group_error: "Group name is not valid"
+  cant_signup: "Sorry cou can't sign up for this event. Please check the 'Who Can Join' requirements"
   
 # button texts
   goto_dash: "Goto Dashboard"

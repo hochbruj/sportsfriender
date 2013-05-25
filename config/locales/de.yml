@@ -41,7 +41,7 @@ de:
   location: "Location"
   skill_mean: "Was dieses Skill Level bedeuted:"
   sportsfriend:
-          zero: "NKein Sportsfriend" 
+          zero: "Kein Sportsfriend" 
           one: "%{count} Sportsfriend"
           other: "%{count} Sportsfriends"
   rated: "Bewerted"
@@ -55,6 +55,17 @@ de:
   forgot_password: "Passwort vergessen"
   reset_instr: "Sende Email zum Zurücksetzen"
   nice_move: "Los geht's!"
+  rated_by: "Bewerted von"
+  send_message: "Sende eine Nachricht an"
+  add_to_sf: "Füge zur Gruppe hinzu"
+  send_to_sf: "Sende Nachricht"
+  group_name: "Gruppenname"
+  add_to_ngr: "Füge zu einer neuen Gruppe hinzu"
+  add_sf_to: "Füge %{sf} zur Gruppe hinzu"
+  more: "Mehr"
+  search: "Suche"
+  groups: "Gruppen"
+  
 
   date:
     formats:
@@ -113,6 +124,9 @@ de:
      every: "Jede"
      until: "Bis"
      pointer: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+     invite: "Einladung"
+     by_email: "Per Email (kommagetrennt)"
+     private: "Privates Event (nicht suchbar)"
    show:
      can_join: "Wer kann teilnehmen"
      spot:
@@ -126,6 +140,8 @@ de:
      post: "Poste einen Kommentar"
      submit: "KOMMENTAR POSTEN"
      comments: "Kommentare"
+   search:
+     no_result: "Wir konnten leider kein Event für diesen Sport und diese Stadt finden."
 
   pages:
    welcome:
@@ -135,6 +151,7 @@ de:
       all_upcoming: "Siehe alle deine anstehenden Events"
       all_completed: "Siehe alle deine beendeten Events"
       last: "Mein letztes Event"
+      progress_detail: "Siehe deinen Progress im Detail"
    feedback:
       header: "Bewerte Sportsfriends für dieses Event"
       title: "Skills, Aktuelle Skill Level & Was es bedeutet"
@@ -149,7 +166,10 @@ de:
       add_sport: "FÜGE NEUEN SPORT HINZU"
    myprogress:
       header: "Verfolge deinen Progress über das letzte Jahr"
-
+   mysportsfriends:
+       pointer: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+       group: "Gruppe"
+       members: "Mitglieder"
   headers:
    setup_event:
      header: "Erstelle ein neues Event"
@@ -172,6 +192,8 @@ de:
   skill_higher: "ist grösser als dein Skill Level"
   skill_lower: 'ist niedriger als dein Skill Level'
   post_error: "Kommentar ist entweder nicht gefüllt oder zu lang (max. 255 Zeichen)"
+  group_error: "Gruppenname ist nicht gültig"
+  cant_signup: "Du kannst leider nicht am Event teilnemen. Bitte prüfe die 'Wer kann teilnehmen' Bedingungen"
  
 # button texts
   goto_dash: "Zum Dashboard"

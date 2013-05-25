@@ -1,4 +1,7 @@
 class ParticipantsController < ApplicationController
+  before_filter :check_user
+
+
 
   def create
    @event = Event.find(params[:participant][:event_id])
@@ -24,7 +27,24 @@ class ParticipantsController < ApplicationController
     end
   end
   
+  private
   
+  def check_user
+   error = false
+   @event = Event.find(params[:participant][:event_id])
+   error = true unless (current_user.gender == @event.gender or @event.gender == 'mixed')
+   error = true unless (current_user.last_stat(@event.sport_id).total_skill >= @event.skill_from)
+   error = true unless (current_user.last_stat(@event.sport_id).total_skill <= @event.skill_to)
+   error = true unless (current_user.age >= @event.age_from)
+   error = true unless (current_user.age <= @event.age_to)
+   if error == true
+    respond_to do |format|
+    flash[:error] = I18n.t('cant_signup')
+    format.html { redirect_to :back }
+    end
+   end
+  end
+ 
   
   
   

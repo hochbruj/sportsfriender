@@ -13,7 +13,7 @@
 <% unless @last.nil? %>
 <%= link_to "#{@last.sport.name} #{t(@last.mode)}", @last, :class => 'link_mid' %></br>
 <b><%= l @last.start_at.in_time_zone(@last.city.zone).to_date, :format => :short %></b>
-<%= button_to "Feedback", feedback_path(:event_id => @last.id), :method => "post" %></br>
+<%= button_to "Rate Sportsfriends", feedback_path(:event_id => @last.id), :method => "post", :class => 'b_rate' %></br>
 <%= link_to t('.all_completed'), url_for(:action => 'myevents', :controller => 'pages', :active => 'tab2'), :class => 'link_small' %>
 <% else %>
 <%= t('no_last')%>
@@ -39,7 +39,9 @@
               :legend => @user.chart_all[2]) 
 #              :legend => ["Beach Volleyball", "Tennis", "Yoga"])
  %>">
-
+</br>
+</br>
+<%= link_to t('.progress_detail'), myprogress_path, :class => 'link_small' %>
 </div><!--! end of #span6 -->
 </div> <!--! end of row top level -->
 </div>

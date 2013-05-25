@@ -1,5 +1,8 @@
 class EventsController < ApplicationController
   before_filter :date_format
+  before_filter :authenticate_user!,
+      :only => [:new]
+      
   def search
     @title = 'My Events'
     @header = 'my_events'
@@ -107,6 +110,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save_set_organizer(current_user)
+         @event.invite
          @event.check_repeat(current_user)
         format.html { redirect_to dashboard_path }
         format.json { render json: @event, status: :created, location: @event }

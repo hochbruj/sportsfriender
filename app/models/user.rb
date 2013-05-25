@@ -19,6 +19,9 @@ class User < ActiveRecord::Base
   has_many :participants, :dependent => :destroy
   has_many :event_posts, :dependent => :destroy
   has_many :events, :through => :participants
+  has_many :members, :through => :groups, :dependent => :destroy
+  has_many :groups, :dependent => :destroy
+  
   
   validates :first_name, :last_name, :gender, :sport, :city_name, :dob, :presence => true, :on => :update
   
@@ -77,8 +80,7 @@ class User < ActiveRecord::Base
   end
   
   def skill_text(sport_id,cat)
-    Assessment.where(sport_id: sport_id, level: last_stat(sport_id)["cat#{cat}"].round).first["cat#{cat}"]
-  
+    Assessment.where(sport_id: sport_id, level: last_stat(sport_id)["cat#{cat}"].round).first["cat#{cat}"] unless Assessment.where(sport_id: sport_id, level: last_stat(sport_id)["cat#{cat}"].round).empty? 
   end
   
   
@@ -216,5 +218,18 @@ class User < ActiveRecord::Base
   return data_total,labels_total,legend
   end 
   
+  def self.search(sport_id,city)
+    if sport_id and City.find_by_full_name(city)
+       results = []
+       users = self.where(city_id: City.find_by_full_name(city))
+       users.each do |u|
+         results << u unless u.stats.where(sport_id: sport_id).empty?
+       end
+     return results          
+    end
+  
+  end
+  
+
 
 end

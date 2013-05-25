@@ -1,0 +1,61 @@
+<div class='row-fluid'><div class='pull-left' style='margin: 20px 0px 0px 15px; font-size: 24px; font-weight: bold;'><%=@user.full_name%></div>
+<% unless @user == current_user%>
+<a href="#send_message" role="button" class="pull-right b_send" data-toggle="modal"><%=t('send_to_sf')%></a>
+<a href="#to_group" role="button" class="pull-right b_add_sf" data-toggle="modal"><%=t('add_to_sf')%></a>
+<%end%>
+</div>
+
+<div id="send_message" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+<h3 id="myModalLabel"><%=t('send_message')%> <%=@user.full_name%> </h3>
+</div>
+<div class="modal-body">
+  <%= form_tag(newmessage_path, :method => "get", :recipient => @user.id) do %>
+  <div style='margin-left:20px'>
+	<%= text_area_tag(:content, nil, :class => 'input-xlarge', :rows => 4 )%>
+	<%= hidden_field_tag :recipient , @user.id%>
+  </div>
+</div>
+<div class="modal-footer">
+<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+  <%= submit_tag "SEND",  :class => "btn btn-primary"%> 
+</div>
+<% end %>
+</div>
+
+<div id="to_group" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+<h3 id="myModalLabel"><%=t('add_sf_to', :sf => @user.full_name )%></h3>
+</div>
+
+<div class="modal-body">
+  <%= form_tag(new_group_path, :method => "get", :recipient => @user.id) do %>
+  <div style='margin-left:20px'>
+	<%= hidden_field_tag :user_id , @user.id%>
+	<% if current_user.groups.empty?%>
+	<%= label_tag t('group_name')%>
+	<%= text_field_tag :new_group_name%>
+	<% else%>
+	<%= label_tag t('group_name')%>
+	<%= select_tag :group_id, options_from_collection_for_select(current_user.groups, 'id', 'name')%></br>
+    <b><%=t('or')%></b></br>
+    <div style='margin-top:7px'>
+	<%= label_tag :new_group, :class => 'checkbox' do %>
+		<%= check_box_tag :new_group %><%=t('add_to_ngr')%>
+	<%end%>
+	<%= text_field_tag :group_name%>
+	<%end%>
+	</div>
+  </div>
+
+
+<div class="modal-footer">
+<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+<%= submit_tag "ADD",  :class => "btn btn-primary"%> 
+</div>
+<%end%>
+
+</div>

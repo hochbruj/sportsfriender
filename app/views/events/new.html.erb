@@ -41,7 +41,7 @@
 <%= simple_form_for(@event, :html => {:class => 'form-horizontal' }) do |f| %>
 <%= f.hidden_field :city_id %>
 <%= f.hidden_field :sport_id %>
-<%= f.input :location_id, :label => false, collection: Location.order(:name).where("city_id = ? AND sport_id = ?", @event.city.id, @event.sport.id).map{ |l| [l.full_name, l.id]}, :prompt => t('.choose_location'), :input_html => { :style=> 'width: 320px' }  %>
+<%= f.input :location_id, :label => false, collection: Location.valid_entries(@event.sport.id,@event.city.id,current_user.id).sort_by{|l| l[:name]}.map{ |l| [l.full_name, l.id]}, :prompt => t('.choose_location'), :input_html => { :style=> 'width: 320px' }  %>
 <b>(<%=t('or')%>)</b> <%= link_to t('.new_location'), new_location_path(:city_id => @event.city.id, :sport_id => @event.sport_id), :class =>'link_normal' %></br>
 <b>(<%=t('or')%>)</b> <%= link_to t('.from_map'), map_path(:sport_id => @event.sport_id, :city_id => @event.city_id), :class =>'link_normal'%>
 </div>
@@ -124,7 +124,20 @@
 <div class='black_18' style='margin: 10px 0 0 0'><%= t('max_part')%></div>
 <div class='grey_15' style='padding: 0 0 15px 0'><%= t('.incl_org')%></div>
 <%= f.input :max_part, :label => false, collection: (2..25), prompt: t('choose'), input_html: {style: 'width:85px'}%>
-<div>
+</div>
+	
+<div class='blue_box'>
+<div class='frame'>
+<h5><%= t('.invite')%></h5>
+<%= f.label :group_id, 'My Sportsfriends'%>
+<%= f.input :group_id, :label => false, collection: current_user.groups, include_blank: true, input_html: {style: 'width:315px'}%>
+<%= f.label :emails, t('.by_email')%>
+<%= f.input :emails, :label => false, input_html: {style: ' width:300px'} %>
+<%= f.input :private, as: :boolean, inline_label: t('.private'), label: false %>
+</div>
+</div>
+</div>
+
 <hr>
  <%= f.button :submit, t('.submit'), :class => 'btn-large btn-inverse' %>
 <% end %>

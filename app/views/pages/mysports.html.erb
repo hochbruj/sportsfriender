@@ -10,7 +10,7 @@
 </div>
 <div id="collapse<%=s.id%>" class="accordion-body collapse">
 <div class="accordion-inner">
-<span class='left10px'><%=t('overall_rating')%>:</span> <span class='dred_15'> <%= current_user.last_stat(s.id).total_skill%> </span>
+<span class='left10px'><%=t('overall_rating')%>:</span> <span class='dred_15'> <%= current_user.last_stat(s.id).total_skill.round(1)%> </span>
 <hr>
 <div class='left10px'>
 <h5 class='black_18'><%=t('your_skills')%></h5>

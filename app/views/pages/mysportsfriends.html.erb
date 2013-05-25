@@ -1,0 +1,82 @@
+<div class="tabbable"> <!-- Only required for left/right tabs -->
+<ul class="nav nav-tabs">
+<li class="<%=@tab1%>"><a href="#tab1" data-toggle="tab"><h4><%=t('groups')%></h4></a></li>
+<li class="<%=@tab2%>"><a href="#tab2" data-toggle="tab"><h4><%=t('search')%></h4></a></li>
+</ul>
+<div class="tab-content">
+
+
+<div class="tab-pane <%=@tab1%>" id="tab1">
+
+<div class='row-fluid'>
+<div class='span6'>
+<% if current_user.pointers.where(cat_id: 3).empty? %>
+<div class='frame'>
+<span class='black_18' style='margin: 10px 10px 0 0'><%= t('pointer_header')%></span> 
+<%= link_to t('dont_show'), pointer_path(:cat_id => 3), :class => 'link_min' %></br>
+<%= t('.pointer')%>
+</div>
+<%end%>
+</div>
+</div>
+
+<hr>
+<div class='row-fluid'>
+<div class='span5'>
+<div style='font-size: 19px; font-weight: bold; margin: 5px 0 0 20px'><%=t('.group')%></div>
+</div>
+<div class='span6'>
+<div style='font-size: 19px; font-weight: bold; margin: 5px 0 0 0'><%=t('.members')%></div>
+</div>
+</div>
+<hr>
+
+<% current_user.groups.each do |g|%>
+<div class='row-fluid'>
+<div class='span5'>
+<div style='font-size: 19px; font-weight: bold; margin: 15px 0 0 20px'><%=g.name%></div>
+</div>
+<div class='span6'>
+	<% g.users.take(g.users.count - 1).each do |u| %>
+	<%= link_to u.full_name, u, :class => 'link_min' %>,
+	<% end %>
+	<%= link_to g.users.last.full_name, g.users.last, :class => 'link_min'%>
+</div>
+<div class='span1'>
+<div><%= button_to 'Delete', g, confirm: 'Are you sure?', method: :delete, :class => 'btn btn-small btn-danger' %></div>
+</div>
+</div>
+<hr>
+<%end%>
+
+
+
+</div>
+
+<div class="tab-pane <%=@tab2%>" id="tab2">
+	<div class='frame'>
+		<div class='sb_wrapper'>
+		<%= form_tag(mysportsfriends_path, :method => "get") do %>
+		<span class='sb_text'>Find</span>
+		<%= hidden_field_tag :active , 'tab2'%>
+		<%= select_tag :sport_id, options_from_collection_for_select(Sport.all, 'id', 'name', (params[:sport_id] or current_user.sport_id))%>
+		<span class='sb_text'>Sportsfriends in</span>
+		<%= text_field_tag(:search_city , (params[:search_city] or current_user.city.full_name), :class => 'ui-autocomplete-input', data: {autocomplete_source: cities_path}, :size => 10)  %>
+		<%= submit_tag(t('search'), class: 'b_search') %> 
+		<% end %>
+		</div>
+		<hr>
+		<% unless @users.nil? or @users.empty? %>
+
+		<%= render :partial => 'paginate/friends_result', :collection => @users %>
+
+		<%= will_paginate @users, :renderer => BootstrapPagination::Rails %>
+		<% end %>
+
+	</div>
+</div>
+
+
+
+
+</div>

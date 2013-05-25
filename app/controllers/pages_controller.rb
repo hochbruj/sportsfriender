@@ -1,4 +1,9 @@
 class PagesController < ApplicationController
+  
+  require 'will_paginate/array'
+  
+
+      
   def home
     if params[:set_locale]
      if signed_in?
@@ -109,5 +114,20 @@ class PagesController < ApplicationController
     @span = 'nomargin_10'
   
   end
+  
+  def mysportsfriends
+    @title = "My Sportsfriendss"
+    @header = 'my_sportsfriends'
+    @lhn = 'my_sportsfriends'
+    @span = 'nomargin_10'
+    
+    @tab1 = 'active' unless params[:active] == 'tab2'
+    @tab2 = 'active' if params[:active] == 'tab2'
+    @users = User.search(params[:sport_id],params[:search_city])
+    @users = @users.paginate(:page => params[:page], :per_page => 5) unless @users.nil?
+    @sport = Sport.find(params[:sport_id]) unless params[:sport_id].nil?
+    
+  end
+
   
 end

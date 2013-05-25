@@ -32,7 +32,20 @@ h4 {  font-size: 21px; font-weight: bold; }
 h5 {  font-size: 18px; font-weight: bold; color: #272626; }
 h6 {  font-size: 16px; font-weight: bold; }
 
-@import "bootstrap-responsive";
+.modal-header {background-image: -webkit-linear-gradient(bottom, #f0f0f2, #fff);
+  background-image: -moz-linear-gradient(bottom, #f0f0f2, #fff);
+  background-image: -o-linear-gradient(bottom, #f0f0f2, #fff);
+  background-image: -ms-linear-gradient(bottom, #f0f0f2, #fff);
+  background-image: linear-gradient(to top, #f0f0f2, #fff);}
+
+.pagination ul { -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; background-color: #717b8f; -webkit-box-shadow: inset -2px 1px rgba(255,255,255,.12); -moz-box-shadow: inset -2px 1px rgba(255,255,255,.12); box-shadow: inset -2px 1px rgba(255,255,255,.12); border: solid 1px #000; background-image: -webkit-linear-gradient(bottom, rgba(0,0,0,.2), rgba(69,69,69,.2), rgba(111,111,111,.2) 21%, rgba(181,180,180,.2) 79%, rgba(255,255,255,.2)); background-image: -moz-linear-gradient(bottom, rgba(0,0,0,.2), rgba(69,69,69,.2), rgba(111,111,111,.2) 21%, rgba(181,180,180,.2) 79%, rgba(255,255,255,.2)); background-image: -o-linear-gradient(bottom, rgba(0,0,0,.2), rgba(69,69,69,.2), rgba(111,111,111,.2) 21%, rgba(181,180,180,.2) 79%, rgba(255,255,255,.2)); background-image: -ms-linear-gradient(bottom, rgba(0,0,0,.2), rgba(69,69,69,.2), rgba(111,111,111,.2) 21%, rgba(181,180,180,.2) 79%, rgba(255,255,255,.2)); background-image: linear-gradient(to top, rgba(0,0,0,.2), rgba(69,69,69,.2), rgba(111,111,111,.2) 21%, rgba(181,180,180,.2) 79%, rgba(255,255,255,.2));
+font-size: 12px; font-weight: bold; color: #fff; text-shadow: 0 -1px rgba(0,0,0,.28); }
+
+.pagination ul > .active > a, .pagination ul > .active > span {  background-color: #717b8f; -webkit-box-shadow: inset -2px 1px rgba(255,255,255,.12); -moz-box-shadow: inset -2px 1px rgba(255,255,255,.12); box-shadow: inset -2px 1px rgba(255,255,255,.12);  background-image: -webkit-linear-gradient(bottom, rgba(0,0,0,.2), rgba(69,69,69,.2), rgba(111,111,111,.2) 21%, rgba(181,180,180,.2) 79%, rgba(255,255,255,.2)); background-image: -moz-linear-gradient(bottom, rgba(0,0,0,.2), rgba(69,69,69,.2), rgba(111,111,111,.2) 21%, rgba(181,180,180,.2) 79%, rgba(255,255,255,.2)); background-image: -o-linear-gradient(bottom, rgba(0,0,0,.2), rgba(69,69,69,.2), rgba(111,111,111,.2) 21%, rgba(181,180,180,.2) 79%, rgba(255,255,255,.2)); background-image: -ms-linear-gradient(bottom, rgba(0,0,0,.2), rgba(69,69,69,.2), rgba(111,111,111,.2) 21%, rgba(181,180,180,.2) 79%, rgba(255,255,255,.2)); background-image: linear-gradient(to top, rgba(0,0,0,.2), rgba(69,69,69,.2), rgba(111,111,111,.2) 21%, rgba(181,180,180,.2) 79%, rgba(255,255,255,.2));
+font-size: 12px; font-weight: bold; color: #fff; text-shadow: 0 -1px rgba(0,0,0,.28); }
+
+.pagination ul > li > a, .pagination ul > li > span {  background-color: #717b8f; -webkit-box-shadow: inset -2px 1px rgba(255,255,255,.12); -moz-box-shadow: inset -2px 1px rgba(255,255,255,.12); box-shadow: inset -2px 1px rgba(255,255,255,.12);  background-image: -webkit-linear-gradient(bottom, rgba(0,0,0,.2), rgba(69,69,69,.2), rgba(111,111,111,.2) 21%, rgba(181,180,180,.2) 79%, rgba(255,255,255,.2)); background-image: -moz-linear-gradient(bottom, rgba(0,0,0,.2), rgba(69,69,69,.2), rgba(111,111,111,.2) 21%, rgba(181,180,180,.2) 79%, rgba(255,255,255,.2)); background-image: -o-linear-gradient(bottom, rgba(0,0,0,.2), rgba(69,69,69,.2), rgba(111,111,111,.2) 21%, rgba(181,180,180,.2) 79%, rgba(255,255,255,.2)); background-image: -ms-linear-gradient(bottom, rgba(0,0,0,.2), rgba(69,69,69,.2), rgba(111,111,111,.2) 21%, rgba(181,180,180,.2) 79%, rgba(255,255,255,.2)); background-image: linear-gradient(to top, rgba(0,0,0,.2), rgba(69,69,69,.2), rgba(111,111,111,.2) 21%, rgba(181,180,180,.2) 79%, rgba(255,255,255,.2));
+font-size: 12px; font-weight: bold; color: #fff; text-shadow: 0 -1px rgba(0,0,0,.28); }
 
 .navbar .nav
 {

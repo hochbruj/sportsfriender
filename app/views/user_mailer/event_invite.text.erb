@@ -1,0 +1,12 @@
+Hello <% unless @recipient.nil?%> <%= @recipient.full_name%><%end%>,
+
+<%= @event.organizer.user.full_name %> invited you to a <%= @event.sport.name %> session.
+What: <%= @event.mode%>, <%= @event.gender%>
+<%=@event.info %>
+When: <%= @event.start_at.in_time_zone(@event.city.zone).strftime("%a %d/%m/%Y %H:%M") %>-<%=@event.finish_at.in_time_zone(@event.city.zone).strftime("%H:%M") %> (<%= @event.city.zone %>)
+Where: <%= @event.location.name%>, <%= @event.location.address%>, <%= @event.city.name%>
+
+If you are interested, check out more details at <%= event_url(:id => @event.id, :locale => I18n.locale) %>
+
+See you at the court,
+Yours Sportsfriender Team

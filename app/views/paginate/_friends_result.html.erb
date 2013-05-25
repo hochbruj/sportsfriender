@@ -1,0 +1,33 @@
+<div class='row-fluid'>
+	<div class='span1'>
+	<div style='margin: 10px 0 8px 0'>
+	<%= picture_for(friends_result,70)%>
+	</div>
+	</div>
+	
+	<div class='span4'>
+	<div style='margin-top: 22px'>
+	 <%= link_to friends_result.full_name, friends_result, :class => 'link_mid'%></br>
+	 <%= friends_result.city.name%> <%=@sport.name%> Ranking:#
+	</div>
+	</div>
+	
+	<div class='span4'>
+	 <div style='font-size: 16px; margin-top: 20px'>
+	 <b><%=t('skill_level')%>: <%= friends_result.last_stat(@sport.id).total_skill.round(1) %></b></br>
+	 <%=t('rated_by')%> <%=t('sportsfriend', :count => friends_result.ratings.where(sport_id: @sport.id).count) %>
+	</div>
+	</div>
+	
+	<% unless @sport.cat2 == 'nil'%>
+	<div class='span3'>
+		<% ["1","2","3","4","5"].each do |c| %>
+		<% unless @sport["cat#{c}"] == 'nil' %>
+		<div style='line-height:16px'><b><%=t @sport["cat#{c}"] %>: </b><%= number_with_precision(friends_result.last_stat(@sport.id)["cat#{c}"], :precision => 1, :locale => :en) %></div>
+		<%end%>
+		<%end%>
+	</div>
+    <%end%>
+
+</div>
+<hr>

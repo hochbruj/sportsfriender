@@ -45,7 +45,7 @@
 <% if (signed_in? and not current_user.participate?(@event.id))%>
 <%= form_for current_user.participants.build(:event_id => @event.id) do |f| %>
 <%= f.hidden_field :event_id %>
-<%= f.submit(t('.join'), :class => 'btn-large btn-success') %>
+<%= f.submit(t('.join'), :class => 'b_sign_up') %>
 <% end %>
 <% end %>
 
@@ -53,7 +53,7 @@
 <%= form_for current_user.participants.find_by_event_id(@event.id),
    :html => { :method => :delete } do |f| %>
 <%= f.hidden_field :event_id %>
-<%= f.submit(t('.unjoin'), :class => 'unsign') %>
+<%= f.submit(t('.unjoin'), :class => 'b_unsign') %>
 <% end %>
 <% end %>
 </div>
@@ -95,7 +95,7 @@
 <%= simple_form_for(current_user.event_posts.build(:event_id => @event.id), :html => {:class => 'form-horizontal'}) do |f| %>
    <%= f.input :content, :label => false, input_html: {style: 'width:400px'} %>
    <%= f.hidden_field :event_id %>
-   <%= f.button :submit, t('.submit'), :class => 'btn-large btn-inverse' %>
+   <%= f.button :submit, t('.submit'), :class => 'btn btn-inverse' %>
 <% end %>
 </div>	
 <% end %>

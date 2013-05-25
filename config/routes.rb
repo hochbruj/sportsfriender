@@ -1,6 +1,9 @@
 Sportsfriender::Application.routes.draw do
  
 
+  resources :groups
+
+
 resources :cities
 resources :participants
 resources :event_posts
@@ -14,7 +17,9 @@ devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_call
 resources :users
 resources :ratings
 resources :events
- resources :locations
+resources :locations
+resources :groups
+resources :meassages
 
 match "/auth/:provider/callback" => "sessions#create"
 match "/auth/failure", :to => "sessions#failure"
@@ -25,11 +30,15 @@ match '/dashboard', :to => 'pages#dashboard'
 match '/myevents', :to => 'pages#myevents'
 match '/feedback', :to => 'pages#feedback'
 match '/search', :to => 'events#search'
+match '/searchfriends', :to => 'userss#search'
 match '/mysports', :to => 'pages#mysports'
 match '/myprogress', :to => 'pages#myprogress'
+match '/mysportsfriends', :to => 'pages#mysportsfriends'
 match '/pointer' , :to => 'pages#pointer'
 match '/terms' , :to => 'pages#terms'
 match '/privacy' , :to => 'pages#privacy'
+match '/newmessage' , :to => 'messages#new'
+
 
 end
 

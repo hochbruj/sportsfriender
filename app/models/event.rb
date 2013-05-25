@@ -150,6 +150,21 @@ class Event < ActiveRecord::Base
        end
      end
     end
+    
+    def invite
+      unless self.emails.nil?
+        emails.split(',').each do |m|
+        UserMailer.event_invite(nil,m,self).deliver    
+        end
+      end
+      
+      unless self.group.nil?
+      self.group.users.each do |user|
+      UserMailer.event_invite(user,user.email,self).deliver
+      end
+      end
+    
+    end
 
 private
    

@@ -11,4 +11,8 @@ jQuery ->
    window.location = myeventsURL
   $('#dashboard').click ->
    window.location = dashboardURL
+  $('#my_sportsfriends').click ->
+   window.location = mysportsfriendsURL
+
+
 

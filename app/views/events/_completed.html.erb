@@ -5,16 +5,13 @@
 <hr>
 <% event.each do |e| %>
 <div class='row-fluid'>
-<div class='span4'>
+<div class='span5'>
 <%= link_to "#{e.sport.name} #{t(e.mode)}", e, :class => 'link_mid'%></br>
 <b><%= l e.start_at.in_time_zone(e.city.zone), :format => :short %>,
 <%= e.location.name %></b>
 </div>
-<div class='span2'>
-<h6><%= t('attendees')%>:</h6>
-</div>
-<div class='span6'>
-<%= render 'events/participants', :event => e %>
+<div class='span3'>
+<%= button_to "Rate Sportsfriends", feedback_path(:event_id => e.id), :method => "post", :class => 'b_rate' %>
 </div>
 </div>
 <hr>

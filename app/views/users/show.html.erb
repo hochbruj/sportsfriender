@@ -1,66 +1,55 @@
-<p id="notice"><%= notice %></p>
-<%= image_tag @user.avatar.url(:medium) %>
-<%= image_tag @user.avatar.url(:thumb) %>
-<p>
-  <b>First name:</b>
-  <%= @user.first_name %>
-</p>
+<div class='row-fluid'>
+<div class='span1'>
+<div style='margin: 10px 0 8px 0'>
+<%= picture_for(@user,70)%>
+</div>
+</div>
+<div class='span11'>
+<div style='font-size: 18px; font-weight: bold; margin-top: 22px'>
+<%=t('gender')%>: <%=t(@user.gender)%></br>
+<%=t('city')%>: <%=t(@user.city.name)%>
+</div>
+</div>
+</div>
+<hr>	
 
-<p>
-  <b>Last name:</b>
-  <%= @user.last_name %>
-</p>
+<% @user.rated.in_groups_of(2).each do |sport_array| %>
+<div class='row-fluid'>
+<% sport_array.each do |s| %>
+<% unless s.nil? %>	
+<div class='span4 offset1'>
+<div style='font-size: 18px; font-weight: bold'>
+<%= s.name%>
+</div>
+<div style='font-size: 16px; margin-top: 10px'>
+<%= s.name %> <%=t('skill_level')%>: <%= @user.last_stat(s.id).total_skill.round(1) %>
+</div>
+</br>
+<% unless s.cat2 == 'nil' %>
+<% ["1","2","3","4","5"].each do |c| %>
+<% unless s["cat#{c}"] == 'nil' %>
+<b><%=t s["cat#{c}"] %>: </b><%= number_with_precision(@user.last_stat(s.id)["cat#{c}"], :precision => 1, :locale => :en) %>
+</br>
+<%end%>
+<%end%>
+<%end%>
+</div>
+<%end%>
+<%end%>
+</div>
+<hr>
+<%end%>
 
-<p>
-  <b>Email:</b>
-  <%= @user.email %>
-</p>
-
-<p>
-  <b>Provider:</b>
-  <%= @user.provider %>
-</p>
-
-<p>
-  <b>Uid:</b>
-  <%= @user.uid %>
-</p>
-
-<p>
-  <b>Gender:</b>
-  <%= @user.gender %>
-</p>
-
-<p>
-  <b>City:</b>
-  <%= @user.city_id %>
-</p>
-
-<p>
-  <b>Sport:</b>
-  <%= @user.sport_id %>
-</p>
-
-<p>
-  <b>Comment:</b>
-  <%= @user.comment %>
-</p>
-
-<p>
-  <b>Dob:</b>
-  <%= @user.dob %>
-</p>
-
-<p>
-  <b>Image:</b>
-  <%= @user.image %>
-</p>
-
-<p>
-  <b>Admin:</b>
-  <%= @user.admin %>
-</p>
-
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<% unless @user.comment.empty?%>
+<div class='row-fluid'>
+<div class='span10 offset1'>
+<div style='font-size: 18px; font-weight: bold;margin-bottom:10px'>
+<%=t('more')%> <%=t('about_me')%>
+</div>
+<%=@user.comment%>
+</div>
+<div class='span1'>
+</div>
+</div>
+<hr>
+<%end%>

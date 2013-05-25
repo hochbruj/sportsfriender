@@ -100,6 +100,7 @@
 			  font-family: Lato; 
 			  font-weight: bold;
 			  text-transform: uppercase;
+			  text-decoration: none;
 			  color: #fff;
 			  text-shadow: -1px 1px rgba(0,0,0,.3);}
 
@@ -107,18 +108,18 @@
                        padding: 17px 10px 0px 45px;}
 
 @mixin i_h_base($pos) { background: url('icons.png') no-repeat 0px $pos; 
-					    width: 150px; height: 40px;
+					    width: 190px; height: 40px;
 						font-size: 24px; font-weight: bold;
 						padding: 20px 0px 0px 65px;}
 
-@mixin i_sh_base($pos) { background: url('icons.png') no-repeat -405px $pos; 
-						width: 300px; height: 40px;
+@mixin i_sh_base($pos) { background: url('icons.png') no-repeat -455px $pos; 
+						width: 400px; height: 40px;
 						font-size: 21px; font-weight: bold;
 						padding: 10px 0px 0px 50px;}
 
-@mixin i_lhn_base($pos) { background: url('icons.png') no-repeat -245px $pos; 
-						width: 100px; height: 23px;
-						font-size: 16px;font-weight: bold;
+@mixin i_lhn_base($pos) { background: url('icons.png') no-repeat -294px $pos; 
+						width: 130px; height: 23px;
+						font-size: 15px;font-weight: bold;
 						padding: 0px 0px 0px 29px;}
 
 
@@ -127,14 +128,17 @@
 .i_mysport { @include i_h_base(-97px)}
 .i_myprofile { @include i_h_base(-145px)}
 .i_myprogress { @include i_h_base(-198px)}
+.i_mysf { @include i_h_base(-247px)}
 
 .i_sh_detail { @include i_sh_base(-4px)}
 .i_sh_set_up { @include i_sh_base(-54px)}
+.i_sh_rate { @include i_sh_base(-103px)}
 
 .i_lhn_dashboard { @include i_lhn_base(-9px)}
 .i_lhn_myevents { @include i_lhn_base(-40px)}
 .i_lhn_mysports { @include i_lhn_base(-67px)}
 .i_lhn_myprogress { @include i_lhn_base(-110px)}
+.i_lhn_mysf { @include i_lhn_base(-145px)}
 			
 #search_event { @include button_base(-96px);
                 @include button_padsize; }
@@ -162,22 +166,42 @@
 			width: 300px; height: 50px }
 
 .b_search { @include button_base(-549px);
-			width: 300px; height: 40px;
-			padding: 3px 40px 10px 20px;
+			width: 100px; height: 40px;
+			padding: 3px 70px 10px 30px;
 			margin-left: 10px; }
 
 .b_search:hover { @include button_base(-595px) }
 
-.unsign  { cursor: pointer;
-           border:none;
-			             background: url('buttons.png') no-repeat -10px -195px; 
-						 width: 300px; height: 35px;
-						 font-family: Lato;
-						 font-weight: bold;
-						 text-transform: uppercase;
-						 color: #fff;
-						 text-shadow: -1px 1px rgba(0,0,0,.3);
-						 padding: 17px 100px 30px 50px;}
+.b_unsign  { @include button_base(-195px);
+         width: 300px; height: 35px;
+         padding: 17px 100px 30px 50px;}
+.b_unsign:hover { @include button_base(-244px);}
+
+.b_sign_up { @include button_base(-638px);
+         width: 300px; height: 35px;
+         padding: 17px 100px 30px 50px;}
+
+.b_sign_up:hover { @include button_base(-692px);}
+
+.b_rate { @include button_base(-745px);
+         width: 400px; height: 35px;
+         padding: 17px 200px 30px 50px;}
+
+.b_rate:hover { @include button_base(-801px);}
+
+.b_add_sf { @include button_base(-853px);
+		  width: 200px; height: 30px;
+		  padding: 18px 20px 10px 50px;}
+
+.b_add_sf:hover { @include button_base(-906px);}	
+
+.b_send { @include button_base(-957px);
+			width: 180px; height: 30px;
+		   padding: 18px 0px 10px 50px;}
+		
+.b_send:hover { @include button_base(-1009px);}
+
+
 
 
 /* Search bar*/

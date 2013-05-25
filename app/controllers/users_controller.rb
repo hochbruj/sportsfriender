@@ -1,8 +1,11 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.json
+
+before_filter :authenticate_user!  
+
   def index
-    @users = User.all
+    @users = User.where("first_name ilike ?", "%#{params[:q]}%")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,6 +16,9 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @title = 'Profile'
+    @header = 'profile'
+    @span = 'nomargin_10'
     @user = User.find(params[:id])
 
     respond_to do |format|
