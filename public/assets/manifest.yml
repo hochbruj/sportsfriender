@@ -9,8 +9,8 @@ user_icon.png: user_icon-961b8029d44ded13d6fbc5c51f5039fc.png
 user_icon/index.png: user_icon-961b8029d44ded13d6fbc5c51f5039fc.png
 userfem_icon.png: userfem_icon-ded8365d2ebe5de6a856bffc2961a6ab.png
 userfem_icon/index.png: userfem_icon-ded8365d2ebe5de6a856bffc2961a6ab.png
-application.js: application-60c6cefc6d696a2afc0f67f59db8dec5.js
-application/index.js: application-60c6cefc6d696a2afc0f67f59db8dec5.js
+application.js: application-cb37be0acafac9154b01a215d27d03ed.js
+application/index.js: application-cb37be0acafac9154b01a215d27d03ed.js
 rating.js: rating-f69deb08a03b3d35bf1358d7c8e44295.js
 rating/index.js: rating-f69deb08a03b3d35bf1358d7c8e44295.js
 application.css: application-0f604c98d0055aa1e0a2fc8dd13a856b.css
