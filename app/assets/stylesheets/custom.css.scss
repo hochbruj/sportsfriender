@@ -14,6 +14,7 @@
     padding:0 15px;
 }
 
+/* main page elements*/
 
 .header {
   border: solid 1px #bdbebf;
@@ -70,8 +71,9 @@
                  padding: 5px 15px 15px 15px;
                  }
 
+.lhn          { padding: 10px 10px 10px 10px; }
+
 .lhn_active {       background-color: white;
-                 margin: 0 0 0;
 				 border: solid 1px #bdbebf;
 				 border-right: none;
 				 border-bottom-left-radius: 4px;
@@ -80,19 +82,14 @@
 }
 
 .lhn:hover {       background-color: white; cursor: pointer;
-                 margin: 0 0 0;
 				 border: solid 1px #bdbebf;
 				 border-right: none;
 				 border-bottom-left-radius: 4px;
-				 border-top-left-radius: 4px;
-				 padding: 10px 10px 10px 10px;  }
-
+				 border-top-left-radius: 4px;}
 				
-.lhn          {   margin: 0 0 0 0;
-                 padding: 10px 10px 10px 10px;
-                  }
 
-/* Buttons */
+
+/* Buttons  and icons*/
 
 @mixin button_base($pos) { cursor: pointer;
               background: url('buttons.png') no-repeat -10px $pos;
@@ -139,6 +136,11 @@
 .i_lhn_mysports { @include i_lhn_base(-67px)}
 .i_lhn_myprogress { @include i_lhn_base(-110px)}
 .i_lhn_mysf { @include i_lhn_base(-145px)}
+
+.i_h_profile { background: url('icons.png') no-repeat -285px -175px; 
+						width: 70px; height: 23px;
+                        padding: 10px 0px 0px 40px !important;}
+.i_h_profile:hover{  background: url('icons.png') no-repeat -285px -210px;}
 			
 #search_event { @include button_base(-96px);
                 @include button_padsize; }
@@ -281,6 +283,7 @@ margin-bottom: 15px;
           }
 
 
+/*text formating*/
 
 .event_title{font-size: 18px; font-weight: bold; color: #2d2b2b;
              margin: 0px 0 10px 0 }

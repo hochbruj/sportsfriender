@@ -231,5 +231,20 @@ class User < ActiveRecord::Base
   end
   
 
+ def ranking(sport_id)
+   ranking = []
+   User.where(city_id: self.city_id).each do |u|
+     unless u.stats.where(sport_id: sport_id).empty?
+       u[:skill] = u.last_stat(sport_id).total_skill
+       ranking << u
+     end
+   end
+   return ranking.sort_by{|r| r[:skill]}.reverse!.index(ranking.detect{|r| r[:id] == self.id}) + 1
+     
+   
+  
+  
+ end  
+
 
 end

@@ -128,8 +128,13 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.update_attributes(params[:event])
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
+        if @event.cancelled?
+           @event.send_cancel(current_user)
+        format.html { redirect_to dashboard_path, alert: I18n.t('cancel_success') }
         format.json { head :no_content }
+        else
+        format.html { redirect_to :back, notice: 'Nothing happended' }
+        end
       else
         format.html { render action: "edit" }
         format.json { render json: @event.errors, status: :unprocessable_entity }

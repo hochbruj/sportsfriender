@@ -118,8 +118,11 @@ en:
         one: " One Spot left!"
         other: "%{count} Spots left!"
       signed: "You're Signed Up!"
+      you_organizer: "You're the organizer!"
       join: "SIGN UP TO PLAY"
       unjoin: "UNSIGN FROM EVENT"
+      cancel: "CANCEL EVENT"
+      provide_reason: "If you want to cancel this event please provide a reason that all participants will be informed."
       organizer: "Organizer"
       post: "Post A Comment"
       submit: "SUBMIT COMMENT"
@@ -147,13 +150,16 @@ en:
           better: "Better"
       mysports:
           header: "Sports you like to play"
-          add_sport: "ADD NEW SPORT"
+          add_sport: "ADD ANOTHER SPORT"
+          join: "JOIN EVENT"
+          find: "FIND EVENT TO PLAY"
       myprogress:
           header: "Track your progress over the last year"
       mysportsfriends:
           pointer: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
           group: "Group"
           members: "Members"
+          no_result: "Sorry, we couldn't find any sportsfriends for this sport in this city."
   headers:
       setup_event:
           header: "Set up A New Event"
@@ -178,6 +184,9 @@ en:
   post_error: "Comment is either empty or too long (max. 255 characters)"
   group_error: "Group name is not valid"
   cant_signup: "Sorry cou can't sign up for this event. Please check the 'Who Can Join' requirements"
+  need_rating: "Before joining you have to assess yourself for this sport"
+  feedback_complete: "Thanks, all particpants have been rated for this event."
+  cancel_success: "Event was successfully cancelled"
   
 # button texts
   goto_dash: "Goto Dashboard"

@@ -37,7 +37,13 @@
 <div class='span6'>
 <div class='frame'>
 <% if (signed_in? and current_user.participate?(@event.id)) %>
-<div class='red_23' style='margin: 10px 0 10px 0'><%=t('.signed') %></div>
+ <div class='red_23' style='margin: 10px 0 10px 0'>
+   <% if current_user != @event.organizer.user%>
+   <%=t('.signed') %></div>
+   <%else%>
+   <%=t('.you_organizer') %>
+   <%end%>
+ </div>
 <% else %>
 <div class='red_23' style='margin: 10px 0 10px 0'><%=t('.spot', :count => @event.spots_left) %></div>
 <% end %>
@@ -56,7 +62,34 @@
 <%= f.submit(t('.unjoin'), :class => 'b_unsign') %>
 <% end %>
 <% end %>
+
+
+<% if (signed_in? and current_user == @event.organizer.user)%>
+<a href="#cancel_event" role="button" class="btn btn-danger" data-toggle="modal"><%=t('.cancel')%></a>
+
+<div id="cancel_event" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+<h3 id="myModalLabel"><%=t('.cancel')%></h3>
 </div>
+<div class="modal-body">
+<b><%=t('.provide_reason')%></b></br></br>
+  <%= form_for(@event) do |f| %>
+  <div style='margin-left:20px'>
+	<%= f.text_area(:creason, :class => 'input-xlarge', :rows => 4 )%>
+	<%= f.hidden_field :cancelled , :value => true %>
+  </div>
+</div>
+<div class="modal-footer">
+<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+  <%= f.submit t('.cancel'),  :class => "btn btn-danger"%> 
+</div>
+<% end %>
+</div>
+<% end %>
+
+</div>
+
 
 <div class='blue_box'>
 <div class='frame'>

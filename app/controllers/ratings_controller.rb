@@ -35,7 +35,12 @@ class RatingsController < ApplicationController
          if @rating.event_id.nil?  
           format.html { redirect_to mysports_path }
         else
-          format.html { redirect_to :back }
+          @rating.event.check_rating_complete!(current_user)
+          if @rating.event.rating_complete?(current_user)
+           format.html { redirect_to dashboard_path, notice: I18n.t('feedback_complete') }
+          else
+            format.html { redirect_to :back }
+          end
         end
       end
    

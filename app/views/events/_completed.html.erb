@@ -10,9 +10,11 @@
 <b><%= l e.start_at.in_time_zone(e.city.zone), :format => :short %>,
 <%= e.location.name %></b>
 </div>
+<% unless e.rating_complete?(current_user)%>
 <div class='span3'>
 <%= button_to "Rate Sportsfriends", feedback_path(:event_id => e.id), :method => "post", :class => 'b_rate' %>
 </div>
+<%end%>
 </div>
 <hr>
 <% end %>

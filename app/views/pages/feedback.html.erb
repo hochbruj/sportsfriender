@@ -12,8 +12,18 @@
 <% if p.unrated?(current_user)%>
 
 <div class='part_wrapper'>
-<%= picture_for(p.user) %>  <%= link_to p.user.full_name, p.user, :class => 'link_mid'%>
+<div class='row-fluid'>
+<div class='span1'>
+<%= picture_for(p.user) %>
 </div>
+<div class='span6'>
+<div style='margin-top:10px'>  
+<%= link_to p.user.full_name, p.user, :class => 'link_mid'%></div>
+<b><%= p.user.city.name%> <%= @event.sport.name%> Ranking:#<%= p.user.ranking(@event.sport.id)%></b>
+</div>
+</div>
+</div>
+
 <div class='row-fluid'>
 <div class='span8'>
 <p class='black_18'>

@@ -67,6 +67,8 @@ Sportsfriender::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
   
+  
+  
   #Paperclip
     Paperclip.options[:command_path] = "/usr/local/bin/"
     config.paperclip_defaults = {
@@ -78,4 +80,20 @@ Sportsfriender::Application.configure do
      }
     }
   
+    # ActionMailer Config
+     config.action_mailer.default_url_options = { :host => 'cryptic-gorge-4588.herokuapp.com/' }
+     config.action_mailer.delivery_method = :smtp
+     config.action_mailer.raise_delivery_errors = false
+     config.action_mailer.default :charset => "utf-8"
+
+     # Change mail delvery to either :smtp, :sendmail, :file, :test
+      config.action_mailer.smtp_settings = {
+        address: "smtp.gmail.com",
+        port: 587,
+        domain: "gmail.com",
+        authentication: "plain",
+        enable_starttls_auto: true,
+        user_name: "info.sportomo",
+        password: "havanna23"
+      }
 end

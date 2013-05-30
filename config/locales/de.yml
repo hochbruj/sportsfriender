@@ -134,8 +134,11 @@ de:
        one: " Ein Platz frei!"
        other: "%{count} PLätze frei!"
      signed: "Du nimmst teil!"
+     you_organizer: "Du bist der Organisierer!"
      join: "NIMM AM EVENT TEIL"
      unjoin: "ABSAGEN VOM EVENT"
+     cancel: "EVENT ABSAGEN"
+     provide_reason: "Wenn du diese Event absagen moechtest, gib einen Grund an, so dass alle Teilnehmer informiert werden."
      organizer: "Organisierer"
      post: "Poste einen Kommentar"
      submit: "KOMMENTAR POSTEN"
@@ -163,13 +166,16 @@ de:
       better: "Besser"
    mysports:
       header: "Sportarten die du betreibst"
-      add_sport: "FÜGE NEUEN SPORT HINZU"
+      add_sport: "FÜGE SPORT HINZU"
+      join: "NIMM AM EVENT TEIL"
+      find: "FINDE EVENT ZUM SPIELEN"
    myprogress:
       header: "Verfolge deinen Progress über das letzte Jahr"
    mysportsfriends:
        pointer: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
        group: "Gruppe"
        members: "Mitglieder"
+       no_result: "Wir konnten leider kein Sportsfriend für diesen Sport in dieser Stadt finden."
   headers:
    setup_event:
      header: "Erstelle ein neues Event"
@@ -183,7 +189,7 @@ de:
     button: "FÜGE NEUE LOCATION HINZU"
     pointer: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
     
-# error messages
+#  messages
   start_past: "Beginn ist in der Vergangenheit"
   start_end: "Ende ist nicht nach Beginn"
   check_from_to: "ist kleiner als Von"
@@ -194,6 +200,9 @@ de:
   post_error: "Kommentar ist entweder nicht gefüllt oder zu lang (max. 255 Zeichen)"
   group_error: "Gruppenname ist nicht gültig"
   cant_signup: "Du kannst leider nicht am Event teilnemen. Bitte prüfe die 'Wer kann teilnehmen' Bedingungen"
+  need_rating: "Bevor du teilnimmst, musst du dich selbst für diesen Sport einschätzen"
+  feedback_complete: "Vielen Dank, alle Teilnehmer dieses Events wurden bewertet"
+  cancel_success: "Event wurde erfolgreich abgesagt"
  
 # button texts
   goto_dash: "Zum Dashboard"

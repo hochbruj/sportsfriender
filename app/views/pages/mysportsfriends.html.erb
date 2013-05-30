@@ -66,12 +66,15 @@
 		<% end %>
 		</div>
 		<hr>
-		<% unless @users.nil? or @users.empty? %>
-
+		<% unless @users.nil?%>
+		<% if @users.empty?%>
+		<%=t('.no_result')%>
+		<hr>
+		<% else%>
 		<%= render :partial => 'paginate/friends_result', :collection => @users %>
-
 		<%= will_paginate @users, :renderer => BootstrapPagination::Rails %>
 		<% end %>
+		<%end%>
 
 	</div>
 </div>

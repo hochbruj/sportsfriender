@@ -49,6 +49,7 @@ class LocationsController < ApplicationController
   def create
     @header = 'my_events'
     @lhn = 'my_events'
+    @span = 'nomargin_10' 
     @location = Location.new(params[:location])
     @location.user = current_user
     respond_to do |format|

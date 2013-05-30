@@ -2,9 +2,9 @@
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
   require "omniauth-facebook"
-  config.omniauth :facebook, '535520239821378', '2da50291421ecf78139f0ddc69d3a6ce', :scope => 'email,user_birthday'
+#  config.omniauth :facebook, '535520239821378', '2da50291421ecf78139f0ddc69d3a6ce', :scope => 'email,user_birthday'
 #  localhost
-#  config.omniauth :facebook, '358727094167840', 'e85a96583824c5152b805ad997ba5398', :scope => 'email,user_birthday'
+  config.omniauth :facebook, '358727094167840', 'e85a96583824c5152b805ad997ba5398', :scope => 'email,user_birthday'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,

@@ -50,17 +50,6 @@
 <%= f.submit t('.save'), :class => 'btn-large btn-primary', :confirm => t('.sure') %>
 </div>
 <% end %>
-<% if current_user.profile_complete? %>
-<div class="span1">
-<h3 style="text-align:left;"><%= t('or')%></h3>
-</div>
-<div class="span8">
-<% if session[:event_id] %>
-<%= button_to('Join Event', Event.find(session[:event_id]), :class => 'btn btn-large btn-success', :method => :get) %>
-<% else %>
-<%= button_to('New Event', new_event_path, :class => 'btn btn-large btn-success', :method => :get) %>
-<% end %>
-</div>
-<% end %>
+
 </div>
 

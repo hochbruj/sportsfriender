@@ -8,7 +8,7 @@
 	<div class='span4'>
 	<div style='margin-top: 22px'>
 	 <%= link_to friends_result.full_name, friends_result, :class => 'link_mid'%></br>
-	 <%= friends_result.city.name%> <%=@sport.name%> Ranking:#
+	 <%= friends_result.city.name%> <%=@sport.name%> Ranking:#<%= friends_result.ranking(@sport.id)%>
 	</div>
 	</div>
 	

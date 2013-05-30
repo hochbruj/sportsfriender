@@ -1,7 +1,8 @@
 mig_city = false
 mig_citytexts = false
-mig_sport = true
-mig_assess = true
+mig_sport = false
+mig_assess = false
+reset = true
 
 
 if mig_assess == true
@@ -73,9 +74,20 @@ end
 I18n.locale = :en
 CSV.foreach(Rails.root.join("seeds/Citytexts_en.csv"), headers: true, :encoding => "utf8") do |row|
   City.find(row[0].chop[1..-1]).update_attributes(:name => row[2].chop[1..-1], :full_name => row[3].chop[1..-1])
+end  
+
 end
 
 
-
-
+if reset == true
+  puts "Reseting data..."
+  User.delete_all
+  Rating.delete_all
+  Stat.delete_all
+  Event.delete_all
+  EventPost.delete_all
+  Message.delete_all
+  Group.delete_all
+  Member.delete_all
+  Participant.delete_all
 end

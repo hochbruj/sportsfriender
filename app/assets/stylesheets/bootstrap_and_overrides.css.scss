@@ -1,20 +1,16 @@
-$myOrange:#f89406;
 $myBlueDark: #304269;
 $myBlue: #91BED4;
 $myBlueLight: #D9E8F5;
-$myWhite: #eee;
-$myGrayBlue: #43464C;
+
+@mixin pagination { background-image: -webkit-linear-gradient(bottom, rgba(0,0,0,.2), rgba(69,69,69,.2), rgba(111,111,111,.2) 21%, rgba(181,180,180,.2) 79%, rgba(255,255,255,.2)); background-image: -moz-linear-gradient(bottom, rgba(0,0,0,.2), rgba(69,69,69,.2), rgba(111,111,111,.2) 21%, rgba(181,180,180,.2) 79%, rgba(255,255,255,.2)); background-image: -o-linear-gradient(bottom, rgba(0,0,0,.2), rgba(69,69,69,.2), rgba(111,111,111,.2) 21%, rgba(181,180,180,.2) 79%, rgba(255,255,255,.2)); background-image: -ms-linear-gradient(bottom, rgba(0,0,0,.2), rgba(69,69,69,.2), rgba(111,111,111,.2) 21%, rgba(181,180,180,.2) 79%, rgba(255,255,255,.2)); background-image: linear-gradient(to top, rgba(0,0,0,.2), rgba(69,69,69,.2), rgba(111,111,111,.2) 21%, rgba(181,180,180,.2) 79%, rgba(255,255,255,.2));
+font-size: 12px; font-weight: bold; color: #fff; text-shadow: 0 -1px rgba(0,0,0,.28);}
+
 
 /* colors */
 $linkColor: $myBlueDark;
-$navbarBackground: red;
-$navbarBackgroundHighlight: lighten($navbarBackground, 10);
-$navbarLinkColor: darken($myOrange, 10);
-$navbarLinkColorHover: $myOrange;
 $dropdownBackground: $myBlueDark;
 $hrBorder: $myBlue;
-$heroUnitBackground: lighten($myOrange, 20);
-$dropdownLinkColorHover: $myBlueDark;
+$dropdownLinkColorHover: #304269;
 
 
 @import "bootstrap";
@@ -38,14 +34,14 @@ h6 {  font-size: 16px; font-weight: bold; }
   background-image: -ms-linear-gradient(bottom, #f0f0f2, #fff);
   background-image: linear-gradient(to top, #f0f0f2, #fff);}
 
-.pagination ul { -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; background-color: #717b8f; -webkit-box-shadow: inset -2px 1px rgba(255,255,255,.12); -moz-box-shadow: inset -2px 1px rgba(255,255,255,.12); box-shadow: inset -2px 1px rgba(255,255,255,.12); border: solid 1px #000; background-image: -webkit-linear-gradient(bottom, rgba(0,0,0,.2), rgba(69,69,69,.2), rgba(111,111,111,.2) 21%, rgba(181,180,180,.2) 79%, rgba(255,255,255,.2)); background-image: -moz-linear-gradient(bottom, rgba(0,0,0,.2), rgba(69,69,69,.2), rgba(111,111,111,.2) 21%, rgba(181,180,180,.2) 79%, rgba(255,255,255,.2)); background-image: -o-linear-gradient(bottom, rgba(0,0,0,.2), rgba(69,69,69,.2), rgba(111,111,111,.2) 21%, rgba(181,180,180,.2) 79%, rgba(255,255,255,.2)); background-image: -ms-linear-gradient(bottom, rgba(0,0,0,.2), rgba(69,69,69,.2), rgba(111,111,111,.2) 21%, rgba(181,180,180,.2) 79%, rgba(255,255,255,.2)); background-image: linear-gradient(to top, rgba(0,0,0,.2), rgba(69,69,69,.2), rgba(111,111,111,.2) 21%, rgba(181,180,180,.2) 79%, rgba(255,255,255,.2));
-font-size: 12px; font-weight: bold; color: #fff; text-shadow: 0 -1px rgba(0,0,0,.28); }
 
-.pagination ul > .active > a, .pagination ul > .active > span {  background-color: #717b8f; -webkit-box-shadow: inset -2px 1px rgba(255,255,255,.12); -moz-box-shadow: inset -2px 1px rgba(255,255,255,.12); box-shadow: inset -2px 1px rgba(255,255,255,.12);  background-image: -webkit-linear-gradient(bottom, rgba(0,0,0,.2), rgba(69,69,69,.2), rgba(111,111,111,.2) 21%, rgba(181,180,180,.2) 79%, rgba(255,255,255,.2)); background-image: -moz-linear-gradient(bottom, rgba(0,0,0,.2), rgba(69,69,69,.2), rgba(111,111,111,.2) 21%, rgba(181,180,180,.2) 79%, rgba(255,255,255,.2)); background-image: -o-linear-gradient(bottom, rgba(0,0,0,.2), rgba(69,69,69,.2), rgba(111,111,111,.2) 21%, rgba(181,180,180,.2) 79%, rgba(255,255,255,.2)); background-image: -ms-linear-gradient(bottom, rgba(0,0,0,.2), rgba(69,69,69,.2), rgba(111,111,111,.2) 21%, rgba(181,180,180,.2) 79%, rgba(255,255,255,.2)); background-image: linear-gradient(to top, rgba(0,0,0,.2), rgba(69,69,69,.2), rgba(111,111,111,.2) 21%, rgba(181,180,180,.2) 79%, rgba(255,255,255,.2));
-font-size: 12px; font-weight: bold; color: #fff; text-shadow: 0 -1px rgba(0,0,0,.28); }
+.pagination ul { -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; background-color: #717b8f; -webkit-box-shadow: inset -2px 1px rgba(255,255,255,.12); -moz-box-shadow: inset -2px 1px rgba(255,255,255,.12); box-shadow: inset -2px 1px rgba(255,255,255,.12); border: solid 1px #000; @include pagination  }
 
-.pagination ul > li > a, .pagination ul > li > span {  background-color: #717b8f; -webkit-box-shadow: inset -2px 1px rgba(255,255,255,.12); -moz-box-shadow: inset -2px 1px rgba(255,255,255,.12); box-shadow: inset -2px 1px rgba(255,255,255,.12);  background-image: -webkit-linear-gradient(bottom, rgba(0,0,0,.2), rgba(69,69,69,.2), rgba(111,111,111,.2) 21%, rgba(181,180,180,.2) 79%, rgba(255,255,255,.2)); background-image: -moz-linear-gradient(bottom, rgba(0,0,0,.2), rgba(69,69,69,.2), rgba(111,111,111,.2) 21%, rgba(181,180,180,.2) 79%, rgba(255,255,255,.2)); background-image: -o-linear-gradient(bottom, rgba(0,0,0,.2), rgba(69,69,69,.2), rgba(111,111,111,.2) 21%, rgba(181,180,180,.2) 79%, rgba(255,255,255,.2)); background-image: -ms-linear-gradient(bottom, rgba(0,0,0,.2), rgba(69,69,69,.2), rgba(111,111,111,.2) 21%, rgba(181,180,180,.2) 79%, rgba(255,255,255,.2)); background-image: linear-gradient(to top, rgba(0,0,0,.2), rgba(69,69,69,.2), rgba(111,111,111,.2) 21%, rgba(181,180,180,.2) 79%, rgba(255,255,255,.2));
-font-size: 12px; font-weight: bold; color: #fff; text-shadow: 0 -1px rgba(0,0,0,.28); }
+.pagination ul > .active > a, .pagination ul > .active > span {  background-color: lighten(#717b8f, 30%); -webkit-box-shadow: inset -2px 1px rgba(255,255,255,.12); -moz-box-shadow: inset -2px 1px rgba(255,255,255,.12); box-shadow: inset -2px 1px rgba(255,255,255,.12);  background-image: -webkit-linear-gradient(bottom, rgba(0,0,0,.2), rgba(69,69,69,.2), rgba(111,111,111,.2) 21%, rgba(181,180,180,.2) 79%, rgba(255,255,255,.2)); @include pagination; }
+
+.pagination ul > li > a, .pagination ul > li > span {  background-color: #717b8f; -webkit-box-shadow: inset -2px 1px rgba(255,255,255,.12); -moz-box-shadow: inset -2px 1px rgba(255,255,255,.12); box-shadow: inset -2px 1px rgba(255,255,255,.12);  background-image: -webkit-linear-gradient(bottom, rgba(0,0,0,.2), rgba(69,69,69,.2), rgba(111,111,111,.2) 21%, rgba(181,180,180,.2) 79%, rgba(255,255,255,.2)); @include pagination; }
+
+.pagination li:hover {background-color: red}
 
 .navbar .nav
 {

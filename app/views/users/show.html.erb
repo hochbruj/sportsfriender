@@ -22,7 +22,9 @@
 <%= s.name%>
 </div>
 <div style='font-size: 16px; margin-top: 10px'>
-<%= s.name %> <%=t('skill_level')%>: <%= @user.last_stat(s.id).total_skill.round(1) %>
+<b><%=t('skill_level')%>: <%= @user.last_stat(s.id).total_skill.round(1) %></b></br>
+	 <%=@user.city.name%> Ranking:#<%=@user.ranking(s.id)%></br>
+<%=t('rated_by')%> <%=t('sportsfriend', :count => @user.ratings.where(sport_id: s.id).count) %>
 </div>
 </br>
 <% unless s.cat2 == 'nil' %>

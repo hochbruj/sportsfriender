@@ -28,7 +28,22 @@
 </div>
 <%end%>
 </div> <!--! end of accordion1 -->
-<% unless current_user.not_rated.empty? %>
+
 <hr>
+<div class='row-fluid'>
+<% unless current_user.not_rated.empty? %>
+<div class="span3">
 <%= button_to(t('.add_sport'), newsport_path, :class => 'btn btn-large btn-success', :method => :get) %>
+</div>
+<div class="span1">
+<h3 style="text-align:center;"><%= t('or')%></h3>
+</div>
 <%end%>
+<div class="span6">
+<% if session[:event_id] %>
+<%= button_to(t('.join'), Event.find(session[:event_id]), :class => 'btn btn-large btn-success', :method => :get) %>
+<% else %>
+<%= button_to(t('.find'), search_path, :class => 'btn btn-large btn-success', :method => :get) %>
+<% end %>
+</div>
+</div>

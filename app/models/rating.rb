@@ -1,6 +1,7 @@
 class Rating < ActiveRecord::Base
   belongs_to :user
   belongs_to :sport
+  belongs_to :event
 
    attr_accessible :cat1, :cat2 ,:cat3, :cat4, :cat5, :dif1, :dif2 ,:dif3, :dif4, :dif5, :sport_id, :user_id, :event_id
   

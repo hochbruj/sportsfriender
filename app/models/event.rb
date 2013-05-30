@@ -131,8 +131,7 @@ class Event < ActiveRecord::Base
       if sport_id and City.find_by_full_name(event_city)
          @events = self.where("start_at >= ?", DateTime.now)
          @events = @events.where(sport_id: sport_id)
-# change later to false
-         @events = @events.where(private: nil)
+         @events = @events.where(private: false)
          @events = @events.where(cancelled: nil)
          @events = @events.where("location_id IN (?)", Location.near(City.find_by_full_name(event_city), radius, :units => units.to_sym).map(&:id))
          @events = @events.order('start_at ASC')  
@@ -163,7 +162,30 @@ class Event < ActiveRecord::Base
       UserMailer.event_invite(user,user.email,self).deliver
       end
       end
+    end
     
+    def check_rating_complete!(user)
+      notrated = 'false'
+      participants.each do |p|
+      if p.unrated?(user)
+       notrated = 'true'
+      end
+     end
+     unless notrated == 'true'
+       participants.where(user_id: user.id).first.update_attributes(:rated => true)
+     end
+    end
+    
+    def rating_complete?(user)
+      participants.find_by_user_id(user.id).rated     
+    end
+    
+    def send_cancel(user)
+      participants.each do |p|
+      unless p.organizer?
+      UserMailer.event_cancel(p.user,self).deliver
+      end
+      end
     end
 
 private

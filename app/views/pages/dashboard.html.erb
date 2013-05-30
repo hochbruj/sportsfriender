@@ -13,7 +13,13 @@
 <% unless @last.nil? %>
 <%= link_to "#{@last.sport.name} #{t(@last.mode)}", @last, :class => 'link_mid' %></br>
 <b><%= l @last.start_at.in_time_zone(@last.city.zone).to_date, :format => :short %></b>
+
+<% if @last.rating_complete?(current_user)%>
+</br></br>
+<%else%>
 <%= button_to "Rate Sportsfriends", feedback_path(:event_id => @last.id), :method => "post", :class => 'b_rate' %></br>
+<%end%>
+
 <%= link_to t('.all_completed'), url_for(:action => 'myevents', :controller => 'pages', :active => 'tab2'), :class => 'link_small' %>
 <% else %>
 <%= t('no_last')%>
