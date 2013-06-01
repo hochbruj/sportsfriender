@@ -114,7 +114,7 @@ de:
    new:
      sport_city: "Sport, Stadt & Location"
      new_location: "+ Füge eine neue Location mit Adresse hinzu"
-     from_map: "+ Füge eine neue Location von Karte hinzu"
+     from_map: "+ Finde eine Location auf einer Karte"
      choose_location: "Wähle eine Event Location von dieser Liste"
      mode_gender: "Event Modus & Geschlecht"
      date_time: "Datum und Uhrzeit"

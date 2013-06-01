@@ -26,7 +26,14 @@
 <div class='event_title'><%= t('location')%></div>
 <b><%= @event.location.name%></br>
 <%= @event.location.address%></br>
-<%= @event.location.city.full_name%></b>
+<%= @event.location.city.full_name%></br>
+<% if @event.location.telephone?%>
+<%= @event.location.telephone%></br>
+<%end%></b>
+<% if @event.location.website?%>
+<%= link_to @event.location.website, @event.location.website, :target => "_blank", :class => 'link_normal' %></br>
+<%end%>
+
 <%= gmaps({
   "map_options" => {"auto_adjust" => true, "auto_zoom" => false, "zoom" => 13 },
   "markers"     => {"data" => @location } })%>
@@ -39,7 +46,7 @@
 <% if (signed_in? and current_user.participate?(@event.id)) %>
  <div class='red_23' style='margin: 10px 0 10px 0'>
    <% if current_user != @event.organizer.user%>
-   <%=t('.signed') %></div>
+   <%=t('.signed') %>
    <%else%>
    <%=t('.you_organizer') %>
    <%end%>
