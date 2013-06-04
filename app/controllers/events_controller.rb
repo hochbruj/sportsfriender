@@ -112,7 +112,7 @@ class EventsController < ApplicationController
       if @event.save_set_organizer(current_user)
          @event.invite
          @event.check_repeat(current_user)
-        format.html { redirect_to dashboard_path }
+        format.html { redirect_to dashboard_path, notice: I18n.t('create_event_success') }
         format.json { render json: @event, status: :created, location: @event }
       else
         format.html { render action: "new" }

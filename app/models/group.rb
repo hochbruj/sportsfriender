@@ -24,5 +24,15 @@ class Group < ActiveRecord::Base
 #      self.user_ids = ids.split(",")
 #  end
 
+  def self.valid_for(user,member)
+   groups = []
+   self.where(user_id: user.id).each do |g|
+    unless g.members.where(user_id: member.id).exists?
+     groups << g
+    end
+   end
+  return groups
+  end
+
 end
 

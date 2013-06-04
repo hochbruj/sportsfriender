@@ -55,7 +55,8 @@
 
 <div class="tab-pane <%=@tab2%>" id="tab2">
 	<div class='frame'>
-		<div class='sb_wrapper'>
+		<div class='row-fluid'>
+		<div class='sb_sf_wrapper'>
 		<%= form_tag(mysportsfriends_path, :method => "get") do %>
 		<span class='sb_text'>Find</span>
 		<%= hidden_field_tag :active , 'tab2'%>
@@ -64,6 +65,7 @@
 		<%= text_field_tag(:search_city , (params[:search_city] or current_user.city.full_name), :class => 'ui-autocomplete-input', data: {autocomplete_source: cities_path}, :size => 10)  %>
 		<%= submit_tag(t('search'), class: 'b_search') %> 
 		<% end %>
+		</div>
 		</div>
 		<hr>
 		<% unless @users.nil?%>

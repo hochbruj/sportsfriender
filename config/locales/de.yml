@@ -137,6 +137,7 @@ de:
      you_organizer: "Du bist der Organisierer!"
      join: "NIMM AM EVENT TEIL"
      unjoin: "ABSAGEN VOM EVENT"
+     sign_up: "REGISTRIEREN ZUM TEILNEHMEN"
      cancel: "EVENT ABSAGEN"
      provide_reason: "Wenn du diese Event absagen moechtest, gib einen Grund an, so dass alle Teilnehmer informiert werden."
      organizer: "Organisierer"
@@ -203,6 +204,9 @@ de:
   need_rating: "Bevor du teilnimmst, musst du dich selbst für diesen Sport einschätzen"
   feedback_complete: "Vielen Dank, alle Teilnehmer dieses Events wurden bewertet"
   cancel_success: "Event wurde erfolgreich abgesagt"
+  join_success: "Du hast erfolgreich zugesagt"
+  unjoin_success: "Du hast erfolgreich abgesagt"
+  create_event_success: "Event wurde erfolgreich erstellt"
  
 # button texts
   goto_dash: "Zum Dashboard"

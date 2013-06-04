@@ -168,8 +168,8 @@
 			width: 300px; height: 50px }
 
 .b_search { @include button_base(-549px);
-			width: 100px; height: 40px;
-			padding: 3px 70px 10px 30px;
+			width: 30px; height: 40px;
+			padding: 3px 40px 10px 30px;
 			margin-left: 10px; }
 
 .b_search:hover { @include button_base(-595px) }
@@ -208,12 +208,15 @@
 
 /* Search bar*/
 
-.sb_wrapper {width: 900px; height: 40px; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; background-color: #292c33; -webkit-box-shadow: 0 1px rgba(255,255,255,.3), inset 0 2px rgba(255,255,255,.3); -moz-box-shadow: 0 1px rgba(255,255,255,.3), inset 0 2px rgba(255,255,255,.3); box-shadow: 0 1px rgba(255,255,255,.3), inset 0 2px rgba(255,255,255,.3); border: solid 1px #000; background-image: -webkit-linear-gradient(bottom, rgba(0,0,0,.3), rgba(255,255,255,.3)); background-image: -moz-linear-gradient(bottom, rgba(0,0,0,.3), rgba(255,255,255,.3)); background-image: -o-linear-gradient(bottom, rgba(0,0,0,.3), rgba(255,255,255,.3)); background-image: -ms-linear-gradient(bottom, rgba(0,0,0,.3), rgba(255,255,255,.3)); background-image: linear-gradient(to top, rgba(0,0,0,.3), rgba(255,255,255,.3));
-padding: 10px 0px 1px 0px;
+@mixin search_bar($width) {width: $width; height: 35px; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; background-color: #292c33; -webkit-box-shadow: 0 1px rgba(255,255,255,.3), inset 0 2px rgba(255,255,255,.3); -moz-box-shadow: 0 1px rgba(255,255,255,.3), inset 0 2px rgba(255,255,255,.3); box-shadow: 0 1px rgba(255,255,255,.3), inset 0 2px rgba(255,255,255,.3); border: solid 1px #000; background-image: -webkit-linear-gradient(bottom, rgba(0,0,0,.3), rgba(255,255,255,.3)); background-image: -moz-linear-gradient(bottom, rgba(0,0,0,.3), rgba(255,255,255,.3)); background-image: -o-linear-gradient(bottom, rgba(0,0,0,.3), rgba(255,255,255,.3)); background-image: -ms-linear-gradient(bottom, rgba(0,0,0,.3), rgba(255,255,255,.3)); background-image: linear-gradient(to top, rgba(0,0,0,.3), rgba(255,255,255,.3));
+padding: 7px 0px 2px 0px;
 margin-bottom: 15px;
   select {	background-color: #fff;};
   input[type="text"] {	background-color: #fff;};
     }
+
+.sb_event_wrapper { @include search_bar(700px)}
+.sb_sf_wrapper { @include search_bar(800px)}
 
 .sb_text {font-size: 17px; font-weight: bold; color: #fff;
           padding: 0px 15px 0px 15px;}

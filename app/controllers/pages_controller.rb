@@ -2,7 +2,6 @@ class PagesController < ApplicationController
   
   require 'will_paginate/array'
   
-
       
   def home
     if params[:set_locale]
@@ -128,5 +127,5 @@ class PagesController < ApplicationController
     
   end
 
-  
+    
 end

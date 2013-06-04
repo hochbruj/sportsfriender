@@ -1,5 +1,6 @@
 <%= content_tag "div", id: "part", data: {part: @event.participants } do %>
 <% end %>
+<% if signed_in? %>
 <div class='subheader_wrapper'><div class='i_sh_rate'><%= t('.header') %></div></div>
 <p>
 <%= link_to "#{@event.sport.name} #{t(@event.mode)}", @event, :class => 'link_big'%></br>
@@ -122,3 +123,6 @@
 
 <% end %> <!-- unrated? -->
 <% end %> <!-- loop participants-->
+<% else %>
+Please 
+<%end%>

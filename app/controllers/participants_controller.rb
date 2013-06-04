@@ -11,7 +11,7 @@ class ParticipantsController < ApplicationController
    
     respond_to do |format|
       if @participant.save!
-        format.html { redirect_to dashboard_path }
+        format.html { redirect_to dashboard_path, notice: I18n.t('join_success') }
       else
         format.html { redirect_to @event }
       end
@@ -23,7 +23,7 @@ class ParticipantsController < ApplicationController
      @participant.destroy
 
     respond_to do |format|
-      format.html { redirect_to dashboard_path }
+      format.html { redirect_to dashboard_path, notice: I18n.t('unjoin_success') }
     end
   end
   

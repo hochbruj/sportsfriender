@@ -35,12 +35,12 @@
   <%= form_tag(new_group_path, :method => "get", :recipient => @user.id) do %>
   <div style='margin-left:20px'>
 	<%= hidden_field_tag :user_id , @user.id%>
-	<% if current_user.groups.empty?%>
+	<% if current_user.groups.empty? or Group.valid_for(current_user,@user).empty?%>
 	<%= label_tag t('group_name')%>
 	<%= text_field_tag :new_group_name%>
 	<% else%>
 	<%= label_tag t('group_name')%>
-	<%= select_tag :group_id, options_from_collection_for_select(current_user.groups, 'id', 'name')%></br>
+	<%= select_tag :group_id, options_from_collection_for_select(Group.valid_for(current_user,@user), 'id', 'name')%></br>
     <b><%=t('or')%></b></br>
     <div style='margin-top:7px'>
 	<%= label_tag :new_group, :class => 'checkbox' do %>

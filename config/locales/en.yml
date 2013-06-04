@@ -114,13 +114,14 @@ en:
      show:
       can_join: "Who Can Join"
       spot:
-        zero: "No Spot left!" 
-        one: " One Spot left!"
-        other: "%{count} Spots left!"
+        zero: "No spot left!" 
+        one: " One spot left!"
+        other: "%{count} spots left!"
       signed: "You're Signed Up!"
       you_organizer: "You're the organizer!"
-      join: "SIGN UP TO PLAY"
-      unjoin: "UNSIGN FROM EVENT"
+      join: "JOIN THIS EVENT"
+      sign_up: "SIGN UP TO JOIN EVENT"
+      unjoin: "UNJOIN FROM EVENT"
       cancel: "CANCEL EVENT"
       provide_reason: "If you want to cancel this event please provide a reason that all participants will be informed."
       organizer: "Organizer"
@@ -173,7 +174,7 @@ en:
           button: "ADD NEW LOCATION"
           pointer: "STorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
    
-# error messages
+# messages
   start_past: "start time is in the past"
   start_end: "end time is not after start time"
   check_from_to: "is lower than low end"
@@ -183,10 +184,13 @@ en:
   skill_lower: "is lower than your skill level"
   post_error: "Comment is either empty or too long (max. 255 characters)"
   group_error: "Group name is not valid"
-  cant_signup: "Sorry cou can't sign up for this event. Please check the 'Who Can Join' requirements"
+  cant_signup: "Sorry cou can't join this event. Please check the 'Who Can Join' requirements"
   need_rating: "Before joining you have to assess yourself for this sport"
   feedback_complete: "Thanks, all particpants have been rated for this event."
   cancel_success: "Event was successfully cancelled"
+  join_success: "You successfully joined this event"
+  unjoin_success: "You successfully unjoined from this event"
+  create_event_success: "Event was successfully created"
   
 # button texts
   goto_dash: "Goto Dashboard"

@@ -26,7 +26,7 @@ class GroupsController < ApplicationController
   # GET /groups/new.json
   def new
    respond_to do |format| 
-    if current_user.groups.empty?
+    if current_user.groups.empty? or Group.valid_for(current_user,User.find(params[:user_id])).empty?
     @group = Group.new
     @group.name = params[:new_group_name]
     @group.user_id = current_user.id
