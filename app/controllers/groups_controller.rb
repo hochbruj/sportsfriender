@@ -32,9 +32,9 @@ class GroupsController < ApplicationController
     @group.user_id = current_user.id
      if @group.save
         @member = @group.members.create(user_id: params[:user_id])
-        format.html { redirect_to :back }
+        format.html { redirect_to mysportsfriends_path }
      else
-        format.html { redirect_to :back, alert: 'Error Group' }
+        format.html { redirect_to :back, alert: I18n.t('group_error') }
      end
     else
      if params[:new_group] == '1'
@@ -43,14 +43,14 @@ class GroupsController < ApplicationController
        @group.user_id = current_user.id
        if @group.save
          @member = @group.members.create(user_id: params[:user_id])
-         format.html { redirect_to :back }
+         format.html { redirect_to mysportsfriends_path }
        else
         format.html { redirect_to :back, alert: I18n.t('group_error') }
        end
      else
        @group = Group.find(params[:group_id])
        @member = @group.members.create(user_id: params[:user_id])
-       format.html { redirect_to :back }
+       format.html { redirect_to mysportsfriends_path }
      end
     end       
    end

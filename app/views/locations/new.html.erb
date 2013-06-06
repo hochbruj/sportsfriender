@@ -35,13 +35,15 @@
      <%= f.input :telephone, :label => t('telephone') %>
      <%= f.input :website, :label => t('website') %>
      <%= f.input :private, as: :boolean, inline_label: t('.private'), label: false %>
-     
-
-
- <hr>
- <%= f.button :submit, t('.button'), :class => 'btn-large btn-inverse' %>
+ 
+</div>
+</div>    
+</div>
+<hr>
+<dic class='row-fluid'>
+ <%= f.button :submit, t('.button'), :class => 'pull-left btn-large btn-inverse' %>
 <% end %>
+<%= button_to('CANCEL', new_event_path, :class => 'pull-right btn btn-large btn-danger', :method => :get) %>
 </div>
 
-</div>
-</div>
+

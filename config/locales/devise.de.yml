@@ -19,15 +19,17 @@ de:
       invalid_token: 'Der Anmelde-Token ist ungültig.'
       timeout: 'Ihre Sitzung ist abgelaufen, bitte melden Sie sich erneut an.'
       inactive: 'Ihr Account ist nicht aktiv.'
+      not_found_in_database: "Ungültige Anmeldedaten."
     my_sessions:
       user:
        signed_in: ''
        signed_out: ''
-    passwords:
-      send_instructions: 'Sie erhalten in wenigen Minuten eine E-Mail mit der Anleitung, wie Sie ihr Passwort zurücksetzen können.'
-      updated: 'Ihr Passwort wurde geändert. Sie sind jetzt angemeldet.'
-      updated_not_active: 'Ihr Passwort wurde geändert.'
-      send_paranoid_instructions: "Falls Ihre E-Mail-Adresse in unserer Datenbank existiert erhalten Sie in wenigen Minuten eine E-Mail mit der Anleitung, wie Sie Ihr Passwort zurücksetzen können."
+    my_passwords:
+        user:
+          send_instructions: 'Sie erhalten in wenigen Minuten eine E-Mail mit der Anleitung, wie Sie ihr Passwort zurücksetzen können.'
+          updated: 'Ihr Passwort wurde geändert. Sie sind jetzt angemeldet.'
+          updated_not_active: 'Ihr Passwort wurde geändert.'
+          send_paranoid_instructions: "Falls Ihre E-Mail-Adresse in unserer Datenbank existiert erhalten Sie in wenigen Minuten eine E-Mail mit der Anleitung, wie Sie Ihr Passwort zurücksetzen können."
     confirmations:
       send_instructions: 'Sie erhalten in wenigen Minuten eine E-Mail, mit der Sie Ihre Registrierung bestätigen können.'
       send_paranoid_instructions: 'Falls Ihre E-Mail-Adresse in unserer Datenbank existiert erhalten Sie in wenigen Minuten eine E-Mail mit der die Sie Ihre Registrierung bestätigen können.'

@@ -3,8 +3,8 @@
 <div class='span6'>
 <div class='frame'>
 <div class='grey_23' style='margin-top: 10px'><%= @event.sport.name%> <%= t(@event.mode)%></div>
-<b><%= l @event.start_at.to_date, :format => :long %>, <%= l @event.start_at.in_time_zone(@event.city.zone), :format => :short %>
- - <%= l @event.finish_at.in_time_zone(@event.city.zone), :format => :short %></b>
+<b><div style='margin-top:5px'><%= l @event.start_at.to_date, :format => :long %>, <%= l @event.start_at.in_time_zone(@event.city.zone), :format => :short %>
+ - <%= l @event.finish_at.in_time_zone(@event.city.zone), :format => :short %></div></b>
 </div>
 
 <div class='blue_box'>

@@ -101,8 +101,8 @@
 			  color: #fff;
 			  text-shadow: -1px 1px rgba(0,0,0,.3);}
 
-@mixin button_padsize { width: 190px; height: 35px;
-                       padding: 17px 10px 0px 45px;}
+@mixin button_padsize { width: 180px; height: 35px;
+                       padding: 17px 10px 0px 50px;}
 
 @mixin i_h_base($pos) { background: url('icons.png') no-repeat 0px $pos; 
 					    width: 190px; height: 40px;
@@ -148,8 +148,8 @@
 #search_event:hover { @include button_base(-144px);}
 						
 #host_event { @include button_base(0px); 
-			  width: 210px; height: 35px;
-			  padding: 17px 0px 0px 45px;}
+			  width: 195px; height: 35px;
+			  padding: 17px 0px 0px 50px;}
 
 #host_event:hover { @include button_base(-48px);}
 
@@ -169,7 +169,7 @@
 
 .b_search { @include button_base(-549px);
 			width: 30px; height: 40px;
-			padding: 3px 40px 10px 30px;
+			padding: 3px 43px 10px 30px;
 			margin-left: 10px; }
 
 .b_search:hover { @include button_base(-595px) }
@@ -216,7 +216,7 @@ margin-bottom: 15px;
     }
 
 .sb_event_wrapper { @include search_bar(700px)}
-.sb_sf_wrapper { @include search_bar(800px)}
+.sb_sf_wrapper { @include search_bar(805px)}
 
 .sb_text {font-size: 17px; font-weight: bold; color: #fff;
           padding: 0px 15px 0px 15px;}

@@ -44,8 +44,8 @@
 <%= f.hidden_field :city_id %>
 <%= f.hidden_field :sport_id %>
 <%= f.input :location_id, :label => false, collection: Location.valid_entries(@event.sport.id,@event.city.id,current_user.id).sort_by{|l| l[:name]}.map{ |l| [l.full_name, l.id]}, :prompt => t('.choose_location'), :input_html => { :style=> 'width: 320px' }  %>
-<b>(<%=t('or')%>)</b> <%= link_to t('.new_location'), new_location_path(:city_id => @event.city.id, :sport_id => @event.sport_id), :class =>'link_normal' %></br>
-<b>(<%=t('or')%>)</b> <%= link_to t('.from_map'), map_path(:sport_id => @event.sport_id, :city_id => @event.city_id), :class =>'link_normal'%>
+<b>(<%=t('or')%>)</b> <%= link_to t('.from_map'), map_path(:sport_id => @event.sport_id, :city_id => @event.city_id), :class =>'link_normal'%></br>
+<b>(<%=t('or')%>)</b> <%= link_to t('.new_location'), new_location_path(:city_id => @event.city.id, :sport_id => @event.sport_id), :class =>'link_normal' %>
 </div>
 
 <div class='simple_form form-horizontal'>
@@ -53,8 +53,8 @@
 <div class='blue_box'>
 <div class='frame'>
 <h5><%= t('.mode_gender')%></h5>
-<%= f.input :mode, :label => t('mode'), collection: [[t("training"), 'training'],[t("trai_game"),'trai_game'], [t("game"),'game'], [t("social"),'social']], :prompt => t('choose'), :required => true%>
-<%= f.input :gender, :label => t('gender'), collection: [[t(current_user.gender), current_user.gender],[t("mixed"), 'mixed']], :prompt => t('choose'), :required => true %>
+<%= f.input :mode, :label => t('mode'), collection: [[t("game"),'game'],[t("training"), 'training'],[t("trai_game"),'trai_game'],  [t("social"),'social']], :prompt => t('choose'), :required => true%>
+<%= f.input :gender, :label => t('gender'), collection: [[t("mixed"), 'mixed'],[t('fem_only'), 'female'], [t('mal_only'), 'male']], :prompt => t('choose'), :required => true %>
 </div>
 </div>
 
@@ -123,7 +123,7 @@
 </div>
 
 <div class='frame'>
-<div class='black_18' style='margin: 10px 0 0 0'><%= t('max_part')%></div>
+<div class='black_18' style='margin: 10px 0 0 0'><%= t('max_att')%></div>
 <div class='grey_15' style='padding: 0 0 15px 0'><%= t('.incl_org')%></div>
 <%= f.input :max_part, :label => false, collection: (2..25), prompt: t('choose'), input_html: {style: 'width:85px'}%>
 </div>
@@ -131,8 +131,13 @@
 <div class='blue_box'>
 <div class='frame'>
 <h5><%= t('.invite')%></h5>
+<% if current_user.groups.empty?%>
+<label><%=t('.no_sf')%></label>
+<%=t('.add_sf')%> <%=link_to 'My Sportsfriends', mysportsfriends_path, :class => 'link_normal'%></br></br>
+<% else%>
 <%= f.label :group_id, 'My Sportsfriends'%>
 <%= f.input :group_id, :label => false, collection: current_user.groups, include_blank: true, input_html: {style: 'width:315px'}%>
+<% end %>
 <%= f.label :emails, t('.by_email')%>
 <%= f.input :emails, :label => false, input_html: {style: ' width:300px'} %>
 <%= f.input :private, as: :boolean, inline_label: t('.private'), label: false %>

@@ -21,16 +21,16 @@ de:
   city: "Stadt"
   telephone: "Telefon"
   website: "Webseite"
-  sport: "Sport"
+  fav_sport: "Bevorzugter Sport"
   about_me: "Über mich"
-  mode: "Modus"
+  mode: "Art"
   start_time: "Beginn"
   fin_time: "Ende"
   skill_range: "Skill Range"
   age_range: "Alters Range"
   low_end: "Von"
   high_end: "Bis"
-  max_part: "Maximale Anzahl von Teilnehmern"
+  max_att: "Maximale Anzahl von Teilnehmern"
   or: "oder"
   upcoming: "Meine Anstehenden Events"
   completed: "Meine Beendeten Events"
@@ -48,13 +48,13 @@ de:
   unrated: "Nicht Bewerted"
   pointer_header: "Hilfe für diese Seite"
   dont_show: "Nicht mehr anzeigen"
-  using_email: "Sign up mit deiner Email Adresse"
+  using_email: "Registriere dich mit deiner Email Adresse"
   agreement: "Mit dem Erstellen eines Accounts, akzeptierst du Sportsfrienders"
   tos: "Benutzerbedingungen"
   priv_pol: "Datenschutzrichtlinien"
   forgot_password: "Passwort vergessen"
   reset_instr: "Sende Email zum Zurücksetzen"
-  nice_move: "Los geht's!"
+  nice_move: "Gute Entscheidung"
   rated_by: "Bewerted von"
   send_message: "Sende eine Nachricht an"
   add_to_sf: "Füge zur Gruppe hinzu"
@@ -65,6 +65,12 @@ de:
   more: "Mehr"
   search: "Suche"
   groups: "Gruppen"
+  host: "Setze Event auf"
+  login: "Anmelden"
+  logout: "Abmelden"
+  signup: "Registrieren"
+  find: "Finde"
+  
   
 
   date:
@@ -107,8 +113,8 @@ de:
      header2: "Füge neue Sportart hinzu"
      choose: "Wähle einen neuen sport und bewerte dich selbst"
      title: "Deine eigene Bewertung"
-     explanation: "Bewerte deine eigenen Skills unten für diesen Sport. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit"
-     save: "Speichere diese Bewertung"
+     explanation: "Bewerte deine eigenen Skills für diesen Sport. Sportsfriender unterscheidet verschiedene Kategorien, die von Experten bestimmt wurden, damit dein initiales Skill Profil so genau wie möglich ist."
+     save: "SPEICHERE DIESE BEWERTUNG"
      sure: "Bist du sicher, dass du speichern möchtest? Du kannst die Bewertung erst nach nach dem nächsten Spiel ändern"
   events:
    new:
@@ -116,17 +122,19 @@ de:
      new_location: "+ Füge eine neue Location mit Adresse hinzu"
      from_map: "+ Finde eine Location auf einer Karte"
      choose_location: "Wähle eine Event Location von dieser Liste"
-     mode_gender: "Event Modus & Geschlecht"
+     mode_gender: "Event Art & Geschlecht"
      date_time: "Datum und Uhrzeit"
      incl_org: "(Inclusive Organisierer)"
      submit: "EVENT AUFSETZEN"
      repeat: "Regelmässiges Event"
      every: "Jede"
      until: "Bis"
-     pointer: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+     pointer: "Setze ein neues Spiel, Training oder anderes Sport Event auf. Du kannst exakte Anforderungan für die Teilnehmer bestimmen. Findest du keine passende Location in der Auswahlbox? Füge einfach eine neue Location mit Adresse hinzu. Sie erscheint dann dort. Sende Einladungen an Sportsfriends oder lade neue Freunde per email ein."
      invite: "Einladung"
      by_email: "Per Email (kommagetrennt)"
      private: "Privates Event (nicht suchbar)"
+     no_sf: "Du hast noch keine Sportsfriends hinzugefügt"
+     add_sf: "Füge sie zu einer Gruppe hinzu in"
    show:
      can_join: "Wer kann teilnehmen"
      spot:
@@ -139,7 +147,7 @@ de:
      unjoin: "ABSAGEN VOM EVENT"
      sign_up: "REGISTRIEREN ZUM TEILNEHMEN"
      cancel: "EVENT ABSAGEN"
-     provide_reason: "Wenn du diese Event absagen moechtest, gib einen Grund an, so dass alle Teilnehmer informiert werden."
+     provide_reason: "Wenn du diese Event absagen moechtest, gib einen Grund an, so dass alle Teilnehmer per email informiert werden."
      organizer: "Organisierer"
      post: "Poste einen Kommentar"
      submit: "KOMMENTAR POSTEN"
@@ -149,13 +157,13 @@ de:
 
   pages:
    welcome:
-      text: "Lass uns ein Sport Eevnt für dich finden. ......." 
-      button: "Los geht's, Zeit zu spielen"
+      text: "Gib uns ein paar Informationen über dich und deinen Lieblingssport." 
+      button: "Los geht's!"
    dashboard:
-      all_upcoming: "Siehe alle deine anstehenden Events"
-      all_completed: "Siehe alle deine beendeten Events"
+      all_upcoming: "Siehe alle meine anstehenden Events"
+      all_completed: "Siehe alle meine beendeten Events"
       last: "Mein letztes Event"
-      progress_detail: "Siehe deinen Progress im Detail"
+      progress_detail: "Siehe meinen Progress im Detail"
    feedback:
       header: "Bewerte Sportsfriends für dieses Event"
       title: "Skills, Aktuelle Skill Level & Was es bedeutet"
@@ -169,26 +177,28 @@ de:
       header: "Sportarten die du betreibst"
       add_sport: "FÜGE SPORT HINZU"
       join: "NIMM AM EVENT TEIL"
-      find: "FINDE EVENT ZUM SPIELEN"
+      find: "FINDE EVENT"
    myprogress:
       header: "Verfolge deinen Progress über das letzte Jahr"
    mysportsfriends:
-       pointer: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+       pointer: "Füge Sportsfriends zu Gruppen hinzu um sie einzuladen, wenn du ein Event aufsetzt. Um diese zu finden suche nahand von Stadt und Sportart. Aber keine Sorge: Du kannst immer Events aufsetzen ohne Sportsfriends einzuladen und du kannst an Events mit Leuten teilnehmen, die nicht in deiner Gruppe sind."
        group: "Gruppe"
        members: "Mitglieder"
        no_result: "Wir konnten leider kein Sportsfriend für diesen Sport in dieser Stadt finden."
   headers:
    setup_event:
-     header: "Erstelle ein neues Event"
+     header: "Setze ein neues Event auf"
    detail_event:
-     header: "Event Detail"
+     header: "Event Details"
+   change_password:
+     header: "Ändere dein Passwort"
   
   locations:
    new:
     header: "Füge eine neue Location hinzu"
-    private: "Private Adresse. Nicht ausserhalb meiner Gruppem verwenden"
+    private: "Private Adresse. Nicht außerhalb meiner Gruppen verwenden"
     button: "FÜGE NEUE LOCATION HINZU"
-    pointer: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+    pointer: "Füge eine neue Location hinzu und sie erscheint das nächste Mal in der Auswahlbox. Wenn die Adresse privat bleiben soll, vergiss nicht die Ankreuzbox zu markieren."
     
 #  messages
   start_past: "Beginn ist in der Vergangenheit"
@@ -209,8 +219,8 @@ de:
   create_event_success: "Event wurde erfolgreich erstellt"
  
 # button texts
-  goto_dash: "Zum Dashboard"
-  pick_assess: "Wähle deinen Sport und bewerte deine Skill Level"
+  save: "SPEICHER"
+  assess: "BESTIMME DEINE SKILL LEVEL"
 
 #drop down values
   choose: "Wähle"
@@ -218,6 +228,8 @@ de:
   trai_game: "Training & Spiel"
   game: "Spiel"
   social: "Social"
+  fem_only: "nur Frauen"
+  mal_only: "nur Männer"
   1week: "Woche"
   2week: "2 Wochen"
   3week: "3 Wochen"

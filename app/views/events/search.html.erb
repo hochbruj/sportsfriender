@@ -1,7 +1,7 @@
 <%= form_tag(search_path, :method => "get") do %>
 <div class ='frame'>
 <div class='sb_event_wrapper'>
-<span class='sb_text'>Find</span>
+<span class='sb_text'><%=t('find')%></span>
 <%= select_tag :sport_id, options_from_collection_for_select(Sport.all, 'id', 'name', (params[:sport_id] or current_user.sport_id))%>
 <span class='sb_text'>in</span>
 <%= text_field_tag(:search_city , (params[:search_city] or current_user.city.full_name), :class => 'ui-autocomplete-input', data: {autocomplete_source: cities_path}, :size => 10)  %>

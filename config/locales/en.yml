@@ -21,16 +21,16 @@ en:
   city: "City"
   telephone: "Telephone"
   website: "Website"
-  sport: "Sport"
+  fav_sport: "Favorite Sport"
   about_me: "About Me"
-  mode: "Mode"
+  mode: "Type"
   start_time: "Start Time"
   fin_time: "End Time"
   skill_range: "Skill Range"
   age_range: "Age Range"
   low_end: "Low End"
   high_end: "High End"
-  max_part: "Maximum Number of Participants"
+  max_att: "Maximum Number of Attendees"
   or: "or"
   upcoming: "My Upcoming Events"
   completed: "My Completed Events"
@@ -65,6 +65,11 @@ en:
   more: "More"
   search: "Search"
   groups: "Groups"
+  host: "Host an event"
+  logout: "Log Out" 
+  login: "Log In"
+  signup: "Sign Up"
+  find: "Find"
   
   date:
     formats:
@@ -83,7 +88,6 @@ en:
       change_pic: "Change Photo"
       delete_pic: "Delete Photo"
       update: "When you click this button, we will update your profile... "
-      pick_sport: "Pick Your Sport and Asses Your Skill Level"
 
   ratings:
      new:
@@ -91,26 +95,28 @@ en:
       header2: "Add a New Sport"
       choose: "Choose a new sport and the complete the self assessment"
       title: "Your Personal Skills Assessment"
-      explanation: "Asses your skills below for this sport. This will help you and others Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit"
-      save: "Save this Assessment"
+      explanation: "Assess your skills in this sport. Sportsfriender breaks it down by specific categories determined by professionals, so your initial skills profile is as accurate as possible."
+      save: "SAVE THIS ASSESSMENT"
       sure: "Are you sure you want to save this assessment? You won't be able to change it before your first game!"
   events:
      new:
       sport_city: "Sport, City & Location"
-      new_location: "+ Add a New Location by Street Address"
-      from_map: "+ Find a Location on a Map"
+      new_location: "+ Add a new location by street address"
+      from_map: "Find a location on a map"
       choose_location: "Choose an event location from this list"
-      mode_gender: "Event Mode & Gender"
+      mode_gender: "Event Type & Gender"
       date_time: "Date & Time"
       incl_org: "(Including Organizer)"
       submit: "SUBMIT EVENT"
       repeat: "Repeating Event"
       every: "Every"
       until: "Until"
-      pointer: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+      pointer: "Set up a new game, training or other sports event. You can enter exact requirements and details. Didn’t see a sports facility in our dropdown list of locations? Add a new location by address and it’ll appear. Send invites to existing Sportsfriends or invite new friends via email to join Sportsfriender."
       invite: "Invite"
       by_email: "By Email (seperated by comma)"
       private: "Private Event (not searchable)"
+      no_sf: "You have not added any Sportsfriends yet"
+      add_sf: "Add them to a group at"
      show:
       can_join: "Who Can Join"
       spot:
@@ -123,7 +129,7 @@ en:
       sign_up: "SIGN UP TO JOIN EVENT"
       unjoin: "UNJOIN FROM EVENT"
       cancel: "CANCEL EVENT"
-      provide_reason: "If you want to cancel this event please provide a reason that all participants will be informed."
+      provide_reason: "Please provide a reason for cancelling this event. All participants will be informed by email."
       organizer: "Organizer"
       post: "Post A Comment"
       submit: "SUBMIT COMMENT"
@@ -133,13 +139,13 @@ en:
 
   pages:
       welcome:
-          text: "Let's find some games for you to participate in. It's time to tell everyone a little about yourself, pick your sports of choice, location and games." 
-          button: "Let's Get Going, Time to Play"
+          text: "Now it’s time to tell everyone a little about yourself and your favorite sport." 
+          button: "Let’s get going!"
       dashboard:
-          all_upcoming: "See all your upcoming events"
-          all_completed: "See all your completed events"
+          all_upcoming: "View all my upcoming events"
+          all_completed: "View all my completed events"
           last: "My Last Event"
-          progress_detail: "See your progress details"
+          progress_detail: "View my progress details"
       feedback:
           header: "Rate Sportsfriends for this Event"
           title: "Skills, Current Skill Levels & What They Mean"
@@ -153,11 +159,11 @@ en:
           header: "Sports you like to play"
           add_sport: "ADD ANOTHER SPORT"
           join: "JOIN EVENT"
-          find: "FIND EVENT TO PLAY"
+          find: "FIND AN EVENT TO JOIN"
       myprogress:
           header: "Track your progress over the last year"
       mysportsfriends:
-          pointer: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+          pointer: "Add Sportsfriends to Groups to make it easier to invite them to events you host. To find Sportsfriends, search for Sportsfriends or invite your friends to join Sportsfriender.com. But don’t worry, you can always set up an event without inviting anyone. And you can always join events with people even if they are not in your Groups. "
           group: "Group"
           members: "Members"
           no_result: "Sorry, we couldn't find any sportsfriends for this sport in this city."
@@ -165,14 +171,16 @@ en:
       setup_event:
           header: "Set up A New Event"
       detail_event:
-          header: "Event Detail"
+          header: "Event Details"
+      change_password:
+          header: "Change Your Password"
 
   locations:
          new:
           header: "Add a New Location"
           private: "Private Address. Do not share outside my groups"
           button: "ADD NEW LOCATION"
-          pointer: "STorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+          pointer: "Submit a new sports facility and it’ll appear in the dropdown the next time around. If you want to submit a private address, make sure to check the box below."
    
 # messages
   start_past: "start time is in the past"
@@ -184,7 +192,7 @@ en:
   skill_lower: "is lower than your skill level"
   post_error: "Comment is either empty or too long (max. 255 characters)"
   group_error: "Group name is not valid"
-  cant_signup: "Sorry cou can't join this event. Please check the 'Who Can Join' requirements"
+  cant_signup: "Sorry you can't join this event right now. Please check the 'Who can join' requirements."
   need_rating: "Before joining you have to assess yourself for this sport"
   feedback_complete: "Thanks, all particpants have been rated for this event."
   cancel_success: "Event was successfully cancelled"
@@ -194,7 +202,8 @@ en:
   
 # button texts
   goto_dash: "Goto Dashboard"
-  pick_assess: "Pick your Sports an Assess Your Skill Levels"
+  assess: "ASSESS YOUR SKILL LEVELS"
+  save: "SAVE"
 
 # drop down values
   choose: "Choose"
@@ -202,6 +211,8 @@ en:
   trai_game: "Training & Game"
   game: "Game"
   social: "Social"
+  fem_only: "female only"
+  mal_only: "male only"
   1week: "week"
   2week: "2 weeks"
   3week: "3 weeks"

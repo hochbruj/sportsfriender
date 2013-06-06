@@ -19,7 +19,7 @@
 <h4 class='left10px'><%= @sport.name%></h4>
 <% end %>
 
-<span class='left10px'><%=t('overall_rating')%>:</span> <span class='dred_15' id="rating"></span>
+<span class='left10px'><%=t('overall_rating')%>:</span> <span class='dred_18' id="rating"></span>
 <hr>
 <div class='left10px'>
 <h5 class='dred_18'><%=t('.title')%></h5>
@@ -46,10 +46,11 @@
 <% end %>	
 
 <div class="row-fluid">
-<div class="span3">
-<%= f.submit t('.save'), :class => 'btn-large btn-primary', :confirm => t('.sure') %>
-</div>
-<% end %>
 
+<%= f.submit t('.save'), :class => 'pull-left btn-large btn-success', :confirm => t('.sure') %>
+<% end %>
+<% if current_user.profile_complete? %>
+<%= button_to('CANCEL', mysports_path, :class => 'pull-right btn btn-large btn-danger', :method => :get) %>
+<%end%>
 </div>
 

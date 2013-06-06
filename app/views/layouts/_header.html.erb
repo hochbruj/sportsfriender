@@ -5,14 +5,14 @@
     <%= link_to 'My Profile', edit_user_path(current_user), :class => 'i_h_profile' %>
     </li>
     <li>
-    <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>
+    <%= link_to t('logout'), destroy_user_session_path, :method=>'delete' %>
     </li>
   <% else %>
  	<li>
-	 <%= button_to('Sign up', new_user_registration_path, :class => 'btn btn-success', :method => :get) %>
+	 <%= button_to(t('signup'), new_user_registration_path, :class => 'btn btn-success', :method => :get) %>
 	</li>
 	<li>
-	<%= button_to('Login', new_user_session_path, :class => 'btn btn-inverse', :method => :get) %>
+	<%= button_to(t('login'), new_user_session_path, :class => 'btn btn-inverse', :method => :get) %>
 	</li>
   <% end %>
   	<li><%= form_tag root_path do %> <%= select_tag 'set_locale',

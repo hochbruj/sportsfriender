@@ -34,7 +34,7 @@
 <% current_user.groups.each do |g|%>
 <div class='row-fluid'>
 <div class='span5'>
-<div style='font-size: 19px; font-weight: bold; margin: 15px 0 0 20px'><%=g.name%></div>
+<div style='font-size: 19px; font-weight: bold; margin: 5px 0 0 20px'><%=g.name%></div>
 </div>
 <div class='span6'>
 	<% g.users.take(g.users.count - 1).each do |u| %>
@@ -58,7 +58,7 @@
 		<div class='row-fluid'>
 		<div class='sb_sf_wrapper'>
 		<%= form_tag(mysportsfriends_path, :method => "get") do %>
-		<span class='sb_text'>Find</span>
+		<span class='sb_text'><%=t('find')%></span>
 		<%= hidden_field_tag :active , 'tab2'%>
 		<%= select_tag :sport_id, options_from_collection_for_select(Sport.all, 'id', 'name', (params[:sport_id] or current_user.sport_id))%>
 		<span class='sb_text'>Sportsfriends in</span>

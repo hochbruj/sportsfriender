@@ -6,4 +6,11 @@ def new
  @span = 'span12'
  super
 end
+
+def edit
+ @title = "Change Password"
+ @header = 'change_password'
+ @span = 'span12'
+ super
+end
 end
