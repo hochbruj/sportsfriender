@@ -96,7 +96,7 @@ class LocationsController < ApplicationController
     @header = 'my_events'
     @lhn = 'my_events'
     @span = 'nomargin_10'
-    @location = Location.where(city_id: params[:city_id], sport_id: params[:sport_id]).to_gmaps4rails do |location, marker|
+    @location = Location.valid_entries(params[:sport_id],params[:city_id],current_user.id).to_gmaps4rails do |location, marker|
       marker.infowindow render_to_string(:partial => "/markers/select_city", :locals => { :object => location })
       end
   end

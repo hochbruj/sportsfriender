@@ -20,13 +20,6 @@ class PagesController < ApplicationController
     end
     
   end
-
-
-  def contact
-    @title = "Contact"
-    @span = 'span12'
-  end
-
  
   
   def dashboard
@@ -127,5 +120,18 @@ class PagesController < ApplicationController
     
   end
 
+  def contact
+    @title = "Contact"
+    @header = 'contact'
+    @no_lhn = true
+    @span = 'span_12'
+  end
+  
+  def about
+    @title = "About"
+    @header = 'about'
+    @no_lhn = true
+    @span = 'span_12'
+  end
     
 end

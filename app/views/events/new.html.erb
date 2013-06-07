@@ -44,7 +44,9 @@
 <%= f.hidden_field :city_id %>
 <%= f.hidden_field :sport_id %>
 <%= f.input :location_id, :label => false, collection: Location.valid_entries(@event.sport.id,@event.city.id,current_user.id).sort_by{|l| l[:name]}.map{ |l| [l.full_name, l.id]}, :prompt => t('.choose_location'), :input_html => { :style=> 'width: 320px' }  %>
+<% unless Location.valid_entries(@event.sport.id,@event.city.id,current_user.id).empty?%>
 <b>(<%=t('or')%>)</b> <%= link_to t('.from_map'), map_path(:sport_id => @event.sport_id, :city_id => @event.city_id), :class =>'link_normal'%></br>
+<% end %>
 <b>(<%=t('or')%>)</b> <%= link_to t('.new_location'), new_location_path(:city_id => @event.city.id, :sport_id => @event.sport_id), :class =>'link_normal' %>
 </div>
 

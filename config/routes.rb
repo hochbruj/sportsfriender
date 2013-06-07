@@ -38,6 +38,8 @@ match '/pointer' , :to => 'pages#pointer'
 match '/terms' , :to => 'pages#terms'
 match '/privacy' , :to => 'pages#privacy'
 match '/newmessage' , :to => 'messages#new'
+match '/about' , :to => 'pages#about'
+match '/contact', :to => 'pages#contact'
 
 
 end

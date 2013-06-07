@@ -1,1 +1,7 @@
- 
+<ul class='inline'>
+<li><%= form_tag root_path do %> <%= select_tag 'set_locale',
+options_for_select(LANGUAGES, I18n.locale.to_s), :class => 'lang_select',
+:onchange => 'this.form.submit()' %><% end %></li>
+<li><%= link_to t('about'), about_path, :class => 'link_normal' %></li>
+<li><%= link_to t('contact'), contact_path,:class => 'link_normal' %></li>
+</ul>

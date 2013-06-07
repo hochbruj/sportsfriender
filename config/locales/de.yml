@@ -70,8 +70,36 @@ de:
   logout: "Abmelden"
   signup: "Registrieren"
   find: "Finde"
+  about: "Über uns"
+  contact: "Kontakt"
   
-  
+  number:   
+      format:
+        separator: "."
+        delimiter: ","
+        precision: 3
+        significant: false
+        strip_insignificant_zeros: false   
+
+      # Used in number_to_human_size() and number_to_human()
+      human:
+        format:
+          delimiter: ""
+          precision: 3
+          significant: true
+          strip_insignificant_zeros: true
+
+        # Used in number_to_human_size()
+        storage_units:
+          format: "%n %u"
+          units:
+            byte:
+              one: "Byte"
+              other: "Bytes"
+            kb: "KB"
+            mb: "MB"
+            gb: "GB"
+            tb: "TB"
 
   date:
     formats:
@@ -120,7 +148,7 @@ de:
    new:
      sport_city: "Sport, Stadt & Location"
      new_location: "+ Füge eine neue Location mit Adresse hinzu"
-     from_map: "+ Finde eine Location auf einer Karte"
+     from_map: "Finde eine Location auf einer Karte"
      choose_location: "Wähle eine Event Location von dieser Liste"
      mode_gender: "Event Art & Geschlecht"
      date_time: "Datum und Uhrzeit"
@@ -129,7 +157,7 @@ de:
      repeat: "Regelmässiges Event"
      every: "Jede"
      until: "Bis"
-     pointer: "Setze ein neues Spiel, Training oder anderes Sport Event auf. Du kannst exakte Anforderungan für die Teilnehmer bestimmen. Findest du keine passende Location in der Auswahlbox? Füge einfach eine neue Location mit Adresse hinzu. Sie erscheint dann dort. Sende Einladungen an Sportsfriends oder lade neue Freunde per email ein."
+     pointer: "Setze ein neues Spiel, Training oder anderes Sport Event auf. Du kannst exakte Anforderungan für die Teilnehmer bestimmen. Du findest keine passende Location in der Auswahlbox? Füge einfach eine neue Location mit Adresse hinzu. Sie erscheint dann dort. Sende Einladungen an Sportsfriends oder lade neue Freunde per email ein."
      invite: "Einladung"
      by_email: "Per Email (kommagetrennt)"
      private: "Privates Event (nicht suchbar)"

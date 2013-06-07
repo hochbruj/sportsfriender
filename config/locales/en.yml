@@ -66,10 +66,12 @@ en:
   search: "Search"
   groups: "Groups"
   host: "Host an event"
-  logout: "Log Out" 
-  login: "Log In"
-  signup: "Sign Up"
+  logout: "Log out" 
+  login: "Log in"
+  signup: "Sign up"
   find: "Find"
+  about: "About us"
+  contact: "Contact"
   
   date:
     formats:
@@ -81,7 +83,7 @@ en:
   time:
     formats:
         short: "%I:%M%P"
-        long: "%a %m/%d %H:%M"
+        long: "%a %m/%d %I:%M%P"
 
   users:
     form:
@@ -147,7 +149,7 @@ en:
           last: "My Last Event"
           progress_detail: "View my progress details"
       feedback:
-          header: "Rate Sportsfriends for this Event"
+          header: "Rate Sportsfriends for this event"
           title: "Skills, Current Skill Levels & What They Mean"
           rate: "Rate performance at this event vs sportsfriend's current skill level"
           rated: "How you rated performance at this event vs sportsfriend's current skill level"

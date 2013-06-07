@@ -1,2 +1,3 @@
-<%= object.name %></br>
-<%= link_to "Select", new_event_path(:sport_id => object.sport_id, :event_city => object.city.full_name, :location_id => object.id) %>
+<b><%= object.name %></b></br>
+<%= object.address%></br>
+<%= link_to "Select", new_event_path(:sport_id => object.sport_id, :event_city => object.city.full_name, :location_id => object.id), :class => 'btn btn-mini btn-success' %>

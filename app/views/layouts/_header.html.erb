@@ -15,7 +15,6 @@
 	<%= button_to(t('login'), new_user_session_path, :class => 'btn btn-inverse', :method => :get) %>
 	</li>
   <% end %>
-  	<li><%= form_tag root_path do %> <%= select_tag 'set_locale',
-	            options_for_select(LANGUAGES, I18n.locale.to_s), :class => 'lang_select',
-	            :onchange => 'this.form.submit()' %><% end %></li>
+
+  
 </ul>

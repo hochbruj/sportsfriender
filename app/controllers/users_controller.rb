@@ -78,9 +78,9 @@ before_filter :authenticate_user!
     @user = User.find(params[:id])
      
      if @user.profile_complete?
-      @button_text = I18n.t('goto_dash')
+      @button_text = I18n.t('save')
      else
-      @button_text = I18n.t('pick_assess')
+      @button_text = I18n.t('assess')
      end
     
 

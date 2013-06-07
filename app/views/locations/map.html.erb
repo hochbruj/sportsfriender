@@ -1,5 +1,7 @@
+<div class='subheader_wrapper'><h4 class='subheader_inner'><%= Sport.find(params[:sport_id]).name%> Locations in <%= City.find(params[:city_id]).name%></h4></div>
+<div style='margin-top:10px'>
 <%= gmaps({
   "map_options" => {:container_class => "map_container_city", :class => "gmaps4rails_map_city"},
   "markers"     => {"data" => @location } })%>
-
+</div>
 
