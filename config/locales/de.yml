@@ -245,6 +245,7 @@ de:
   join_success: "Du hast erfolgreich zugesagt"
   unjoin_success: "Du hast erfolgreich abgesagt"
   create_event_success: "Event wurde erfolgreich erstellt"
+  message_sent_success: "Nachricht wurde erfolgreich versendet"
  
 # button texts
   save: "SPEICHER"

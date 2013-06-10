@@ -19,7 +19,7 @@ body {  padding-top: 60px;
         font-family: Lato;
         font-size: 15px;
         color: #413f3f;
-        background-color: #EEEEEE }
+        background: url('background.png') }
 
 hr { margin: 10px 0; border-top: 1px solid #BDBEBF;}
 
@@ -113,6 +113,7 @@ width: 10px !important
     float: left;
     min-height: 30px;
 }
+
 
 .footer { background-color: #F5F5F5;
     border-top: 1px solid #E5E5E5;

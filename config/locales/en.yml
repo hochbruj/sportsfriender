@@ -201,6 +201,7 @@ en:
   join_success: "You successfully joined this event"
   unjoin_success: "You successfully unjoined from this event"
   create_event_success: "Event was successfully created"
+  message_sent_success: "Message has been sent successfully"
   
 # button texts
   goto_dash: "Goto Dashboard"

@@ -10,7 +10,7 @@ class MessagesController < ApplicationController
     respond_to do |format|
       @message.send_it
       @message.save!   
-      format.html { redirect_to :back }
+      format.html { redirect_to :back, notice: I18n.t('message_sent_success')  }
     end
   end  
    

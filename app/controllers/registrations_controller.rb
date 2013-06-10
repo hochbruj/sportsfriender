@@ -2,7 +2,7 @@ class RegistrationsController < Devise::RegistrationsController
   def new
     @title = I18n.t('signup')
     @header = 'signup'
-    @span = 'span4 offset4'
+    @span = 'span5 offset3'
     
     super
   end
@@ -10,7 +10,7 @@ class RegistrationsController < Devise::RegistrationsController
   def create
      @title = I18n.t('signup')
      @header = 'signup'
-     @span = 'span4 offset4'
+     @span = 'span5 offset3'
      super
    end
   
