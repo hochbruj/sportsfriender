@@ -20,7 +20,8 @@
       </nav>
     </header>
 	  <div id="main" role="main">
-	      <div class="container">
+		<% if @title != 'Home'%>
+	      <div class="container" style='padding-top:10px'>
 	           <div class="row-fluid">
 		        <% if user_signed_in? and @no_lhn != true %>
 		         <div class="span2">
@@ -40,6 +41,9 @@
 	            </div> <!--! end of .span10-->
 	        </div> <!--! end of .row_nomargin-->
 	      </div> <!--! end of .container-fluid -->
+	    <% else %>
+	      <%= yield %>
+	    <% end%>
 	    </div> <!--! end of #main -->
 	    <footer>
 		    <div class='footer'>
