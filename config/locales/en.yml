@@ -72,6 +72,10 @@ en:
   find: "Find"
   about: "About us"
   contact: "Contact"
+  month: "Month"
+  months: "Month"
+  year: "Year"
+  overall: "Overall"
   
   date:
     formats:
@@ -163,7 +167,9 @@ en:
           join: "JOIN EVENT"
           find: "FIND AN EVENT TO JOIN"
       myprogress:
-          header: "Track your progress over the last year"
+          header: "Track your progress per skill"
+          current_ranking: "Your Current Ranking"
+          current_change: "Your Current Skill Levels & Change"
       mysportsfriends:
           pointer: "Add Sportsfriends to Groups to make it easier to invite them to events you host. To find Sportsfriends, search for Sportsfriends or invite your friends to join Sportsfriender.com. But don’t worry, you can always set up an event without inviting anyone. And you can always join events with people even if they are not in your Groups. "
           group: "Group"
@@ -220,4 +226,11 @@ en:
   2week: "2 weeks"
   3week: "3 weeks"
   4week: "4 weeks"
+
+#countries
+  DE: "Germany"
+  UK: "United Kingdom"
+  US: "United States"
+  CA: "Canada"
+
 

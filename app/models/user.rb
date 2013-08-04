@@ -231,9 +231,9 @@ class User < ActiveRecord::Base
   end
   
 
- def ranking(sport_id)
+ def country_ranking(sport_id)
    ranking = []
-   User.where(city_id: self.city_id).each do |u|
+   User.where(:city_id => City.where(country: self.city.country).select('id').map(&:id)).each do |u|
      unless u.stats.where(sport_id: sport_id).empty?
        u[:skill] = u.last_stat(sport_id).total_skill
        ranking << u
@@ -245,6 +245,35 @@ class User < ActiveRecord::Base
   
   
  end  
+ 
+ def ranking(sport_id)
+    ranking = []
+    User.where(city_id: self.city_id).each do |u|
+      unless u.stats.where(sport_id: sport_id).empty?
+        u[:skill] = u.last_stat(sport_id).total_skill
+        ranking << u
+      end
+    end
+    return ranking.sort_by{|r| r[:skill]}.reverse!.index(ranking.detect{|r| r[:id] == self.id}) + 1
+  end
 
+
+def progress(sport,cat,time,unit)
+ if unit == 'abs'
+ chart_per_sport(sport)[0][cat].to_a[11].to_f - chart_per_sport(sport)[0][cat].to_a[11-time].to_f
+ else
+ (chart_per_sport(sport)[0][cat].to_a[11].to_f - chart_per_sport(sport)[0][cat].to_a[11-time].to_f)/chart_per_sport(sport)[0][cat].to_a[11-time].to_f * 100
+ end
+end
+
+def progress_total(sport,time,unit)
+  total = progress(sport,(0),time,unit)
+  ["2","3","4","5"].each do |c|
+  unless Sport.find(sport)["cat#{c}"] == 'nil'
+    total += progress(sport,(c.to_i-1),time,unit)
+  end
+  end
+  total = total / Sport.find(sport).catcount
+end
 
 end

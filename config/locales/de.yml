@@ -72,6 +72,10 @@ de:
   find: "Finde"
   about: "Über uns"
   contact: "Kontakt"
+  month: "Monat"
+  months: "Monate"
+  year: "Jahr"
+  overall: 'Gesamt'
   
   number:   
       format:
@@ -207,7 +211,9 @@ de:
       join: "NIMM AM EVENT TEIL"
       find: "FINDE EVENT"
    myprogress:
-      header: "Verfolge deinen Progress über das letzte Jahr"
+      header: "Verfolge deinen Progress pro Skill"
+      current_ranking: "Dein Aktuelles Ranking"
+      current_change: "Deine Aktuellen Skill Level & Veränderung"
    mysportsfriends:
        pointer: "Füge Sportsfriends zu Gruppen hinzu um sie einzuladen, wenn du ein Event aufsetzt. Um diese zu finden suche nahand von Stadt und Sportart. Aber keine Sorge: Du kannst immer Events aufsetzen ohne Sportsfriends einzuladen und du kannst an Events mit Leuten teilnehmen, die nicht in deiner Gruppe sind."
        group: "Gruppe"
@@ -264,4 +270,8 @@ de:
   3week: "3 Wochen"
   4week: "4 Wochen"
 
-  
+#countries
+  DE: "Deutschland"
+  UK: "Großbritannien"
+  US: "Vereinigte Staaten"
+  CA: "Kanada"

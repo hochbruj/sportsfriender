@@ -1,14 +1,20 @@
 <div class='subheader_wrapper'><h4 class='subheader_inner'><%= t('.header') %></h4></div>
 </br>
 <div class="accordion" id="accordion1">
+<% count = 0%>
 <% current_user.rated.each do |s| %>
+<% count += 1%>
 <div class="accordion-group">
 <div class="accordion-heading">
 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse<%=s.id%>">
 <h4><%=s.name%></h4>
 </a>
 </div>
+<% if count==1%>
+<div id="collapse<%=s.id%>" class="accordion-body collapse in">
+<% else%>
 <div id="collapse<%=s.id%>" class="accordion-body collapse">
+<% end%>
 <div class="accordion-inner">
 <span class='left10px'><%=t('overall_rating')%>:</span> <span class='dred_15'> <%= current_user.last_stat(s.id).total_skill.round(1)%> </span>
 <hr>
