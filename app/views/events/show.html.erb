@@ -55,15 +55,15 @@
 <div class='red_23' style='margin: 10px 0 10px 0'><%=t('.spot', :count => @event.spots_left) %></div>
 <% end %>
 
-<% if (signed_in? and not current_user.participate?(@event.id))%>
+<% if (signed_in? and not current_user.participate?(@event.id) and @event.spots_left > 0)%>
 <%= form_for current_user.participants.build(:event_id => @event.id) do |f| %>
 <%= f.hidden_field :event_id %>
 <%= f.submit(t('.join'), :class => 'b_sign_up') %>
 <% end %>
 <% end %>
 
-<% if not signed_in?%>
-<%= button_to t('.sign_up'), new_user_registration_path(:from_event => 'true') , :class => 'b_sign_up', :method => :get%>
+<% if not signed_in? and @event.spots_left > 0 %>
+<%= button_to t('.join'), new_user_registration_path(:from_event => 'true') , :class => 'b_sign_up', :method => :get%>
 <% end %>
 
 <% if (signed_in? and  current_user.participate?(@event.id) and current_user != @event.organizer.user)%>

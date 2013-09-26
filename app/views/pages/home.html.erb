@@ -3,7 +3,7 @@
  }
  var delay = 5000;
 </script>
-<body onload="setTimeout( myfunction, delay )">
+<body onload="setTimeout( myfunction, delay )" style='background:none'>
 <div id="myCarousel" class="carousel slide " data-interval='5000'>
 <!-- Carousel items -->
 <div class="carousel-inner">
@@ -11,8 +11,90 @@
 <div class="item"><%=  image_tag('home_v01.jpg')%></div>
 <div class="item"><%=  image_tag('home_run01.jpg')%></div>
 </div>
+<%= render 'layouts/home_header'%>
 <!-- Carousel nav -->
 <a class="carousel-control left"  href="#myCarousel" data-slide="prev">&lsaquo;</a>
 <a class="carousel-control right" id="car_next" href="#myCarousel" data-slide="next">&rsaquo;</a>
 </div>
+
+<div class='header'>
+	<div class='container'>
+	<div class='i_hp_find'><%=t('find')%></div>
+	</div>
+</div>
+<div class='container'>
+<div class='hp_find_h1'><%=t('.find_header')%></div>
+<div class='row-fluid' style='margin-top:20px'>
+<div class='span3'>
+<div class='hp_find_h2'><%=t('.find_text')%></div>
+<div class='i_hp_fly'></div>
+</div>
+<div class='span3'>
+<div class='i_hp_find1_<%=I18n.locale%>'></div>
+</div>
+<div class='span3'>
+<div class='i_hp_find2_<%=I18n.locale%>'></div>
+</div>
+<div class='span3'>
+<div class='i_hp_find3_<%=I18n.locale%>'></div>
+</div>
+</div>
+</div>
+
+<div class='header' style='margin-top:20px'>
+	<div class='container'>
+	<div class='i_hp_connect'><%=t('.connect')%></div>
+	</div>
+</div>
+
+<div class='container'>
+
+<div class='i_hp_connect1'><div class='hp_connect_h1'><%=t('.connect_passion_h')%></div>
+<div class='hp_connect'><%=t('.connect_passion')%></div></div>
+<hr>
+<div class='i_hp_connect2'><div class='hp_connect_h2'><%=t('.connect_join_h')%></div>
+<div class='hp_connect'><%=t('.connect_join')%></div></div>
+<hr>
+<div class='i_hp_connect3'><div class='hp_connect_h3'><%=t('.connect_start_h')%></div>
+<div class='hp_connect'><%=t('.connect_start')%></div></div>
+<hr>
+<div class='i_hp_connect4'><div class='hp_connect_h4'><%=t('.connect_improve_h')%></div>
+<div class='hp_connect'><%=t('.connect_improve')%></div></div>
+
+</div>
+
+<div class='header' style='margin-top:20px'>
+	<div class='container'>
+	<div class='i_hp_improve'><%=t('.improve')%></div>
+	</div>
+</div>
+
+<div class='container'>
+<table class='improve_t'>
+ <tr>
+	<td><div class='i_hp_improve1'></div>
+		<div class='improve' style='color:#59938b'><%=t('.improve1')%></div>
+	</td>
+	<td><div class='i_hp_improve2'></div>
+		<div class='improve' style='color:#be8623'><%=t('.improve2')%></div>
+	</td>
+	<td><div class='i_hp_improve3'></div>
+		<div class='improve' style='color:#e27b2d'><%=t('.improve3')%></div>
+	</td>
+  </tr>
+  <tr>
+	<td><div class='i_hp_improve4'></div>
+		<div class='improve' style='color:#21929f'><%=t('.improve4')%></div>
+	</td>
+	<td><div class='i_hp_improve5'></div>
+		<div class='improve' style='color:#e27b2d'><%=t('.improve5')%></div>
+	</td>
+	<td><div class='i_hp_improve6'></div>
+		<div class='improve' style='color:#d2623e'><%=t('.improve6')%></div>
+	</td>
+   </tr>
+</table>
+
+</div>
+
 </body>

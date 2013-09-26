@@ -56,6 +56,7 @@
 	<div><%= f.hidden_field :user_id, :value => p.user_id %></div>
 	<div><%= f.hidden_field :event_id, :value => @event.id %></div>
 	<div><%= f.hidden_field :sport_id, :value => @event.sport_id%></div>
+	<div><%= f.hidden_field :rated_by, :value => current_user.id%></div>
 	<table class="rating">
 	<tr>
 		<td class='worse' id='w<%= c%><%=p.user_id%>'><%= t('.worse')%></br><%= f.radio_button("dif#{c}", -1) %></td>
@@ -70,10 +71,21 @@
 <% end %> <!-- cat1 == nil -->
 <% end %> <!-- loop -->
 
+<% unless p.user == current_user%>
+<div class='black_18' style='margin:0px 0 10px 10px'>
+<%= t('.comment')%> <%=p.user.first_name%>
+</div>
+<% end %>
+<div style='margin-left:10px'>
 <div class='row-fluid'>
+	<% unless p.user == current_user%>
+	<%= f.text_field :comment, :class => 'input-xlarge'%>
+	<% end %>
 	<%= f.button t('.button'), :class => 'btn btn-inverse pull-right' %>		
 	<% end %>
 </div>
+</div>
+
 </br>
 
 <% end %> <!-- unrated? -->

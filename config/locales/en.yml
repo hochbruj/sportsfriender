@@ -76,6 +76,11 @@ en:
   months: "Month"
   year: "Year"
   overall: "Overall"
+  city_name: "City Name?"
+  home_header: "PASSIONATE ABOUT PLAYING SPORTS"
+  home_subheader: "Sportsfriender connects people who want to play more of their favorite sports and get better at them."
+  join_free: 'JOIN SPORTSFRIENDER FOR FREE!'
+  search_results: 'Search Results'
   
   date:
     formats:
@@ -144,6 +149,25 @@ en:
       no_result: "Sorry, we couldn't find any event for this sport and city."
 
   pages:
+      home:
+          find_header: 'Sportsfriender makes it easier to find buddies to play your favorite sport with'
+          find_text: 'Join local games and get matched up with teammates who are at the right skill level as you, based on sport-specific criteria.'
+          connect: 'Connect'
+          connect_passion_h: 'A passion for playing sport'
+          connect_passion: 'This is not just another social network--Sportsfriender connects people who are passionate about playing sports.'
+          connect_join_h: 'Join the right team for you'
+          connect_join: 'Meet new people who play your favorite sports at the right skill level, or join with your existing buddies.'
+          connect_start_h: 'Start playing'
+          connect_start: 'Find games in your area or set up your own and invite Sportsfriends to play.'
+          connect_improve_h: 'Help each other improve'
+          connect_improve: "After every game, Sportsfriends can rate each other's performance and give feedback on how to improve their skills."
+          improve: 'Improve'
+          improve1: 'Sportsfriender helps you track your progress and improve your performance'
+          improve2: 'Set your initial skill levels against specific criteria informed by pros'
+          improve3: 'After games, rate your teammates and get rated yourself too'
+          improve4: 'Get real feedback from teammates or from trainers'
+          improve5: 'Track your skill level over time on a chart'
+          improve6: 'Get motivated to get better at your favorite sport'
       welcome:
           text: "Now it’s time to tell everyone a little about yourself and your favorite sport." 
           button: "Let’s get going!"
@@ -161,6 +185,7 @@ en:
           worse: "Worse"
           same: "Same"
           better: "Better"
+          comment: "Any feedback or tips for"
       mysports:
           header: "Sports you like to play"
           add_sport: "ADD ANOTHER SPORT"
@@ -170,6 +195,8 @@ en:
           header: "Track your progress per skill"
           current_ranking: "Your Current Ranking"
           current_change: "Your Current Skill Levels & Change"
+          feedbacks: "Feedback and tips from your Sportsfriends"
+          time_ago: '%{time} ago'
       mysportsfriends:
           pointer: "Add Sportsfriends to Groups to make it easier to invite them to events you host. To find Sportsfriends, search for Sportsfriends or invite your friends to join Sportsfriender.com. But don’t worry, you can always set up an event without inviting anyone. And you can always join events with people even if they are not in your Groups. "
           group: "Group"
@@ -202,7 +229,7 @@ en:
   group_error: "Group name is not valid"
   cant_signup: "Sorry you can't join this event right now. Please check the 'Who can join' requirements."
   need_rating: "Before joining you have to assess yourself for this sport"
-  feedback_complete: "Thanks, all particpants have been rated for this event."
+  feedback_complete: "Thanks, all participants have been rated for this event."
   cancel_success: "Event was successfully cancelled"
   join_success: "You successfully joined this event"
   unjoin_success: "You successfully unjoined from this event"

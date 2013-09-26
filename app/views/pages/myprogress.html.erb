@@ -22,9 +22,12 @@
 <div class='dred_18'><%=t(current_user.city.country)%>: #<%=current_user.country_ranking(s.id)%></div>
 </div>
 <hr>
-<div class='left10px'>
+<div class='left10px' style='margin-top:20px'>
 <h5 class='black_18'><%=t('.current_change')%></h5>
 <table class="table table-striped table-condensed" style='margin-top:15px'>
+<% v =  current_user.progress(s.id)%>
+<% total = current_user.last_stat(s.id).total_skill%>
+<% v_t = current_user.progress_total(s.id,v,total)%>
 <tr style=='font-weight: bold'>
 <th class='black_16'>Skill</th>
 <th class='black_16'><%=t('current')%></th>
@@ -38,20 +41,19 @@
 <tr class='dred_16'>
 <td style='font-weight: bold'><%=t s["cat#{c}"]%></td>
 <td><%= number_with_precision(current_user.last_stat(s.id)["cat#{c}"], :precision => 1, :locale => :en) %></td>
-<td><%= current_user.progress(s.id,(c.to_i-1),1,'abs')%> (<%= current_user.progress(s.id,(c.to_i-1),1,'perc').round(0)%>%)</td>
-<td><%= current_user.progress(s.id,(c.to_i-1),3,'abs')%> (<%= current_user.progress(s.id,(c.to_i-1),3,'perc').round(0)%>%)</td>
-<td><%= current_user.progress(s.id,(c.to_i-1),11,'abs')%> (<%= current_user.progress(s.id,(c.to_i-1),11,'perc').round(0)%>%)</td>
+<td><%= v[c.to_i-1][0][0]%> (<%= v[c.to_i-1][0][1].round(0)%>%)</td>
+<td><%= v[c.to_i-1][1][0]%> (<%= v[c.to_i-1][1][1].round(0)%>%)</td>
+<td><%= v[c.to_i-1][2][0]%> (<%= v[c.to_i-1][2][1].round(0)%>%)</td>
 </tr>
 <%end%>
 <%end%>
 <%end%>
 <tr class='dred_16' style='font-weight: bold'>
 <td><%=t('overall')%></td>
-<td><%= current_user.last_stat(s.id).total_skill.round(1)%></td>
-<td><%= current_user.progress_total(s.id,1,'abs')%> (<%= current_user.progress_total(s.id,1,'perc').round(0)%>%)</td>
-<td><%= current_user.progress_total(s.id,3,'abs')%> (<%= current_user.progress_total(s.id,3,'perc').round(0)%>%)</td>
-<td><%= current_user.progress_total(s.id,11,'abs')%> (<%= current_user.progress_total(s.id,11,'perc').round(0)%>%)</td>
-</tr>
+<td><%= total.round(1)%></td>
+<td><%= v_t[0][0]%> (<%= v_t[0][1].round(0)%>%)</td>
+<td><%= v_t[1][0]%> (<%= v_t[1][1].round(0)%>%)</td>
+<td><%= v_t[2][0]%> (<%= v_t[2][1].round(0)%>%)</td>
 </tr>
 </table>
 	<img src="<%= Gchart.line(
@@ -69,6 +71,26 @@
 	              :axis_range => [nil, [0,10,1]],
 	              :legend => current_user.chart_per_sport(s.id)[2]) %>">
 </div>
+<hr>
+<div class='left10px' style='margin-top:20px'>
+<h5 class='black_18'><%=t('.feedbacks')%></h5>
+
+<% current_user.feedbacks.where(sport_id: s.id).order('created_at DESC') .each do |f|%>
+<div class='row-fluid'>
+<div class='span1'>
+<%= picture_for(User.find(f.rated_by))%>
+</div>
+<div class='span11'>
+<%= link_to User.find(f.rated_by).full_name, User.find(f.rated_by), :class => 'link_normal' %> (<%=t('.time_ago', :time => time_ago_in_words(f.created_at))%>)</br>
+<b> <%= f.comment %></b>
+</div>
+</div> <!--! end of row lower level-->
+<hr>
+<%end%>
+
+</div>
+
+
 </div>
 </div>
 </div>

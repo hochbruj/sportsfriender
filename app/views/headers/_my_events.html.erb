@@ -3,5 +3,11 @@
   window.neweventURL = '<%= j new_event_path %>';
 <% end %>
 <div class='row-fluid'>
-<div class="i_myevents pull-left">My Events</div><div class="pull-right visible-desktop" id='host_event'><%=t('host')%></div><div class=" pull-right visible-desktop" id='search_event'><%=t('search')%> EVENTS</div>
+<div class="i_myevents pull-left">
+<% if user_signed_in? %>My Events</div>
+<div class="pull-right visible-desktop" id='host_event'><%=t('host')%></div><div class=" pull-right visible-desktop" id='search_event'><%=t('search')%> EVENTS</div>
+<%else%>
+<%=t('search_results')%>
+</div>
+<%end%>
 </div>

@@ -76,6 +76,11 @@ de:
   months: "Monate"
   year: "Jahr"
   overall: 'Gesamt'
+  city_name: 'Welcher Stadt?'
+  home_header: "BEGEISTERT DAVON SPORT ZU TREIBEN"
+  home_subheader: "Sportsfriender verbindet Leute die öfters Sport treiben und besser darin werden wollen"
+  join_free: 'KOSTENLOS SPORTSFRIENDER BEITRETEN!'
+  search_results: 'Ergebnisliste'
   
   number:   
       format:
@@ -143,7 +148,7 @@ de:
    new:
      header1: "Bewerte dich selbst für diesen Sport"
      header2: "Füge neue Sportart hinzu"
-     choose: "Wähle einen neuen sport und bewerte dich selbst"
+     choose: "Wähle einen neuen Sport und bewerte dich selbst"
      title: "Deine eigene Bewertung"
      explanation: "Bewerte deine eigenen Skills für diesen Sport. Sportsfriender unterscheidet verschiedene Kategorien, die von Experten bestimmt wurden, damit dein initiales Skill Profil so genau wie möglich ist."
      save: "SPEICHERE DIESE BEWERTUNG"
@@ -170,7 +175,7 @@ de:
    show:
      can_join: "Wer kann teilnehmen"
      spot:
-       zero: "Keine PLätze mehr frei!" 
+       zero: "Keine Plätze mehr frei!" 
        one: " Ein Platz frei!"
        other: "%{count} PLätze frei!"
      signed: "Du nimmst teil!"
@@ -188,6 +193,26 @@ de:
      no_result: "Wir konnten leider kein Event für diesen Sport und diese Stadt finden."
 
   pages:
+   home:
+      find_header: 'Sportsfriender hilft dir Partner für deine Lieblingssportart zu finden'
+      find_text: 'Spiele mit Sportpartnern, die passendes Skill Niveau haben, basierend auf sportspezifischen Kategorien.'
+      connect: 'Verbinde'
+      connect_passion_h: 'Sport aus Leidenschaft'
+      connect_passion: 'Dies ist nicht nur ein neues soziales Netzwerk--Sportsfriender verbindet leidenschaftliche Sportler.'
+      connect_join_h: 'Trete dem richtigen Team bei'
+      connect_join: 'Treffe neue Leute mit den richtigen Skill Level für deinen Sport oder treffe dich mit deinen Freunden.'
+      connect_start_h: "Los geht's"
+      connect_start: 'Finde Spiele in deiner Gegend oder setzte eigene auf und lade Sportsfriends ein.'
+      connect_improve_h: 'Helft euch besser zu werden'
+      connect_improve: 'Nach jedem Spiel könnt ihr gegenseitig eure Performance bewerten und euch Tips geben um besser zu werden.'
+      improve: 'Werde besser'
+      improve1: 'Sportsfriender hilft dir deinen Fortschritt zu verfolgen und dich zu verbessern'
+      improve2: 'Setze deine initialen Skill Level anhand von Experten erstellter Kriterien'
+      improve3: 'Nach dem Spiel kannst du deine Mitspieler und auch dich selbst bewerten'
+      improve4: 'Erhalte echtes Feedback von deinen Mitspielern oder von Trainern'
+      improve5: 'Verfolge deine Skill Level über einen Zeitraum auf einem Chart'
+      improve6: 'Motiviere dich, besser in einer Sportart zu werden'
+
    welcome:
       text: "Gib uns ein paar Informationen über dich und deinen Lieblingssport." 
       button: "Los geht's!"
@@ -205,6 +230,7 @@ de:
       worse: "Schlechter"
       same: "Gleich"
       better: "Besser"
+      comment: 'Feedback oder Tips für'
    mysports:
       header: "Sportarten die du betreibst"
       add_sport: "FÜGE SPORT HINZU"
@@ -214,6 +240,8 @@ de:
       header: "Verfolge deinen Progress pro Skill"
       current_ranking: "Dein Aktuelles Ranking"
       current_change: "Deine Aktuellen Skill Level & Veränderung"
+      feedbacks: 'Feedback und Tips von deinen Sportsfriends'
+      time_ago: 'vor %{time}'
    mysportsfriends:
        pointer: "Füge Sportsfriends zu Gruppen hinzu um sie einzuladen, wenn du ein Event aufsetzt. Um diese zu finden suche nahand von Stadt und Sportart. Aber keine Sorge: Du kannst immer Events aufsetzen ohne Sportsfriends einzuladen und du kannst an Events mit Leuten teilnehmen, die nicht in deiner Gruppe sind."
        group: "Gruppe"
@@ -275,3 +303,44 @@ de:
   UK: "Großbritannien"
   US: "Vereinigte Staaten"
   CA: "Kanada"
+
+#ddistance in words
+  datetime:
+   distance_in_words:
+         half_a_minute: 'einer halbe Minute'
+         less_than_x_seconds:
+           one: 'weniger als einer Sekunde'
+           other: 'weniger als %{count} Sekunden'
+         x_seconds:
+           one: 'einer Sekunde'
+           other: '%{count} Sekunden'
+         less_than_x_minutes:
+           one: 'weniger als einer Minute'
+           other: 'weniger als %{count} Minuten'
+         x_minutes:
+           one: 'einer Minute'
+           other: '%{count} Minuten'
+         about_x_hours:
+           one: 'etwa einer Stunde'
+           other: 'etwa %{count} Stunden'
+         x_hours:
+           one:   "einer Stunde"
+           other: "%{count} Stunden"
+         x_days:
+           one: 'einem Tag'
+           other: '%{count} Tagen'
+         about_x_months:
+           one: 'etwa einem Monat'
+           other: 'etwa %{count} Monaten'
+         x_months:
+           one: 'einem Monat'
+           other: '%{count} Monaten'
+         about_x_years:
+           one: 'etwa einem Jahr'
+           other: 'etwa %{count} Jahren'
+         over_x_years:
+           one: 'mehr als einem Jahr'
+           other: 'mehr als %{count} Jahren'
+         almost_x_years:
+           one:   'fast einem Jahr'
+           other: 'fast %{count} Jahren'

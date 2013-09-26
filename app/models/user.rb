@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   attr_accessible :admin, :city_id, :comment, :dob, :email, :first_name, :gender, :image, :last_name, :provider, :sport_id, :uid, :password, :password_confirmation, :remember_me
   attr_accessible :city_name, :avatar , :delete_avatar
   attr_accessor :delete_avatar
+  attr_writer :skill
   
   belongs_to :sport
   belongs_to :city
@@ -21,6 +22,7 @@ class User < ActiveRecord::Base
   has_many :events, :through => :participants
   has_many :members, :through => :groups, :dependent => :destroy
   has_many :groups, :dependent => :destroy
+  has_many :feedbacks
   
   
   validates :first_name, :last_name, :gender, :sport, :city_name, :dob, :presence => true, :on => :update
@@ -258,22 +260,48 @@ class User < ActiveRecord::Base
   end
 
 
-def progress(sport,cat,time,unit)
- if unit == 'abs'
- chart_per_sport(sport)[0][cat].to_a[11].to_f - chart_per_sport(sport)[0][cat].to_a[11-time].to_f
- else
- (chart_per_sport(sport)[0][cat].to_a[11].to_f - chart_per_sport(sport)[0][cat].to_a[11-time].to_f)/chart_per_sport(sport)[0][cat].to_a[11-time].to_f * 100
- end
-end
 
-def progress_total(sport,time,unit)
-  total = progress(sport,(0),time,unit)
-  ["2","3","4","5"].each do |c|
-  unless Sport.find(sport)["cat#{c}"] == 'nil'
-    total += progress(sport,(c.to_i-1),time,unit)
-  end
-  end
-  total = total / Sport.find(sport).catcount
+def progress(sport)
+  v = chart_per_sport(sport)[0]
+   a_c = []
+    (1..5).each do |c|
+     unless Sport.find(sport)["cat#{c}"] == 'nil'
+     a_t = []
+      [1,3,11].each do |t|
+       a_n = []
+       number_abs = nil
+       number_perc = nil
+       number_abs = v[c-1].to_a[11].to_f - v[c-1].to_a[11-t].to_f
+       number_perc = (v[c-1].to_a[11].to_f - v[c-1].to_a[11-t].to_f)/v[c-1].to_a[11-t].to_f * 100
+       a_n << number_abs
+       a_n << number_perc
+       a_t << a_n
+      end
+     a_c << a_t
+     end
+    end
+   return a_c
+end
+     
+  
+
+def progress_total(sport,a_p,act_total)
+  a_t = []
+   (0..2).each do |t|
+    a_n = []
+    total_abs = a_p[0][t][0]
+    total_perc = a_p[0][t][1]
+    (2..5).each do |c|
+     unless a_p[c-1].nil?   
+      total_abs += a_p[c-1][t][0]
+      total_perc += a_p[c-1][t][1]
+     end
+    end
+    a_n << (total_abs / Sport.find(sport).catcount)
+    a_n << (((total_abs / Sport.find(sport).catcount) / (act_total - (total_abs / Sport.find(sport).catcount))) * 100)
+    a_t << a_n
+   end
+  return a_t
 end
 
 end
