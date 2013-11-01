@@ -54,7 +54,7 @@ en:
   priv_pol: "Private Policy"
   forgot_password: "Forgot your password"
   reset_instr: "Send me reset password instructions"
-  nice_move: "Nice Move!"
+  nice_move: "Nice move!"
   rated_by: "Rated by"
   send_message: "Send a message to"
   add_to_sf: "Add to Group"
@@ -76,9 +76,9 @@ en:
   months: "Month"
   year: "Year"
   overall: "Overall"
-  city_name: "City Name?"
-  home_header: "PASSIONATE ABOUT PLAYING SPORTS"
-  home_subheader: "Sportsfriender connects people who want to play more of their favorite sports and get better at them."
+  city_name: "City Name"
+  home_header: "SPORTS WITH THE RIGHT PEOPLE"
+  home_subheader: "Sportsfriender connects people who want to play their favorite sports and get better."
   join_free: 'JOIN SPORTSFRIENDER FOR FREE!'
   search_results: 'Search Results'
   
@@ -124,10 +124,9 @@ en:
       until: "Until"
       pointer: "Set up a new game, training or other sports event. You can enter exact requirements and details. Didn’t see a sports facility in our dropdown list of locations? Add a new location by address and it’ll appear. Send invites to existing Sportsfriends or invite new friends via email to join Sportsfriender."
       invite: "Invite"
-      by_email: "By Email (seperated by comma)"
+      by_email: "By Email (separated by commas)"
       private: "Private Event (not searchable)"
-      no_sf: "You have not added any Sportsfriends yet"
-      add_sf: "Add them to a group at"
+      no_sf: "No Sportsfriends yet. Add them at "
      show:
       can_join: "Who Can Join"
       spot:
@@ -146,7 +145,9 @@ en:
       submit: "SUBMIT COMMENT"
       comments: "Comments"
      search:
-      no_result: "Sorry, we couldn't find any event for this sport and city."
+      no_result: "Ther aren't any upcoming events for this sport and city. Why not host your "
+      own_event: "own event"
+      signed_in: " (must be signed)."
 
   pages:
       home:
@@ -194,7 +195,7 @@ en:
       myprogress:
           header: "Track your progress per skill"
           current_ranking: "Your Current Ranking"
-          current_change: "Your Current Skill Levels & Change"
+          current_change: "Your current skills levels & change (%)"
           feedbacks: "Feedback and tips from your Sportsfriends"
           time_ago: '%{time} ago'
       mysportsfriends:
@@ -204,7 +205,7 @@ en:
           no_result: "Sorry, we couldn't find any sportsfriends for this sport in this city."
   headers:
       setup_event:
-          header: "Set up A New Event"
+          header: "Host an event"
       detail_event:
           header: "Event Details"
       change_password:
@@ -214,7 +215,7 @@ en:
          new:
           header: "Add a New Location"
           private: "Private Address. Do not share outside my groups"
-          button: "ADD NEW LOCATION"
+          button: "Add this location"
           pointer: "Submit a new sports facility and it’ll appear in the dropdown the next time around. If you want to submit a private address, make sure to check the box below."
    
 # messages

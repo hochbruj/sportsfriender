@@ -23,9 +23,12 @@ h4 {  font-size: 21px; font-weight: bold; }
 h5 {  font-size: 18px; font-weight: bold; color: #272626; }
 h6 {  font-size: 16px; font-weight: bold; }
 
-.container {
-    width: 1170px;
+
+.container-fluid {
+    max-width: 1170px;
 }
+
+
 
 .modal-header {background-image: -webkit-linear-gradient(bottom, #f0f0f2, #fff);
   background-image: -moz-linear-gradient(bottom, #f0f0f2, #fff);

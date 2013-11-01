@@ -24,6 +24,22 @@
 <hr>
 <div class='left10px' style='margin-top:20px'>
 <h5 class='black_18'><%=t('.current_change')%></h5>
+</br>
+<img src="<%= Gchart.line(
+              :size => '600x300',
+              :theme => :thirty7signals,
+              :data => current_user.chart_per_sport(s.id)[0],
+              :max_value => 10,
+#              :data => [[1, 1, 1, 2, 4, 3, 4, 5, 6, 6, 7, 6],
+#                       [1.2, 2.5, 2.7, 2.8, 2.9, 5, 4, 3, 7, 9, 9, 10], 
+#                       [5.2, 5.3, 5.6, 6.1, 6.9, 7, 7.1, 7.2, 7.4, 7.5, 7.6, 7.7], 
+#                       [6.2, 6.5, 5.8, 6.8, 6.9, 7, 8, 9, 10, 10, 10, 10],
+#                       [1.2, 3.5, 4.8, 6.8, 4.9, 4, 3, 2, 1, 1, 1, 1]],
+              :axis_with_labels => ['x', 'y'], 
+              :axis_labels => current_user.chart_per_sport(s.id)[1],
+              :axis_range => [nil, [0,10,1]],
+              :legend => current_user.chart_per_sport(s.id)[2]) %>">
+
 <table class="table table-striped table-condensed" style='margin-top:15px'>
 <% v =  current_user.progress(s.id)%>
 <% total = current_user.last_stat(s.id).total_skill%>
@@ -56,22 +72,10 @@
 <td><%= v_t[2][0]%> (<%= v_t[2][1].round(0)%>%)</td>
 </tr>
 </table>
-	<img src="<%= Gchart.line(
-	              :size => '600x300',
-	              :theme => :thirty7signals,
-	              :data => current_user.chart_per_sport(s.id)[0],
-	              :max_value => 10,
-	#              :data => [[1, 1, 1, 2, 4, 3, 4, 5, 6, 6, 7, 6],
-	#                       [1.2, 2.5, 2.7, 2.8, 2.9, 5, 4, 3, 7, 9, 9, 10], 
-	#                       [5.2, 5.3, 5.6, 6.1, 6.9, 7, 7.1, 7.2, 7.4, 7.5, 7.6, 7.7], 
-	#                       [6.2, 6.5, 5.8, 6.8, 6.9, 7, 8, 9, 10, 10, 10, 10],
-	#                       [1.2, 3.5, 4.8, 6.8, 4.9, 4, 3, 2, 1, 1, 1, 1]],
-	              :axis_with_labels => ['x', 'y'], 
-	              :axis_labels => current_user.chart_per_sport(s.id)[1],
-	              :axis_range => [nil, [0,10,1]],
-	              :legend => current_user.chart_per_sport(s.id)[2]) %>">
+
 </div>
 <hr>
+
 <div class='left10px' style='margin-top:20px'>
 <h5 class='black_18'><%=t('.feedbacks')%></h5>
 
@@ -96,3 +100,4 @@
 </div>
 <%end%>
 </div> <!--! end of accordion1 -->
+

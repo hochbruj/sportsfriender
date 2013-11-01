@@ -11,13 +11,11 @@
 <% end %>
 </div>
 <hr>
-<% unless @event_results.nil?%>
-<% if @event_results.empty?%>
-<%=t('.no_result')%>
+<% if @event_results.nil? or @event_results.empty?%>
+<%=t('.no_result')%> <%=link_to t('.own_event'), new_event_path, :class => 'link_normal'%><%=t('.signed_in')%>
 <hr>
 <% else%>
 <%= render :partial => 'paginate/event_result', :collection => @event_results %>
 <%= will_paginate @event_results, :renderer => BootstrapPagination::Rails %>
-<% end %>
 <% end %>
 </div>

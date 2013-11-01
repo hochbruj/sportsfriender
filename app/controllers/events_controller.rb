@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   before_filter :date_format
   before_filter :authenticate_user!,
-      :only => [:new]
+      :only => [:new, :create]
       
   def search
     @title = 'My Events'

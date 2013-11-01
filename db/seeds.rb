@@ -1,14 +1,13 @@
 mig_city = false
 mig_citytexts = false
 mig_sport = false
-mig_assess = false
-reset = true
-
+mig_assess = true
+reset = false
 
 if mig_assess == true
   Assessment.delete_all
   puts "Importing assessmentss..."
-  CSV.foreach(Rails.root.join("seeds/assessments_en.csv"), headers: true) do |row|
+  CSV.foreach(Rails.root.join("seeds/Rating_en.csv"), headers: true) do |row|
       a = Assessment.new
       a.id = row[0].chop[1..-1]
       a.sport_id = row[1].chop[1..-1]

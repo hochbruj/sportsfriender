@@ -65,7 +65,7 @@ de:
   more: "Mehr"
   search: "Suche"
   groups: "Gruppen"
-  host: "Setze Event auf"
+  host: "Veranstalte Event"
   login: "Anmelden"
   logout: "Abmelden"
   signup: "Registrieren"
@@ -77,7 +77,7 @@ de:
   year: "Jahr"
   overall: 'Gesamt'
   city_name: 'Welcher Stadt?'
-  home_header: "BEGEISTERT DAVON SPORT ZU TREIBEN"
+  home_header: "SPORT MIT DEN RICHTIGEN LEUTEN"
   home_subheader: "Sportsfriender verbindet Leute die öfters Sport treiben und besser darin werden wollen"
   join_free: 'KOSTENLOS SPORTSFRIENDER BEITRETEN!'
   search_results: 'Ergebnisliste'
@@ -170,8 +170,7 @@ de:
      invite: "Einladung"
      by_email: "Per Email (kommagetrennt)"
      private: "Privates Event (nicht suchbar)"
-     no_sf: "Du hast noch keine Sportsfriends hinzugefügt"
-     add_sf: "Füge sie zu einer Gruppe hinzu in"
+     no_sf: "Noch keine Sportsfriends. Füge sie hinzu in "
    show:
      can_join: "Wer kann teilnehmen"
      spot:
@@ -190,7 +189,9 @@ de:
      submit: "KOMMENTAR POSTEN"
      comments: "Kommentare"
    search:
-     no_result: "Wir konnten leider kein Event für diesen Sport und diese Stadt finden."
+     no_result: "Es sind keine Events für diese Sportart und Stadt geplant. Warum kein"
+     own_event: "eigenes Event"
+     signed_in: " aufsetzen (nur mit Anmeldung)."
 
   pages:
    home:
@@ -239,7 +240,7 @@ de:
    myprogress:
       header: "Verfolge deinen Progress pro Skill"
       current_ranking: "Dein Aktuelles Ranking"
-      current_change: "Deine Aktuellen Skill Level & Veränderung"
+      current_change: "Deine aktuellen Skill Level & Veränderung (%)"
       feedbacks: 'Feedback und Tips von deinen Sportsfriends'
       time_ago: 'vor %{time}'
    mysportsfriends:
@@ -249,7 +250,7 @@ de:
        no_result: "Wir konnten leider kein Sportsfriend für diesen Sport in dieser Stadt finden."
   headers:
    setup_event:
-     header: "Setze ein neues Event auf"
+     header: "Veranstalte ein Event"
    detail_event:
      header: "Event Details"
    change_password:
@@ -259,7 +260,7 @@ de:
    new:
     header: "Füge eine neue Location hinzu"
     private: "Private Adresse. Nicht außerhalb meiner Gruppen verwenden"
-    button: "FÜGE NEUE LOCATION HINZU"
+    button: "Füge diese Location hinzu"
     pointer: "Füge eine neue Location hinzu und sie erscheint das nächste Mal in der Auswahlbox. Wenn die Adresse privat bleiben soll, vergiss nicht die Ankreuzbox zu markieren."
     
 #  messages

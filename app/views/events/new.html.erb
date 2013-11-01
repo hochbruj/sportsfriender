@@ -133,11 +133,10 @@
 <div class='blue_box'>
 <div class='frame'>
 <h5><%= t('.invite')%></h5>
-<% if current_user.groups.empty?%>
-<label><%=t('.no_sf')%></label>
-<%=t('.add_sf')%> <%=link_to 'My Sportsfriends', mysportsfriends_path, :class => 'link_normal'%></br></br>
-<% else%>
 <%= f.label :group_id, 'My Sportsfriends'%>
+<% if current_user.groups.empty?%>
+<%=t('.no_sf')%><%=link_to 'My Sportsfriends', mysportsfriends_path, :class => 'link_normal'%></br></br>
+<% else%>
 <%= f.input :group_id, :label => false, collection: current_user.groups, include_blank: true, input_html: {style: 'width:315px'}%>
 <% end %>
 <%= f.label :emails, t('.by_email')%>

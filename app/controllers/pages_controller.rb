@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+ before_filter :authenticate_user!,
+  :only => [:dashboard, :myevents, :feedback, :mysports, :myprogress, :mysportsfriends] 
   
   require 'will_paginate/array'
   

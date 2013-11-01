@@ -304,4 +304,5 @@ def progress_total(sport,a_p,act_total)
   return a_t
 end
 
+
 end
