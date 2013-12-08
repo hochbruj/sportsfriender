@@ -11,13 +11,13 @@ class UserMailer < ActionMailer::Base
     def event_invite(recipient,email,event)
       @recipient = recipient
       @event = event
-      mail(:to => email, :subject => "Invitation: #{event.start_at.in_time_zone(event.city.zone).strftime("%a %d/%m/%y %H:%M")} #{event.sport.name} at #{event.location.name}")
+      mail(:to => email, :subject => "Invitation: #{event.start_at.in_time_zone(event.location.timezone).strftime("%a %d/%m/%y %H:%M")} #{event.sport.name} at #{event.location.name}")
     end
     
     def event_cancel(user,event)
       @user = user
       @event = event
-      mail(:to => user.email, :subject => "Cancelled: #{event.start_at.in_time_zone(event.city.zone).strftime("%a %d/%m/%y %H:%M")} #{event.sport.name} at #{event.location.name}")
+      mail(:to => user.email, :subject => "Cancelled: #{event.start_at.in_time_zone(event.location.timezone).strftime("%a %d/%m/%y %H:%M")} #{event.sport.name} at #{event.location.name}")
     end
 
 end

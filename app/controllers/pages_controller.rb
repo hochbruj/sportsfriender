@@ -33,7 +33,7 @@ class PagesController < ApplicationController
     
     @user = current_user
     @last = current_user.completed_events.first
-    @upcoming = current_user.events.where("finish_at > ?",DateTime.now).where(:cancelled => nil).order('start_at ASC').group_by { |event| event.start_at.in_time_zone(event.city.zone).to_date } 
+    @upcoming = current_user.events.where("finish_at > ?",DateTime.now).where(:cancelled => nil).order('start_at ASC').group_by { |event| event.start_at.in_time_zone(event.location.timezone).to_date } 
      unless @upcoming.empty?
       if @upcoming.to_a[0][1].count > 1
          @upcoming = @upcoming.first(1)
@@ -56,8 +56,8 @@ class PagesController < ApplicationController
     @tab1 = 'active' unless params[:active] == 'tab2'
     @tab2 = 'active' if params[:active] == 'tab2'
     @upcoming = current_user.events.where("finish_at > ?",DateTime.now).where(:cancelled => nil)
-    .order('start_at ASC').group_by { |event| event.start_at.in_time_zone(event.city.zone).to_date }
-    @completed = current_user.completed_events.group_by { |event| event.start_at.in_time_zone(event.city.zone).to_date }
+    .order('start_at ASC').group_by { |event| event.start_at.in_time_zone(event.location.timezone).to_date }
+    @completed = current_user.completed_events.group_by { |event| event.start_at.in_time_zone(event.location.timezone).to_date }
   end
   
   def feedback
@@ -114,9 +114,8 @@ class PagesController < ApplicationController
     @lhn = 'my_sportsfriends'
     @span = 'nomargin_10'
     
-    @tab1 = 'active' unless params[:active] == 'tab2'
-    @tab2 = 'active' if params[:active] == 'tab2'
-    @users = User.search(params[:sport_id],params[:search_city])
+
+    @users = User.search(params[:sport_id],params[:lat],params[:lng])
     @users = @users.paginate(:page => params[:page], :per_page => 5) unless @users.nil?
     @sport = Sport.find(params[:sport_id]) unless params[:sport_id].nil?
     

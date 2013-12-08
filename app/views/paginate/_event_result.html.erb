@@ -1,7 +1,7 @@
 <div class='row-fluid'>
 <div class='span5'>
 <%= link_to "#{event_result.sport.name} #{t(event_result.mode)}", event_result, :class => 'link_mid' %></br>
-<b><%= l event_result.start_at.in_time_zone(event_result.city.zone), :format => :long %>,
+<b><%= l event_result.start_at.in_time_zone(event_result.location.timezone), :format => :long %>,
 <%= event_result.location.name %></b>
 </div>
 <div class='span2'>

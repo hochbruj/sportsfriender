@@ -35,7 +35,7 @@
     <% end %>
 	            <%= f.label :city_name, :label => t('city'), :class => "control-label", :required => true %>
 	            <div class="controls">
-	             <%= f.text_field :city_name, data: {autocomplete_source: cities_path}, :autocomplete => :on %>
+	             <%= f.text_field :city_name, :placeholder => '' %>
 	            </div>
 	            <%= f.error :city_name, id: 'city_name_error' %>
 	          </div>
@@ -46,9 +46,16 @@
 	<%= f.association :sport, :label => t('fav_sport'), include_blank: false, :wrapper_html => { :class => 'span4' } %>
   	<%= f.input :comment, :label => t('about_me'), input_html: {style: 'height:100px; width:400px'}, :wrapper_html => { :class => 'span6' } %>
   </div>
+  <%=f.hidden_field :city_id%>
+  <%=f.hidden_field :city_reference %>
+  <%=f.hidden_field :country_code %>
+  <%=f.hidden_field :lat %>
+  <%=f.hidden_field :lng %>
   <hr>
   <% unless @user.profile_complete?%>
   <%= t('.update')%>
   <% end %>
   <%= f.button :submit, "#{@button_text}", :class => 'btn-large btn-success' %>
   <% end %>
+
+<%= render partial: "cities_autocomplete" %>

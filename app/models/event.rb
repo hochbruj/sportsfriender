@@ -1,8 +1,10 @@
 class Event < ActiveRecord::Base
   attr_accessible :age_from, :age_to, :cancelled, :city_id, :creason, :emails, :finish_at, :gender, :group_id, :info, :location_id, :max_part, :mode, :private,
                  :skill_from, :skill_to, :sport_id, :start_at, :type_id, :date, :hour_start, :min_start, :hour_fin, :min_fin, :am_pm_start, :am_pm_fin,
-                 :repeat, :rep_every, :rep_end
-  attr_accessor :hour_start, :min_start, :hour_fin, :min_fin, :am_pm_start, :am_pm_fin, :num_part, :repeat, :rep_every, :rep_end
+                 :repeat, :rep_every, :rep_end, :location_search, :loc_reference, :loc_id, :loc_lat, :loc_lng, :loc_name
+  attr_accessor :hour_start, :min_start, :hour_fin, :min_fin, :am_pm_start, :am_pm_fin, :num_part, :repeat, :rep_every, :rep_end, :location_search,
+                :loc_reference, :loc_id, :loc_lat, :loc_lng, :loc_name
+                
 
   belongs_to :city
   belongs_to :sport
@@ -13,16 +15,16 @@ class Event < ActiveRecord::Base
   has_many :participants
   has_many :event_posts
   
-  validates :location_id, :mode, :gender, :max_part, :info, :presence => true
-  validate :check_date, :check_from_to 
+  validates  :mode, :gender, :max_part, :info, :presence => true
+  validate :check_date, :check_from_to
   
   HOURS_EN = ['01','02','03','04','05','06','07','08','09','10','11','12']
   HOURS = ['00','01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23']
   MINUTES = ['00','05','10','15','20','25','30','35','40','45','50','55']
  
   def date
-    if self.start_at? and self.city_id?
-      self.start_at.in_time_zone(self.city.zone).strftime(date_format)
+    if self.start_at?
+      self.start_at.in_time_zone('CET').strftime(date_format)
     end
    end
    
@@ -32,9 +34,7 @@ class Event < ActiveRecord::Base
      rescue ArgumentError
       false
      end
-   end
-   
- 
+   end   
    
   def check_date
     unless self.start_at.nil?
@@ -63,23 +63,17 @@ class Event < ActiveRecord::Base
       end
   end
 
-  
+  def set_location
+      x = Timezone::Zone.new :latlon => [loc_lat, loc_lng]
+      Location.create_with(name: loc_name, lat: loc_lat, lng: loc_lng, reference: loc_reference, timezone: x.zone).find_or_create_by_sport_id_and_google_id(sport_id,loc_id) 
+  end
+
+
+
    def time_offset
       require 'tzinfo'
-      case self.city.zone
-      when 'Eastern Time (US & Canada)'
-         zone = 'US/Eastern'
-      when 'Pacific Time (US & Canada)'
-        zone = 'US/Pacific'
-      when 'Mountain Time (US & Canada)'
-         zone = 'US/Mountain'
-      when 'Central Time (US & Canada)'
-           zone = 'US/Central'
-      
-      else
-         zone = self.city.zone 
-      end
-      offset = (TZInfo::Timezone.get(zone).current_period.utc_total_offset / (60*60))
+      x = Timezone::Zone.new :latlon => [self.loc_lat, self.loc_lng]
+      offset = (TZInfo::Timezone.get(x.zone).current_period.utc_total_offset / (60*60))
       if offset > 0
         return '+' + offset.to_s
       else 
@@ -89,16 +83,20 @@ class Event < ActiveRecord::Base
 
    
    def save_set_organizer(user)
-     errors.add(:age_from, I18n.t('age_higher'))unless (age_from <= user.age)
-     errors.add(:age_to, I18n.t('age_lower'))unless (age_to >= user.age)
-     errors.add(:skill_from, I18n.t('skill_higher'))unless (skill_from <= user.last_stat(self.sport_id).total_skill)
-     errors.add(:skill_to, I18n.t('skill_lower'))unless (skill_to >= user.last_stat(self.sport_id).total_skill)
+     errors.add(:age_from, I18n.t('include_age'))unless (age_from <= user.age)
+     errors.add(:age_to, I18n.t('include_age'))unless (age_to >= user.age)
+     errors.add(:skill_from, I18n.t('include_skill'))unless (skill_from <= user.last_stat(self.sport_id).total_skill)
+     errors.add(:skill_to, I18n.t('include_skill'))unless (skill_to >= user.last_stat(self.sport_id).total_skill)
+     errors.add(:location_search, I18n.t('not_valid')) unless loc_reference.present?
      if self.errors.any?
        return false
      else
      @part = self.participants.new
      @part.user_id = user.id
      @part.organizer = true
+     self.set_location
+     self.location_id = Location.find_by_google_id(self.loc_id).id
+     self.set_time
      if self.save and @part.save
        return true
      else
@@ -127,13 +125,13 @@ class Event < ActiveRecord::Base
       return count, participants.count - count
     end
     
-    def self.search(sport_id,event_city,radius,units)
-      if sport_id and City.find_by_full_name(event_city)
+    def self.search(sport_id,lat,lng,radius,units)
+      if sport_id and lat and lng
          @events = self.where("start_at >= ?", DateTime.now)
          @events = @events.where(sport_id: sport_id)
          @events = @events.where(private: false)
          @events = @events.where(cancelled: nil)
-         @events = @events.where("location_id IN (?)", Location.near(City.find_by_full_name(event_city), radius, :units => units.to_sym).map(&:id))
+         @events = @events.where("location_id IN (?)", Location.near([lat,lng], radius, :units => units.to_sym).map(&:id))
          @events = @events.order('start_at ASC')  
       end
     end

@@ -9,6 +9,11 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
+Timezone::Configure.begin do |c|
+  c.username = 'spofri'
+end
+
+
 module Sportsfriender
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.

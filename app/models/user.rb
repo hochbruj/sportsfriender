@@ -7,13 +7,12 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :role_ids, :as => :admin
-  attr_accessible :admin, :city_id, :comment, :dob, :email, :first_name, :gender, :image, :last_name, :provider, :sport_id, :uid, :password, :password_confirmation, :remember_me
-  attr_accessible :city_name, :avatar , :delete_avatar
-  attr_accessor :delete_avatar
+  attr_accessible :admin, :city_reference, :comment, :dob, :email, :first_name, :gender, :image, :last_name, :provider, :sport_id, :uid, :password, :password_confirmation, :remember_me
+  attr_accessible :city_name, :avatar , :delete_avatar, :lat, :lng, :city_reference, :country_code, :city_id
+  attr_accessor :delete_avatar, :city_name
   attr_writer :skill
   
   belongs_to :sport
-  belongs_to :city
   has_many :pointers, :dependent => :destroy
   has_many :ratings, :dependent => :destroy
   has_many :stats, :dependent => :destroy
@@ -25,14 +24,17 @@ class User < ActiveRecord::Base
   has_many :feedbacks
   
   
-  validates :first_name, :last_name, :gender, :sport, :city_name, :dob, :presence => true, :on => :update
+  validates :first_name, :last_name, :gender, :sport, :dob, :presence => true, :on => :update
+  validate :check_city, :on => :update
   
   
   has_attached_file :avatar, :styles => { :medium => "100x100#", :thumb => "50x50#" }
   validates_attachment_size :avatar, :less_than => 1.megabytes
   before_validation { avatar.clear if delete_avatar == '1' }
   
-  
+  reverse_geocoded_by :lat, :lng
+  after_validation :geocode
+
   
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
@@ -45,7 +47,6 @@ class User < ActiveRecord::Base
                           gender:auth.extra.raw_info.gender,
                           image: auth.info.image,
                           dob: Date::strptime(auth.extra.raw_info.birthday,"%m/%d/%Y"),
-                          city_id: City.from_fb(location_id),
                           provider:auth.provider,
                           uid:auth.uid,
                           email:auth.info.email,
@@ -53,6 +54,10 @@ class User < ActiveRecord::Base
                            )
     end
     user
+  end
+  
+  def check_city
+    errors.add(:city_name, I18n.t('not_valid')) unless city_reference.present?
   end
   
   def new_stat(sport_id)
@@ -90,14 +95,7 @@ class User < ActiveRecord::Base
    "#{first_name} #{last_name}"
   end
   
-  def city_name
-    city.try(:full_name)
-  end
 
-  def city_name=(name)
-    self.city = City.find_by_full_name(name) unless name.blank?
-  end
-  
   def profile_complete?
     unless ratings.empty?
       return true
@@ -220,10 +218,10 @@ class User < ActiveRecord::Base
   return data_total,labels_total,legend
   end 
   
-  def self.search(sport_id,city)
-    if sport_id and City.find_by_full_name(city)
+  def self.search(sport_id,lat,lng)
+    if sport_id and lat and lng
        results = []
-       users = self.where(city_id: City.find_by_full_name(city))
+       users = self.near([lat,lng], 100, :units => :mi)
        users.each do |u|
          results << u unless u.stats.where(sport_id: sport_id).empty?
        end
@@ -235,22 +233,19 @@ class User < ActiveRecord::Base
 
  def country_ranking(sport_id)
    ranking = []
-   User.where(:city_id => City.where(country: self.city.country).select('id').map(&:id)).each do |u|
+   User.where(country_code: self.country_code).each do |u|
      unless u.stats.where(sport_id: sport_id).empty?
        u[:skill] = u.last_stat(sport_id).total_skill
        ranking << u
      end
    end
    return ranking.sort_by{|r| r[:skill]}.reverse!.index(ranking.detect{|r| r[:id] == self.id}) + 1
-     
-   
-  
-  
+       
  end  
  
  def ranking(sport_id)
     ranking = []
-    User.where(city_id: self.city_id).each do |u|
+    User.where(city_reference: self.city_reference).each do |u|
       unless u.stats.where(sport_id: sport_id).empty?
         u[:skill] = u.last_stat(sport_id).total_skill
         ranking << u

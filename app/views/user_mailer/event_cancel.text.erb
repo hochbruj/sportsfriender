@@ -1,8 +1,8 @@
 Hello <%= @user.full_name %>,
 
 Sorry, but the following <%= @event.sport.name %> session has been cancelled:
-When: <%= @event.start_at.in_time_zone(@event.city.zone).strftime("%a %d/%m/%Y %H:%M") %>-<%=@event.finish_at.in_time_zone(@event.city.zone).strftime("%H:%M") %> (<%= @event.city.zone %>)
-Where: <%= @event.location.name%>, <%= @event.location.address%>, <%= @event.city.name%>>
+When: <%= @event.start_at.in_time_zone(@event.location.timezone).strftime("%a %d/%m/%Y %H:%M") %>-<%=@event.finish_at.in_time_zone(@event.location.timezone).strftime("%H:%M") %>
+Where: <%= @event.location.name%>
 
 Reason:
 <%= @event.creason %>

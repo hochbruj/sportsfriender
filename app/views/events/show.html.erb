@@ -3,8 +3,8 @@
 <div class='span6'>
 <div class='frame'>
 <div class='grey_23' style='margin-top: 10px'><%= @event.sport.name%> <%= t(@event.mode)%></div>
-<b><div style='margin-top:5px'><%= l @event.start_at.to_date, :format => :long %>, <%= l @event.start_at.in_time_zone(@event.city.zone), :format => :short %>
- - <%= l @event.finish_at.in_time_zone(@event.city.zone), :format => :short %></div></b>
+<b><div style='margin-top:5px'><%= l @event.start_at.to_date, :format => :long %>, <%= l @event.start_at.in_time_zone(@event.location.timezone), :format => :short %>
+ - <%= l @event.finish_at.in_time_zone(@event.location.timezone), :format => :short %></div></b>
 </div>
 
 <div class='blue_box'>
@@ -25,18 +25,10 @@
 <div class='frame'>
 <div class='event_title'><%= t('location')%></div>
 <b><%= @event.location.name%></br>
-<%= @event.location.address%></br>
-<%= @event.location.city.full_name%></br>
-<% if @event.location.telephone?%>
-<%= @event.location.telephone%></br>
-<%end%></b>
-<% if @event.location.website?%>
-<%= link_to @event.location.website, @event.location.website, :target => "_blank", :class => 'link_normal' %></br>
-<%end%>
-
-<%= gmaps({
-  "map_options" => {"auto_adjust" => true, "auto_zoom" => false, "zoom" => 13 },
-  "markers"     => {"data" => @location } })%>
+<b><span id='loc_address'></span></b></br>
+<b><div id='loc_phone'></div></b>
+<b><a href='#' target='_blank' id='loc_website'></a></b></br>
+<%= render partial: "locations/location_details" %>
 </div>
 </div>
 </div><!--! end of #span6 -->
@@ -144,4 +136,4 @@
 </div>	
 <% end %>
 </div><!--! end of #span6 -->
-</div> <!--! end of row top level -->	
+</div> <!--! end of row top level -->

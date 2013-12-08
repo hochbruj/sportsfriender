@@ -2,16 +2,8 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
 
-before_filter :authenticate_user!  
-
-  def index
-    @users = User.where("first_name ilike ?", "%#{params[:q]}%")
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @users }
-    end
-  end
+before_filter :authenticate_user!,
+  :only => [:new, :create, :edit, :update]  
 
   # GET /users/1
   # GET /users/1.json
@@ -99,15 +91,5 @@ before_filter :authenticate_user!
     end
   end
 
-  # DELETE /users/1
-  # DELETE /users/1.json
-  def destroy
-    @user = User.find(params[:id])
-    @user.destroy
 
-    respond_to do |format|
-      format.html { redirect_to users_url }
-      format.json { head :no_content }
-    end
-  end
 end

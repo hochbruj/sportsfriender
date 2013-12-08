@@ -1,0 +1,41 @@
+<script src="http://maps.googleapis.com/maps/api/js?sensor=true&libraries=places&language=<%=I18n.locale.to_s%>" type="text/javascript"></script>
+
+<% if @user.city_reference?%>
+<script type="text/javascript">        
+<!--
+var request = {
+  reference: '<%=@user.city_reference%>'
+};
+var service = new google.maps.places.PlacesService(document.getElementById('user_city_name'));
+
+service.getDetails(request, function(place1, status) {
+  if (status == google.maps.places.PlacesServiceStatus.OK) {
+   document.getElementById('user_city_name').value = place1.formatted_address;
+  }
+});
+</script>
+<%end%> 
+
+<script type="text/javascript">  
+   // Address Autocomplete
+  var input = document.getElementById('user_city_name');
+  var options = {
+  	 types: ['(cities)']
+};
+
+  var autocomplete = new google.maps.places.Autocomplete(input, options);
+
+
+  // Autocomplete Listener
+  google.maps.event.addListener(autocomplete, 'place_changed', function() {
+    place = autocomplete.getPlace();
+                document.getElementById("user_lat").value = place.geometry.location.lat();
+			    document.getElementById("user_lng").value = place.geometry.location.lng();
+                document.getElementById("user_city_reference").value = place.reference;
+                document.getElementById("user_city_id").value = place.id;
+                document.getElementById("user_country_code").value = place.address_components[place.address_components.length-1].short_name;
+  });
+</script>
+
+
+

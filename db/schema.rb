@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130925112743) do
+ActiveRecord::Schema.define(:version => 20131208110921) do
 
   create_table "assessment_translations", :force => true do |t|
     t.integer  "assessment_id"
@@ -39,29 +39,6 @@ ActiveRecord::Schema.define(:version => 20130925112743) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
-
-  create_table "cities", :force => true do |t|
-    t.string   "name"
-    t.string   "full_name"
-    t.string   "country"
-    t.string   "zone"
-    t.float    "lat"
-    t.float    "lng"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "city_translations", :force => true do |t|
-    t.integer  "city_id"
-    t.string   "locale"
-    t.string   "name"
-    t.string   "full_name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "city_translations", ["city_id"], :name => "index_city_translations_on_city_id"
-  add_index "city_translations", ["locale"], :name => "index_city_translations_on_locale"
 
   create_table "event_posts", :force => true do |t|
     t.string   "content"
@@ -112,17 +89,14 @@ ActiveRecord::Schema.define(:version => 20130925112743) do
 
   create_table "locations", :force => true do |t|
     t.string   "name"
-    t.string   "address"
-    t.integer  "city_id"
     t.integer  "sport_id"
-    t.integer  "user_id"
-    t.string   "telephone"
-    t.string   "website"
     t.float    "lat"
     t.float    "lng"
-    t.boolean  "private"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.text     "reference"
+    t.string   "google_id"
+    t.string   "timezone"
   end
 
   create_table "members", :force => true do |t|
@@ -221,7 +195,6 @@ ActiveRecord::Schema.define(:version => 20130925112743) do
     t.string   "provider"
     t.string   "uid"
     t.string   "gender"
-    t.integer  "city_id"
     t.integer  "sport_id"
     t.text     "comment"
     t.date     "dob"
@@ -242,6 +215,11 @@ ActiveRecord::Schema.define(:version => 20130925112743) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "city_reference"
+    t.string   "country_code"
+    t.float    "lat"
+    t.float    "lng"
+    t.string   "city_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

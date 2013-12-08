@@ -81,6 +81,8 @@ en:
   home_subheader: "Sportsfriender connects people who want to play their favorite sports and get better."
   join_free: 'JOIN SPORTSFRIENDER FOR FREE!'
   search_results: 'Search Results'
+  location: 'Location'
+  meeting_point: 'Meeting Point'
   
   date:
     formats:
@@ -111,10 +113,9 @@ en:
       sure: "Are you sure you want to save this assessment? You won't be able to change it before your first game!"
   events:
      new:
-      sport_city: "Sport, City & Location"
-      new_location: "+ Add a new location by street address"
       from_map: "Find a location on a map"
-      choose_location: "Choose an event location from this list"
+      choose_location: "Choose an event location"
+      choose_meeting: "Choose a meeting point"
       mode_gender: "Event Type & Gender"
       date_time: "Date & Time"
       incl_org: "(Including Organizer)"
@@ -147,7 +148,7 @@ en:
      search:
       no_result: "Ther aren't any upcoming events for this sport and city. Why not host your "
       own_event: "own event"
-      signed_in: " (must be signed)."
+      signed_in: " (must be signed in)."
 
   pages:
       home:
@@ -198,6 +199,8 @@ en:
           current_change: "Your current skills levels & change (%)"
           feedbacks: "Feedback and tips from your Sportsfriends"
           time_ago: '%{time} ago'
+          in_city: "in your city"
+          in_country: "in your country"
       mysportsfriends:
           pointer: "Add Sportsfriends to Groups to make it easier to invite them to events you host. To find Sportsfriends, search for Sportsfriends or invite your friends to join Sportsfriender.com. But don’t worry, you can always set up an event without inviting anyone. And you can always join events with people even if they are not in your Groups. "
           group: "Group"
@@ -222,10 +225,8 @@ en:
   start_past: "start time is in the past"
   start_end: "end time is not after start time"
   check_from_to: "is lower than low end"
-  age_higher: "is higher than your age"
-  age_lower: 'is lower than your age'
-  skill_higher: "is higher than your skill level"
-  skill_lower: "is lower than your skill level"
+  include_age: "must include your age"
+  include_skill: "must include your skill level"
   post_error: "Comment is either empty or too long (max. 255 characters)"
   group_error: "Group name is not valid"
   cant_signup: "Sorry you can't join this event right now. Please check the 'Who can join' requirements."
@@ -236,6 +237,8 @@ en:
   unjoin_success: "You successfully unjoined from this event"
   create_event_success: "Event was successfully created"
   message_sent_success: "Message has been sent successfully"
+  not_valid: "is not valid"
+  sf_added: "Sportsfriend successfully added to group"
   
 # button texts
   goto_dash: "Goto Dashboard"

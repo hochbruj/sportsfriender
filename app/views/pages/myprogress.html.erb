@@ -18,8 +18,8 @@
 <div class="accordion-inner">
 <div class='left10px'>
 <h5 class='black_18'><%=t('.current_ranking')%></h5>
-<div class='dred_18'><%=current_user.city.name%>: #<%=current_user.ranking(s.id)%></div>
-<div class='dred_18'><%=t(current_user.city.country)%>: #<%=current_user.country_ranking(s.id)%></div>
+<div class='dred_18'>#<%=current_user.ranking(s.id)%> <%= t('.in_city')%></div>
+<div class='dred_18'>#<%=current_user.country_ranking(s.id)%> <%= t('.in_country')%></div>
 </div>
 <hr>
 <div class='left10px' style='margin-top:20px'>

@@ -1,8 +1,7 @@
 <div class='row-fluid'><div class='pull-left' style='margin: 20px 0px 0px 15px; font-size: 24px; font-weight: bold;'><%=@user.full_name%></div>
-<% unless @user == current_user%>
+<% if user_signed_in? and @user != current_user%>
 <a href="#send_message" role="button" class="pull-right b_send" data-toggle="modal"><%=t('send_to_sf')%></a>
 <a href="#to_group" role="button" class="pull-right b_add_sf" data-toggle="modal"><%=t('add_to_sf')%></a>
-<%end%>
 </div>
 
 <div id="send_message" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -58,5 +57,5 @@
 <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
 </div>
 <%end%>
-
+<%end%>
 </div>

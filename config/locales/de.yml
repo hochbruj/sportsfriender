@@ -81,6 +81,8 @@ de:
   home_subheader: "Sportsfriender verbindet Leute die öfters Sport treiben und besser darin werden wollen"
   join_free: 'KOSTENLOS SPORTSFRIENDER BEITRETEN!'
   search_results: 'Ergebnisliste'
+  location: 'Location'
+  meeting_point: 'Treffpunkt'
   
   number:   
       format:
@@ -155,10 +157,9 @@ de:
      sure: "Bist du sicher, dass du speichern möchtest? Du kannst die Bewertung erst nach nach dem nächsten Spiel ändern"
   events:
    new:
-     sport_city: "Sport, Stadt & Location"
-     new_location: "+ Füge eine neue Location mit Adresse hinzu"
      from_map: "Finde eine Location auf einer Karte"
-     choose_location: "Wähle eine Event Location von dieser Liste"
+     choose_location: "Wähle eine Event Location"
+     choose_meeting: "Wähle einen Treffpunkt"
      mode_gender: "Event Art & Geschlecht"
      date_time: "Datum und Uhrzeit"
      incl_org: "(Inclusive Organisierer)"
@@ -243,6 +244,8 @@ de:
       current_change: "Deine aktuellen Skill Level & Veränderung (%)"
       feedbacks: 'Feedback und Tips von deinen Sportsfriends'
       time_ago: 'vor %{time}'
+      in_country: 'in deinem Land'
+      in_city: 'in deiner Stadt'
    mysportsfriends:
        pointer: "Füge Sportsfriends zu Gruppen hinzu um sie einzuladen, wenn du ein Event aufsetzt. Um diese zu finden suche nahand von Stadt und Sportart. Aber keine Sorge: Du kannst immer Events aufsetzen ohne Sportsfriends einzuladen und du kannst an Events mit Leuten teilnehmen, die nicht in deiner Gruppe sind."
        group: "Gruppe"
@@ -267,10 +270,8 @@ de:
   start_past: "Beginn ist in der Vergangenheit"
   start_end: "Ende ist nicht nach Beginn"
   check_from_to: "ist kleiner als Von"
-  age_higher: "ist grösser als dein Alter"
-  age_lower: 'ist niedriger als dein Alter'
-  skill_higher: "ist grösser als dein Skill Level"
-  skill_lower: 'ist niedriger als dein Skill Level'
+  include_age: "muss dein Alter enthalten"
+  include_skill: "muss dein Skill Level enthalten"
   post_error: "Kommentar ist entweder nicht gefüllt oder zu lang (max. 255 Zeichen)"
   group_error: "Gruppenname ist nicht gültig"
   cant_signup: "Du kannst leider nicht am Event teilnemen. Bitte prüfe die 'Wer kann teilnehmen' Bedingungen"
@@ -281,6 +282,8 @@ de:
   unjoin_success: "Du hast erfolgreich abgesagt"
   create_event_success: "Event wurde erfolgreich erstellt"
   message_sent_success: "Nachricht wurde erfolgreich versendet"
+  not_valid: "ist nicht gültig"
+  sf_added: "Sportsfriend erfolgreich zur Gruppe hinzugefügt"
  
 # button texts
   save: "SPEICHER"

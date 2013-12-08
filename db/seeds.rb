@@ -1,13 +1,11 @@
-mig_city = false
-mig_citytexts = false
 mig_sport = false
 mig_assess = true
-reset = false
+mig_users = true
 
 if mig_assess == true
   Assessment.delete_all
   puts "Importing assessmentss..."
-  CSV.foreach(Rails.root.join("seeds/Rating_en.csv"), headers: true) do |row|
+  CSV.foreach(Rails.root.join("seeds/assessments_en.csv"), headers: true) do |row|
       a = Assessment.new
       a.id = row[0].chop[1..-1]
       a.sport_id = row[1].chop[1..-1]
@@ -47,46 +45,14 @@ end
 
 
 
-if mig_city == true
-City.delete_all
-puts "Importing cities..."
-CSV.foreach(Rails.root.join("seeds/Cities.csv"), headers: true) do |row|
-    city = City.new
-    city.id = row[0].chop[1..-1]
-    city.name = row[1].chop[1..-1]
-    city.country = row[2].chop[1..-1]
-    city.zone = row[3].chop[1..-1]
-    city.lat = row[4].chop[1..-1].to_f
-    city.lng = row[5].chop[1..-1].to_f
-    city.save!
-end
-end
 
-if mig_citytexts == true
-puts "Importing Cittext..."
-
-I18n.locale = :de
-CSV.foreach(Rails.root.join("seeds/Citytexts_de.csv"), headers: true, :encoding => "utf8") do |row|
-  City.find(row[0].chop[1..-1]).update_attributes(:name => row[2].chop[1..-1], :full_name => row[3].chop[1..-1])
-end
-
-I18n.locale = :en
-CSV.foreach(Rails.root.join("seeds/Citytexts_en.csv"), headers: true, :encoding => "utf8") do |row|
-  City.find(row[0].chop[1..-1]).update_attributes(:name => row[2].chop[1..-1], :full_name => row[3].chop[1..-1])
-end  
-
-end
-
-
-if reset == true
-  puts "Reseting data..."
-  User.delete_all
-  Rating.delete_all
-  Stat.delete_all
-  Event.delete_all
-  EventPost.delete_all
-  Message.delete_all
-  Group.delete_all
-  Member.delete_all
-  Participant.delete_all
+if mig_users == true
+  User.all.each do |u|
+    u.lat = 52.5200066
+    u.lng = 13.404954
+    u.country_code = 'DE'
+    u.city_id = '6b1afbd7fcf2ec16ff8e2f95514e2badb8c2451d'
+    u.city_reference = 'CoQBcgAAAGPfLi7HewnhPVGBPh8hb3vptaUmdihOmQUhYSxkN7ZXGxA91wGRWRYpv_Kb4P1u0sAyxgDklopnxmqpJZRn9JNvdTCMPd5hTmmGu-D3oND-dkgwGPN2L3SF5oR5xru_1qcT_ALdS3z6re3jO7CRR19bw8I7xUNkubFPBMe9MJSREhAmdE0jC2dfIXBnyhwJBf9ZGhST5AHo6rFGlBPZ7QaAuzsg0KlTgA'
+    u.save!
+  end
 end
