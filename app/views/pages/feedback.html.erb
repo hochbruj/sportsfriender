@@ -4,7 +4,7 @@
 <div class='subheader_wrapper'><div class='i_sh_rate'><%= t('.header') %></div></div>
 <p class='left10px' style='margin-top:20px'>
 <%= link_to "#{@event.sport.name} #{t(@event.mode)}", @event, :class => 'link_big'%></br>
-<b><%= l @event.start_at.in_time_zone(@event.city.zone).to_date, :format => :short %>, <%=@event.location.name%></b>
+<b><%= l @event.start_at.in_time_zone(@event.location.timezone).to_date, :format => :short %>, <%=@event.location.name%></b>
 </p>
 
 <div class='red_18 left10px'><%=t('unrated')%>: (<%=t('sportsfriend', :count => @event.rated_part(current_user)[0])%>)</div>
@@ -21,7 +21,7 @@
 <div class='span6'>
 <div style='margin-top:10px'>  
 <%= link_to p.user.full_name, p.user, :class => 'link_mid'%></div>
-<b><%= p.user.city.name%> <%= @event.sport.name%> Ranking: #<%= p.user.ranking(@event.sport.id)%></b>
+<b><%= t(p.user.country_code.to_sym, :scope => :countries)%> <%= @event.sport.name%> Ranking: #<%= p.user.ranking(@event.sport.id)%></b>
 </div>
 </div>
 </div>

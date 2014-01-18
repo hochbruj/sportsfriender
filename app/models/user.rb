@@ -27,6 +27,8 @@ class User < ActiveRecord::Base
   validates :first_name, :last_name, :gender, :sport, :dob, :presence => true, :on => :update
   validate :check_city, :on => :update
   
+
+ 
   
   has_attached_file :avatar, :styles => { :medium => "100x100#", :thumb => "50x50#" }
   validates_attachment_size :avatar, :less_than => 1.megabytes
@@ -218,10 +220,10 @@ class User < ActiveRecord::Base
   return data_total,labels_total,legend
   end 
   
-  def self.search(sport_id,lat,lng)
-    if sport_id and lat and lng
+  def self.search(sport_id,city)
+    if sport_id
        results = []
-       users = self.near([lat,lng], 100, :units => :mi)
+       users = self.near(city, 100, :units => :mi)
        users.each do |u|
          results << u unless u.stats.where(sport_id: sport_id).empty?
        end
@@ -298,6 +300,7 @@ def progress_total(sport,a_p,act_total)
    end
   return a_t
 end
+
 
 
 end

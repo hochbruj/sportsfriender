@@ -125,13 +125,13 @@ class Event < ActiveRecord::Base
       return count, participants.count - count
     end
     
-    def self.search(sport_id,lat,lng,radius,units)
-      if sport_id and lat and lng
+    def self.search(sport_id,radius,units,city)
+      if sport_id
          @events = self.where("start_at >= ?", DateTime.now)
          @events = @events.where(sport_id: sport_id)
          @events = @events.where(private: false)
          @events = @events.where(cancelled: nil)
-         @events = @events.where("location_id IN (?)", Location.near([lat,lng], radius, :units => units.to_sym).map(&:id))
+         @events = @events.where("location_id IN (?)", Location.near(city, radius, :units => units.to_sym).map(&:id))
          @events = @events.order('start_at ASC')  
       end
     end

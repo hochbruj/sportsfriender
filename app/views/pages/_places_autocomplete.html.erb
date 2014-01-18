@@ -13,8 +13,6 @@
   // Autocomplete Listener
   google.maps.event.addListener(autocomplete, 'place_changed', function() {
     place = autocomplete.getPlace();
-                document.getElementById("lat").value = place.geometry.location.lat();
-                document.getElementById("lng").value = place.geometry.location.lng();
   });
 
 //-->

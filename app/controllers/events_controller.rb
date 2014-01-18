@@ -9,7 +9,9 @@ class EventsController < ApplicationController
     @lhn = 'my_events'
     @span = 'nomargin_10'
 #    @event_results = Event.search(params[:sport_id],params[:search_city],params[:radius],params[:units])
-    @event_results = Event.search(params[:sport_id],params[:lat],params[:lng],100,'mi')
+#    @event_results = Event.search(params[:sport_id],params[:lat],params[:lng],100,'mi',params[:location_search])
+    @event_results = Event.search(params[:sport_id],100,'mi',params[:location_search])
+
     @event_results = @event_results.paginate(:page => params[:page], :per_page => 10) unless @event_results.nil?
     respond_to do |format|
       format.html # index.html.erb
