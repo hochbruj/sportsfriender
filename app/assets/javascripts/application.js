@@ -15,4 +15,6 @@
 //= require bootstrap
 //= require gmaps4rails/gmaps4rails.base
 //= require gmaps4rails/gmaps4rails.googlemaps
-//= require_directory .
+//= require rating
+//= require jquery-ui-1.8.18.custom
+//= require events

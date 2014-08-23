@@ -1,5 +1,6 @@
 id,sport,cat1,cat2,cat3,cat4,cat5
 """1""","""Beachvolleyball""","""Aufschlag""","""Annahme""","""Zuspiel""","""Angriff""","""Block/Dig"""
 """2""","""Tennis""","""Aufschlag""","""Return""","""Volley""","""Vorhand""","""Rückhand"""
-"""3""","""Volleyball""","""Aufschlag""","""Annahme""","""Zuspiel""","""Angriff""","""Block/Dig"""
+"""3""","""Volleyball""","""Skill Level""","""nil""","""nil""","""nil""","""nil"""
 """4""","""Laufen""","""Skill Level""","""nil""","""nil""","""nil""","""nil"""
+"""4""","""Badminton""","""Aufschlag""","""Verteidigung""","""Angriff""","""nil""","""nil"""

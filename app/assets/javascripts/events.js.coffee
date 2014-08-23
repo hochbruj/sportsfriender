@@ -2,7 +2,14 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
+setTimeout ( ->
+  $('#car_next').click()
+  console.log("blah")
+), 1000
+
 jQuery ->
+
+
   $('#search_city').autocomplete
     source: $('#search_city').data('autocomplete-source')
   $('#event_city').autocomplete

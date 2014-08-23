@@ -1,5 +1,4 @@
 <%= content_tag "div", id: "assessments", data: {assessments: @sport.assessments.order(:level), count: @sport.catcount } do %>
-<%= javascript_include_tag 'rating' %>
 <% end %>
 
 <% if current_user.profile_complete? %>
