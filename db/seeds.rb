@@ -1,9 +1,12 @@
 mig_sport = true
 mig_assess = true
+mig_assess_de = true
 mig_users = false
+
 
 if mig_assess == true
   Assessment.delete_all
+  I18n.locale = :en
   puts "Importing assessmentss..."
   CSV.foreach(Rails.root.join("seeds/assess2.csv"), headers: true) do |row|
       a = Assessment.new
@@ -18,8 +21,18 @@ if mig_assess == true
       a.save!
   end
 
-
 end
+
+if mig_assess_de == true
+  puts "Importing assessmentss in german..."
+  I18n.locale = :de
+   CSV.foreach(Rails.root.join("seeds/assess2_de.csv"), headers: true, :encoding => "utf8") do |row|
+     Assessment.find(row[0].chop[1..-1]).update_attributes(:cat1 => row[3].chop[1..-1], :cat2 => row[4].chop[1..-1], :cat3 => row[5].chop[1..-1],
+     :cat4 => row[6].chop[1..-1], :cat5 => row[7].chop[1..-1])
+   end
+end
+
+
 
 if mig_sport == true
   Sport.delete_all
