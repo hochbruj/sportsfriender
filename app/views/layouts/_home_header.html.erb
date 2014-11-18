@@ -17,6 +17,7 @@
 		 <%= select_tag :sport_id, options_from_collection_for_select(Sport.all, 'id', 'name')%>
 		 <span class='sb_text'>in</span>
           <%= text_field_tag(:location_search , nil, :placeholder => t('city_name')) %>
+         <%= hidden_field_tag(:lat, params[:lat]) %> <%= hidden_field_tag(:lng, params[:lng]) %>
          <%= submit_tag(t('search'), class: 'b_search') %>
 		 <% end %>
 		 </div>
