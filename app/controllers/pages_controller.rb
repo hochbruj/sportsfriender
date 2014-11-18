@@ -115,7 +115,7 @@ class PagesController < ApplicationController
     @span = 'nomargin_10'
     
 
-    @users = User.search(params[:sport_id],params[:location_search])
+    @users = User.search(params[:sport_id],params[:lat],params[:lng])
     @users = @users.paginate(:page => params[:page], :per_page => 5) unless @users.nil?
     @sport = Sport.find(params[:sport_id]) unless params[:sport_id].nil?
     

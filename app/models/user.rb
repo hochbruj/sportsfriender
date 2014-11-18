@@ -220,10 +220,10 @@ class User < ActiveRecord::Base
   return data_total,labels_total,legend
   end 
   
-  def self.search(sport_id,city)
+  def self.search(sport_id,lat,lng)
     if sport_id
        results = []
-       users = self.near(city, 100, :units => :mi)
+       users = self.near([lat,lng], 100, :units => :mi)
        users.each do |u|
          results << u unless u.stats.where(sport_id: sport_id).empty?
        end

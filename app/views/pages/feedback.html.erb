@@ -113,7 +113,7 @@
 </div>
 
 <% ["1","2","3","4","5"].each do |c| %>
-<% unless @event.sport.cat1 == 'nil' %>
+<% unless @event.sport["cat#{c}"] == 'nil' %>
 <div class='row-fluid'>
 <div class='span8'>
 <div class='left10px'>
