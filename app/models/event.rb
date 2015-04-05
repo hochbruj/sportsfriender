@@ -23,8 +23,10 @@ class Event < ActiveRecord::Base
   MINUTES = ['00','05','10','15','20','25','30','35','40','45','50','55']
  
   def date
-    if self.start_at?
+    if time_zone.nil?
       self.start_at.in_time_zone('CET').strftime(date_format)
+    else
+      self.start_at.in_time_zone(time_zone).strftime(date_format)
     end
    end
    
@@ -51,15 +53,16 @@ class Event < ActiveRecord::Base
   
   
   def set_time
+      d = DateTime.strptime( date, date_format)
       if (am_pm_start == 'PM' and hour_start != '12') or (am_pm_start == 'AM' and hour_start == '12')
-      self.start_at = DateTime.new(start_at.year, start_at.month, start_at.day, (hour_start.to_i + 12), min_start.to_i, 0, time_offset)
+      self.start_at = DateTime.new(d.year, d.month, d.day, (hour_start.to_i + 12), min_start.to_i, 0, time_offset)
       else
-      self.start_at = DateTime.new(start_at.year, start_at.month, start_at.day, hour_start.to_i, min_start.to_i, 0, time_offset)
+      self.start_at = DateTime.new(d.year, d.month, d.day, hour_start.to_i, min_start.to_i, 0, time_offset)
       end
       if (am_pm_fin == 'PM' and hour_fin != '12') or (am_pm_fin == 'AM' and hour_fin == '12')
-      self.finish_at = DateTime.new(start_at.year, start_at.month, start_at.day, (hour_fin.to_i + 12), min_fin.to_i, 0, time_offset)
+      self.finish_at = DateTime.new(d.year, d.month, d.day, (hour_fin.to_i + 12), min_fin.to_i, 0, time_offset)
       else
-      self.finish_at = DateTime.new(start_at.year, start_at.month, start_at.day, hour_fin.to_i, min_fin.to_i, 0, time_offset)
+      self.finish_at = DateTime.new(d.year, d.month, d.day, hour_fin.to_i, min_fin.to_i, 0, time_offset)
       end
   end
 
@@ -196,5 +199,14 @@ private
          return "%d/%m/%Y"
        end      
      end 
+     
+     def time_zone
+       require 'tzinfo'
+       unless self.loc_lat.nil?
+        x = Timezone::Zone.new :latlon => [self.loc_lat, self.loc_lng]
+        return TZInfo::Timezone.get(x.zone)
+       end
+      end
+       
     
 end
