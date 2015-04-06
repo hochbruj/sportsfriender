@@ -75,8 +75,8 @@ Sportsfriender::Application.configure do
       :storage => :s3,
       :s3_credentials => {
        :bucket => 'Sportsfriender_test',
-        :access_key_id => 'AKIAJ2K3FXGRWKZBKSIA',
-       :secret_access_key => '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'
+        :access_key_id => ENV["AWSACCESS"],
+       :secret_access_key => ENV["AWSSECRETACCESS"]
      }
     }
   
@@ -89,11 +89,11 @@ Sportsfriender::Application.configure do
      # Change mail delvery to either :smtp, :sendmail, :file, :test
      config.action_mailer.smtp_settings = {
        address: "smtp.1und1.de",
-       port: 25,
+       port: 587,
        domain: "sportsfriender.com",
        authentication: 'plain',
        enable_starttls_auto: false,
-       user_name: "info@sportsfriender.com",
-       password: "SpoFri.info"
+       user_name: ENV["EMAIL"],
+       password: ENV["PASSWORD"]
      }
 end
