@@ -53,8 +53,8 @@ Sportsfriender::Application.configure do
     domain: "sportsfriender.com",
     authentication: 'plain',
     enable_starttls_auto: false,
-    user_name: ENV["EMAIL"],
-    password: ENV["PASSWORD"]
+    user_name: 'info@sportsfriender.com',
+    password: '15Aussie!'
   }
 
 end
