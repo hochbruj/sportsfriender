@@ -37,26 +37,17 @@ class User < ActiveRecord::Base
   reverse_geocoded_by :lat, :lng
   after_validation :geocode
 
-  
-  def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
-    user = User.where(:provider => auth.provider, :uid => auth.uid).first
-    unless user
-      if auth.extra.raw_info.location?
-        location_id = auth.extra.raw_info.location.id
-      end
-      user = User.create(first_name:auth.extra.raw_info.first_name,
-                          last_name:auth.extra.raw_info.last_name,
-                          gender:auth.extra.raw_info.gender,
-                          image: auth.info.image,
-                          dob: Date::strptime(auth.extra.raw_info.birthday,"%m/%d/%Y"),
-                          provider:auth.provider,
-                          uid:auth.uid,
-                          email:auth.info.email,
-                          password:Devise.friendly_token[0,20]
-                           )
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
+      user.first_name = auth.extra.raw_info.first_name
+      user.last_name = auth.extra.raw_info.last_name   
+      user.image = auth.info.image
+      user.gender = auth.extra.raw_info.gender 
     end
-    user
   end
+  
   
   def check_city
     errors.add(:city_name, I18n.t('not_valid')) unless city_reference.present?
