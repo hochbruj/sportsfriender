@@ -201,6 +201,7 @@ DEPENDENCIES
   googlecharts (~> 1.6.8)
   i18n-country-translations
   jquery-rails
+  json (~> 1.7.6)
   omniauth-facebook
   omniauth-identity
   paperclip (~> 3.0)
