@@ -1,6 +1,6 @@
 mig_sport = true
-mig_assess = true
-mig_assess_de = true
+mig_assess = false
+mig_assess_de = false
 mig_users = false
 
 
@@ -36,7 +36,8 @@ end
 
 if mig_sport == true
   Sport.delete_all
-  puts "Importing sports..."
+  I18n.locale = :en
+  puts "Importing sports...english"
   CSV.foreach(Rails.root.join("seeds/sports.csv"), headers: true) do |row|
       s = Sport.new
       s.id = row[0].chop[1..-1]

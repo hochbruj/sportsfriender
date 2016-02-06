@@ -25,6 +25,7 @@ gem 'i18n-country-translations'
 gem "timezone", "~> 0.3.1"
 gem 'json', '~>1.8.2'
 gem 'rails_12factor'
+gem 'test-unit'
 
 # Gems used only for assets and not required
 # in production environments by default.
