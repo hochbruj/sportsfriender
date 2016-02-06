@@ -23,7 +23,7 @@ gem 'aws-sdk'
 gem 'fb_graph'
 gem 'i18n-country-translations'
 gem "timezone", "~> 0.3.1"
-gem 'json', '~>1.7.6'
+gem 'json', '~>1.8.2'
 
 # Gems used only for assets and not required
 # in production environments by default.

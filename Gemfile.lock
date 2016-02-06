@@ -83,7 +83,7 @@ GEM
     jquery-rails (2.2.1)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
-    json (1.7.6)
+    json (1.8.3)
     jwt (0.1.5)
       multi_json (>= 1.0)
     mail (2.4.4)
@@ -201,7 +201,7 @@ DEPENDENCIES
   googlecharts (~> 1.6.8)
   i18n-country-translations
   jquery-rails
-  json (~> 1.7.6)
+  json (~> 1.8.2)
   omniauth-facebook
   omniauth-identity
   paperclip (~> 3.0)
