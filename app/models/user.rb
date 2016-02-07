@@ -90,7 +90,9 @@ class User < ActiveRecord::Base
   
 
   def profile_complete?
-    unless ratings.empty?
+    if ratings == []
+      return false
+    else
       return true
     end
   end
