@@ -22,7 +22,7 @@ gem "paperclip", "~> 3.0"
 gem 'aws-sdk'
 gem 'fb_graph'
 gem 'i18n-country-translations'
-gem "timezone", "~> 0.3.1"
+gem "timezone", "~> 0.3.11"
 gem 'json', '~>1.8.2'
 gem 'rails_12factor'
 gem 'test-unit'
