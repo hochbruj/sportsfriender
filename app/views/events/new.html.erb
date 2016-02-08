@@ -138,7 +138,7 @@
 <div class='frame'>
 <h5><%= t('.invite')%></h5>
 <%= f.label :group_id, 'My Sportsfriends'%>
-<% if current_user.groups.empty?%>
+<% if current_user.groups == []%>
 <%=t('.no_sf')%><%=link_to 'My Sportsfriends', mysportsfriends_path, :class => 'link_normal'%></br></br>
 <% else%>
 <%= f.input :group_id, :label => false, collection: current_user.groups, include_blank: true, input_html: {style: 'width:315px'}%>
