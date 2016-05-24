@@ -1,6 +1,5 @@
 class Location < ActiveRecord::Base
   
-  acts_as_gmappable :lat => "lat", :lng => "lng", :process_geocoding => false
   
   attr_accessible  :lat, :lng, :name, :sport_id, :reference, :google_id
   

@@ -24,7 +24,9 @@
   </div>
   <hr>
   <div class="row-fluid">  
-  <%= f.input :dob, :label => t('dob'), start_year: Date.today.year - 90, end_year: Date.today.year - 16, :order => [:day,:month,:year], :required => true, :input_html => { :style=> 'width: 90px; margin-bottom: 0px;' }, :wrapper_html => { :class => 'span4' } %>
+  <%= f.input :dob, :label => t('dob'), as: :date,  start_year: Date.today.year - 90, end_year: Date.today.year - 16,:required => true, :input_html => { :style=> 'width: 110px; margin-bottom: 0px;' },:wrapper_html => { :class => 'span4' }, discard_day: true,
+                              order: [:month, :year] %>
+<%#>, :label => t('dob'), start_year: Date.today.year - 90, end_year: Date.today.year - 16, :order => [:day,:month,:year], :required => true, :input_html => { :style=> 'width: 90px; margin-bottom: 0px;' }, :wrapper_html => { :class => 'span4' } %>
   
   <%= f.input :gender, :label => t('gender'), collection: [[t("male"), 'male'],[t("female"),'female']], include_blank: false, :wrapper_html => { :class => 'span4' } %>
     

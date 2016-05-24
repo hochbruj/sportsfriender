@@ -1,7 +1,7 @@
 class MySessionsController < Devise::SessionsController
 
 def new
- @title = I18n.t('login')
+ @title = "TEST"
  @header = 'login'
  @span = 'login_window'
  super

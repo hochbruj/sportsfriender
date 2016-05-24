@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.11'
+gem 'rails', '3.2.22'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -23,7 +23,7 @@ gem 'aws-sdk'
 gem 'fb_graph'
 gem 'i18n-country-translations'
 gem "timezone", "~> 0.3.11"
-gem 'json', '~>1.8.2'
+gem 'json'
 gem 'rails_12factor'
 gem 'test-unit'
 

@@ -8,18 +8,23 @@ resources :cities
 resources :participants
 resources :event_posts
 
+devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "registrations",
+                                     :sessions => "my_sessions", :passwords => 'my_passwords'}
+
 scope '(:locale)' do
 
 root to: 'pages#home'
 
-devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "registrations",
-                                     :sessions => "my_sessions", :passwords => 'my_passwords'}
+devise_for :users, skip: :omniauth_callbacks
+
+
 resources :users
 resources :ratings
 resources :events
 resources :locations
 resources :groups
 resources :meassages
+
 
 match "/auth/:provider/callback" => "sessions#create"
 match "/auth/failure", :to => "sessions#failure"

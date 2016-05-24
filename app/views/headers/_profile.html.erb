@@ -34,7 +34,7 @@
   <%= form_tag(new_group_path, :method => "get", :recipient => @user.id) do %>
   <div style='margin-left:20px'>
 	<%= hidden_field_tag :user_id , @user.id%>
-	<% if current_user.groups.empty? or Group.valid_for(current_user,@user).empty?%>
+	<% if current_user.groups == [] or Group.valid_for(current_user,@user) == []%>
 	<%= label_tag t('group_name')%>
 	<%= text_field_tag :new_group_name%>
 	<% else%>

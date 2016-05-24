@@ -23,11 +23,7 @@ class Event < ActiveRecord::Base
   MINUTES = ['00','05','10','15','20','25','30','35','40','45','50','55']
  
   def date
-    if time_zone.nil?
-      self.start_at.in_time_zone('CET').strftime(date_format)
-    else
-      self.start_at.in_time_zone(time_zone).strftime(date_format)
-    end
+      self.start_at.strftime(date_format)
    end
    
   def date=(date)
@@ -54,16 +50,9 @@ class Event < ActiveRecord::Base
   
   def set_time
       d = DateTime.strptime( date, date_format)
-      if (am_pm_start == 'PM' and hour_start != '12') or (am_pm_start == 'AM' and hour_start == '12')
-      self.start_at = DateTime.new(d.year, d.month, d.day, (hour_start.to_i + 12), min_start.to_i, 0, time_offset)
-      else
-      self.start_at = DateTime.new(d.year, d.month, d.day, hour_start.to_i, min_start.to_i, 0, time_offset)
-      end
-      if (am_pm_fin == 'PM' and hour_fin != '12') or (am_pm_fin == 'AM' and hour_fin == '12')
-      self.finish_at = DateTime.new(d.year, d.month, d.day, (hour_fin.to_i + 12), min_fin.to_i, 0, time_offset)
-      else
-      self.finish_at = DateTime.new(d.year, d.month, d.day, hour_fin.to_i, min_fin.to_i, 0, time_offset)
-      end
+      Time.zone = self.location.timezone
+      self.start_at = Time.zone.parse("#{d.year}-#{d.month}-#{d.day} #{hour_start}:#{min_start}#{am_pm_start}")
+      self.finish_at = Time.zone.parse("#{d.year}-#{d.month}-#{d.day} #{hour_fin}:#{min_fin}#{am_pm_start}")
   end
 
   def set_location
@@ -72,17 +61,6 @@ class Event < ActiveRecord::Base
   end
 
 
-
-   def time_offset
-      require 'tzinfo'
-      x = Timezone::Zone.new :latlon => [self.loc_lat, self.loc_lng]
-      offset = (TZInfo::Timezone.get(x.zone).current_period.utc_total_offset / (60*60))
-      if offset > 0
-        return '+' + offset.to_s
-      else 
-        return offset.to_s
-      end  
-   end
 
    
    def save_set_organizer(user)
@@ -189,6 +167,16 @@ class Event < ActiveRecord::Base
       end
       end
     end
+    
+    def start_in_location
+      Time.zone = self.location.timezone
+      return self.start_at.in_time_zone
+    end
+    
+    def fin_in_location
+      Time.zone = self.location.timezone
+      return self.finish_at.in_time_zone
+    end
 
 private
    
@@ -200,13 +188,7 @@ private
        end      
      end 
      
-     def time_zone
-       require 'tzinfo'
-       unless self.loc_lat.nil?
-        x = Timezone::Zone.new :latlon => [self.loc_lat, self.loc_lng]
-        return TZInfo::Timezone.get(x.zone)
-       end
-      end
+  
        
     
 end

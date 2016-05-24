@@ -26,7 +26,7 @@ class GroupsController < ApplicationController
   # GET /groups/new.json
   def new
    respond_to do |format| 
-    if current_user.groups.empty? or Group.valid_for(current_user,User.find(params[:user_id])).empty?
+    if current_user.groups == [] or Group.valid_for(current_user,User.find(params[:user_id])) == []
     @group = Group.new
     @group.name = params[:new_group_name]
     @group.user_id = current_user.id
@@ -97,7 +97,7 @@ class GroupsController < ApplicationController
   # DELETE /groups/1.json
   def destroy
     @group = Group.find(params[:id])
-    @group.destroy
+    @group.delete
 
     respond_to do |format|
       format.html { redirect_to :back }

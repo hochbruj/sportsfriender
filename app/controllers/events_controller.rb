@@ -28,9 +28,6 @@ class EventsController < ApplicationController
     @lhn = 'my_events'
     @span = 'nomargin_10'
     @event = Event.find(params[:id])
-    @location = Location.find(@event.location_id).to_gmaps4rails do |location, marker|
-    marker.infowindow render_to_string(:partial => "/markers/show_way", :locals => { :object => location })
-    end
     @post_items = @event.event_posts.paginate(:page => params[:page], :per_page => 4).order('created_at desc')
     
     session[:event_id] = @event.id

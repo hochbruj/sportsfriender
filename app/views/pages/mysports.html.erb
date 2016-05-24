@@ -1,21 +1,27 @@
 <div class='subheader_wrapper'><h4 class='subheader_inner'><%= t('.header') %></h4></div>
 </br>
-<div class="accordion" id="accordion1">
-<% count = 0%>
-<% current_user.rated.each do |s| %>
-<% count += 1%>
-<div class="accordion-group">
-<div class="accordion-heading">
-<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse<%=s.id%>">
-<h4><%=s.name%></h4>
-</a>
-</div>
-<% if count==1%>
-<div id="collapse<%=s.id%>" class="accordion-body collapse in">
-<% else%>
-<div id="collapse<%=s.id%>" class="accordion-body collapse">
-<% end%>
-<div class="accordion-inner">
+
+<div class="tabbable"> <!-- Only required for left/right tabs -->
+
+<ul class="nav nav-tabs" id='mysports_tab'>
+	<% current_user.rated.each do |s| %>
+	 <% if s.id == 1%>
+	  <li class='active'>
+	 <%else%>
+   <li>
+	<%end>%>
+	<a href="#sport<%=s.id%>" data-toggle="tab"><h4><%=s.name%></h4></a></li>
+    <% end%>
+</ul>
+
+<div class="tab-content">
+  <% current_user.rated.each do |s| %>
+ <% if s.id == 1%>
+  <div class="tab-pane active" id="sport<%=s.id%>">
+ <%else%>
+  <div class="tab-pane" id="sport<%=s.id%>">
+ <%end%>
+	
 <span class='left10px'><%=t('overall_rating')%>:</span> <span class='dred_15'> <%= current_user.last_stat(s.id).total_skill.round(1)%> </span>
 <hr>
 <div class='left10px'>
@@ -28,13 +34,13 @@
 <hr>
 <%end%>
 <%end%>
-</div>
-</div>
-</div>
-</div>
-<%end%>
-</div> <!--! end of accordion1 -->
+</div> <!--! end of left 10px-->
 
+</div> <!--! end of tab pane-->
+<%end%>
+</div> <!--! end of tab content-->
+
+</div> <!--! tabbable class-->
 <hr>
 <div class='row-fluid'>
 <% unless current_user.not_rated.empty? %>
@@ -52,4 +58,5 @@
 <%= button_to(t('.find'), search_path, :class => 'btn btn-large btn-success', :method => :get) %>
 <% end %>
 </div>
-</div>
+
+

@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
 
+
   # Setup accessible (or protected) attributes for your model
   attr_accessible :role_ids, :as => :admin
   attr_accessible :admin, :city_reference, :comment, :dob, :email, :first_name, :gender, :image, :last_name, :provider, :sport_id, :uid, :password, :password_confirmation, :remember_me
@@ -26,9 +27,9 @@ class User < ActiveRecord::Base
   
   validates :first_name, :last_name, :gender, :sport, :dob, :presence => true, :on => :update
   validate :check_city, :on => :update
-  
 
- 
+  after_initialize :default_values
+  
   
   has_attached_file :avatar, :styles => { :medium => "100x100#", :thumb => "50x50#" }
   validates_attachment_size :avatar, :less_than => 1.megabytes
@@ -44,7 +45,6 @@ class User < ActiveRecord::Base
       user.first_name = auth.extra.raw_info.first_name
       user.last_name = auth.extra.raw_info.last_name   
       user.image = auth.info.image
-      user.gender = auth.extra.raw_info.gender 
     end
   end
   
@@ -294,6 +294,9 @@ def progress_total(sport,a_p,act_total)
   return a_t
 end
 
-
-
+private
+    def default_values
+      self.dob ||= Date.today
+    end
+ 
 end
