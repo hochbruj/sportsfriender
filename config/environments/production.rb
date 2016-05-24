@@ -81,7 +81,7 @@ Sportsfriender::Application.configure do
     }
   
     # ActionMailer Config
-     config.action_mailer.default_url_options = { :host => 'cryptic-gorge-4588.herokuapp.com' }
+     config.action_mailer.default_url_options = { :host => 'spofric14.herokuapp.com' }
      config.action_mailer.delivery_method = :smtp
      config.action_mailer.raise_delivery_errors = false
      config.action_mailer.default :charset => "utf-8"
