@@ -1,6 +1,7 @@
 jQuery ->
   $("#rating5").text(1)
-  $("#assess_text5").text($('#assessments').data('assessments')[0].cat5)
+  list = $('#assessments').data('assessments')
+  $("#assess_text5").text(list[0].cat5) if list?
   $('#rating_cat5').change ->
      x = 1
      y = 1

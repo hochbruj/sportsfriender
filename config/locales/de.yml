@@ -1,7 +1,7 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 de:
-  overall_rating: "Dein gesamt Sportsfriends Rating für diesen Sport"
-  skill_rating: "Sportsfriends Rating für diesen Skill:"
+  overall_rating: "Dein gesamt Rating für diesen Sport"
+  skill_rating: "Rating für diesen Skill:"
   current: "Aktuelles"
   skill_level: "Skill Level"
   out_of: "von 10"
@@ -32,12 +32,13 @@ de:
   high_end: "Bis"
   max_att: "Maximale Anzahl von Teilnehmern"
   or: "oder"
+  and: "und"
   upcoming: "Meine Anstehenden Events"
   completed: "Meine Beendeten Events"
   no_upcoming: "Du hast zur Zeit keine anstehenden Events."
   no_last: "Du hast an noch keinem Event teilgenommen."
   attendees: "Teilnehmer"
-  add_info: "Beschreibung"
+  add_info: "Zusätzliche Beschreibung"
   location: "Location"
   skill_mean: "Was dieses Skill Level bedeuted:"
   sportsfriend:
@@ -49,8 +50,8 @@ de:
   pointer_header: "Hilfe für diese Seite"
   dont_show: "Nicht mehr anzeigen"
   using_email: "Registriere dich mit deiner Email Adresse"
-  agreement: "Mit dem Erstellen eines Accounts, akzeptierst du Sportsfrienders"
-  tos: "Benutzerbedingungen"
+  agreement: "Durch klicken auf 'registrieren', akzeptierst du unsere"
+  tos: "Allgemeinen Geschäftsbedingungen"
   priv_pol: "Datenschutzrichtlinien"
   forgot_password: "Passwort vergessen"
   reset_instr: "Sende Email zum Zurücksetzen"
@@ -78,8 +79,8 @@ de:
   overall: 'Gesamt'
   city_name: 'Welcher Stadt?'
   home_header: "SPORT MIT DEN RICHTIGEN LEUTEN"
-  home_subheader: "Sportsfriender verbindet Leute die öfters Sport treiben und besser darin werden wollen"
-  join_free: 'KOSTENLOS SPORTSFRIENDER BEITRETEN!'
+  home_subheader: "Skillupsport verbindet Leute die öfters Sport treiben und besser darin werden wollen"
+  join_free: 'KOSTENLOS SKILLUPSPORT BEITRETEN!'
   search_results: 'Ergebnisliste'
   location: 'Location'
   meeting_point: 'Treffpunkt'
@@ -152,7 +153,7 @@ de:
      header2: "Füge neue Sportart hinzu"
      choose: "Wähle einen neuen Sport und bewerte dich selbst"
      title: "Deine eigene Bewertung"
-     explanation: "Bewerte deine eigenen Skills für diesen Sport. Sportsfriender unterscheidet verschiedene Kategorien, die von Experten bestimmt wurden, damit dein initiales Skill Profil so genau wie möglich ist."
+     explanation: "Bewerte deine eigenen Skills für diesen Sport. Skillupsport unterscheidet verschiedene Kategorien, die von Experten bestimmt wurden, damit dein initiales Skill Profil so genau wie möglich ist."
      save: "SPEICHERE DIESE BEWERTUNG"
      sure: "Bist du sicher, dass du speichern möchtest? Du kannst die Bewertung erst nach nach dem nächsten Spiel ändern"
   events:
@@ -181,6 +182,7 @@ de:
      signed: "Du nimmst teil!"
      you_organizer: "Du bist der Organisierer!"
      join: "NIMM AM EVENT TEIL"
+     loginjoin: "EINLOGGEN ZUM EVENT"
      unjoin: "ABSAGEN VOM EVENT"
      sign_up: "REGISTRIEREN ZUM TEILNEHMEN"
      cancel: "EVENT ABSAGEN"
@@ -196,19 +198,19 @@ de:
 
   pages:
    home:
-      find_header: 'Sportsfriender hilft dir Partner für deine Lieblingssportart zu finden'
+      find_header: 'skillupsport hilft dir Partner für deine Lieblingssportart zu finden'
       find_text: 'Spiele mit Sportpartnern, die passendes Skill Niveau haben, basierend auf sportspezifischen Kategorien.'
       connect: 'Verbinde'
       connect_passion_h: 'Sport aus Leidenschaft'
-      connect_passion: 'Dies ist nicht nur ein neues soziales Netzwerk--Sportsfriender verbindet leidenschaftliche Sportler.'
+      connect_passion: 'Dies ist nicht nur ein neues soziales Netzwerk--Skillupsport verbindet leidenschaftliche Sportler.'
       connect_join_h: 'Trete dem richtigen Team bei'
       connect_join: 'Treffe neue Leute mit den richtigen Skill Level für deinen Sport oder treffe dich mit deinen Freunden.'
       connect_start_h: "Los geht's"
-      connect_start: 'Finde Spiele in deiner Gegend oder setzte eigene auf und lade Sportsfriends ein.'
+      connect_start: 'Finde Spiele in deiner Gegend oder setzte eigene auf und lade andere Leute ein.'
       connect_improve_h: 'Helft euch besser zu werden'
       connect_improve: 'Nach jedem Spiel könnt ihr gegenseitig eure Performance bewerten und euch Tips geben um besser zu werden.'
       improve: 'Werde besser'
-      improve1: 'Sportsfriender hilft dir deinen Fortschritt zu verfolgen und dich zu verbessern'
+      improve1: 'Skillupsport hilft dir deinen Fortschritt zu verfolgen und dich zu verbessern'
       improve2: 'Setze deine initialen Skill Level anhand von Experten erstellter Kriterien'
       improve3: 'Nach dem Spiel kannst du deine Mitspieler und auch dich selbst bewerten'
       improve4: 'Erhalte echtes Feedback von deinen Mitspielern oder von Trainern'
@@ -226,8 +228,8 @@ de:
    feedback:
       header: "Bewerte Sportsfriends für dieses Event"
       title: "Skills, Aktuelle Skill Level & Was es bedeutet"
-      rate: "Bewerte die Performance bei diesem Event im Vergeich zu Sportsfriend's aktuellem Skill Level"
-      rated: "Wie du die Performance bei diesem Event im Vergeich zu Sportsfriend's aktuellem Skill Level bewerteste"
+      rate: "Bewerte die Performance bei diesem Event im Vergeich zum aktuellem Skill Level"
+      rated: "Wie du die Performance bei diesem Event im Vergeich zum aktuellem Skill Level bewerteste"
       button: "SUBMIT PERFORMANCE BEWERTUNG!"
       worse: "Schlechter"
       same: "Gleich"
@@ -247,10 +249,10 @@ de:
       in_country: 'in deinem Land'
       in_city: 'in deiner Stadt'
    mysportsfriends:
-       pointer: "Füge Sportsfriends zu Gruppen hinzu um sie einzuladen, wenn du ein Event aufsetzt. Um diese zu finden suche nahand von Stadt und Sportart. Aber keine Sorge: Du kannst immer Events aufsetzen ohne Sportsfriends einzuladen und du kannst an Events mit Leuten teilnehmen, die nicht in deiner Gruppe sind."
+       pointer: "Füge Buddies zu Gruppen hinzu um sie einzuladen, wenn du ein Event aufsetzt. Um diese zu finden suche nahand von Stadt und Sportart. Aber keine Sorge: Du kannst immer Events aufsetzen ohne Sportsfriends einzuladen und du kannst an Events mit Leuten teilnehmen, die nicht in deiner Gruppe sind."
        group: "Gruppe"
        members: "Mitglieder"
-       no_result: "Wir konnten leider kein Sportsfriend für diesen Sport in dieser Stadt finden."
+       no_result: "Wir konnten leider keine Buddies für diesen Sport in dieser Stadt finden."
   headers:
    setup_event:
      header: "Veranstalte ein Event"

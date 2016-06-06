@@ -26,6 +26,8 @@ gem "timezone", "~> 0.3.11"
 gem 'json'
 gem 'rails_12factor'
 gem 'test-unit'
+gem 'letter_opener_web', '~> 1.2.0', :group => :development
+
 
 # Gems used only for assets and not required
 # in production environments by default.

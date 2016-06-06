@@ -55,7 +55,7 @@
 <% end %>
 
 <% if not signed_in? and @event.spots_left > 0 %>
-<%= button_to t('.join'), new_user_registration_path(:from_event => 'true') , :class => 'b_sign_up', :method => :get%>
+<%= button_to t('.loginjoin'), new_user_session_path(:from_event => 'true') , :class => 'b_sign_up', :method => :get%>
 <% end %>
 
 <% if (signed_in? and  current_user.participate?(@event.id) and current_user != @event.organizer.user)%>

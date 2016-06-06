@@ -15,7 +15,7 @@ class Event < ActiveRecord::Base
   has_many :participants
   has_many :event_posts
   
-  validates  :mode, :gender, :max_part, :info, :presence => true
+  validates  :mode, :gender, :max_part, :presence => true
   validate :check_date, :check_from_to
   
   HOURS_EN = ['01','02','03','04','05','06','07','08','09','10','11','12']

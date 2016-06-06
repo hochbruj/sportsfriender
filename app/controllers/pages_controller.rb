@@ -101,6 +101,14 @@ class PagesController < ApplicationController
   
   end
   
+  def terms
+    @title = "Terms"
+    @header = 'terms'
+    @no_lhn = true
+    @span = 'span_12'
+  
+  end
+  
   def welcome
     @title = "Welcome"
     @header = 'welcome'

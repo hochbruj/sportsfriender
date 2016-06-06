@@ -8,14 +8,14 @@ resources :cities
 resources :participants
 resources :event_posts
 
-devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "registrations",
-                                     :sessions => "my_sessions", :passwords => 'my_passwords'}
+devise_for :users, only: :omniauth_callbacks, controllers: {omniauth_callbacks: 'users/omniauth_callbacks'}
+
 
 scope '(:locale)' do
 
 root to: 'pages#home'
 
-devise_for :users, skip: :omniauth_callbacks
+devise_for :users, controllers: { sessions: 'my_sessions', registrations: 'registrations'}, skip: :omniauth_callbacks
 
 
 resources :users
@@ -46,6 +46,10 @@ match '/newmessage' , :to => 'messages#new'
 match '/about' , :to => 'pages#about'
 match '/contact', :to => 'pages#contact'
 
+#For email testing
+if Rails.env.development?
+  mount LetterOpenerWeb::Engine, at: "/devel/emails"
+end
 
 end
 

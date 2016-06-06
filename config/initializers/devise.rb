@@ -2,9 +2,13 @@
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
   require "omniauth-facebook"
- config.omniauth :facebook, '535520239821378', '2da50291421ecf78139f0ddc69d3a6ce', :scope => 'email'
+ 
+  if Rails.env.development?
 #  localhost
-# config.omniauth :facebook, '358727094167840', 'e85a96583824c5152b805ad997ba5398', :scope => 'email'
+   config.omniauth :facebook, '358727094167840', 'e85a96583824c5152b805ad997ba5398', :scope => 'email'
+  else
+   config.omniauth :facebook, '535520239821378', '2da50291421ecf78139f0ddc69d3a6ce', :scope => 'email'
+ end
 
 #After update
 config.secret_key = '389a0d51286b386b125c70d1908075535d6addef0fa8cdfb730bf7fd9f46f0de03c107bf6fb5edeaa80614be7a4bcbe93b69fa19afafadddb0be3cec9829a07b'

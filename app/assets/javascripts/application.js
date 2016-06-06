@@ -12,9 +12,16 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-1.7.1
+//= require jquery-ui-1.8.18.custom.js
 //= require bootstrap
 //= require gmaps4rails/gmaps4rails.base
 //= require gmaps4rails/gmaps4rails.googlemaps
-//= require rating
-//= require jquery-ui-1.8.18.custom
-//= require events
+//= require rating/ratings1
+//= require rating/ratings2
+//= require rating/ratings3
+//= require rating/ratings4
+//= require rating/ratings5
+//= require feedback
+//= require buttons
+//= require hidefields

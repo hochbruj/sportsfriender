@@ -1,4 +1,4 @@
-<%= link_to image_tag('logo.png'), root_path %>
+<%= link_to image_tag('home_new.png'), root_path %>
 <ul class="nav pull-right">
   <% if user_signed_in? %>
 	<li>
@@ -12,7 +12,7 @@
 	 <%= button_to(t('signup'), new_user_registration_path, :class => 'btn btn-success', :method => :get) %>
 	</li>
 	<li>
-	<%= button_to(t('login'), '/users/sign_in' , :class => 'btn btn-inverse', :method => :get) %>
+	<%= button_to(t('login'), new_user_session_path , :class => 'btn btn-inverse', :method => :get) %>
 	</li>
   <% end %>
 

@@ -1,12 +1,17 @@
-Hello <% unless @recipient.nil?%> <%= @recipient.full_name%><%end%>,
+NEW EVENT FROM SKILLUPSPORT
 
-<%= @event.organizer.user.full_name %> invited you to a <%= @event.sport.name %> session.
-What: <%= @event.mode%>, <%= @event.gender%>
-<%=@event.info %>
-When: <%= @event.start_at.in_time_zone(@event.location.timezone).strftime("%a %d/%m/%Y %H:%M") %>-<%=@event.finish_at.in_time_zone(@event.location.timezone).strftime("%H:%M") %>
-Where: <%= @event.location.name%>
+<%=@event.organizer.user.full_name%> invites you to
+<%= @event.sport.name %> <%= t(@event.mode)%> (<%= t(@event.gender)%>)
+______________________________________________________________________________________________________
 
-If you are interested, check out more details at <%= event_url(:id => @event.id, :locale => I18n.locale) %>
+<%= l @event.start_at.to_date, :format => :long %>, <%= l @event.start_in_location, :format => :short %> - <%= l @event.fin_in_location, :format => :short %>
 
-See you,
-Yours Sportsfriender Team
+<%= @event.location.name%>
+______________________________________________________________________________________________________
+
+<%unless @event.info.nil?%>
+<%= @event.info%>
+______________________________________________________________________________________________________
+<%end%>
+
+If you are you going, follow this link: <%= event_url(:id => @event.id, :locale => I18n.locale) %>

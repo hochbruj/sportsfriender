@@ -56,5 +56,8 @@ Sportsfriender::Application.configure do
     user_name: 'info@sportsfriender.com',
     password: '15Aussie!'
   }
+  
+# For testing email
+#config.action_mailer.delivery_method = :letter_opener_web  
 
 end

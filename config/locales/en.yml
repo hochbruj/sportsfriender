@@ -1,7 +1,7 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 en:
-  overall_rating: "Your Overall Sportsfriends Rating for this sport"
-  skill_rating: "Sportsfriends' Rating for this Skill:"
+  overall_rating: "Your Overall Rating for this sport"
+  skill_rating: "Rating for this Skill:"
   current: "Current"
   skill_level: "Skill Level"
   out_of: "out of 10"
@@ -14,8 +14,8 @@ en:
   confirmation: "Password confirmation"
   dob: "Date of Birth"
   gender: "Gender"
-  male: "male"
-  female: "female"
+  male: "male only"
+  female: "female only"
   mixed: "mixed"
   address: "Address"
   city: "City"
@@ -32,12 +32,13 @@ en:
   high_end: "High End"
   max_att: "Maximum Number of Attendees"
   or: "or"
+  and: "and"
   upcoming: "My Upcoming Events"
   completed: "My Completed Events"
   no_upcoming: "You have no upcoming events."
   no_last: "You haven't participated in any event yet."
   attendees: "Attendees"
-  add_info: "Description"
+  add_info: "Additional Information"
   location: "Location"
   skill_mean: "What this skill level means:"
   sportsfriend:
@@ -49,9 +50,9 @@ en:
   pointer_header: "Instructions and Pointers"
   dont_show: "Don't show this again"
   using_email: "Sign up using your email address"
-  agreement: "By creating an account, you agree to Sportsfriender's"
+  agreement: "By creating an account, you agree to our"
   tos: "Terms of Service"
-  priv_pol: "Private Policy"
+  priv_pol: "Privacy Policy"
   forgot_password: "Forgot your password"
   reset_instr: "Send me reset password instructions"
   nice_move: "Nice move!"
@@ -78,8 +79,8 @@ en:
   overall: "Overall"
   city_name: "City Name"
   home_header: "SPORTS WITH THE RIGHT PEOPLE"
-  home_subheader: "Sportsfriender connects people who want to play their favorite sports and get better."
-  join_free: 'JOIN SPORTSFRIENDER FOR FREE!'
+  home_subheader: "Skillupsport connects people who want to play their favorite sports and get better."
+  join_free: 'JOIN SKILLUPSPORT FOR FREE!'
   search_results: 'Search Results'
   location: 'Location'
   meeting_point: 'Meeting Point'
@@ -108,7 +109,7 @@ en:
       header2: "Add a New Sport"
       choose: "Choose a new sport and the complete the self assessment"
       title: "Your Personal Skills Assessment"
-      explanation: "Assess your skills in this sport. Sportsfriender breaks it down by specific categories determined by professionals, so your initial skills profile is as accurate as possible."
+      explanation: "Assess your skills in this sport. Skillupsport breaks it down by specific categories determined by professionals, so your initial skills profile is as accurate as possible."
       save: "SAVE THIS ASSESSMENT"
       sure: "Are you sure you want to save this assessment? You won't be able to change it before your first game!"
   events:
@@ -123,11 +124,11 @@ en:
       repeat: "Repeating Event"
       every: "Every"
       until: "Until"
-      pointer: "Set up a new game, training or other sports event. You can enter exact requirements and details. Didn’t see a sports facility in our dropdown list of locations? Add a new location by address and it’ll appear. Send invites to existing Sportsfriends or invite new friends via email to join Sportsfriender."
+      pointer: "Set up a new game, training or other sports event. You can enter exact requirements and details. Didn’t see a sports facility in our dropdown list of locations? Add a new location by address and it’ll appear. Send invites to existing Sportsfriends or invite new friends via email to join Skillupsport."
       invite: "Invite"
       by_email: "By Email (separated by commas)"
       private: "Private Event (not searchable)"
-      no_sf: "No Sportsfriends yet. Add them at "
+      no_sf: "No buddies yet. Add them at "
      show:
       can_join: "Who Can Join"
       spot:
@@ -136,7 +137,8 @@ en:
         other: "%{count} spots left!"
       signed: "You're Signed Up!"
       you_organizer: "You're the organizer!"
-      join: "JOIN THIS EVENT"
+      loginjoin: "LOGIN TO JOIN EVENT"
+      join: "JOIN EVENT"
       sign_up: "SIGN UP TO JOIN EVENT"
       unjoin: "UNJOIN FROM EVENT"
       cancel: "CANCEL EVENT"
@@ -152,19 +154,19 @@ en:
 
   pages:
       home:
-          find_header: 'Sportsfriender makes it easier to find buddies to play your favorite sport with'
+          find_header: 'Skillupsport makes it easier to find buddies to play your favorite sport with'
           find_text: 'Join local games and get matched up with teammates who are at the right skill level as you, based on sport-specific criteria.'
           connect: 'Connect'
           connect_passion_h: 'A passion for playing sport'
-          connect_passion: 'This is not just another social network--Sportsfriender connects people who are passionate about playing sports.'
+          connect_passion: 'This is not just another social network--Skillupsport connects people who are passionate about playing sports.'
           connect_join_h: 'Join the right team for you'
           connect_join: 'Meet new people who play your favorite sports at the right skill level, or join with your existing buddies.'
           connect_start_h: 'Start playing'
-          connect_start: 'Find games in your area or set up your own and invite Sportsfriends to play.'
+          connect_start: 'Find games in your area or set up your own and invite buddies to play.'
           connect_improve_h: 'Help each other improve'
-          connect_improve: "After every game, Sportsfriends can rate each other's performance and give feedback on how to improve their skills."
+          connect_improve: "After every game, members can rate each other's performance and give feedback on how to improve their skills."
           improve: 'Improve'
-          improve1: 'Sportsfriender helps you track your progress and improve your performance'
+          improve1: 'Skillupsport helps you track your progress and improve your performance'
           improve2: 'Set your initial skill levels against specific criteria informed by pros'
           improve3: 'After games, rate your teammates and get rated yourself too'
           improve4: 'Get real feedback from teammates or from trainers'
@@ -179,7 +181,7 @@ en:
           last: "My Last Event"
           progress_detail: "View my progress details"
       feedback:
-          header: "Rate Sportsfriends for this event"
+          header: "Rate attendees of this event"
           title: "Skills, Current Skill Levels & What They Mean"
           rate: "Rate performance at this event vs sportsfriend's current skill level"
           rated: "How you rated performance at this event vs sportsfriend's current skill level"
@@ -202,10 +204,10 @@ en:
           in_city: "in your city"
           in_country: "in your country"
       mysportsfriends:
-          pointer: "Add Sportsfriends to Groups to make it easier to invite them to events you host. To find Sportsfriends, search for Sportsfriends or invite your friends to join Sportsfriender.com. But don’t worry, you can always set up an event without inviting anyone. And you can always join events with people even if they are not in your Groups. "
+          pointer: "Add buddies to groups to make it easier to invite them to events you host. To find buddies, search for buddies or invite your friends to join Skillupsport.com. But don’t worry, you can always set up an event without inviting anyone. And you can always join events with people even if they are not in your Groups. "
           group: "Group"
           members: "Members"
-          no_result: "Sorry, we couldn't find any sportsfriends for this sport in this city."
+          no_result: "Sorry, we couldn't find any buddy for this sport in this city."
   headers:
       setup_event:
           header: "Host an event"
@@ -238,7 +240,7 @@ en:
   create_event_success: "Event was successfully created"
   message_sent_success: "Message has been sent successfully"
   not_valid: "is not valid"
-  sf_added: "Sportsfriend successfully added to group"
+  sf_added: "Buddy successfully added to group"
   
 # button texts
   goto_dash: "Goto Dashboard"

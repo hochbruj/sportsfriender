@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+  </head>
+  <body>
+<div style="padding: 15px 20px 15px 20px";>	
+	<p style='font-size: 15px;
+	    font-weight: bold;
+	    color: #2d2b2b;'>NEW EVENT FROM SKILLUPSPORT</p>
+    <p><%=@event.organizer.user.full_name%> invites you to</p>
+    <p style='font-size: 23px;
+	    font-weight: bold;
+	    color: #2d2b2b;'>
+	<%= @event.sport.name %> <%= t(@event.mode)%> (<%= t(@event.gender)%>)</p>
+    <hr>
+    <p><%= l @event.start_at.to_date, :format => :long %>, <%= l @event.start_in_location, :format => :short %> - <%= l @event.fin_in_location, :format => :short %></p>
+    <p><%= @event.location.name%></p>
+    <hr>
+    <%unless @event.info.nil?%>
+    <p><%= @event.info%></p>
+    <hr>
+    <%end%>
+    <p>Are you going? <%= link_to 'Yes', event_url(:id => @event.id, :locale => I18n.locale), {:style=>'font: bold 11px Arial;
+	  background-color: #2fa753;
+	  color: #fff;
+	  padding: 2px 6px 2px 6px;
+	  border-top: 1px solid #CCCCCC;
+	  border-right: 1px solid #333333;
+	  border-bottom: 1px solid #333333;
+	  border-left: 1px solid #CCCCCC;
+	  border-radius: 6px:;
+	  text-align: center;
+	  vertical-align: middle;
+	  text-shadow: 0 1px 1px:
+	'} %></p>
+  </body>
+</html>
+
