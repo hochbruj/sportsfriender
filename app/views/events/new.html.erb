@@ -137,9 +137,9 @@
 <div class='blue_box'>
 <div class='frame'>
 <h5><%= t('.invite')%></h5>
-<%= f.label :group_id, 'My Sportsfriends'%>
+<%= f.label :group_id, 'My Buddies'%>
 <% if current_user.groups == []%>
-<%=t('.no_sf')%><%=link_to 'My Sportsfriends', mysportsfriends_path, :class => 'link_normal'%></br></br>
+<%=t('.no_sf')%><%=link_to 'My Buddies', mysportsfriends_path, :class => 'link_normal'%></br></br>
 <% else%>
 <%= f.input :group_id, :label => false, collection: current_user.groups, include_blank: true, input_html: {style: 'width:315px'}%>
 <% end %>

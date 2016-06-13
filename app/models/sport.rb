@@ -4,6 +4,8 @@ class Sport < ActiveRecord::Base
   
   has_many :assessments
   has_many :stats
+
+
   
   def catcount
   count = 0

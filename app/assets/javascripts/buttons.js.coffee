@@ -17,7 +17,8 @@ jQuery ->
    window.location = searcheventURL
   $('#host_event').click ->
    window.location = neweventURL
-
+  $('#sports').click ->
+   window.location = sportsURL
 
   $('#event_date').datepicker({
 								showOn: "both",

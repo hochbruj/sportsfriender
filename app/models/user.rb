@@ -33,6 +33,7 @@ class User < ActiveRecord::Base
   
   has_attached_file :avatar, :styles => { :medium => "100x100#", :thumb => "50x50#" }
   validates_attachment_size :avatar, :less_than => 1.megabytes
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
   before_validation { avatar.clear if delete_avatar == '1' }
   
   reverse_geocoded_by :lat, :lng

@@ -1,0 +1,4 @@
+<h5 class='black_18'>Total Users: <%=User.all.count%></h5>
+<h5 class='black_18'>Total Events: <%=Event.all.count%></h5>
+<h5 class='black_18'>Total Actual Events: <%=Event.where("finish_at > ?",DateTime.now).where(:cancelled => nil).count%></h5>
+<h5 class='black_18'>Total Ratings: <%=Rating.all.count%></h5>

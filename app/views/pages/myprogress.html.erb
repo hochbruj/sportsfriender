@@ -3,8 +3,8 @@
 <div class="tabbable">
 
 <ul class="nav nav-tabs" id='myprogress_tab'>
-	<% current_user.rated.each do |s| %>
-	<% if s.id == 1%>
+	<% current_user.rated.each_with_index do |s,i| %>
+	<% if i == 0%>
 	  <li class='active'>
 	 <%else%>
 	   <li>
@@ -15,8 +15,8 @@
 	
 
 <div class="tab-content">
- <% current_user.rated.each do |s| %>
- <% if s.id == 1%>
+ <% current_user.rated.each_with_index do |s,i| %>
+ <% if i == 0%>
   <div class="tab-pane active" id="progress<%=s.id%>">
  <%else%>
   <div class="tab-pane" id="progress<%=s.id%>">

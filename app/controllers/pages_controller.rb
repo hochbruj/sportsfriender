@@ -117,7 +117,7 @@ class PagesController < ApplicationController
   end
   
   def mysportsfriends
-    @title = "My Sportsfriendss"
+    @title = "My Buddies"
     @header = 'my_sportsfriends'
     @lhn = 'my_sportsfriends'
     @span = 'nomargin_10'

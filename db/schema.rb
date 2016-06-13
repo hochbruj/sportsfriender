@@ -14,15 +14,15 @@
 ActiveRecord::Schema.define(:version => 20131208110921) do
 
   create_table "assessment_translations", :force => true do |t|
-    t.integer  "assessment_id"
-    t.string   "locale"
+    t.integer  "assessment_id", :null => false
+    t.string   "locale",        :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.text     "cat1"
     t.text     "cat2"
     t.text     "cat3"
     t.text     "cat4"
     t.text     "cat5"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
   end
 
   add_index "assessment_translations", ["assessment_id"], :name => "index_assessment_translations_on_assessment_id"
@@ -150,16 +150,16 @@ ActiveRecord::Schema.define(:version => 20131208110921) do
   end
 
   create_table "sport_translations", :force => true do |t|
-    t.integer  "sport_id"
-    t.string   "locale"
+    t.integer  "sport_id",   :null => false
+    t.string   "locale",     :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.string   "name"
     t.string   "cat1"
     t.string   "cat2"
     t.string   "cat3"
     t.string   "cat4"
     t.string   "cat5"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
   add_index "sport_translations", ["locale"], :name => "index_sport_translations_on_locale"

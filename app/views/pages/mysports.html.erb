@@ -4,8 +4,8 @@
 <div class="tabbable"> <!-- Only required for left/right tabs -->
 
 <ul class="nav nav-tabs" id='mysports_tab'>
-	<% current_user.rated.each do |s| %>
-	 <% if s.id == 1%>
+	<% current_user.rated.each_with_index do |s,i| %>
+	 <% if i == 0%>
 	  <li class='active'>
 	 <%else%>
    <li>
@@ -15,8 +15,8 @@
 </ul>
 
 <div class="tab-content">
-  <% current_user.rated.each do |s| %>
- <% if s.id == 1%>
+  <% current_user.rated.each_with_index do |s,i| %>
+ <% if i == 0%>
   <div class="tab-pane active" id="sport<%=s.id%>">
  <%else%>
   <div class="tab-pane" id="sport<%=s.id%>">

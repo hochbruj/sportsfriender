@@ -5,7 +5,9 @@
 <div class='row-fluid'>
 <div class="i_myevents pull-left">
 <% if user_signed_in? %>My Events</div>
-<div class="pull-right visible-desktop" id='host_event'><%=t('host')%></div><div class=" pull-right visible-desktop" id='search_event'><%=t('search')%> EVENTS</div>
+<%unless current_user.admin?%><div class="pull-right visible-desktop" id='host_event'><%=t('host')%></div>
+<%end%>
+<div class=" pull-right visible-desktop" id='search_event'><%=t('search')%> EVENTS</div>
 <%else%>
 <%=t('search_results')%>
 </div>

@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
   def set_locale
       I18n.locale = params[:locale]
   end
+  
+  def require_admin
+    redirect_to dashboard_path unless current_user.admin?
+  end
 
   protect_from_forgery
 

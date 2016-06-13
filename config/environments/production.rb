@@ -74,9 +74,10 @@ Sportsfriender::Application.configure do
     config.paperclip_defaults = {
       :storage => :s3,
       :s3_credentials => {
-       :bucket => 'Sportsfriender_test',
+       :bucket => ENV["AWSBUCKET"],
         :access_key_id => ENV["AWSACCESS"],
-       :secret_access_key => ENV["AWSSECRETACCESS"]
+       :secret_access_key => ENV["AWSSECRETACCESS"],
+       :s3_region => ENV["AWSREGION"]
      }
     }
   

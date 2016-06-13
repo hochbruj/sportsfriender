@@ -8,11 +8,18 @@
 <div style='font-size: 18px; font-weight: bold; margin-top: 22px'>
 <%=t('gender')%>: <%=t(@user.gender)%></br>
 <span><%=t('city')%>:</span> <span id='city_name'></span>
+
+<%if current_user.admin?%>
+<div style='font-size: 18px; font-weight: bold; margin-top: 22px'>
+<%=@user.email%></br>
+<%end%>
+
 </div>
 </div>
 </div>
 <hr>	
 
+<%unless current_user.admin?%>
 <% @user.rated.in_groups_of(2).each do |sport_array| %>
 <div class='row-fluid'>
 <% sport_array.each do |s| %>
@@ -54,5 +61,6 @@
 </div>
 </div>
 <hr>
+<%end%>
 <%end%>
 <%= render partial: "pages/city_details" %>

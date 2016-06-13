@@ -1,0 +1,26 @@
+<h5 class='black_18'><%=@sport.name%></h5>
+<h5 class='black_18'>Level: <%=@assessment.level%></h5>
+<hr>
+<%= simple_form_for(@assessment, :html => {:class => 'form-horizontal' }) do |f| %>
+
+	<%= f.input :cat1, :label => @sport.cat1, :input_html => {:rows => 2, :style => 'width: 80%'} %>
+	<%unless @sport.cat2 == 'nil'%>
+	<%= f.input :cat2, :label => @sport.cat2, :input_html => {:rows => 2, :style => 'width: 80%'} %>
+	<%end%>
+	
+	<%unless @sport.cat3 == 'nil'%>
+	<%= f.input :cat3, :label => @sport.cat3, :input_html => {:rows => 2, :style => 'width: 80%'} %>
+	<%end%>
+
+    <%unless @sport.cat4 == 'nil'%>
+	<%= f.input :cat4, :label => @sport.cat4, :input_html => {:rows => 2, :style => 'width: 80%'} %>
+	<%end%>
+    
+	<%unless @sport.cat5 == 'nil'%>
+	<%= f.input :cat5, :label => @sport.cat5, :input_html => {:rows => 2, :style => 'width: 80%'} %>
+	<%end%>
+   
+<hr>
+   
+<%= f.button :submit, "SAVE" , :class => 'btn-large btn-success' %>
+<%end%>

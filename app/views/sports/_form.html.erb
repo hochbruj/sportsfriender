@@ -1,0 +1,12 @@
+<%= simple_form_for(@sport, :html => {:class => 'form-horizontal' }) do |f| %>
+	<%= f.input :name, :label => "Name" %>
+	<%= f.input :cat1, :label => "Category 1" %>
+	<%= f.input :cat2, :label => "Category 2" %>
+	<%= f.input :cat3, :label => "Category 3" %>
+	<%= f.input :cat4, :label => "Category 4" %>
+	<%= f.input :cat5, :label => "Category 5" %>
+   
+<hr>
+   
+<%= f.button :submit, "SAVE" , :class => 'btn-large btn-success' %>
+<%end%>

@@ -168,7 +168,7 @@ de:
      repeat: "Regelmässiges Event"
      every: "Jede"
      until: "Bis"
-     pointer: "Setze ein neues Spiel, Training oder anderes Sport Event auf. Du kannst exakte Anforderungan für die Teilnehmer bestimmen. Du findest keine passende Location in der Auswahlbox? Füge einfach eine neue Location mit Adresse hinzu. Sie erscheint dann dort. Sende Einladungen an Sportsfriends oder lade neue Freunde per email ein."
+     pointer: "Setze ein neues Spiel, Training oder anderes Sport Event auf. Du kannst exakte Anforderungan für die Teilnehmer bestimmen. Sende Einladungen an Buddies von 'My Buddies' oder lade neue Freunde per email ein."
      invite: "Einladung"
      by_email: "Per Email (kommagetrennt)"
      private: "Privates Event (nicht suchbar)"
@@ -286,6 +286,8 @@ de:
   message_sent_success: "Nachricht wurde erfolgreich versendet"
   not_valid: "ist nicht gültig"
   sf_added: "Sportsfriend erfolgreich zur Gruppe hinzugefügt"
+  contact_success: "Vielen Dank für deine Nachricht. Wir werden dich bald kontaktieren!"
+  contact_error: "Fehler beim Versenden. Bitte nochmal versuchen!"
  
 # button texts
   save: "SPEICHER"

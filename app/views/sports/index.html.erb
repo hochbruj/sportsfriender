@@ -1,0 +1,7 @@
+<% @sports.each do |s|%>
+<h5 class='black_18'><%=s.name%>
+<%= button_to("Edit", edit_sport_path(s), :class => 'btn btn-success', :method => :get) %></h5>
+<hr>
+<%end%>
+<hr>
+<%= button_to("New Sport", new_sport_path, :class => 'btn-large btn-primary', :method => :get) %>

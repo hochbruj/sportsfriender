@@ -4,6 +4,7 @@
   window.myprogressURL = '<%= j myprogress_path %>';
   window.dashboardURL = '<%= j dashboard_path %>';
   window.mysportsfriendsURL = '<%= j mysportsfriends_path %>';
+  window.sportsURL = '<%= j sports_path %>';
 <% end %>
 
 <div style='margin-bottom: 10px'>
@@ -11,8 +12,18 @@
 </div>
 <% if current_user.profile_complete? %>
 <div class='<%= is_active?('dashboard')%>' id='dashboard'><div class='i_lhn_dashboard'>Dashboard</div></div>
+
+<% unless current_user.admin?%>
 <div class='<%= is_active?('my_sports')%>' id='my_sports'><div class='i_lhn_mysports'>My Sports</div></div>
 <div class='<%= is_active?('my_events')%>' id='my_events'><div class='i_lhn_myevents'>My Events</div></div>
+<%else%>
+<div class='<%= is_active?('sports')%>' id='sports'><div class='i_lhn_mysports'>Sports</div></div>
+<%end%>
+
+
 <div class='<%= is_active?('my_sportsfriends')%>' id='my_sportsfriends'><div class='i_lhn_mysf'>My Buddies</div></div>
+
+<% unless current_user.admin?%>
 <div class='<%= is_active?('my_progress')%>' id='my_progress'><div class='i_lhn_myprogress'>My Progress</div></div>
+<%end%>
 <% end %>

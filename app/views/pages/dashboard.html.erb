@@ -1,4 +1,5 @@
 <div class='frame'>
+<%unless current_user.admin?%>	
 <h4><%= t('upcoming')%></h4>
 <%= render :partial => 'events/upcoming' %>
 <% unless @upcoming.empty? %>
@@ -53,5 +54,7 @@
 <%= link_to t('.progress_detail'), myprogress_path, :class => 'link_small' %>
 </div><!--! end of #span6 -->
 </div> <!--! end of row top level -->
-
+<%else%>
+<%= render :partial => 'pages/dashboard_admin' %>
+<%end%>
 </div>

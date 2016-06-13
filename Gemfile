@@ -18,7 +18,7 @@ gem 'bootstrap-sass', '~> 2.3.0.0'
 gem "simple_form"
 gem "devise"
 gem 'globalize3'
-gem "paperclip", "~> 3.0"
+gem 'paperclip', :git=> 'https://github.com/thoughtbot/paperclip', :ref => '523bd46c768226893f23889079a7aa9c73b57d68'
 gem 'aws-sdk'
 gem 'fb_graph'
 gem 'i18n-country-translations'
@@ -27,7 +27,7 @@ gem 'json'
 gem 'rails_12factor'
 gem 'test-unit'
 gem 'letter_opener_web', '~> 1.2.0', :group => :development
-
+gem 'mail_form'
 
 # Gems used only for assets and not required
 # in production environments by default.

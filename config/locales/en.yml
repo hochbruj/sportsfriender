@@ -14,8 +14,8 @@ en:
   confirmation: "Password confirmation"
   dob: "Date of Birth"
   gender: "Gender"
-  male: "male only"
-  female: "female only"
+  male: "male"
+  female: "female"
   mixed: "mixed"
   address: "Address"
   city: "City"
@@ -124,7 +124,7 @@ en:
       repeat: "Repeating Event"
       every: "Every"
       until: "Until"
-      pointer: "Set up a new game, training or other sports event. You can enter exact requirements and details. Didn’t see a sports facility in our dropdown list of locations? Add a new location by address and it’ll appear. Send invites to existing Sportsfriends or invite new friends via email to join Skillupsport."
+      pointer: "Set up a new game, training or other sports event. You can enter exact requirements and details. Send invites to existing buddies from 'My Buddies' or invite new friends via email to join Skillupsport."
       invite: "Invite"
       by_email: "By Email (separated by commas)"
       private: "Private Event (not searchable)"
@@ -241,6 +241,8 @@ en:
   message_sent_success: "Message has been sent successfully"
   not_valid: "is not valid"
   sf_added: "Buddy successfully added to group"
+  contact_success: "Thank you for your message. We will contact you soon!"
+  contact_error: "Error sending message. Please try again!"
   
 # button texts
   goto_dash: "Goto Dashboard"

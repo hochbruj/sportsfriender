@@ -17,14 +17,15 @@ root to: 'pages#home'
 
 devise_for :users, controllers: { sessions: 'my_sessions', registrations: 'registrations'}, skip: :omniauth_callbacks
 
-
+resources :sports
 resources :users
 resources :ratings
 resources :events
 resources :locations
 resources :groups
 resources :meassages
-
+resources :contacts, only: [:new, :create]
+resources :assessments, only: [:edit, :update]
 
 match "/auth/:provider/callback" => "sessions#create"
 match "/auth/failure", :to => "sessions#failure"
@@ -44,7 +45,7 @@ match '/terms' , :to => 'pages#terms'
 match '/privacy' , :to => 'pages#privacy'
 match '/newmessage' , :to => 'messages#new'
 match '/about' , :to => 'pages#about'
-match '/contact', :to => 'pages#contact'
+match '/contact',     to: 'contacts#new'
 
 #For email testing
 if Rails.env.development?

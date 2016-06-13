@@ -1,0 +1,6 @@
+<%= render 'form'%>
+<hr>
+<% 10.times do |i| %>
+<%= button_to("Edit Skill Level #{i + 1} ", edit_assessment_path(@sport.assessments.find_by_level(i + 1)), :class => 'btn btn-success', :method => :get) %>
+<hr>
+<%end%>
