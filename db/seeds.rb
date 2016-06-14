@@ -44,7 +44,6 @@ if mig_assess_de == true
   puts "Importing assessmentss in german..."
   I18n.locale = :de
    CSV.foreach(Rails.root.join("seeds/assess3_de.csv"), headers: true, :encoding => "utf8") do |row|
-     puts row[1].chop[1..-1]
      s = Sport.find_by_name(row[1].chop[1..-1])
      s.assessments.find_by_level(row[2].chop[1..-1]).update_attributes(:cat1 => row[3].chop[1..-1], :cat2 => row[4].chop[1..-1], :cat3 => row[5].chop[1..-1],
      :cat4 => row[6].chop[1..-1], :cat5 => row[7].chop[1..-1])

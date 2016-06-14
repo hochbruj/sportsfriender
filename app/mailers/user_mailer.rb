@@ -1,11 +1,11 @@
 class UserMailer < ActionMailer::Base
-  default :from => "info@sportsfriender.com"
+  default :from => "info@skillupsport.com"
 
     def note(sender,recipient,message)
       @message = message
       @sender = sender
       @recipient = recipient
-      mail(:to => @recipient.email, :subject => "Message from Sportsfriend #{@sender.full_name}")
+      mail(:to => @recipient.email, :subject => "Message from #{@sender.full_name}")
     end
     
     def event_invite(recipient,email,event)
@@ -17,7 +17,7 @@ class UserMailer < ActionMailer::Base
     def event_cancel(user,event)
       @user = user
       @event = event
-      mail(:to => user.email, :subject => "Cancelled: #{event.start_at.in_time_zone(event.location.timezone).strftime("%a %d/%m/%y %H:%M")} #{event.sport.name} at #{event.location.name}")
+      mail(:to => user.email, :subject => "Cancelled: #{event.sport.name} #{t(event.mode)}")
     end
 
 end

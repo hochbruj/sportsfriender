@@ -42,7 +42,7 @@ Sportsfriender::Application.configure do
 
  # ActionMailer Config
  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-# config.action_mailer.delivery_method = :smtp
+ config.action_mailer.delivery_method = :smtp
  # change to true to allow email to be sent during development
  config.action_mailer.perform_deliveries = true
  config.action_mailer.raise_delivery_errors = true
@@ -50,16 +50,16 @@ Sportsfriender::Application.configure do
 
  # Change mail delvery to either :smtp, :sendmail, :file, :test
   config.action_mailer.smtp_settings = {
-    address: "smtp.1und1.de",
+    address: "smtp.gmail.com",
     port: 587,
-    domain: "sportsfriender.com",
+    domain: 'skillupsport.com',
     authentication: 'plain',
-    enable_starttls_auto: false,
-    user_name: 'info@sportsfriender.com',
-    password: '15Aussie!'
+    enable_starttls_auto: true,
+    user_name: 'skillupsport@gmail.com',
+    password: 'xxxxxxxxxxxxx'
   }
   
 # For testing email
-config.action_mailer.delivery_method = :letter_opener_web  
+ config.action_mailer.delivery_method = :letter_opener_web  
 
 end

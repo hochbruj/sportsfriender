@@ -217,7 +217,7 @@ class User < ActiveRecord::Base
   def self.search(sport_id,lat,lng)
     if sport_id
        results = []
-       users = self.near([lat,lng], 100, :units => :mi)
+       users = self.near([lat,lng], 100, :units => :mi).where(admin: nil)
        users.each do |u|
          results << u unless u.stats.where(sport_id: sport_id).empty?
        end

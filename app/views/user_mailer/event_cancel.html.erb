@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+  </head>
+  <body>
+<div style="padding: 15px 20px 15px 20px";>	
+	<p style='font-size: 15px;
+	    font-weight: bold;
+	    color: #a71601;'>CANCELLED EVENT FROM SKILLUPSPORT</p>
+    <p><%=@event.organizer.user.full_name%> cancelled</p>
+    <p style='font-size: 23px;
+	    font-weight: bold;
+	    color: #2d2b2b;'>
+	<%= @event.sport.name %> <%= t(@event.mode)%> (<%= t(@event.gender)%>)</p>
+    <hr>
+    <p><%= l @event.start_at.to_date, :format => :long %>, <%= l @event.start_in_location, :format => :short %> - <%= l @event.fin_in_location, :format => :short %></p>
+    <p><%= @event.location.name%></p>
+    <hr>
+    <p><%= @event.creason%></p>
+    <hr>
+
+  </body>
+</html>
+
