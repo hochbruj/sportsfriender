@@ -15,7 +15,7 @@ config.secret_key = '389a0d51286b386b125c70d1908075535d6addef0fa8cdfb730bf7fd9f4
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class with default "from" parameter.
-  config.mailer_sender = "info@sportsfriender.com"
+  config.mailer_sender = "info@skillupsport.com"
 
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"
