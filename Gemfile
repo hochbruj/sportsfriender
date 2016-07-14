@@ -22,12 +22,22 @@ gem 'paperclip', :git=> 'https://github.com/thoughtbot/paperclip', :ref => '523b
 gem 'aws-sdk'
 gem 'fb_graph'
 gem 'i18n-country-translations'
-gem "timezone", "~> 0.3.11"
+gem "timezone", "~> 1.0"
 gem 'json'
 gem 'rails_12factor'
 gem 'test-unit'
 gem 'letter_opener_web', '~> 1.2.0', :group => :development
 gem 'mail_form'
+
+gem 'rspec'
+
+group :development, :test do
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'pry'
+  gem 'rspec-rails', '~> 3.4'
+  
+end
 
 # Gems used only for assets and not required
 # in production environments by default.

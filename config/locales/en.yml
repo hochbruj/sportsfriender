@@ -42,9 +42,9 @@ en:
   location: "Location"
   skill_mean: "What this skill level means:"
   sportsfriend:
-        zero: "No Sportsfriend" 
-        one: "%{count} Sportsfriend"
-        other: "%{count} Sportsfriends"
+        zero: "No Sports Buddy" 
+        one: "%{count} Sports Buddy"
+        other: "%{count} Sports Buddies"
   rated: "Rated"
   unrated: "Not Rated"
   pointer_header: "Instructions and Pointers"

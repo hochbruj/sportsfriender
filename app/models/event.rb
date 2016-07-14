@@ -56,8 +56,7 @@ class Event < ActiveRecord::Base
   end
 
   def set_location
-      x = Timezone::Zone.new :latlon => [loc_lat, loc_lng]
-      Location.create_with(name: loc_name, lat: loc_lat, lng: loc_lng, reference: loc_reference, timezone: x.zone).find_or_create_by_sport_id_and_google_id(sport_id,loc_id) 
+      Location.create_with(name: loc_name, lat: loc_lat, lng: loc_lng, reference: loc_reference, timezone: Timezone.lookup(loc_lat, loc_lng).name).find_or_create_by_sport_id_and_google_id(sport_id,loc_id) 
   end
 
 

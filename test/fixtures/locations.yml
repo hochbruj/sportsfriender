@@ -2,20 +2,13 @@
 
 one:
   name: MyString
-  address: MyString
-  city_id: 1
   sport_id: 1
-  telephone: MyString
   lat: 1.5
   lng: 1.5
-  private: false
 
 two:
   name: MyString
-  address: MyString
-  city_id: 1
   sport_id: 1
-  telephone: MyString
   lat: 1.5
   lng: 1.5
-  private: false
+

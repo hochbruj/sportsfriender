@@ -11,9 +11,7 @@
 </div>
 <hr>
 <% if @event_results.nil? or @event_results.empty?%>
-<%unless current_user.admin?%>
 <%=t('.no_result')%> <%=link_to t('.own_event'), new_event_path, :class => 'link_normal'%><%=t('.signed_in')%>
-<%end%>
 <hr>
 <% else%>
 <%= render :partial => 'paginate/event_result', :collection => @event_results %>

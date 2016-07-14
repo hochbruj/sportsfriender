@@ -6,7 +6,6 @@ one:
   location_id: 1
   start_at: 
   finish_at: 
-  type_id: 1
   mode: MyString
   gender: MyString
   info: MyText
@@ -27,7 +26,6 @@ two:
   location_id: 1
   start_at: 
   finish_at: 
-  type_id: 1
   mode: MyString
   gender: MyString
   info: MyText

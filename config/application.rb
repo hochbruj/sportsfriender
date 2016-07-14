@@ -9,8 +9,8 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
-Timezone::Configure.begin do |c|
-  c.username = 'spofri'
+Timezone::Lookup.config(:geonames) do |c|
+  c.username = 'skillupsport'
 end
 
 

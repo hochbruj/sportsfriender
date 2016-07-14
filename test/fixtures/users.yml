@@ -17,7 +17,7 @@ one:
 two:
   first_name: MyString
   last_name: MyString
-  email: MyString
+  email: MyString2
   provider: MyString
   uid: MyString
   gender: MyString

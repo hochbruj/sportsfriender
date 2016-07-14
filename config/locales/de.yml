@@ -42,9 +42,9 @@ de:
   location: "Location"
   skill_mean: "Was dieses Skill Level bedeuted:"
   sportsfriend:
-          zero: "Kein Sportsfriend" 
-          one: "%{count} Sportsfriend"
-          other: "%{count} Sportsfriends"
+          zero: "Kein Sport Buddy" 
+          one: "%{count} Sport Buddy"
+          other: "%{count} Sport Buddies"
   rated: "Bewerted"
   unrated: "Nicht Bewerted"
   pointer_header: "Hilfe für diese Seite"
