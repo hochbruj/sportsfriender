@@ -84,7 +84,7 @@ Sportsfriender::Application.configure do
     # ActionMailer Config
      config.action_mailer.default_url_options = { :host => 'skillupsport.herokuapp.com' }
      config.action_mailer.delivery_method = :smtp
-     config.action_mailer.raise_delivery_errors = false
+     config.action_mailer.raise_delivery_errors = true
      config.action_mailer.default :charset => "utf-8"
 
      # Change mail delvery to either :smtp, :sendmail, :file, :test
