@@ -56,7 +56,7 @@ Sportsfriender::Application.configure do
     authentication: 'plain',
     enable_starttls_auto: true,
     user_name: 'skillupsport@gmail.com',
-    password: 'Aussie15!'
+    password: 'xxxxxxxxx'
   }
   
 # For testing email
