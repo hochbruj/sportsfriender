@@ -90,7 +90,7 @@ Sportsfriender::Application.configure do
      # Change mail delvery to either :smtp, :sendmail, :file, :test
      config.action_mailer.smtp_settings = {
        address: "smtp.gmail.com",
-       port: 587,
+       port: 465,
        domain: 'skillupsport.com',
        authentication: 'plain',
        enable_starttls_auto: true,
