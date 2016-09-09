@@ -50,14 +50,14 @@ Sportsfriender::Application.configure do
 
  # Change mail delvery to either :smtp, :sendmail, :file, :test
   config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
-    port: 587,
-    domain: 'skillupsport.com',
-    authentication: 'plain',
-    enable_starttls_auto: true,
-    user_name: 'skillupsport@gmail.com',
-    password: 'xxxxxxxxx'
-  }
+     address: "smtp.1und1.de",
+     port: 587,
+     domain: 'skillupsport.com',
+     authentication: 'plain',
+     enable_starttls_auto: false,
+     user_name: 'info@sportsfriender.com',
+     password: 'xxxxxxx'
+   }
   
 # For testing email
 # config.action_mailer.delivery_method = :letter_opener_web  
