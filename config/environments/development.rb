@@ -56,8 +56,9 @@ Sportsfriender::Application.configure do
      authentication: 'plain',
      enable_starttls_auto: false,
      user_name: 'info@sportsfriender.com',
-     password: 'xxxxxxx'
+     password: '15Aussie!'
    }
+
   
 # For testing email
 # config.action_mailer.delivery_method = :letter_opener_web  
