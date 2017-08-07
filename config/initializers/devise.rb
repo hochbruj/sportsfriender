@@ -5,9 +5,14 @@ Devise.setup do |config|
  
   if Rails.env.development?
 #  localhost
-   config.omniauth :facebook, '358727094167840', 'e85a96583824c5152b805ad997ba5398', :scope => 'email'
+   config.omniauth :facebook, '358727094167840', 'e85a96583824c5152b805ad997ba5398', :scope => 'email', info_fields: 'email', 
+   #client_options: {
+   #site: 'https://graph.facebook.com/v2.4',
+   #authorize_url: "https://www.facebook.com/v2.4/dialog/oauth" },
+   token_params: { parse: :json }
   else
-   config.omniauth :facebook, '535520239821378', '2da50291421ecf78139f0ddc69d3a6ce', :scope => 'email'
+   config.omniauth :facebook, '535520239821378', '2da50291421ecf78139f0ddc69d3a6ce', :scope => 'email', info_fields: 'email',
+   token_params: { parse: :json }
  end
 
 #After update
