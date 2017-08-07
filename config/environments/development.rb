@@ -50,13 +50,13 @@ Sportsfriender::Application.configure do
 
  # Change mail delvery to either :smtp, :sendmail, :file, :test
   config.action_mailer.smtp_settings = {
-     address: "smtp.1und1.de",
+     address: "smtp.gmail.com",
      port: 587,
      domain: 'skillupsport.com',
      authentication: 'plain',
-     enable_starttls_auto: false,
-     user_name: 'info@sportsfriender.com',
-     password: '15Aussie!'
+     enable_starttls_auto: true,
+     user_name: 'skillupsport@gmail.com',
+     password: '*******'
    }
 
   
