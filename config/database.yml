@@ -7,7 +7,7 @@
 development:
   adapter: postgresql
   encoding: SQL_ASCII
-  database: skillupsport
+  database: skillupsportpsql
   pool: 5
   username: ubuntu
   password: password
