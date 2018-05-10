@@ -12,7 +12,7 @@ Devise.setup do |config|
    #authorize_url: "https://www.facebook.com/v2.4/dialog/oauth" },
    token_params: { parse: :json }
   else
-   config.omniauth :facebook, '535520239821378', '2da50291421ecf78139f0ddc69d3a6ce', :scope => 'email', info_fields:  'first_name,email,last_name',
+   config.omniauth :facebook, '1661001597329417', '5097b6864385a8a12ed97e14b6602764', :scope => 'email', info_fields:  'first_name,email,last_name',
    token_params: { parse: :json }
  end
 
