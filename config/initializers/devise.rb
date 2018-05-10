@@ -1,3 +1,4 @@
+require 'devise'
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
@@ -5,13 +6,13 @@ Devise.setup do |config|
  
   if Rails.env.development?
 #  localhost
-   config.omniauth :facebook, '358727094167840', 'e85a96583824c5152b805ad997ba5398', :scope => 'email', info_fields: 'email', 
+   config.omniauth :facebook, '383346282179841', '562f1815d2b580d2f64091e1a3536be1', :scope => 'email', info_fields: 'first_name,email,last_name', 
    #client_options: {
    #site: 'https://graph.facebook.com/v2.4',
    #authorize_url: "https://www.facebook.com/v2.4/dialog/oauth" },
    token_params: { parse: :json }
   else
-   config.omniauth :facebook, '535520239821378', '2da50291421ecf78139f0ddc69d3a6ce', :scope => 'email', info_fields: 'email',
+   config.omniauth :facebook, '535520239821378', '2da50291421ecf78139f0ddc69d3a6ce', :scope => 'email', info_fields:  'first_name,email,last_name',
    token_params: { parse: :json }
  end
 
